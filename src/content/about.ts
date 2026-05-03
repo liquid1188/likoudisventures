@@ -15,6 +15,10 @@ export interface FamilyMember {
   divisions: string[];
   bio: string;
   portrait?: string;
+  /** Optional personal/professional site for this member */
+  siteUrl?: string;
+  /** Display label for the site link (e.g., 'brushandsoulstudio.com') */
+  siteLabel?: string;
   /** Sort order on the family grid */
   order: number;
 }
@@ -24,7 +28,7 @@ export const about = {
     eyebrow: 'About the House',
     title: 'A family, with our names on the door.',
     titleEmphasis: 'our names on the door',
-    lede: 'Likoudis Ventures is the working life of three brothers and two sisters, headquartered in Baltimore. We build slowly and carefully under one name.',
+    lede: 'Likoudis Ventures is the working life of three brothers and two sisters. The house is in Baltimore. The family is wherever it has wandered.',
   },
 
   origin: {
@@ -47,7 +51,7 @@ export const about = {
 
   family: {
     heading: 'The brothers and sisters.',
-    intro: 'Three brothers and two sisters, each leading the divisions where their work and judgment live. The list below names the leads; in practice we work across the house for each other, because that is how families build things that last.',
+    intro: 'Three brothers and two sisters, working across continents under one name. Each leads the divisions where their work and judgment live; in practice we work for each other across the house, because that is how families build things that last.',
     members: [
       {
         name: 'Andrew Likoudis',
@@ -75,7 +79,10 @@ export const about = {
         name: 'Caroline Likoudis',
         role: 'Artist · The Easel',
         divisions: ['The Easel'],
-        bio: 'Caroline is one of two artists behind The Easel. Her work focuses on drawing — portraits, studies, and small commissions in graphite and ink.',
+        bio: 'Caroline is one of two artists behind The Easel and the hand behind Brush & Soul Studio. Her work is in oil and watercolor — paintings and limited prints carrying the colors and slow rhythms of a life lived between continents. She paints from her studio in Iran.',
+        portrait: '/caroline-likoudis.jpg',
+        siteLabel: 'brushandsoulstudio.com',
+        siteUrl: 'https://www.brushandsoulstudio.com',
         order: 4,
       },
       {
@@ -84,6 +91,8 @@ export const about = {
         divisions: ['The Easel', 'The Studio'],
         bio: 'Elena is the second artist behind The Easel and partners with Andrew on The Studio. A senior user-experience designer by training and the operator of her own art line at elenalikoudisart.com, she brings interface, brand, and design judgment to both the digital practice and the studio’s print work.',
         portrait: '/elena-likoudis.webp',
+        siteLabel: 'elenalikoudisart.com',
+        siteUrl: 'https://elenalikoudisart.com',
         order: 5,
       },
     ] satisfies FamilyMember[],

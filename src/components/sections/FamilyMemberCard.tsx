@@ -59,6 +59,21 @@ export function FamilyMemberCard({ member }: FamilyMemberCardProps) {
         </div>
         <p className="font-serif text-[15px] text-navy/85 leading-[1.55]">{member.bio}</p>
 
+        {/* Personal site link, if any */}
+        {member.siteUrl && member.siteLabel && (
+          <div className="mt-4">
+            <a
+              href={member.siteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 font-serif italic text-sm text-ochre-deep hover:text-navy transition-colors"
+            >
+              <span>{member.siteLabel}</span>
+              <span aria-hidden className="text-xs">↗</span>
+            </a>
+          </div>
+        )}
+
         {/* Divisions tags */}
         {member.divisions.length > 0 && (
           <div className="mt-5 pt-4 border-t border-navy/10 flex flex-wrap gap-1.5">
