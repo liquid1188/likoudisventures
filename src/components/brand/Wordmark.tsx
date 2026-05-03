@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { OliveBranchMark } from './OliveBranchMark';
 import { clsx } from 'clsx';
@@ -9,28 +11,35 @@ interface WordmarkProps {
 }
 
 const sizes = {
-  sm: { mark: 22, text: 'text-lg' },
-  md: { mark: 30, text: 'text-2xl' },
-  lg: { mark: 40, text: 'text-3xl' },
+  sm: { mark: 22, text: 'text-base' },
+  md: { mark: 28, text: 'text-xl' },
+  lg: { mark: 38, text: 'text-2xl' },
 };
 
 export function Wordmark({ size = 'md', href = '/', className }: WordmarkProps) {
   const config = sizes[size];
 
   const content = (
-    <span className={clsx('inline-flex items-center gap-3.5 font-serif font-medium tracking-tight', config.text, className)}>
-      <OliveBranchMark size={config.mark} />
-      <span>Likoudis Ventures</span>
+    <span
+      className={clsx(
+        'group inline-flex items-center gap-3 font-display font-medium tracking-tight transition-all',
+        config.text,
+        className
+      )}
+    >
+      <span className="transition-transform duration-700 group-hover:rotate-[8deg]">
+        <OliveBranchMark size={config.mark} />
+      </span>
+      <span className="leading-none">Likoudis Ventures</span>
     </span>
   );
 
   if (href) {
     return (
-      <Link href={href} className="inline-block transition-opacity hover:opacity-80">
+      <Link href={href} className="inline-block">
         {content}
       </Link>
     );
   }
-
   return content;
 }

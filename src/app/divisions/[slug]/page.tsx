@@ -1,63 +1,57 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { divisions, getDivision } from '@/content/divisions';
-import { DivisionHero } from '@/components/sections/DivisionHero';
-import { DivisionDescription } from '@/components/sections/DivisionDescription';
-import { DivisionOfferings } from '@/components/sections/DivisionOfferings';
-import { DivisionNote } from '@/components/sections/DivisionNote';
-import { DivisionCTA } from '@/components/sections/DivisionCTA';
-import { OtherDivisions } from '@/components/sections/OtherDivisions';
+import { DivisionShell } from '@/components/sections/DivisionShell';
+import { StudioLayout } from '@/components/divisions/StudioLayout';
+import { WorkshopLayout } from '@/components/divisions/WorkshopLayout';
+import { IthacaLayout } from '@/components/divisions/IthacaLayout';
+import { EaselLayout } from '@/components/divisions/EaselLayout';
+import { TableLayout } from '@/components/divisions/TableLayout';
+import { CollectionLayout } from '@/components/divisions/CollectionLayout';
 
 interface DivisionPageProps {
   params: Promise<{ slug: string }>;
 }
 
-/**
- * Generate static paths for every division at build time.
- */
 export function generateStaticParams() {
-  return divisions.map((division) => ({
-    slug: division.slug,
-  }));
+  return divisions.map((d) => ({ slug: d.slug }));
 }
 
-/**
- * Per-division metadata for SEO and OpenGraph.
- */
 export async function generateMetadata({ params }: DivisionPageProps): Promise<Metadata> {
   const { slug } = await params;
   const division = getDivision(slug);
-
-  if (!division) {
-    return { title: 'Not Found' };
-  }
-
+  if (!division) return { title: 'Not Found' };
   return {
     title: division.name,
     description: division.tagline,
-    openGraph: {
-      title: division.name,
-      description: division.tagline,
-    },
+    openGraph: { title: division.name, description: division.tagline },
   };
 }
 
 export default async function DivisionPage({ params }: DivisionPageProps) {
   const { slug } = await params;
   const division = getDivision(slug);
+  if (!division) notFound();
 
-  if (!division) {
-    notFound();
-  }
+  // Dispatch each division to its own register
+  const Body = (() => {
+    switch (division.slug) {
+      case 'the-studio':
+        return <StudioLayout division={division} />;
+      case 'the-workshop':
+        return <WorkshopLayout division={division} />;
+      case 'ithaca-house':
+        return <IthacaLayout division={division} />;
+      case 'the-easel':
+        return <EaselLayout division={division} />;
+      case 'the-table':
+        return <TableLayout division={division} />;
+      case 'the-likoudis-collection':
+        return <CollectionLayout division={division} />;
+      default:
+        return <StudioLayout division={division} />;
+    }
+  })();
 
-  return (
-    <>
-      <DivisionHero division={division} />
-      <DivisionDescription division={division} />
-      <DivisionOfferings division={division} />
-      <DivisionNote division={division} />
-      <DivisionCTA division={division} />
-      <OtherDivisions currentSlug={division.slug} />
-    </>
-  );
+  return <DivisionShell division={division}>{Body}</DivisionShell>;
 }

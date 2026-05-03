@@ -1,83 +1,108 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Wordmark } from '@/components/brand/Wordmark';
 import { nav } from '@/content/site';
+import { clsx } from 'clsx';
 
 interface NavProps {
-  /**
-   * Color theme — "dark" for navy hero contexts, "light" for cream/sky contexts.
-   * Defaults to "dark" since most pages start with a navy hero.
-   */
+  /** Initial theme — 'dark' for navy-hero pages, 'light' for cream/sky-start pages */
   theme?: 'dark' | 'light';
 }
 
 export function Nav({ theme = 'dark' }: NavProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 30);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const isDark = theme === 'dark';
-  const bgClass = isDark
-    ? 'bg-navy/95 backdrop-blur-sm border-b border-olive-glow/15'
-    : 'bg-bone/95 backdrop-blur-sm border-b border-navy/10';
+
+  const wrapperClass = clsx(
+    'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
+    scrolled
+      ? isDark
+        ? 'bg-navy/85 backdrop-blur-md border-b border-olive-glow/15'
+        : 'bg-bone/90 backdrop-blur-md border-b border-navy/10'
+      : isDark
+        ? 'bg-transparent border-b border-transparent'
+        : 'bg-transparent border-b border-transparent'
+  );
+
   const textClass = isDark ? 'text-bone' : 'text-navy';
-  const linkHoverClass = isDark ? 'hover:text-sky' : 'hover:text-ochre-deep';
+  const accentClass = isDark ? 'text-sky' : 'text-ochre-deep';
 
   return (
-    <nav className={`sticky top-0 z-50 ${bgClass}`}>
-      <div className="container-tight flex items-center justify-between py-5">
+    <nav className={wrapperClass}>
+      <div className="container-tight flex items-center justify-between py-5 lg:py-6">
         <Wordmark size="md" className={textClass} />
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-9">
+        {/* Desktop links */}
+        <div className="hidden md:flex items-center gap-8 lg:gap-10">
           {nav.primary.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`text-[12px] uppercase tracking-eyebrow ${textClass} ${linkHoverClass} transition-colors`}
-            >
+            <NavLink key={item.href} href={item.href} className={textClass} accentClass={accentClass}>
               {item.label}
-            </Link>
+            </NavLink>
           ))}
           <Link
             href={nav.cta.href}
             className={
               isDark
-                ? 'inline-block px-5 py-2.5 border border-olive-glow text-olive-glow text-[11px] uppercase tracking-caps transition-colors hover:bg-olive-glow hover:text-navy'
-                : 'inline-block px-5 py-2.5 border border-navy text-navy text-[11px] uppercase tracking-caps transition-colors hover:bg-navy hover:text-bone'
+                ? 'btn-ghost-bone'
+                : 'inline-block px-7 py-3.5 bg-transparent text-navy font-sans text-[11px] uppercase tracking-caps border border-navy/40 transition-all duration-300 hover:border-navy hover:bg-navy hover:text-bone'
             }
           >
             {nav.cta.label}
           </Link>
         </div>
 
-        {/* Mobile menu button */}
+        {/* Mobile menu toggle */}
         <button
-          className={`md:hidden ${textClass}`}
+          className={clsx('md:hidden p-1', textClass)}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
             {mobileOpen ? (
-              <path d="M6 6L18 18M6 18L18 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M6 6L20 20M6 20L20 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
             ) : (
-              <path d="M4 7H20M4 12H20M4 17H20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              <>
+                <path d="M4 8h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <path d="M4 13h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <path d="M4 18h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </>
             )}
           </svg>
         </button>
       </div>
 
-      {/* Mobile nav drawer */}
-      {mobileOpen && (
-        <div className={`md:hidden border-t ${isDark ? 'border-olive-glow/15 bg-navy' : 'border-navy/10 bg-bone'} px-6 py-6`}>
+      {/* Mobile drawer */}
+      <div
+        className={clsx(
+          'md:hidden overflow-hidden transition-all duration-500 ease-out',
+          mobileOpen ? 'max-h-[500px]' : 'max-h-0'
+        )}
+      >
+        <div
+          className={clsx(
+            'border-t px-6 py-7',
+            isDark ? 'bg-navy border-olive-glow/15' : 'bg-bone border-navy/10'
+          )}
+        >
           <div className="flex flex-col gap-5">
             {nav.primary.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
-                className={`text-[13px] uppercase tracking-eyebrow ${textClass} ${linkHoverClass}`}
+                className={clsx('font-sans text-[13px] uppercase tracking-eyebrow', textClass)}
               >
                 {item.label}
               </Link>
@@ -87,15 +112,44 @@ export function Nav({ theme = 'dark' }: NavProps) {
               onClick={() => setMobileOpen(false)}
               className={
                 isDark
-                  ? 'inline-block w-fit px-5 py-2.5 border border-olive-glow text-olive-glow text-[11px] uppercase tracking-caps mt-2'
-                  : 'inline-block w-fit px-5 py-2.5 border border-navy text-navy text-[11px] uppercase tracking-caps mt-2'
+                  ? 'btn-ghost-bone w-fit mt-2'
+                  : 'inline-block w-fit px-7 py-3.5 bg-transparent text-navy font-sans text-[11px] uppercase tracking-caps border border-navy/40 mt-2'
               }
             >
               {nav.cta.label}
             </Link>
           </div>
         </div>
-      )}
+      </div>
     </nav>
+  );
+}
+
+interface NavLinkProps {
+  href: string;
+  className: string;
+  accentClass: string;
+  children: React.ReactNode;
+}
+
+function NavLink({ href, className, accentClass, children }: NavLinkProps) {
+  return (
+    <Link
+      href={href}
+      className={clsx(
+        'group relative font-sans text-[12px] uppercase tracking-eyebrow transition-colors',
+        className
+      )}
+    >
+      {children}
+      {/* Animated underline */}
+      <span
+        className={clsx(
+          'absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100',
+          accentClass.replace('text-', 'bg-')
+        )}
+        aria-hidden
+      />
+    </Link>
   );
 }

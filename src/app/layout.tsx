@@ -1,10 +1,17 @@
 import type { Metadata } from 'next';
-import { Cormorant_Garamond, Inter } from 'next/font/google';
-import { TopRule } from '@/components/layout/TopRule';
+import { Cormorant_Garamond, Inter, Fraunces } from 'next/font/google';
 import { Nav } from '@/components/layout/Nav';
 import { Footer } from '@/components/layout/Footer';
 import { site } from '@/content/site';
 import './globals.css';
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-fraunces',
+  display: 'swap',
+});
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -41,20 +48,13 @@ export const metadata: Metadata = {
     title: site.name,
     description: site.description,
   },
-  icons: {
-    icon: '/favicon.ico',
-  },
+  icons: { icon: '/favicon.ico' },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${cormorant.variable} ${inter.variable}`}>
       <body>
-        <TopRule />
         <Nav />
         <main>{children}</main>
         <Footer />

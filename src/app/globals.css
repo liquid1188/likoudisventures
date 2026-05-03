@@ -2,182 +2,254 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ============================================
-   LIKOUDIS VENTURES — DESIGN TOKENS
-   v4 design language: Santorini sky on Kefalonia restraint
-   ============================================ */
+/* Keyframes used by inline animation styles */
+@keyframes oliveGrow {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
 
 @layer base {
   :root {
-    /* Colors are also defined in tailwind.config.ts; this is for raw CSS use */
     --color-navy: #0E1B2C;
-    --color-navy-deep: #081320;
     --color-sky: #8FB8CE;
-    --color-sky-deep: #6FA0BA;
     --color-olive: #8FA67D;
-    --color-olive-glow: #C9D7B8;
     --color-ochre: #C8A24A;
-    --color-ochre-deep: #A6822E;
     --color-bone: #FAF6EC;
     --color-cream: #F2EAD6;
   }
 
-  html {
-    scroll-behavior: smooth;
+  * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-bone text-navy font-sans;
-    font-feature-settings: "ss01", "kern";
+    font-feature-settings: "ss01", "kern", "liga";
+    text-rendering: optimizeLegibility;
   }
 
-  /* Typography defaults */
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-serif font-normal tracking-tight;
+  /* Subtle paper grain on light grounds — applied as a fixed overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.55;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.05 0 0 0 0 0.05 0 0 0 0 0.05 0 0 0 0.025 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
   }
 
-  /* Selection */
   ::selection {
-    @apply bg-olive text-bone;
+    @apply bg-ochre text-bone;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-normal tracking-tight;
+  }
+
+  /* Reduce-motion: disable our flashy animations for users who ask for it */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
-/* ============================================
-   COMPONENT PATTERNS
-   ============================================ */
-
 @layer components {
-  /* The eyebrow rule — appears above hero headlines */
-  .eyebrow {
-    @apply text-[11px] uppercase tracking-eyebrow inline-flex items-center gap-3.5;
-  }
+  /* Containers */
+  .container-tight { @apply mx-auto max-w-container px-6 sm:px-10 lg:px-16; }
+  .container-editorial { @apply mx-auto max-w-editorial px-6 sm:px-10 lg:px-16; }
+  .container-prose { @apply mx-auto max-w-measure px-6; }
 
+  /* Eyebrow */
+  .eyebrow {
+    @apply font-sans text-[10px] uppercase tracking-eyebrow inline-flex items-center gap-3.5;
+  }
   .eyebrow::before {
     content: '';
-    @apply inline-block w-9 h-px bg-current;
+    @apply inline-block w-7 h-px bg-current;
+  }
+  .eyebrow-no-rule {
+    @apply font-sans text-[10px] uppercase tracking-eyebrow inline-block;
   }
 
-  /* Italic emphasis in serif headlines (sky on dark, ochre on light) */
-  .italic-glow {
-    @apply italic text-sky;
+  /* Catalog number — used in margins like a book's front matter */
+  .catalog-num {
+    font-family: var(--font-cormorant), Georgia, serif;
+    @apply italic text-ochre;
+    font-variant-numeric: oldstyle-nums;
   }
 
-  .italic-warm {
-    @apply italic text-ochre-deep;
+  /* Marginalia */
+  .marginalia {
+    @apply font-serif italic text-sm text-navy/55 leading-relaxed;
   }
 
-  /* Greek subtitle styling */
-  .greek-subtitle {
-    @apply font-serif italic text-ochre tracking-normal normal-case;
+  /* Editorial body prose */
+  .prose-editorial p {
+    @apply font-serif text-xl lg:text-[22px] leading-[1.65] text-navy/90;
+    font-variant-numeric: oldstyle-nums;
   }
-
-  /* Container — max-width with padding */
-  .container-tight {
-    @apply mx-auto max-w-container px-6 sm:px-12 lg:px-16;
-  }
-
-  .container-prose {
-    @apply mx-auto max-w-3xl px-6 sm:px-12;
-  }
-
-  /* Status tags for divisions */
-  .status-active {
-    @apply inline-block text-[9px] uppercase tracking-tag px-2.5 py-1 bg-olive text-bone;
-  }
-
-  .status-forthcoming {
-    @apply inline-block text-[9px] uppercase tracking-tag px-2.5 py-1 bg-navy text-olive-glow;
-  }
+  .prose-editorial p + p { @apply mt-6; }
 
   /* Section grounds */
-  .ground-navy {
-    @apply bg-navy text-bone;
-  }
+  .ground-navy { @apply bg-navy text-bone; position: relative; }
+  .ground-bone { @apply bg-bone text-navy; }
+  .ground-cream { @apply bg-cream text-navy; }
+  .ground-sky { @apply bg-sky text-navy; }
 
-  .ground-sky {
-    @apply bg-sky text-navy;
-  }
-
-  .ground-cream {
-    @apply bg-cream text-navy;
+  /* Linen grain on navy grounds */
+  .ground-navy::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n2)'/%3E%3C/svg%3E");
+    mix-blend-mode: screen;
   }
 
   /* Buttons */
-  .btn-primary {
-    @apply inline-block px-8 py-3.5 bg-olive text-bone text-[11px] uppercase tracking-caps font-medium border border-olive transition-colors hover:bg-olive-light hover:border-olive-light;
+  .btn-ink {
+    @apply inline-block px-7 py-3.5 bg-navy text-bone font-sans text-[11px] uppercase tracking-caps border border-navy transition-all duration-300;
+  }
+  .btn-ink:hover {
+    @apply bg-transparent text-navy;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 0 -2px rgba(14, 27, 44, 0.6);
   }
 
-  .btn-secondary {
-    @apply inline-block px-8 py-3.5 bg-transparent text-bone text-[11px] uppercase tracking-caps font-medium border border-bone transition-colors hover:bg-bone hover:text-navy;
+  .btn-bone {
+    @apply inline-block px-7 py-3.5 bg-bone text-navy font-sans text-[11px] uppercase tracking-caps border border-bone transition-all duration-300;
+  }
+  .btn-bone:hover {
+    @apply bg-transparent text-bone;
+    transform: translateY(-1px);
   }
 
-  .btn-ghost {
-    @apply inline-block px-5 py-2.5 border border-olive-glow text-olive-glow text-[11px] uppercase tracking-caps transition-colors hover:bg-olive-glow hover:text-navy;
+  .btn-ghost-bone {
+    @apply inline-block px-7 py-3.5 bg-transparent text-bone font-sans text-[11px] uppercase tracking-caps border border-bone/50 transition-all duration-300;
+  }
+  .btn-ghost-bone:hover {
+    @apply border-bone;
+    transform: translateY(-1px);
+  }
+
+  /* Ornate divider — used between sections in editorial layouts */
+  .ornate-divider {
+    @apply flex items-center justify-center gap-5 my-10 lg:my-14;
+  }
+  .ornate-divider::before,
+  .ornate-divider::after {
+    content: '';
+    @apply h-px flex-1 max-w-[120px];
+    background: linear-gradient(to right, transparent, currentColor, transparent);
+    opacity: 0.3;
   }
 
   /* Form fields */
   .field-label {
-    @apply block text-[10px] uppercase tracking-caps text-ochre-deep mb-2;
+    @apply block font-sans text-[10px] uppercase tracking-caps text-ochre-deep mb-2;
   }
-
   .field-input {
-    @apply w-full bg-transparent border-0 border-b border-navy/25 text-navy font-serif text-base py-1.5 outline-none transition-colors focus:border-olive;
+    @apply w-full bg-transparent border-0 border-b border-navy/25 text-navy font-serif text-base py-1.5 outline-none transition-colors focus:border-ochre;
   }
-
   .field-input-dark {
     @apply w-full bg-transparent border-0 border-b border-sky/30 text-bone font-serif text-base py-1.5 outline-none transition-colors focus:border-sky;
   }
 
-  /* Divider rules */
-  .rule-olive {
-    @apply border-t border-olive-glow;
+  /* Number marker — used for division numbers, page refs */
+  .num-marker {
+    @apply font-serif italic text-base text-ochre;
+    font-variant-numeric: oldstyle-nums;
   }
 
-  .rule-navy {
-    @apply border-t border-navy/20;
+  /* Editorial frame — used to hold images with deckle-edge feel */
+  .editorial-frame {
+    position: relative;
   }
-
-  /* Background atmospherics for navy hero */
-  .hero-atmosphere::before {
+  .editorial-frame::after {
     content: '';
-    @apply absolute inset-0 pointer-events-none;
-    background:
-      radial-gradient(circle at 80% 22%, rgba(143, 184, 206, 0.22) 0%, transparent 55%),
-      radial-gradient(circle at 8% 85%, rgba(143, 166, 125, 0.14) 0%, transparent 55%);
-  }
-
-  .hero-atmosphere::after {
-    content: '';
-    @apply absolute inset-0 pointer-events-none;
-    background-image:
-      linear-gradient(rgba(143, 184, 206, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(143, 184, 206, 0.05) 1px, transparent 1px);
-    background-size: 80px 80px;
+    position: absolute;
+    inset: -4px;
+    border: 1px solid currentColor;
+    opacity: 0.15;
+    pointer-events: none;
   }
 }
 
 /* ============================================
-   ANIMATIONS
+   ANIMATIONS / SCROLL
    ============================================ */
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
+@layer utilities {
+  /* Stagger helper */
+  .stagger-fade > * {
+    animation: fadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
   }
-  to {
+  .stagger-fade > *:nth-child(1) { animation-delay: 0.1s; }
+  .stagger-fade > *:nth-child(2) { animation-delay: 0.25s; }
+  .stagger-fade > *:nth-child(3) { animation-delay: 0.42s; }
+  .stagger-fade > *:nth-child(4) { animation-delay: 0.58s; }
+  .stagger-fade > *:nth-child(5) { animation-delay: 0.74s; }
+  .stagger-fade > *:nth-child(6) { animation-delay: 0.9s; }
+
+  /* Reveal on scroll — paired with the IntersectionObserver in client */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .scroll-reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
   }
-}
+  .scroll-reveal-blur {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(40px);
+    transition: opacity 1.4s ease-out, filter 1.4s ease-out, transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .scroll-reveal-blur.is-visible {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
 
-.fade-up-stagger > * {
-  animation: fadeUp 0.8s ease-out backwards;
+  /* Letter-by-letter reveal */
+  .word-reveal > span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px) rotateX(-30deg);
+    transform-origin: bottom;
+    transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .word-reveal.is-visible > span {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
 }
-
-.fade-up-stagger > *:nth-child(1) { animation-delay: 0.1s; }
-.fade-up-stagger > *:nth-child(2) { animation-delay: 0.25s; }
-.fade-up-stagger > *:nth-child(3) { animation-delay: 0.45s; }
-.fade-up-stagger > *:nth-child(4) { animation-delay: 0.6s; }

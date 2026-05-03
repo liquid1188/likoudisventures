@@ -3,35 +3,25 @@ import { clsx } from 'clsx';
 interface OliveBranchMarkProps {
   size?: number;
   className?: string;
-  /**
-   * Number of olives on the branch. Defaults to 5 (one per active+near division).
-   * Increase to 6 if you ever launch a sixth division publicly.
-   */
   olives?: number;
 }
 
 /**
- * The Likoudis Ventures brand mark.
- *
- * An olive branch arching from lower-left to mid-right, with five olives
- * spaced along it and four small leaves rising from the underside.
- *
- * Color is inherited via `currentColor` so the mark adapts to context —
- * sky-blue on the navy hero, navy on cream surfaces, etc.
+ * Compact, static olive branch — for nav, footer, small contexts.
+ * The interactive centerpiece version is OliveBranchInteractive.
  */
 export function OliveBranchMark({
   size = 30,
   className,
-  olives = 5,
+  olives = 6,
 }: OliveBranchMarkProps) {
-  // Olive positions along the branch curve
   const olivePositions = [
-    { cx: 14, cy: 28, rotate: -25 },
-    { cx: 22, cy: 25, rotate: -15 },
-    { cx: 32, cy: 24, rotate: -5 },
-    { cx: 42, cy: 25, rotate: 8 },
-    { cx: 50, cy: 27, rotate: 20 },
-    { cx: 56, cy: 30, rotate: 30 }, // Reserved for sixth olive
+    { cx: 13, cy: 30, rotate: -28 },
+    { cx: 21, cy: 26, rotate: -16 },
+    { cx: 30, cy: 24, rotate: -5 },
+    { cx: 39, cy: 25, rotate: 8 },
+    { cx: 47, cy: 27, rotate: 18 },
+    { cx: 53, cy: 30, rotate: 30 },
   ].slice(0, olives);
 
   return (
@@ -45,33 +35,28 @@ export function OliveBranchMark({
       role="img"
       aria-label="Likoudis Ventures olive branch mark"
     >
-      {/* The branch */}
       <path
-        d="M8 30 Q 22 22, 52 26"
+        d="M6 32 Q 22 22, 54 28"
         stroke="currentColor"
         strokeWidth="1.4"
         fill="none"
         strokeLinecap="round"
       />
-
-      {/* Olives */}
       {olivePositions.map((pos, i) => (
         <ellipse
           key={i}
           cx={pos.cx}
           cy={pos.cy}
-          rx="2.6"
-          ry="3.6"
+          rx="2.5"
+          ry="3.5"
           fill="currentColor"
           transform={`rotate(${pos.rotate} ${pos.cx} ${pos.cy})`}
         />
       ))}
-
-      {/* Leaves */}
-      <path d="M18 22 Q 16 18, 19 17" stroke="currentColor" strokeWidth="1" fill="none" />
-      <path d="M28 21 Q 27 17, 30 16" stroke="currentColor" strokeWidth="1" fill="none" />
-      <path d="M38 21 Q 38 17, 41 16" stroke="currentColor" strokeWidth="1" fill="none" />
-      <path d="M46 22 Q 47 18, 49 18" stroke="currentColor" strokeWidth="1" fill="none" />
+      <path d="M17 24 Q 14 19, 18 17" stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round" />
+      <path d="M27 22 Q 25 17, 29 16" stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round" />
+      <path d="M36 22 Q 35 17, 39 16" stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round" />
+      <path d="M45 24 Q 45 19, 49 18" stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round" />
     </svg>
   );
 }
