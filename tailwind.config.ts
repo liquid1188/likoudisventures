@@ -8,7 +8,7 @@ const config: Config = {
         // v4 palette — preserved
         navy: { DEFAULT: '#0E1B2C', deep: '#081320', ink: '#1A2638' },
         sky: { DEFAULT: '#8FB8CE', deep: '#6FA0BA', light: '#B8D2E0' },
-        olive: { DEFAULT: '#8FA67D', light: '#B5C4A2', glow: '#C9D7B8' },
+        olive: { DEFAULT: '#8FA67D', light: '#B5C4A2', glow: '#C9D7B8', deep: '#5C7251' },
         ochre: { DEFAULT: '#C8A24A', deep: '#A6822E' },
         bone: '#FAF6EC',
         cream: '#F2EAD6',

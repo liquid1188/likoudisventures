@@ -83,7 +83,7 @@ export function MonumentalHero() {
             </p>
           </div>
           <div className="lg:col-span-5 flex flex-col gap-3 lg:items-end">
-            <Link href="/contact" className="btn-bone w-full lg:w-auto text-center">
+            <Link href="/contact" className="btn-olive-on-dark w-full lg:w-auto text-center">
               Begin a Project →
             </Link>
             <Link href="/about" className="btn-ghost-bone w-full lg:w-auto text-center">

@@ -114,7 +114,7 @@ export function InquiryForm({ defaultDivision }: InquiryFormProps) {
       <button
         type="submit"
         disabled={isPending}
-        className="bg-navy text-bone px-8 py-3.5 text-[11px] uppercase tracking-caps font-medium hover:bg-navy-deep transition-colors disabled:opacity-50 mt-2"
+        className="bg-olive-deep text-bone px-8 py-3.5 text-[11px] uppercase tracking-caps font-medium hover:bg-olive transition-colors disabled:opacity-50 mt-2"
       >
         {isPending ? 'Sending…' : 'Send Inquiry →'}
       </button>

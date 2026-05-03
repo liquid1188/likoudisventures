@@ -119,7 +119,7 @@ export default function FoundationPage() {
                 href="https://likoudislegacy.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-bone inline-flex items-center gap-2"
+                className="btn-olive-on-dark inline-flex items-center gap-2"
               >
                 <span>likoudislegacy.com</span>
                 <span aria-hidden>↗</span>

@@ -122,7 +122,7 @@ export function AdminComposer({ resendConfigured }: AdminComposerProps) {
               <button
                 onClick={handleSend}
                 disabled={isPending || !subject || !body || !resendConfigured}
-                className="px-6 py-3 bg-navy text-bone text-[11px] uppercase tracking-caps font-medium hover:bg-navy-deep transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                className="px-6 py-3 bg-olive-deep text-bone text-[11px] uppercase tracking-caps font-medium hover:bg-olive transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
               >
                 {isPending
                   ? 'Sending…'

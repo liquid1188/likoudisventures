@@ -82,7 +82,7 @@ export function Hero({
             {(primaryCta || secondaryCta) && (
               <div className="flex flex-col sm:flex-row gap-3.5 mt-12">
                 {primaryCta && (
-                  <Link href={primaryCta.href} className="btn-bone">
+                  <Link href={primaryCta.href} className="btn-olive-on-dark">
                     {primaryCta.label} →
                   </Link>
                 )}

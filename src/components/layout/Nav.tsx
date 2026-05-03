@@ -55,7 +55,7 @@ export function Nav({ theme = 'dark' }: NavProps) {
             className={
               isDark
                 ? 'btn-ghost-bone'
-                : 'inline-block px-7 py-3.5 bg-transparent text-navy font-sans text-[11px] uppercase tracking-caps border border-navy/40 transition-all duration-300 hover:border-navy hover:bg-navy hover:text-bone'
+                : 'inline-block px-7 py-3.5 bg-transparent text-olive-deep font-sans text-[11px] uppercase tracking-caps border border-olive-deep/50 transition-all duration-300 hover:border-olive-deep hover:bg-olive-deep hover:text-bone'
             }
           >
             {nav.cta.label}
@@ -113,7 +113,7 @@ export function Nav({ theme = 'dark' }: NavProps) {
               className={
                 isDark
                   ? 'btn-ghost-bone w-fit mt-2'
-                  : 'inline-block w-fit px-7 py-3.5 bg-transparent text-navy font-sans text-[11px] uppercase tracking-caps border border-navy/40 mt-2'
+                  : 'inline-block w-fit px-7 py-3.5 bg-transparent text-olive-deep font-sans text-[11px] uppercase tracking-caps border border-olive-deep/50 mt-2'
               }
             >
               {nav.cta.label}

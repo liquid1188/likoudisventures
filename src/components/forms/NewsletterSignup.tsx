@@ -84,7 +84,7 @@ export function NewsletterSignup({ variant = 'standalone' }: NewsletterSignupPro
               'px-6 py-3 text-[11px] uppercase tracking-caps font-medium transition-colors',
               isFooter
                 ? 'bg-olive text-bone hover:bg-olive-light disabled:opacity-50'
-                : 'bg-navy text-bone hover:bg-navy-deep disabled:opacity-50'
+                : 'bg-olive-deep text-bone hover:bg-olive disabled:opacity-50'
             )}
           >
             {isPending ? 'Sending…' : 'Subscribe'}

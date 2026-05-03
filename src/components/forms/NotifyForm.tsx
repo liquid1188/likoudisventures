@@ -73,7 +73,7 @@ export function NotifyForm({ divisionName, divisionSlug }: NotifyFormProps) {
         <button
           type="submit"
           disabled={isPending}
-          className="bg-navy text-bone px-7 py-3 text-[11px] uppercase tracking-caps font-medium hover:bg-navy-deep transition-colors disabled:opacity-50"
+          className="bg-olive-deep text-bone px-7 py-3 text-[11px] uppercase tracking-caps font-medium hover:bg-olive transition-colors disabled:opacity-50"
         >
           {isPending ? 'Sending…' : 'Notify Me →'}
         </button>

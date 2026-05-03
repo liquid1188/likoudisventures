@@ -28,6 +28,7 @@
     --color-navy: #0E1B2C;
     --color-sky: #8FB8CE;
     --color-olive: #8FA67D;
+    --color-olive-deep: #5C7251;
     --color-ochre: #C8A24A;
     --color-bone: #FAF6EC;
     --color-cream: #F2EAD6;
@@ -121,6 +122,7 @@
   .ground-bone { @apply bg-bone text-navy; }
   .ground-cream { @apply bg-cream text-navy; }
   .ground-sky { @apply bg-sky text-navy; }
+  .ground-olive { background-color: #8FA67D; @apply text-navy; position: relative; }
 
   /* Linen grain on navy grounds */
   .ground-navy::before {
@@ -133,22 +135,49 @@
     mix-blend-mode: screen;
   }
 
-  /* Buttons */
-  .btn-ink {
-    @apply inline-block px-7 py-3.5 bg-navy text-bone font-sans text-[11px] uppercase tracking-caps border border-navy transition-all duration-300;
-  }
-  .btn-ink:hover {
-    @apply bg-transparent text-navy;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 0 -2px rgba(14, 27, 44, 0.6);
+  /* Linen grain on olive grounds — uses dark grain to add tooth */
+  .ground-olive::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.18;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n3'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.05 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n3)'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
   }
 
+  /* Buttons */
+  /* Primary button on light grounds (cream/bone) — olive fill, bone text. */
+  .btn-ink,
+  .btn-olive,
+  .btn-primary {
+    @apply inline-block px-7 py-3.5 bg-olive-deep text-bone font-sans text-[11px] uppercase tracking-caps border border-olive-deep transition-all duration-300;
+  }
+  .btn-ink:hover,
+  .btn-olive:hover,
+  .btn-primary:hover {
+    @apply bg-transparent text-olive-deep;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 0 -2px rgba(92, 114, 81, 0.6);
+  }
+
+  /* Filled bone button on dark grounds (navy) */
   .btn-bone {
     @apply inline-block px-7 py-3.5 bg-bone text-navy font-sans text-[11px] uppercase tracking-caps border border-bone transition-all duration-300;
   }
   .btn-bone:hover {
     @apply bg-transparent text-bone;
     transform: translateY(-1px);
+  }
+
+  /* Olive-on-navy alternative for navy grounds — pairs with btn-bone, more characterful for the foundation/CTA bands */
+  .btn-olive-on-dark {
+    @apply inline-block px-7 py-3.5 bg-olive text-navy font-sans text-[11px] uppercase tracking-caps border border-olive transition-all duration-300;
+  }
+  .btn-olive-on-dark:hover {
+    @apply bg-olive-glow text-navy border-olive-glow;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 0 -2px rgba(201, 215, 184, 0.4);
   }
 
   .btn-ghost-bone {
