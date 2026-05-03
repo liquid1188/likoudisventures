@@ -28,7 +28,7 @@ export const about = {
     eyebrow: 'About the House',
     title: 'A family, with our names on the door.',
     titleEmphasis: 'our names on the door',
-    lede: 'Likoudis Ventures is the working life of three brothers and two sisters. The house is in Baltimore. The family is wherever it has wandered.',
+    lede: 'Likoudis Ventures is the working life of three brothers and two sisters. The house is based in Baltimore; the family is rooted there, with one studio in Pittsburgh.',
   },
 
   origin: {
@@ -51,14 +51,16 @@ export const about = {
 
   family: {
     heading: 'The brothers and sisters.',
-    intro: 'Three brothers and two sisters, working across continents under one name. Each leads the divisions where their work and judgment live; in practice we work for each other across the house, because that is how families build things that last.',
+    intro: 'Three brothers and two sisters, all under one family name. Each leads the divisions where their work and judgment live; in practice we work for each other across the house, because that is how families build things that last.',
     members: [
       {
         name: 'Andrew Likoudis',
         role: 'Founder & Chairman',
         divisions: ['The Studio', 'Ithaca House', 'The Branch'],
-        bio: 'Andrew leads The Studio with Elena, oversees Ithaca House, and writes The Branch — the monthly letter from the family. A graduate of Towson University and Franciscan University of Steubenville, he is the founder of the Likoudis Legacy Foundation, a separate Catholic research institute named for his late grandfather.',
+        bio: 'Andrew leads The Studio with Elena, oversees Ithaca House, and writes The Branch — the monthly letter from the family. A graduate of Towson University and Franciscan University of Steubenville, he is the founder of the Likoudis Legacy Foundation, a separate Catholic research institute named for his late grandfather, where he edits The Kydones Review — a journal named for the 14th-century Greek scholar Demetrios Kydones.',
         portrait: '/andrew-likoudis.jpg',
+        siteLabel: 'andrewlikoudis.com',
+        siteUrl: 'https://andrewlikoudis.com',
         order: 1,
       },
       {
@@ -79,7 +81,7 @@ export const about = {
         name: 'Caroline Likoudis',
         role: 'Artist · The Easel',
         divisions: ['The Easel'],
-        bio: 'Caroline is one of two artists behind The Easel and the hand behind Brush & Soul Studio. Her work is in oil and watercolor — paintings and limited prints carrying the colors and slow rhythms of a life lived between continents. She paints from her studio in Iran.',
+        bio: 'Caroline is one of two artists behind The Easel and the hand behind Brush & Soul Studio. Her work is in oil and watercolor — paintings and limited prints carrying the colors of a life lived between continents. She paints from her studio in Baltimore.',
         portrait: '/caroline-likoudis.jpg',
         siteLabel: 'brushandsoulstudio.com',
         siteUrl: 'https://www.brushandsoulstudio.com',
@@ -89,7 +91,7 @@ export const about = {
         name: 'Elena Likoudis',
         role: 'Artist & Designer · The Easel & The Studio',
         divisions: ['The Easel', 'The Studio'],
-        bio: 'Elena is the second artist behind The Easel and partners with Andrew on The Studio. A senior user-experience designer by training and the operator of her own art line at elenalikoudisart.com, she brings interface, brand, and design judgment to both the digital practice and the studio’s print work.',
+        bio: 'Elena is the second artist behind The Easel and partners with Andrew on The Studio. A senior user-experience designer by training and the operator of her own art line at elenalikoudisart.com, she brings interface, brand, and design judgment to both the digital practice and the studio’s print work. She works from Pittsburgh.',
         portrait: '/elena-likoudis.webp',
         siteLabel: 'elenalikoudisart.com',
         siteUrl: 'https://elenalikoudisart.com',
