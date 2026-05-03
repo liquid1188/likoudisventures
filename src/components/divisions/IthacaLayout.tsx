@@ -125,6 +125,53 @@ export function IthacaLayout({ division }: LayoutProps) {
         </div>
       </section>
 
+      {/* Experiences — olive ground, hospitality-side offerings beyond the stay */}
+      <section className="ground-olive py-24 lg:py-32 relative overflow-hidden">
+        <div className="container-editorial relative">
+          <ScrollReveal as="div" className="text-center mb-16 lg:mb-20">
+            <div className="catalog-num text-sm mb-3 text-navy/70">§ III.</div>
+            <div className="eyebrow text-navy mb-5 inline-block">Experiences</div>
+            <h3 className="font-display text-display-xl text-navy leading-tight max-w-3xl mx-auto">
+              The stay is the <em className="italic">beginning</em>.
+            </h3>
+            <p className="font-serif text-lg lg:text-xl italic text-navy/80 leading-relaxed max-w-2xl mx-auto mt-7">
+              We arrange experiences — alongside the stay or on their own — for guests who want their visit to feel like a chapter, not a checkbox.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-7 max-w-6xl mx-auto">
+            <ExperienceCard
+              number="01"
+              title="At the Table"
+              kicker="Cooking & food"
+              description="Greek dinners hosted in the house, walking tours of the markets, an evening of wine and small plates with notes on what is in front of you."
+              delay={0}
+            />
+            <ExperienceCard
+              number="02"
+              title="On the Water"
+              kicker="Outdoors"
+              description="Kayaking the harbor, sailing arrangements with local captains, slow walks through the neighborhoods nearest the house."
+              delay={120}
+            />
+            <ExperienceCard
+              number="03"
+              title="Sacred & Civic"
+              kicker="Cultural"
+              description="A guided morning at the Baltimore Basilica, sacred-music concerts when the calendar permits, museum and gallery routing tailored to the visit."
+              delay={240}
+            />
+            <ExperienceCard
+              number="04"
+              title="The Long Stay"
+              kicker="Curated"
+              description="Anniversaries, honeymoons, writing weeks, family reunions. Stays prepared in advance — a stocked pantry, a few introductions, a quiet plan you can ignore."
+              delay={360}
+            />
+          </div>
+        </div>
+      </section>
+
       <InquirySection
         defaultDivision={division.slug}
         heading={
@@ -135,5 +182,34 @@ export function IthacaLayout({ division }: LayoutProps) {
         text="Tell us when you are visiting and what you are looking for. We will reply with availability and a few notes about the property and the city."
       />
     </>
+  );
+}
+
+interface ExperienceCardProps {
+  number: string;
+  title: string;
+  kicker: string;
+  description: string;
+  delay: number;
+}
+
+function ExperienceCard({ number, title, kicker, description, delay }: ExperienceCardProps) {
+  return (
+    <ScrollReveal delay={delay}>
+      <article className="bg-bone/95 p-7 lg:p-8 h-full border-t-[3px] border-t-navy transition-all duration-500 hover:-translate-y-1 hover:bg-bone">
+        <div className="flex items-baseline gap-4 mb-4">
+          <span className="catalog-num text-sm text-ochre-deep">{number}</span>
+          <span className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/55">
+            {kicker}
+          </span>
+        </div>
+        <h4 className="font-display text-2xl lg:text-[26px] text-navy leading-tight mb-4">
+          {title}
+        </h4>
+        <p className="font-serif text-[15px] lg:text-base text-navy/80 leading-relaxed">
+          {description}
+        </p>
+      </article>
+    </ScrollReveal>
   );
 }

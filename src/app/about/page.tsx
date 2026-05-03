@@ -65,7 +65,7 @@ export default function AboutPage() {
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              'radial-gradient(circle at 50% 50%, rgba(143, 166, 125, 0.08) 0%, transparent 65%)',
+              'radial-gradient(circle at 50% 50%, rgba(143, 166, 125, 0.16) 0%, transparent 60%)',
           }}
         />
         <div className="container-editorial relative">
@@ -100,7 +100,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 mb-14 lg:mb-20">
             <ScrollReveal as="div" className="lg:col-span-5">
               <div className="catalog-num text-sm mb-3">§ IV.</div>
-              <div className="eyebrow text-ochre-deep mb-5">The Family</div>
+              <div className="eyebrow text-ochre-deep mb-5">The Board</div>
               <h2 className="font-display text-display-xl text-navy leading-tight">
                 {about.family.heading}
               </h2>

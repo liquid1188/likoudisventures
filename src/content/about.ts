@@ -50,12 +50,12 @@ export const about = {
   },
 
   family: {
-    heading: 'The brothers and sisters.',
-    intro: 'Three brothers and two sisters, all under one family name. Each leads the divisions where their work and judgment live; in practice we work for each other across the house, because that is how families build things that last.',
+    heading: 'The Board.',
+    intro: 'Likoudis Ventures is governed by its founding family. The board is the family — three brothers and two sisters — and each director leads the divisions where their work and judgment live. In practice we work for each other across the house, because that is how families build things that last.',
     members: [
       {
         name: 'Andrew Likoudis',
-        role: 'Founder & Chairman',
+        role: 'Founder, Chairman & Director · The Studio · Ithaca House · The Branch',
         divisions: ['The Studio', 'Ithaca House', 'The Branch'],
         bio: 'Andrew leads The Studio with Elena, oversees Ithaca House, and writes The Branch — the monthly letter from the family. A graduate of Towson University and Franciscan University of Steubenville, he is the founder of the Likoudis Legacy Foundation, a separate Catholic research institute named for his late grandfather, where he edits The Kydones Review — a journal named for the 14th-century Greek scholar Demetrios Kydones.',
         portrait: '/andrew-likoudis.jpg',
@@ -65,21 +65,21 @@ export const about = {
       },
       {
         name: 'Luke Likoudis',
-        role: 'Partner · The Workshop & The Collection',
+        role: 'Director · The Workshop · The Likoudis Collection · The Table',
         divisions: ['The Workshop', 'The Likoudis Collection', 'The Table'],
         bio: 'Luke leads The Workshop and The Likoudis Collection — the high-ticket and bespoke side of the house — and works with his twin Jake on The Table. An officer in the United States Coast Guard, his sense of standards, sourcing, and quiet professionalism shapes the divisions where the margins for error are smallest.',
         order: 2,
       },
       {
         name: 'Jake Likoudis',
-        role: 'Partner · The Workshop & The Table',
+        role: 'Director · The Workshop · The Likoudis Collection · The Table',
         divisions: ['The Workshop', 'The Likoudis Collection', 'The Table'],
         bio: 'Jake works alongside his twin Luke on The Workshop, The Collection, and The Table. Also an officer in the United States Coast Guard, he brings a logistician’s discipline to the divisions that depend on real-world supply chains, single-estate sourcing, and quietly excellent execution.',
         order: 3,
       },
       {
         name: 'Caroline Likoudis',
-        role: 'Artist · The Easel',
+        role: 'Director · The Easel',
         divisions: ['The Easel'],
         bio: 'Caroline is one of two artists behind The Easel and the hand behind Brush & Soul Studio. Her work is in oil and watercolor — paintings and limited prints carrying the colors of a life lived between continents. She paints from her studio in Baltimore.',
         portrait: '/caroline-likoudis.jpg',
@@ -89,7 +89,7 @@ export const about = {
       },
       {
         name: 'Elena Likoudis',
-        role: 'Artist & Designer · The Easel & The Studio',
+        role: 'Director · The Easel · The Studio',
         divisions: ['The Easel', 'The Studio'],
         bio: 'Elena is the second artist behind The Easel and partners with Andrew on The Studio. A senior user-experience designer by training and the operator of her own art line at elenalikoudisart.com, she brings interface, brand, and design judgment to both the digital practice and the studio’s print work. She works from Pittsburgh.',
         portrait: '/elena-likoudis.webp',

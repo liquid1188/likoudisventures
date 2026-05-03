@@ -92,6 +92,7 @@ export const divisions: Division[] = [
       'Short-term rentals in Baltimore',
       'Boutique property management',
       'Curated guest welcomes and provisioning',
+      'Experiences — Greek dinners, kayaking, basilica visits, and more',
       'Selective portfolio expansion across the Mid-Atlantic',
       'Small private gatherings and events on request',
     ],
