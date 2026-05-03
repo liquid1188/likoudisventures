@@ -42,11 +42,11 @@ export function MonumentalHero() {
         <div className="flex justify-between items-start text-bone/60 font-sans text-[10px] uppercase tracking-eyebrow">
           <div>
             <div>Likoudis Ventures</div>
-            <div className="mt-1 text-bone/40">A Family-Held House of Enterprises</div>
+            <div className="mt-1 text-bone/40">Κεφαλονιά · Baltimore</div>
           </div>
           <div className="text-right">
-            <div>Est. {site.foundedRoman}</div>
-            <div className="mt-1 text-bone/40">{site.seat}</div>
+            <div>Volume I · {site.foundedRoman}</div>
+            <div className="mt-1 text-bone/40">A Family-Held House</div>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@ export function MonumentalHero() {
         {/* Section eyebrow */}
         <div className="text-center mb-8 lg:mb-12 stagger-fade">
           <div className="font-serif italic text-ochre text-base lg:text-lg mb-3">
-            Κεφαλονιά · Baltimore · {site.foundedRoman}
+            The working life of three brothers and two sisters.
           </div>
         </div>
 
@@ -79,7 +79,7 @@ export function MonumentalHero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 max-w-5xl mx-auto w-full mt-8 lg:mt-12 stagger-fade">
           <div className="lg:col-span-7 lg:col-start-1">
             <p className="font-serif text-xl lg:text-2xl leading-[1.5] text-bone/85 font-light">
-              A family-held holding company operating across web design, hospitality, custom commissions, original art, and forthcoming Greek goods. <span className="text-bone">One name, six disciplines, one standard of work.</span>
+              A family-held holding company operating across web design, hospitality, custom commissions, original art, Greek consumables, and curated objects. <span className="text-bone">One name, six disciplines, one standard of work.</span>
             </p>
           </div>
           <div className="lg:col-span-5 flex flex-col gap-3 lg:items-end">

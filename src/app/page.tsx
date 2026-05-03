@@ -11,7 +11,7 @@ export default function HomePage() {
       <DivisionsContents />
       <EditorialIntro />
       <PhilosophyBand />
-      <InquirySection />
+      <InquirySection sectionMarker="§ V." />
     </>
   );
 }

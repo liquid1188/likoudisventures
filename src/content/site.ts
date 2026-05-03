@@ -9,7 +9,7 @@ export const site = {
   dba: 'Likoudis Ventures',
   tagline: 'A house of considered enterprises.',
   description:
-    'A family-held holding company operating across web design, hospitality, custom commissions, art, and forthcoming Greek goods. Baltimore, with roots in Kefalonia.',
+    'A family-held holding company operating across web design, hospitality, custom commissions, art, Greek consumables, and curated objects. Baltimore, with roots in Kefalonia.',
   founded: 2026,
   foundedRoman: 'MMXXVI',
   seat: 'Baltimore, Maryland',

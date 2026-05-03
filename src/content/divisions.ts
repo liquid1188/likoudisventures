@@ -136,7 +136,7 @@ export const divisions: Division[] = [
     shortDescription:
       'A line of Greek consumables — olive oil, honey, olives, eventually wine and spirits — with our name on each label.',
     longDescription:
-      "The Table is forthcoming. It will hold the family's line of Greek consumables: olive oil from single-estate producers, honey from Greek apiaries, olives in the Kefaloniote tradition, vinegars, and eventually feta, Greek wines, and traditional spirits.\n\nEvery product carries the Likoudis name and the story of where it came from. We are not blending, not generic-labeling, not selling whatever fills a shelf. We are sourcing carefully and putting our name on the label only when we can defend what is inside it.",
+      "The Table holds the family's line of Greek consumables: olive oil from single-estate producers, honey from Greek apiaries, olives in the Kefaloniote tradition, vinegars, and in time feta, Greek wines, and traditional spirits.\n\nEvery product carries the Likoudis name and the story of where it came from. We are not blending, not generic-labeling, not selling whatever fills a shelf. We source carefully and put our name on the label only when we can defend what is inside it.",
     offerings: [
       'Olive oil — single-estate, Kefalonia and beyond',
       'Honey — sourced from Greek apiaries',
@@ -162,7 +162,7 @@ export const divisions: Division[] = [
     shortDescription:
       'Acquired and curated work — icons, ceramics, watches, antiques, art — assembled with a single curatorial intelligence behind it.',
     longDescription:
-      "The Likoudis Collection is the curated luxury division. It is forthcoming.\n\nUnlike The Easel, which holds work made by the family, The Collection holds work the family has acquired and chosen to offer onward. Hand-painted Byzantine icons. Greek ceramics from named producers. Olive-wood objects. Worry beads. Limited art editions. Vintage and antique pieces by appointment.\n\nThe family name on the division is intentional. Galleries and collections trade on the curator's name — the Frick, the Phillips, the Wallace — and we wanted ours visible on the most discriminating part of the house.",
+      "The Likoudis Collection is the curated luxury division of the house.\n\nUnlike The Easel, which holds work made by the family, The Collection holds work the family has acquired and chosen to offer onward. Hand-painted Byzantine icons. Greek ceramics from named producers. Olive-wood objects. Worry beads. Limited art editions. Vintage and antique pieces by appointment.\n\nThe family name on the division is intentional. Galleries and collections trade on the curator's name — the Frick, the Phillips, the Wallace — and we wanted ours visible on the most discriminating part of the house.",
     offerings: [
       'Hand-painted Byzantine icons (commissioned from icon-writers)',
       'Greek ceramics — traditional and contemporary',

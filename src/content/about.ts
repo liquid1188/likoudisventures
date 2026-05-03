@@ -6,8 +6,8 @@
 export const about = {
   hero: {
     eyebrow: 'About the House',
-    title: 'A family, in five generations.',
-    titleEmphasis: 'five generations',
+    title: 'A family, with our names on the door.',
+    titleEmphasis: 'our names on the door',
     lede: 'Likoudis Ventures is the working life of three brothers and two sisters in Baltimore, building enterprises slowly and carefully under one name.',
   },
 
@@ -15,8 +15,8 @@ export const about = {
     heading: 'From Kefalonia, by way of upstate New York.',
     body: [
       "The Likoudis family came from Kefalonia, the largest of the Ionian islands, on Greece's western coast. Three generations ago, the family crossed and settled in upstate New York. We are now a quarter Greek by blood and entirely Greek in name — which is to say, the heritage is real but it is not a costume.",
-      'The line that raised us in upstate New York is the same line that, a few decades earlier, was tending olive groves above a fishing village called Kioni. The family in Kioni still operates Likoudis Villas there, perched on a hill overlooking the harbor. We have not yet traced the exact branching, but the name is small enough across two islands that the connection is almost certainly real.',
-      'The olive branch on our mark carries five olives — one for each division of the house. The branch will grow another olive when the house grows another division. The tree will keep its shape regardless.',
+      'The line that raised us in upstate New York is the same line that, a few decades earlier, was tending olive groves above a fishing village called Kioni. A family of the same name still operates Likoudis Villas there, perched on a hill overlooking the harbor. We have not yet traced the exact branching, but the name is small enough across two islands that the kinship is almost certainly real.',
+      'The olive branch on our mark carries six olives — one for each division of the house. The branch will grow another olive when the house grows another division. The tree will keep its shape regardless.',
     ],
   },
 
@@ -24,7 +24,7 @@ export const about = {
     heading: 'How we work.',
     body: [
       'We work the way our grandfathers worked. Patiently. With our names on the door.',
-      'The five categories the house operates in are deliberately varied because the discipline beneath them is not. A website built well, a guest welcomed properly, a drawing finished with care, a jar of olive oil sourced honestly, an icon acquired with a record of where it came from — these are the same act in different mediums.',
+      'The six categories the house operates in are deliberately varied because the discipline beneath them is not. A website built well, a guest welcomed properly, a drawing finished with care, a jar of olive oil sourced honestly, an icon acquired with a record of where it came from — these are the same act in different mediums.',
       'We do not sign our names to work we cannot defend. That sentence is the entire philosophy.',
     ],
   },

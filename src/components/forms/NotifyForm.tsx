@@ -52,7 +52,7 @@ export function NotifyForm({ divisionName, divisionSlug }: NotifyFormProps) {
         Be the first to know.
       </h3>
       <p className="font-serif italic text-base text-navy/75 mb-6">
-        {divisionName} is forthcoming. Leave your email and we will write when it launches — no more than once.
+        Leave your email and we will write when {divisionName} opens — once, and for nothing else.
       </p>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

@@ -23,8 +23,8 @@ const config: Config = {
         sans: ['var(--font-inter)', '-apple-system', 'sans-serif'],
       },
       fontSize: {
-        monumental: ['clamp(72px, 12vw, 200px)', { lineHeight: '0.9', letterSpacing: '-0.035em' }],
-        editorial: ['clamp(48px, 7vw, 108px)', { lineHeight: '0.96', letterSpacing: '-0.025em' }],
+        monumental: ['clamp(56px, 9vw, 144px)', { lineHeight: '0.94', letterSpacing: '-0.03em' }],
+        editorial: ['clamp(44px, 6.5vw, 96px)', { lineHeight: '0.98', letterSpacing: '-0.022em' }],
         'display-xl': ['clamp(40px, 5.5vw, 76px)', { lineHeight: '1.04', letterSpacing: '-0.02em' }],
         'display-lg': ['clamp(32px, 4.2vw, 56px)', { lineHeight: '1.08', letterSpacing: '-0.015em' }],
         'display-md': ['clamp(26px, 3vw, 40px)', { lineHeight: '1.15', letterSpacing: '-0.008em' }],

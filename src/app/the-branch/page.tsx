@@ -77,23 +77,6 @@ export default function TheBranchPage() {
           </div>
         </div>
       </section>
-
-      {/* Archive placeholder — currently empty, will be populated as issues are sent */}
-      <section className="ground-cream py-20 lg:py-24">
-        <div className="container-tight">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="text-[11px] uppercase tracking-eyebrow text-ochre-deep mb-4">
-              Past issues
-            </div>
-            <h3 className="font-serif text-3xl lg:text-4xl text-navy mb-5">
-              The archive begins <em className="italic text-ochre-deep">soon</em>.
-            </h3>
-            <p className="font-serif italic text-lg text-navy/75 max-w-xl mx-auto">
-              We have not yet sent the first issue. Subscribe above to be among the first to receive it.
-            </p>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

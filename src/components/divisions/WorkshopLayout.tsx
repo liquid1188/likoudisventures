@@ -38,11 +38,7 @@ export function WorkshopLayout({ division }: LayoutProps) {
 
             <div className="ornate-divider text-bone/30 my-3" />
 
-            <div className="font-serif italic text-ochre text-lg mb-5">
-              {division.greek}
-            </div>
-
-            <h1 className="font-display text-editorial text-bone leading-[0.95] tracking-tight mb-8 lg:mb-10">
+            <h1 className="font-display text-editorial text-bone leading-[0.95] tracking-tight mb-6 lg:mb-8">
               {division.name}
             </h1>
 

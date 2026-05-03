@@ -7,6 +7,8 @@ interface InquirySectionProps {
   heading?: ReactNode;
   text?: string;
   defaultDivision?: string;
+  /** Catalog marker (e.g., "§ V" or "Correspondence"). Hidden if omitted. */
+  sectionMarker?: string;
 }
 
 export function InquirySection({
@@ -17,6 +19,7 @@ export function InquirySection({
   ),
   text = 'For new engagements, partnership inquiries, or press, write to us directly. Every message is read by a person and replied to in order, by hand.',
   defaultDivision,
+  sectionMarker,
 }: InquirySectionProps) {
   return (
     <section id="inquiry" className="ground-bone py-28 lg:py-36 relative">
@@ -24,7 +27,9 @@ export function InquirySection({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
           {/* Left column — heading + correspondence details */}
           <ScrollReveal as="div" className="lg:col-span-5">
-            <div className="catalog-num text-sm mb-3">§ V.</div>
+            {sectionMarker && (
+              <div className="catalog-num text-sm mb-3">{sectionMarker}</div>
+            )}
             <div className="eyebrow text-ochre-deep mb-6">Correspondence</div>
             <h2 className="font-display text-display-xl text-navy mb-7 leading-tight">
               {heading}

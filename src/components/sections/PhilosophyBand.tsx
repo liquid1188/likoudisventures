@@ -36,9 +36,9 @@ export function PhilosophyBand() {
 
   const lines = [
     { text: 'Build the thing well,', delay: 0 },
-    { text: 'sign your name to it,', delay: 700 },
-    { text: 'and the rest', delay: 1400, italic: true },
-    { text: 'takes care of itself.', delay: 1900, italic: true, accent: true },
+    { text: 'sign your name to it,', delay: 380 },
+    { text: 'and the rest', delay: 760, italic: true },
+    { text: 'takes care of itself.', delay: 1100, italic: true, accent: true },
   ];
 
   return (
@@ -94,7 +94,7 @@ export function PhilosophyBand() {
             'flex justify-center mt-16 lg:mt-20 transition-all duration-700',
             visible ? 'opacity-60' : 'opacity-0'
           )}
-          style={{ transitionDelay: '2700ms' }}
+          style={{ transitionDelay: '1700ms' }}
         >
           <div className="font-sans text-[10px] uppercase tracking-eyebrow text-bone/50">
             ◆ ◆ ◆

@@ -67,16 +67,16 @@ export function TableLayout({ division }: LayoutProps) {
         </div>
       </section>
 
-      {/* Forthcoming notice */}
+      {/* On opening */}
       <section className="ground-bone py-16 lg:py-20 border-y border-navy/10">
         <div className="container-editorial">
           <div className="text-center max-w-2xl mx-auto">
-            <div className="catalog-num text-sm mb-3">A note</div>
+            <div className="catalog-num text-sm mb-3">On opening</div>
             <p className="font-serif italic text-2xl lg:text-3xl text-navy leading-snug">
-              The Table is <em className="italic text-ochre-deep">forthcoming</em>.
+              We will not put our name on a label until <em className="italic text-ochre-deep">we can defend it</em>.
             </p>
             <p className="font-serif text-lg text-navy/65 mt-5 leading-relaxed">
-              We are sourcing from Kefalonia and from named producers across Greece. We will not launch this division — and we will not put our name on a single label — until what is on the shelf is something we would serve at our own table.
+              The Table sources from Kefalonia and from named producers across Greece. Each product carries our name and the story of where it came from — single-estate olive oils, Greek apiary honey, Kefaloniote olives, vinegars, and in time, feta, Greek wines, and traditional spirits.
             </p>
           </div>
         </div>
@@ -136,12 +136,12 @@ export function TableLayout({ division }: LayoutProps) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 max-w-5xl mx-auto items-start">
             <div>
               <div className="catalog-num text-sm text-bone/70 mb-3">§ III.</div>
-              <div className="eyebrow text-ochre mb-5">Forthcoming</div>
+              <div className="eyebrow text-ochre mb-5">An invitation</div>
               <h2 className="font-display text-display-xl text-bone mb-7 leading-tight">
-                Be the <em className="italic text-sky">first</em> to sit down.
+                A seat at the <em className="italic text-sky">first table</em>.
               </h2>
               <p className="font-serif text-lg lg:text-xl text-bone/85 leading-relaxed">
-                Leave your email and we will write when the first products land — usually honey or oil, the easiest things to source and ship well. We will not write you for any other reason.
+                Subscribers receive notice when each product opens — usually starting with oil and honey. Subscriptions are used for nothing else.
               </p>
             </div>
             <NotifyForm divisionName={division.name} divisionSlug={division.slug} />

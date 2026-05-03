@@ -30,7 +30,7 @@ export function CollectionLayout({ division }: LayoutProps) {
               <div className="text-center font-serif italic text-base text-ochre-deep normal-case tracking-normal">
                 {division.greek}
               </div>
-              <div className="text-right">Catalogue No. {division.number}</div>
+              <div className="text-right">Catalogue No. {division.number.toUpperCase()}</div>
             </div>
           </div>
 

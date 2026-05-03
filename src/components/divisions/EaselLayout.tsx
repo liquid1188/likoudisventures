@@ -46,16 +46,13 @@ export function EaselLayout({ division }: LayoutProps) {
         </div>
       </section>
 
-      {/* Gallery wall — salon-style hang of "framed" placeholders */}
+      {/* Gallery wall — salon-style hang */}
       <section className="ground-bone py-20 lg:py-28">
         <div className="container-editorial">
           <ScrollReveal>
             <div className="text-center mb-14">
               <div className="catalog-num text-sm mb-3">§ I.</div>
-              <div className="eyebrow text-ochre-deep mb-3 inline-block">Recent works</div>
-              <p className="font-serif italic text-base text-navy/55 max-w-md mx-auto mt-5">
-                The frames below are placeholders. Original drawings will be photographed and posted as the studio releases them.
-              </p>
+              <div className="eyebrow text-ochre-deep mb-3 inline-block">From the studio</div>
             </div>
           </ScrollReveal>
 

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Cormorant_Garamond, Inter, Fraunces } from 'next/font/google';
-import { Nav } from '@/components/layout/Nav';
-import { Footer } from '@/components/layout/Footer';
+import { SiteChrome } from '@/components/layout/SiteChrome';
 import { site } from '@/content/site';
 import './globals.css';
 
@@ -55,9 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${fraunces.variable} ${cormorant.variable} ${inter.variable}`}>
       <body>
-        <Nav />
-        <main>{children}</main>
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );
