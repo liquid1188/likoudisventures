@@ -136,7 +136,7 @@ export const divisions: Division[] = [
     shortDescription:
       'A line of Greek consumables — olive oil, honey, olives, eventually wine and spirits — with our name on each label.',
     longDescription:
-      "The Table holds the family's line of Greek consumables: olive oil from single-estate producers, honey from Greek apiaries, olives in the Kefaloniote tradition, vinegars, and in time feta, Greek wines, and traditional spirits.\n\nEvery product carries the Likoudis name and the story of where it came from. We are not blending, not generic-labeling, not selling whatever fills a shelf. We source carefully and put our name on the label only when we can defend what is inside it.",
+      "The Table holds the family's line of Greek consumables: olive oil from single-estate producers, honey from Greek apiaries, olives in the Kefaloniote tradition, vinegars, and in time feta, Greek wines, and traditional spirits.\n\nEvery product carries the Likoudis name beside the producer's, and a record of where it came from. We are not blending, not generic-labeling, not selling whatever fills a shelf. We choose slowly, sign together, and ship.",
     offerings: [
       'Olive oil — single-estate, from Kefalonia and beyond',
       'Honey — sourced from named Greek apiaries',

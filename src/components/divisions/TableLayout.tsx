@@ -71,12 +71,12 @@ export function TableLayout({ division }: LayoutProps) {
       <section className="ground-bone py-16 lg:py-20 border-y border-navy/10">
         <div className="container-editorial">
           <div className="text-center max-w-2xl mx-auto">
-            <div className="catalog-num text-sm mb-3">On opening</div>
+            <div className="catalog-num text-sm mb-3">On the table</div>
             <p className="font-serif italic text-2xl lg:text-3xl text-navy leading-snug">
-              We will not put our name on a label until <em className="italic text-ochre-deep">we can defend it</em>.
+              Every label tells you <em className="italic text-ochre-deep">where it came from</em>.
             </p>
             <p className="font-serif text-lg text-navy/65 mt-5 leading-relaxed">
-              The Table sources from Kefalonia and from named producers across Greece. Each product carries our name and the story of where it came from — single-estate olive oils, Greek apiary honey, Kefaloniote olives, vinegars, and in time, feta, Greek wines, and traditional spirits.
+              The Table sources from Kefalonia and from named producers across Greece. Each product comes with the name of the estate, the apiary, the press — and ours, beside theirs, on the front of the bottle.
             </p>
           </div>
         </div>
