@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   LIKOUDIS VENTURES — DESIGN TOKENS
+   v4 design language: Santorini sky on Kefalonia restraint
+   ============================================ */
+
+@layer base {
+  :root {
+    /* Colors are also defined in tailwind.config.ts; this is for raw CSS use */
+    --color-navy: #0E1B2C;
+    --color-navy-deep: #081320;
+    --color-sky: #8FB8CE;
+    --color-sky-deep: #6FA0BA;
+    --color-olive: #8FA67D;
+    --color-olive-glow: #C9D7B8;
+    --color-ochre: #C8A24A;
+    --color-ochre-deep: #A6822E;
+    --color-bone: #FAF6EC;
+    --color-cream: #F2EAD6;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-bone text-navy font-sans;
+    font-feature-settings: "ss01", "kern";
+  }
+
+  /* Typography defaults */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-normal tracking-tight;
+  }
+
+  /* Selection */
+  ::selection {
+    @apply bg-olive text-bone;
+  }
+}
+
+/* ============================================
+   COMPONENT PATTERNS
+   ============================================ */
+
+@layer components {
+  /* The eyebrow rule — appears above hero headlines */
+  .eyebrow {
+    @apply text-[11px] uppercase tracking-eyebrow inline-flex items-center gap-3.5;
+  }
+
+  .eyebrow::before {
+    content: '';
+    @apply inline-block w-9 h-px bg-current;
+  }
+
+  /* Italic emphasis in serif headlines (sky on dark, ochre on light) */
+  .italic-glow {
+    @apply italic text-sky;
+  }
+
+  .italic-warm {
+    @apply italic text-ochre-deep;
+  }
+
+  /* Greek subtitle styling */
+  .greek-subtitle {
+    @apply font-serif italic text-ochre tracking-normal normal-case;
+  }
+
+  /* Container — max-width with padding */
+  .container-tight {
+    @apply mx-auto max-w-container px-6 sm:px-12 lg:px-16;
+  }
+
+  .container-prose {
+    @apply mx-auto max-w-3xl px-6 sm:px-12;
+  }
+
+  /* Status tags for divisions */
+  .status-active {
+    @apply inline-block text-[9px] uppercase tracking-tag px-2.5 py-1 bg-olive text-bone;
+  }
+
+  .status-forthcoming {
+    @apply inline-block text-[9px] uppercase tracking-tag px-2.5 py-1 bg-navy text-olive-glow;
+  }
+
+  /* Section grounds */
+  .ground-navy {
+    @apply bg-navy text-bone;
+  }
+
+  .ground-sky {
+    @apply bg-sky text-navy;
+  }
+
+  .ground-cream {
+    @apply bg-cream text-navy;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-block px-8 py-3.5 bg-olive text-bone text-[11px] uppercase tracking-caps font-medium border border-olive transition-colors hover:bg-olive-light hover:border-olive-light;
+  }
+
+  .btn-secondary {
+    @apply inline-block px-8 py-3.5 bg-transparent text-bone text-[11px] uppercase tracking-caps font-medium border border-bone transition-colors hover:bg-bone hover:text-navy;
+  }
+
+  .btn-ghost {
+    @apply inline-block px-5 py-2.5 border border-olive-glow text-olive-glow text-[11px] uppercase tracking-caps transition-colors hover:bg-olive-glow hover:text-navy;
+  }
+
+  /* Form fields */
+  .field-label {
+    @apply block text-[10px] uppercase tracking-caps text-ochre-deep mb-2;
+  }
+
+  .field-input {
+    @apply w-full bg-transparent border-0 border-b border-navy/25 text-navy font-serif text-base py-1.5 outline-none transition-colors focus:border-olive;
+  }
+
+  .field-input-dark {
+    @apply w-full bg-transparent border-0 border-b border-sky/30 text-bone font-serif text-base py-1.5 outline-none transition-colors focus:border-sky;
+  }
+
+  /* Divider rules */
+  .rule-olive {
+    @apply border-t border-olive-glow;
+  }
+
+  .rule-navy {
+    @apply border-t border-navy/20;
+  }
+
+  /* Background atmospherics for navy hero */
+  .hero-atmosphere::before {
+    content: '';
+    @apply absolute inset-0 pointer-events-none;
+    background:
+      radial-gradient(circle at 80% 22%, rgba(143, 184, 206, 0.22) 0%, transparent 55%),
+      radial-gradient(circle at 8% 85%, rgba(143, 166, 125, 0.14) 0%, transparent 55%);
+  }
+
+  .hero-atmosphere::after {
+    content: '';
+    @apply absolute inset-0 pointer-events-none;
+    background-image:
+      linear-gradient(rgba(143, 184, 206, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(143, 184, 206, 0.05) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up-stagger > * {
+  animation: fadeUp 0.8s ease-out backwards;
+}
+
+.fade-up-stagger > *:nth-child(1) { animation-delay: 0.1s; }
+.fade-up-stagger > *:nth-child(2) { animation-delay: 0.25s; }
+.fade-up-stagger > *:nth-child(3) { animation-delay: 0.45s; }
+.fade-up-stagger > *:nth-child(4) { animation-delay: 0.6s; }
