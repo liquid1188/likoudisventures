@@ -57,6 +57,7 @@ export const footer = {
       links: [
         { label: 'About', href: '/about' },
         { label: 'The Branch', href: '/the-branch' },
+        { label: 'The Foundation', href: '/the-foundation' },
         { label: 'Press & Inquiry', href: '/contact' },
       ],
     },
