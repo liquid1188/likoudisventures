@@ -1,21 +1,37 @@
 /**
  * Content for the /about page.
- * Edit this file to update the family bios and house philosophy.
+ * Edit this file to update family bios and house philosophy.
+ *
+ * On portraits:
+ *   - `portrait` is an optional public-path image (e.g., '/andrew-likoudis.jpg').
+ *   - When omitted, the page renders an elegant monogram card with the member's
+ *     initials in the brand register. Swap in a real photograph by adding the file
+ *     to /public and referencing it here.
  */
+
+export interface FamilyMember {
+  name: string;
+  role: string;
+  divisions: string[];
+  bio: string;
+  portrait?: string;
+  /** Sort order on the family grid */
+  order: number;
+}
 
 export const about = {
   hero: {
     eyebrow: 'About the House',
     title: 'A family, with our names on the door.',
     titleEmphasis: 'our names on the door',
-    lede: 'Likoudis Ventures is the working life of three brothers and two sisters in Baltimore, building enterprises slowly and carefully under one name.',
+    lede: 'Likoudis Ventures is the working life of three brothers and two sisters, headquartered in Baltimore. We build slowly and carefully under one name.',
   },
 
   origin: {
     heading: 'From Kefalonia, by way of upstate New York.',
     body: [
-      "The Likoudis family came from Kefalonia, the largest of the Ionian islands, on Greece's western coast. Three generations ago, the family crossed and settled in upstate New York. We are now a quarter Greek by blood and entirely Greek in name — which is to say, the heritage is real but it is not a costume.",
-      'The line that raised us in upstate New York is the same line that, a few decades earlier, was tending olive groves above a fishing village called Kioni. A family of the same name still operates Likoudis Villas there, perched on a hill overlooking the harbor. We have not yet traced the exact branching, but the name is small enough across two islands that the kinship is almost certainly real.',
+      "The Likoudis family came from Kefalonia, the largest of the Ionian islands on Greece's western coast. Three generations ago, the family crossed and settled in upstate New York. We are now a quarter Greek by blood and entirely Greek in name — the heritage is real, but it is not a costume.",
+      'The line that raised us is the same line that, a few decades earlier, tended olive groves above a fishing village called Kioni on the island of Ithaca. A family of the same name still keeps a guesthouse there, perched on a hill overlooking the harbor. We have not yet traced the exact branching, but the name is small enough across two islands that the kinship is almost certainly real.',
       'The olive branch on our mark carries six olives — one for each division of the house. The branch will grow another olive when the house grows another division. The tree will keep its shape regardless.',
     ],
   },
@@ -24,35 +40,56 @@ export const about = {
     heading: 'How we work.',
     body: [
       'We work the way our grandfathers worked. Patiently. With our names on the door.',
-      'The six categories the house operates in are deliberately varied because the discipline beneath them is not. A website built well, a guest welcomed properly, a drawing finished with care, a jar of olive oil sourced honestly, an icon acquired with a record of where it came from — these are the same act in different mediums.',
+      'The six divisions of the house are deliberately varied because the discipline beneath them is not. A website built well, a guest welcomed properly, a drawing finished with care, a jar of olive oil sourced honestly, an icon acquired with a record of where it came from — these are the same act in different mediums.',
       'We do not sign our names to work we cannot defend. That sentence is the entire philosophy.',
     ],
   },
 
   family: {
-    heading: 'The Likoudis brothers and sisters.',
+    heading: 'The brothers and sisters.',
+    intro: 'Three brothers and two sisters, each leading the divisions where their work and judgment live. The list below names the leads; in practice we work across the house for each other, because that is how families build things that last.',
     members: [
       {
         name: 'Andrew Likoudis',
-        role: 'Founder and Chairman',
-        bio: "Andrew leads the house's strategic direction and runs The Studio. He is also the founder of the Likoudis Legacy Foundation, a separate Catholic ecumenical research institute. He holds an M.A. in Catholic Studies from Franciscan University and edits the Kydones Review.",
+        role: 'Founder & Chairman',
+        divisions: ['The Studio', 'Ithaca House', 'The Branch'],
+        bio: 'Andrew leads The Studio — the house’s digital practice — and oversees Ithaca House and The Branch, the monthly letter from the family. A graduate of Towson University and Franciscan University of Steubenville, he is the founder of the Likoudis Legacy Foundation, a separate Catholic research institute named for his late grandfather.',
+        portrait: '/andrew-likoudis.jpg',
+        order: 1,
+      },
+      {
+        name: 'Luke Likoudis',
+        role: 'Partner · The Workshop & The Collection',
+        divisions: ['The Workshop', 'The Likoudis Collection', 'The Table'],
+        bio: 'Luke leads The Workshop and The Likoudis Collection — the high-ticket and bespoke side of the house — and works with his twin Jake on The Table. An officer in the United States Coast Guard, his sense of standards, sourcing, and quiet professionalism shapes the divisions where the margins for error are smallest.',
+        order: 2,
+      },
+      {
+        name: 'Jake Likoudis',
+        role: 'Partner · The Workshop & The Table',
+        divisions: ['The Workshop', 'The Likoudis Collection', 'The Table'],
+        bio: 'Jake works alongside his twin Luke on The Workshop, The Collection, and The Table. Also an officer in the United States Coast Guard, he brings a logistician’s discipline to the divisions that depend on real-world supply chains, single-estate sourcing, and quietly excellent execution.',
+        order: 3,
       },
       {
         name: 'Caroline Likoudis',
         role: 'Artist · The Easel',
-        bio: 'Caroline is one of the two artists behind The Easel. Her work focuses on drawing.',
+        divisions: ['The Easel'],
+        bio: 'Caroline is one of two artists behind The Easel. Her work focuses on drawing — portraits, studies, and small commissions in graphite and ink.',
+        order: 4,
       },
       {
         name: 'Elena Likoudis',
         role: 'Artist · The Easel',
-        bio: 'Elena is the second artist behind The Easel. Her work focuses on drawing.',
+        divisions: ['The Easel'],
+        bio: 'Elena is the second artist behind The Easel. Her work focuses on drawing in graphite, ink, and charcoal, with occasional editions.',
+        order: 5,
       },
-      // Brothers' bios to be added when they're ready to be named
-    ],
+    ] satisfies FamilyMember[],
   },
 
   separation: {
     heading: 'A note on the Foundation.',
-    body: 'The Likoudis Legacy Foundation is a separate 501(c)(3) Catholic ecumenical research institute, established in 2024. The Foundation and Likoudis Ventures share a family but no commercial activity, board, or financial flow. Each operates under its own governance, its own donors or customers, and its own books.',
+    body: 'The Likoudis Legacy Foundation is a separate 501(c)(3) Catholic ecumenical research institute, established in 2024 in memory of James Likoudis (1928–2024). The Foundation and Likoudis Ventures share a family but no commercial activity, board, or financial flow. Each operates under its own governance, its own donors or customers, and its own books.',
   },
 };

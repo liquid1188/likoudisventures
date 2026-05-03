@@ -16,7 +16,7 @@ export function EditorialIntro() {
             <div className="catalog-num text-sm mb-2">§ I.</div>
             <div className="eyebrow-no-rule text-ochre-deep mb-4">A Brief Word</div>
             <p className="marginalia hidden lg:block">
-              Posted from the house at the corner of Charles & Read, in Baltimore, on the day this site was first set live.
+              Posted from the house in Canton, Baltimore, on the day this site was first set live.
             </p>
           </ScrollReveal>
 

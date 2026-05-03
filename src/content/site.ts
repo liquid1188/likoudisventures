@@ -12,13 +12,13 @@ export const site = {
     'A family-held holding company operating across web design, hospitality, custom commissions, art, Greek consumables, and curated objects. Baltimore, with roots in Kefalonia.',
   founded: 2026,
   foundedRoman: 'MMXXVI',
-  seat: 'Baltimore, Maryland',
+  seat: 'Canton · Baltimore',
   greekRoot: 'Κεφαλονιά',
   greekRootClassical: 'ἐκ Κεφαλονιάς',
   url: 'https://likoudisventures.com',
   email: 'hello@likoudisventures.com',
 
-  topRule: 'A Family-Held House of Enterprises · Baltimore, Maryland',
+  topRule: 'A Family-Held House of Enterprises · Canton, Baltimore',
 
   // The line that appears once on the About page tying Ithaca NY to Ithaca, Greece
   ithacaNote:
