@@ -58,7 +58,7 @@ export function DivisionLeads({
         {label}
       </div>
 
-      <div className="flex items-center gap-4 lg:gap-5">
+      <div className="flex items-center gap-4 lg:gap-5 flex-wrap gap-y-4">
         {resolved.map(({ member, role }) => (
           <Link
             key={member.id}
