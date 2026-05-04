@@ -69,7 +69,7 @@ export function WorkshopLayout({ division }: LayoutProps) {
       {/* Lead row */}
       <section className="ground-bone py-7 lg:py-9 border-b border-navy/10">
         <div className="container-editorial">
-          <DivisionLeads leads={division.leads} theme="light" />
+          <DivisionLeads leads={division.leads} theme="light" secondaryLast />
         </div>
       </section>
 

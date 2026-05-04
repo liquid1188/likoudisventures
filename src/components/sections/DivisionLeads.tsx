@@ -12,6 +12,10 @@ interface DivisionLeadsProps {
   label?: string;
   /** Center vs. left alignment */
   align?: 'left' | 'center';
+  /** When true, the final lead in the array is rendered on its own row below
+   *  the others — used for divisions like Workshop where the final entry is an
+   *  advisor or secondary lead and the visual hierarchy should reflect that. */
+  secondaryLast?: boolean;
 }
 
 /**
@@ -30,6 +34,7 @@ export function DivisionLeads({
   theme = 'light',
   label = 'Led by',
   align = 'left',
+  secondaryLast = false,
 }: DivisionLeadsProps) {
   const resolved = leads
     .map((lead) => {
@@ -42,71 +47,94 @@ export function DivisionLeads({
 
   const isDark = theme === 'dark';
 
+  // When secondaryLast is on (and there are 2+ leads), split the rendering:
+  // primary leads on top row, the final lead on its own row below, both rows
+  // sharing the same left edge. Otherwise, everything goes in one flex row.
+  const useSplit = secondaryLast && resolved.length >= 2;
+  const primaryLeads = useSplit ? resolved.slice(0, -1) : resolved;
+  const secondaryLead = useSplit ? resolved[resolved.length - 1] : null;
+
+  const renderLead = (entry: { member: NonNullable<ReturnType<typeof getFamilyMember>>; role: string }) => (
+    <Link
+      key={entry.member.id}
+      href="/about#family"
+      className="group flex items-center gap-3 transition-opacity hover:opacity-80"
+    >
+      {/* Avatar */}
+      <div
+        className={clsx(
+          'relative w-12 h-12 lg:w-14 lg:h-14 rounded-full overflow-hidden flex-shrink-0',
+          isDark ? 'ring-1 ring-bone/20' : 'ring-1 ring-navy/15'
+        )}
+      >
+        {entry.member.portrait ? (
+          <Image
+            src={entry.member.portrait}
+            alt={entry.member.name}
+            fill
+            className="object-cover"
+            sizes="56px"
+          />
+        ) : (
+          <Monogram name={entry.member.name} isDark={isDark} />
+        )}
+      </div>
+
+      {/* Name + per-division role */}
+      <div className="leading-tight">
+        <div
+          className={clsx(
+            'font-display text-base lg:text-lg',
+            isDark ? 'text-bone' : 'text-navy'
+          )}
+        >
+          {entry.member.name.split(' ')[0]}
+        </div>
+        <div
+          className={clsx(
+            'font-sans text-[9px] uppercase tracking-tag mt-0.5',
+            isDark ? 'text-olive-glow/80' : 'text-ochre-deep'
+          )}
+        >
+          {entry.role}
+        </div>
+      </div>
+    </Link>
+  );
+
   return (
     <div
       className={clsx(
-        'flex items-center gap-5 lg:gap-7 flex-wrap',
+        'flex items-start gap-5 lg:gap-7 flex-wrap',
         align === 'center' && 'justify-center'
       )}
     >
       <div
         className={clsx(
-          'font-sans text-[10px] uppercase tracking-eyebrow',
+          'font-sans text-[10px] uppercase tracking-eyebrow pt-3.5 lg:pt-4',
           isDark ? 'text-bone/55' : 'text-navy/55'
         )}
       >
         {label}
       </div>
 
-      <div className="flex items-center gap-4 lg:gap-5 flex-wrap gap-y-4">
-        {resolved.map(({ member, role }) => (
-          <Link
-            key={member.id}
-            href="/about#family"
-            className="group flex items-center gap-3 transition-opacity hover:opacity-80"
-          >
-            {/* Avatar */}
-            <div
-              className={clsx(
-                'relative w-12 h-12 lg:w-14 lg:h-14 rounded-full overflow-hidden flex-shrink-0',
-                isDark ? 'ring-1 ring-bone/20' : 'ring-1 ring-navy/15'
-              )}
-            >
-              {member.portrait ? (
-                <Image
-                  src={member.portrait}
-                  alt={member.name}
-                  fill
-                  className="object-cover"
-                  sizes="56px"
-                />
-              ) : (
-                <Monogram name={member.name} isDark={isDark} />
-              )}
+      {useSplit ? (
+        /* Two-row stack: primaries on top, secondary on its own row below. */
+        <div className="flex flex-col gap-4">
+          <div className="flex items-center gap-4 lg:gap-5 flex-wrap gap-y-4">
+            {primaryLeads.map(renderLead)}
+          </div>
+          {secondaryLead && (
+            <div className="flex items-center gap-4 lg:gap-5 flex-wrap gap-y-4">
+              {renderLead(secondaryLead)}
             </div>
-
-            {/* Name + per-division role */}
-            <div className="leading-tight">
-              <div
-                className={clsx(
-                  'font-display text-base lg:text-lg',
-                  isDark ? 'text-bone' : 'text-navy'
-                )}
-              >
-                {member.name.split(' ')[0]}
-              </div>
-              <div
-                className={clsx(
-                  'font-sans text-[9px] uppercase tracking-tag mt-0.5',
-                  isDark ? 'text-olive-glow/80' : 'text-ochre-deep'
-                )}
-              >
-                {role}
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
+          )}
+        </div>
+      ) : (
+        <div className="flex items-center gap-4 lg:gap-5 flex-wrap gap-y-4">
+          {resolved.map(renderLead)}
+        </div>
+      )}
     </div>
   );
 }
