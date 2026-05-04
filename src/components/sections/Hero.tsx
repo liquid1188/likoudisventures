@@ -14,11 +14,23 @@ interface HeroProps {
    * Catalog-style section number, e.g. "§ II" or "No. 1"
    */
   sectionNumber?: string;
+  /**
+   * When true, render the olive branch mark large and centered, crowning the
+   * title (mark sits above the headline and overlaps it via negative margin
+   * for a layered effect). Used on About and Branch pages where the family
+   * mark earns the prominence. Suppresses the side-rail mark.
+   */
+  crownMark?: boolean;
 }
 
 /**
  * Editorial sub-page hero. Navy ground, asymmetric layout,
  * large display headline, optional eyebrow + ledger header.
+ *
+ * Two registers:
+ *   - Default: small mark in the left side-rail, eyebrow + title flow at left.
+ *   - crownMark={true}: large mark centered, overlapping the title from above.
+ *     Headline + lede center-aligned. Used for About and Branch.
  */
 export function Hero({
   eyebrow,
@@ -28,6 +40,7 @@ export function Hero({
   primaryCta,
   secondaryCta,
   sectionNumber,
+  crownMark = false,
 }: HeroProps) {
   return (
     <section className="ground-navy relative overflow-hidden min-h-[80vh] flex flex-col">
@@ -54,33 +67,32 @@ export function Hero({
 
       {/* Center content */}
       <div className="container-editorial relative z-10 flex-1 flex flex-col justify-center py-16 lg:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
-          <div className="lg:col-span-2 lg:pt-3">
-            <span className="text-olive-glow opacity-70 inline-block">
-              <OliveBranchMark size={36} />
-            </span>
-          </div>
-
-          <div className="lg:col-span-9">
+        {crownMark ? (
+          // Crown register — centered, large mark overlapping headline
+          <div className="text-center max-w-4xl mx-auto">
             {eyebrow && (
-              <div className="font-serif italic text-ochre text-base lg:text-lg mb-5 stagger-fade">
+              <div className="font-serif italic text-ochre text-base lg:text-lg mb-6 stagger-fade">
                 {eyebrow}
                 {showGreekEyebrow && <span className="ml-2">· {site.greekRoot}</span>}
               </div>
             )}
 
-            <h1 className="font-display text-editorial text-bone leading-[0.96] mb-9 lg:mb-12 tracking-tight">
+            <div className="text-olive-glow opacity-90 inline-block relative -mb-8 lg:-mb-12 z-10">
+              <OliveBranchMark size={180} className="lg:!w-[240px] lg:!h-auto" />
+            </div>
+
+            <h1 className="font-display text-editorial text-bone leading-[0.96] mb-9 lg:mb-12 tracking-tight relative">
               {title}
             </h1>
 
             {lede && (
-              <p className="font-serif text-xl lg:text-2xl leading-relaxed text-bone/85 max-w-3xl font-light">
+              <p className="font-serif text-xl lg:text-2xl leading-relaxed text-bone/85 max-w-3xl mx-auto font-light">
                 {lede}
               </p>
             )}
 
             {(primaryCta || secondaryCta) && (
-              <div className="flex flex-col sm:flex-row gap-3.5 mt-12">
+              <div className="flex flex-col sm:flex-row gap-3.5 mt-12 justify-center">
                 {primaryCta && (
                   <Link href={primaryCta.href} className="btn-olive-on-dark">
                     {primaryCta.label} →
@@ -94,7 +106,50 @@ export function Hero({
               </div>
             )}
           </div>
-        </div>
+        ) : (
+          // Default register — side-rail mark, left-aligned headline
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+            <div className="lg:col-span-2 lg:pt-3">
+              <span className="text-olive-glow opacity-70 inline-block">
+                <OliveBranchMark size={36} />
+              </span>
+            </div>
+
+            <div className="lg:col-span-9">
+              {eyebrow && (
+                <div className="font-serif italic text-ochre text-base lg:text-lg mb-5 stagger-fade">
+                  {eyebrow}
+                  {showGreekEyebrow && <span className="ml-2">· {site.greekRoot}</span>}
+                </div>
+              )}
+
+              <h1 className="font-display text-editorial text-bone leading-[0.96] mb-9 lg:mb-12 tracking-tight">
+                {title}
+              </h1>
+
+              {lede && (
+                <p className="font-serif text-xl lg:text-2xl leading-relaxed text-bone/85 max-w-3xl font-light">
+                  {lede}
+                </p>
+              )}
+
+              {(primaryCta || secondaryCta) && (
+                <div className="flex flex-col sm:flex-row gap-3.5 mt-12">
+                  {primaryCta && (
+                    <Link href={primaryCta.href} className="btn-olive-on-dark">
+                      {primaryCta.label} →
+                    </Link>
+                  )}
+                  {secondaryCta && (
+                    <Link href={secondaryCta.href} className="btn-ghost-bone">
+                      {secondaryCta.label}
+                    </Link>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

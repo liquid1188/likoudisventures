@@ -19,7 +19,7 @@ export default function AboutPage() {
   return (
     <>
       <Hero
-        eyebrow={about.hero.eyebrow}
+        crownMark
         title={
           <>
             A family,

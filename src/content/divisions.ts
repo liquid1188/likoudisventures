@@ -184,13 +184,14 @@ export const divisions: Division[] = [
     greekTransliteration: 'Trápeza',
     greekTranslation: 'Table',
     status: 'forthcoming',
-    tagline: 'Wine and pantry, sourced for the table.',
+    tagline: 'Wine and pantry, with origin.',
     shortDescription:
-      'A line of Greek pantry goods: wine and spirits, olives and olive oil, honey and vinegar, with our name on each label.',
+      'A line of pantry goods, mostly Greek, occasionally from upstate New York. Wine, olive oil, olives, honey, vinegar, with our name beside the producer’s.',
     longDescription:
-      "The Table holds the family's line of Greek pantry goods. Wines from named appellations and spirits from traditional distillers, olive oil from single-estate producers, table olives in the Kefaloniote tradition, honey from Greek apiaries, and vinegars rounding out the line. Shelf-stable by design. What travels well and what keeps.\n\nEvery product carries the Likoudis name beside the producer's, and a record of where it came from. We are not blending, not generic-labeling, not selling whatever fills a shelf. We choose slowly, sign together, and ship.",
+      "The Table holds the family's pantry line. Wines from named Greek appellations and from the Finger Lakes country where the family settled three generations ago. Spirits from traditional distillers. Olive oil from single-estate producers. Table olives in the Kefaloniote tradition. Honey from Greek apiaries. Vinegars rounding out the line. Shelf-stable by design. What travels well and what keeps.\n\nEvery product carries the Likoudis name beside the producer's, and a record of where it came from. We are not blending, not generic-labeling, not selling whatever fills a shelf. We source from people we know, in places that raised us, and we put the name down on each label.",
     offerings: [
       'Greek wines: Robola, Assyrtiko, Agiorgitiko',
+      'Finger Lakes wines: Riesling, Cabernet Franc, and others from upstate New York',
       'Spirits: ouzo, tsipouro, mastiha liqueur, Metaxa',
       'Olive oil, single-estate, from Kefalonia and beyond',
       'Olives, table and martini, brined in the Kefaloniote tradition',

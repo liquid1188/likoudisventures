@@ -12,6 +12,7 @@ export default function TheBranchPage() {
   return (
     <>
       <Hero
+        crownMark
         eyebrow="The Branch · Ὁ Κλάδος"
         showGreekEyebrow={false}
         title={
