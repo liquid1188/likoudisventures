@@ -24,7 +24,7 @@ export default function TheBranchPage() {
       />
 
       {/* Signup card — cream ground */}
-      <section className="ground-cream py-24 lg:py-28">
+      <section className="ground-sky py-24 lg:py-28">
         <div className="container-tight">
           <div className="max-w-2xl mx-auto text-center">
             <div className="text-ochre mb-8 flex justify-center">
@@ -45,8 +45,8 @@ export default function TheBranchPage() {
         </div>
       </section>
 
-      {/* What's in it — sky ground, three columns */}
-      <section className="ground-sky py-20 lg:py-24">
+      {/* What's in it — cream ground, three columns */}
+      <section className="ground-cream py-20 lg:py-24">
         <div className="container-tight">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-14">

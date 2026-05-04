@@ -255,7 +255,7 @@ export default function CollectionPage() {
       </section>
 
       {/* Categories — department blocks with sample items */}
-      <section className="ground-bone py-20 lg:py-28 border-t border-olive-glow/20">
+      <section className="ground-sky py-20 lg:py-28 border-t border-olive-glow/20">
         <div className="container-editorial">
           <ScrollReveal>
             <div className="mb-14 lg:mb-20 max-w-3xl">
@@ -301,7 +301,7 @@ export default function CollectionPage() {
                     {cat.samples.map((item) => (
                       <div
                         key={item.name}
-                        className="bg-cream/60 border border-navy/10 p-6 hover:border-sky/40 hover:bg-cream transition-colors"
+                        className="bg-bone border border-navy/10 p-6 hover:border-sky-deep hover:bg-bone transition-colors"
                       >
                         <div className="font-display text-lg text-navy leading-tight mb-2">
                           {item.name}

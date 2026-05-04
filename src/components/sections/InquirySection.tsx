@@ -27,10 +27,10 @@ export function InquirySection({
 }: InquirySectionProps) {
   if (compact) {
     return (
-      <section id="inquiry" className="ground-bone py-28 lg:py-36 relative">
+      <section id="inquiry" className="ground-sky py-28 lg:py-36 relative">
         <div className="container-editorial">
           <ScrollReveal as="div" className="max-w-2xl mx-auto">
-            <div className="bg-cream p-8 lg:p-12 relative editorial-frame text-navy">
+            <div className="bg-bone p-8 lg:p-12 relative editorial-frame text-navy">
               <div className="mb-8 pb-6 border-b border-navy/15">
                 <div className="font-display text-2xl lg:text-3xl text-navy">
                   A note <em className="italic text-ochre-deep">from you</em>

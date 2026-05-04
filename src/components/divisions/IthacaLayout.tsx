@@ -137,7 +137,7 @@ export function IthacaLayout({ division }: LayoutProps) {
       </section>
 
       {/* The Properties — six Airbnb listings in the Canton / Patterson Park neighborhood */}
-      <section className="ground-cream py-24 lg:py-32 border-t border-navy/10">
+      <section className="ground-sky py-24 lg:py-32 border-t border-navy/10">
         <div className="container-editorial">
           <ScrollReveal as="div" className="text-center mb-12 lg:mb-16 max-w-3xl mx-auto">
             <div className="catalog-num text-sm mb-3">The Properties</div>

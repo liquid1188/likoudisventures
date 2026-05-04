@@ -349,7 +349,7 @@ function StudioCard({
 function FeaturedWorkPlaceholder({ caption }: { caption: string }) {
   return (
     <div className="group">
-      <div className="relative aspect-[3/4] bg-cream border border-navy/10 overflow-hidden">
+      <div className="relative aspect-[3/4] bg-sky-light border border-navy/10 overflow-hidden">
         {/* Inner double-rule frame, gallery register */}
         <div className="absolute inset-4 border border-ochre/30" />
         <div className="absolute inset-6 border border-ochre/10" />
@@ -379,7 +379,7 @@ function FeaturedWorkPlaceholder({ caption }: { caption: string }) {
 
         {/* Forthcoming label */}
         <div className="absolute bottom-5 left-0 right-0 text-center">
-          <span className="font-sans text-[10px] uppercase tracking-tag text-ochre-deep/70 bg-cream px-3 py-1">
+          <span className="font-sans text-[10px] uppercase tracking-tag text-ochre-deep/70 bg-sky-light px-3 py-1">
             Forthcoming
           </span>
         </div>
