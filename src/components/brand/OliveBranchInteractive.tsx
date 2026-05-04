@@ -359,7 +359,7 @@ export function OliveBranchInteractive({
               labelTextColor
             )}
           >
-            Hover an olive · six divisions
+            Hover over an olive
           </span>
         </div>
       </div>
