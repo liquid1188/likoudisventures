@@ -20,7 +20,7 @@ export default function TheBranchPage() {
             A monthly note <em className="italic text-sky">from the house</em>.
           </>
         }
-        lede="Once a month, a short letter from the brothers. News from the divisions, one curated recommendation — a wine, a book, a place — and a small note on heritage. Free, no more than once a month, ever."
+        lede="Once a month, a short letter from the five of us. News from the divisions, one curated recommendation — a wine, a book, a place — and a small note on heritage. Free, no more than once a month, ever."
       />
 
       {/* Signup card — cream ground */}
@@ -45,6 +45,22 @@ export default function TheBranchPage() {
         </div>
       </section>
 
+      {/* Issue status — sets expectation about cadence and current state */}
+      <section className="ground-bone py-16 lg:py-20 border-y border-navy/10">
+        <div className="container-tight">
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="catalog-num text-sm mb-4">Status</div>
+            <div className="eyebrow-no-rule text-ochre-deep mb-6 inline-block">Issue 01 · Forthcoming</div>
+            <p className="font-serif text-lg lg:text-xl leading-relaxed text-navy/80">
+              The first issue of <em className="italic">The Branch</em> is in preparation. Subscribe and we will send it the day it ships.
+            </p>
+            <p className="font-serif italic text-base text-navy/55 mt-5">
+              Until then, the form above is the only thing we will ask of you.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* What's in it — cream ground, three columns */}
       <section className="ground-cream py-20 lg:py-24">
         <div className="container-tight">
@@ -62,7 +78,7 @@ export default function TheBranchPage() {
               <BranchColumn
                 num="i."
                 title="A note"
-                body="A few hundred words from the brothers about what is happening in the house. What shipped, what is coming, what was learned."
+                body="A few hundred words from the five of us about what is happening in the house. What shipped, what is coming, what was learned."
               />
               <BranchColumn
                 num="ii."
