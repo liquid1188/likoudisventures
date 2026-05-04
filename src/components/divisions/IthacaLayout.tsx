@@ -340,7 +340,7 @@ export function IthacaLayout({ division }: LayoutProps) {
               >
                 <div className="relative aspect-[4/3] bg-navy/5 overflow-hidden">
                   <img
-                    src="https://a0.muscache.com/im/pictures/miso/Hosting-582871859089019533/original/20868c3e-9c1d-4d8a-b802-411f5dc385f5.jpeg?im_w=720"
+                    src="https://a0.muscache.com/im/pictures/miso/Hosting-582871859089019533/original/f40e4890-b125-43db-bf42-abfe4b992938.jpeg?im_w=720"
                     alt="Relaxing Getaway — finished basement room, walk-out, shared bath"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
