@@ -47,7 +47,7 @@ export const about = {
     body: [
       'We work the way our grandfathers worked. Patiently. With our names on the door.',
       'The six divisions of the house are deliberately varied because the discipline beneath them is not. A website built well, a guest welcomed properly, a drawing finished with care, a jar of olive oil sourced honestly, an icon acquired with a record of where it came from — these are the same act in different mediums.',
-      'We do not sign our names to work we cannot defend. That sentence is the entire philosophy.',
+      'Build the thing well, sign your name to it, and the rest takes care of itself. That sentence is the entire philosophy.',
     ],
   },
 
