@@ -58,7 +58,7 @@ export const divisions: Division[] = [
     shortDescription:
       'Short-term rentals operated to a hotel standard. Currently in Baltimore. Selective expansion along the Mid-Atlantic to follow.',
     longDescription:
-      "Ithaca House is the hospitality division of the house. The name carries two anchors: the Greek island that sits beside our family's Kefalonia in the Ionian chain, and the upstate New York town near where our family settled when they came west.\n\nWe operate short-term rentals to a hotel standard. Careful turnover, considered welcome, properties chosen for character rather than yield. Baltimore today; selective expansion along the Mid-Atlantic to follow.",
+      "Ithaca House is the hospitality division of the house. The name carries two anchors: the Greek island that sits beside our family's Kefalonia in the Ionian chain, and the upstate New York town near where our family settled when they came west.\n\nWe operate short-term rentals to a hotel standard. Careful turnover, considered welcome, properties chosen for character rather than yield. Baltimore today; selective expansion along the Mid-Atlantic to follow. A Morocco property is in early planning, the family's first international addition.",
     offerings: [
       'Short-term rentals in Baltimore',
       'Boutique property management',
