@@ -40,7 +40,7 @@ export const about = {
     body: [
       'The Likoudis family came from Kefalonia, the largest of the Ionian islands. Three generations ago, the family crossed and settled in upstate New York near Ithaca, a city named after its Greek counterpart in the Ionian islands.',
       'The same family still has kin tending olive groves above a fishing village called Kioni on the island of Ithaca. A guesthouse with our family name still stands there, on a hill above the harbor.',
-      'The olive branch on our mark carries five olives, one for each division of the house. The names are in Greek because that is what we came from. The work is here because this is where the family built a life. Ithaca House, the workshop, the studio, the easel, and a pantry that draws from both shores.',
+      'What our kin do on the Greek island, Ithaca House does here. The olive branch on our mark carries five olives, one for each division of the house. The names are in Greek because that is what we came from. The work is here because this is where the family built a life. Ithaca House, the workshop, the studio, the easel, and a pantry that draws from both shores.',
     ],
   },
 
