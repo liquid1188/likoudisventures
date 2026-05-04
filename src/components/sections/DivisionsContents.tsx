@@ -25,7 +25,7 @@ export function DivisionsContents() {
             </div>
             <div className="lg:col-span-7 lg:col-start-6 lg:pt-6">
               <p className="font-serif text-xl lg:text-2xl leading-relaxed text-navy/75 italic">
-                Five siblings, each with their own skills and passions, contributing to one family brand. Caroline hosts and paints. Elena also paints, and designs in web. Andrew builds the web side and curates experiences for guests. Luke and Jake run the wine and pantry, and the workshop where bespoke work begins.
+                Five siblings, each with their own skills and passions, contributing to one family brand. Caroline hosts and paints. Elena also paints, and designs in web. Andrew helps build on the web side and curates experiences for guests. Luke and Jake run the wine and pantry, and the workshop where bespoke work begins.
               </p>
             </div>
           </div>
