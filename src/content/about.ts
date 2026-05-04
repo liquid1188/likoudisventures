@@ -95,7 +95,7 @@ export const about = {
         divisions: ['The Workshop', 'The Table'],
         bio: 'Jake leads operations at The Workshop and handles sourcing for The Table. Operations Specialist 3rd Class Petty Officer in the United States Coast Guard.',
         portrait: '/jake-likoudis.webp',
-        order: 4,
+        order: 5,
       },
       {
         id: 'luke',
@@ -104,7 +104,7 @@ export const about = {
         divisions: ['The Table', 'The Workshop'],
         bio: 'Luke leads operations at The Table and handles sourcing for The Workshop. Operations Specialist 3rd Class Petty Officer in the United States Coast Guard.',
         portrait: '/luke-likoudis.webp',
-        order: 5,
+        order: 4,
       },
     ] satisfies FamilyMember[],
   },

@@ -102,7 +102,7 @@ export function IthacaLayout({ division }: LayoutProps) {
                 {division.notesLinks && division.notesLinks.length > 0 && (
                   <div className="mt-7 pt-6 border-t border-navy/10">
                     <div className="font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep mb-4">
-                      Find them in the Ionian
+                      If you are in Greece
                     </div>
                     <ul className="space-y-3">
                       {division.notesLinks.map((link) => (

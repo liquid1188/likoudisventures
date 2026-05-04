@@ -71,7 +71,7 @@ export const divisions: Division[] = [
     ctaType: 'inquiry',
     themeColor: 'sky',
     notes:
-      'A note on the name. In Kioni, a small village on the north coast of Ithaka, two Likoudis-named guesthouses already welcome travelers: Likoudis Villas, run by Paul and Penelope Likoudis on a hillside above the harbor since 1998, and Likoudis Apartments, a smaller stone-and-wood building nearby. Across the channel in Argostoli, the capital of Kefalonia, Melissa Likoudis is a patisserie selling traditional sweets of the island (mantola, mantolato, pasteli) alongside local wines and honey. We do not operate any of them. We acknowledge them here as kin. If your trip takes you to the Ionian instead of Baltimore, find them.',
+      'A note on the name. In Kioni, a small village on the north coast of Ithaka, two Likoudis-named guesthouses welcome travelers: Likoudis Villas, run by Paul and Penelope Likoudis on a hillside above the harbor since 1998, and Likoudis Apartments, a smaller stone-and-wood building nearby. Across the channel in Argostoli, the capital of Kefalonia, Melissa Likoudis is a patisserie selling traditional sweets of the island (mantola, mantolato, pasteli) alongside local wines and honey. We recommend them if you are in Greece. In Baltimore, we have built our own.',
     notesLinks: [
       {
         label: 'Likoudis Villas',
