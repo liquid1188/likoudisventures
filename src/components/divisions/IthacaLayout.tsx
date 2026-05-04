@@ -77,7 +77,6 @@ export function IthacaLayout({ division }: LayoutProps) {
         <div className="container-editorial">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
             <ScrollReveal as="div" className="lg:col-span-5">
-              <div className="catalog-num text-sm mb-3">§ I.</div>
               <div className="eyebrow text-ochre-deep mb-6">On the name</div>
               <h2 className="font-display text-display-xl text-navy leading-tight">
                 Two anchors, <em className="italic text-ochre-deep">one name</em>.
@@ -377,7 +376,6 @@ export function IthacaLayout({ division }: LayoutProps) {
       <section className="ground-navy py-24 lg:py-32">
         <div className="container-editorial">
           <ScrollReveal as="div" className="text-center mb-16">
-            <div className="catalog-num text-sm mb-3 text-bone/70">§ II.</div>
             <div className="eyebrow text-ochre mb-5 inline-block">What we offer</div>
             <h3 className="font-display text-display-xl text-bone leading-tight max-w-3xl mx-auto">
               Properties chosen for <em className="italic text-sky">character</em>, not yield.
@@ -387,12 +385,10 @@ export function IthacaLayout({ division }: LayoutProps) {
           <div className="max-w-3xl mx-auto">
             <ul className="divide-y divide-bone/15">
               {division.offerings.map((offering, i) => (
-                <ScrollReveal key={i} as="li" delay={i * 60} className="py-6 lg:py-7 grid grid-cols-[40px_1fr_40px] gap-6 items-center">
-                  <span className="catalog-num text-base text-ochre">{String(i + 1).padStart(2, '0')}</span>
+                <ScrollReveal key={i} as="li" delay={i * 60} className="py-6 lg:py-7">
                   <span className="font-serif text-lg lg:text-xl leading-relaxed text-bone/90">
                     {offering}
                   </span>
-                  <span className="text-bone/40 text-right">·</span>
                 </ScrollReveal>
               ))}
             </ul>
@@ -404,7 +400,6 @@ export function IthacaLayout({ division }: LayoutProps) {
       <section className="ground-olive py-24 lg:py-32 relative overflow-hidden">
         <div className="container-editorial relative">
           <ScrollReveal as="div" className="text-center mb-16 lg:mb-20">
-            <div className="catalog-num text-sm mb-3 text-navy/70">§ III.</div>
             <div className="eyebrow text-navy mb-5 inline-block">Experiences</div>
             <h3 className="font-display text-display-xl text-navy leading-tight max-w-3xl mx-auto">
               The stay is the <em className="italic">beginning</em>.
@@ -416,28 +411,24 @@ export function IthacaLayout({ division }: LayoutProps) {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-7 max-w-6xl mx-auto">
             <ExperienceCard
-              number="01"
               title="At the Table"
               kicker="Cooking & food"
               description="Greek dinners hosted in the house, walking tours of the markets, an evening of wine and small plates with notes on what is in front of you."
               delay={0}
             />
             <ExperienceCard
-              number="02"
               title="On the Water"
               kicker="Outdoors"
               description="Kayaking the harbor, sailing arrangements with local captains, slow walks through the neighborhoods nearest the house."
               delay={120}
             />
             <ExperienceCard
-              number="03"
               title="Sacred & Civic"
               kicker="Cultural"
               description="A guided morning at the Baltimore Basilica, sacred-music concerts when the calendar permits, museum and gallery routing tailored to the visit."
               delay={240}
             />
             <ExperienceCard
-              number="04"
               title="The Long Stay"
               kicker="Curated"
               description="Anniversaries, honeymoons, writing weeks, family reunions. Stays prepared in advance — a stocked pantry, a few introductions, a quiet plan you can ignore."
@@ -461,19 +452,17 @@ export function IthacaLayout({ division }: LayoutProps) {
 }
 
 interface ExperienceCardProps {
-  number: string;
   title: string;
   kicker: string;
   description: string;
   delay: number;
 }
 
-function ExperienceCard({ number, title, kicker, description, delay }: ExperienceCardProps) {
+function ExperienceCard({ title, kicker, description, delay }: ExperienceCardProps) {
   return (
     <ScrollReveal delay={delay}>
       <article className="bg-bone/95 p-7 lg:p-8 h-full border-t-[3px] border-t-navy transition-all duration-500 hover:-translate-y-1 hover:bg-bone">
-        <div className="flex items-baseline gap-4 mb-4">
-          <span className="catalog-num text-sm text-ochre-deep">{number}</span>
+        <div className="mb-4">
           <span className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/55">
             {kicker}
           </span>

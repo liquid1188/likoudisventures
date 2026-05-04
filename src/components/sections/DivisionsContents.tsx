@@ -17,7 +17,6 @@ export function DivisionsContents() {
         <ScrollReveal>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16 lg:mb-20">
             <div className="lg:col-span-4">
-              <div className="eyebrow text-ochre-deep mb-5">Contents</div>
               <h2 className="font-display text-display-xl text-navy">
                 The work, <em className="italic text-ochre-deep">plainly</em>
                 <br />
@@ -51,12 +50,9 @@ export function DivisionsContents() {
           ))}
         </div>
 
-        {/* Bottom small note */}
+        {/* Bottom rule */}
         <ScrollReveal>
-          <div className="ornate-divider text-navy mt-2 mb-12" />
-          <p className="text-center font-serif italic text-base lg:text-lg text-navy/55 max-w-2xl mx-auto">
-            Each division opens onto its own subpage. Hover the olive branch above to navigate by image, or read by name below.
-          </p>
+          <div className="ornate-divider text-navy mt-2" />
         </ScrollReveal>
       </div>
     </section>

@@ -93,7 +93,6 @@ export function TableLayout({ division }: LayoutProps) {
         <div className="container-prose max-w-2xl">
           <ScrollReveal>
             <div className="text-center mb-12">
-              <div className="catalog-num text-sm mb-2">§ I.</div>
               <div className="eyebrow-no-rule text-ochre-deep">A note from the kitchen</div>
             </div>
           </ScrollReveal>
@@ -112,7 +111,6 @@ export function TableLayout({ division }: LayoutProps) {
         <div className="container-editorial">
           <ScrollReveal>
             <div className="text-center mb-14">
-              <div className="catalog-num text-sm mb-2">§ II.</div>
               <div className="eyebrow-no-rule text-ochre-deep mb-3">The categories</div>
               <h3 className="font-display text-display-md text-navy max-w-2xl mx-auto leading-tight">
                 Six families of <em className="italic text-ochre-deep">good things</em>.
@@ -137,7 +135,6 @@ export function TableLayout({ division }: LayoutProps) {
       <section className="ground-bone py-20 lg:py-24">
         <div className="container-prose max-w-xl text-center">
           <ScrollReveal>
-            <div className="catalog-num text-sm mb-2">§ III.</div>
             <div className="eyebrow-no-rule text-ochre-deep mb-3">The line</div>
             <h3 className="font-display text-display-md text-navy mb-10">
               What we will <em className="italic text-ochre-deep">be selling</em>.
@@ -161,7 +158,6 @@ export function TableLayout({ division }: LayoutProps) {
               <div className="text-olive-glow mb-6 flex justify-center">
                 <OliveBranchMark size={42} />
               </div>
-              <div className="catalog-num text-sm mb-2 text-bone/70">§ IV.</div>
               <div className="eyebrow text-olive-glow mb-5 inline-block">
                 When the line opens
               </div>

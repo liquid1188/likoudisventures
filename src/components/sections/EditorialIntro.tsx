@@ -13,7 +13,6 @@ export function EditorialIntro() {
         <div className="grid grid-cols-12 gap-6 lg:gap-12">
           {/* Marginalia — left column, runs alongside prose */}
           <ScrollReveal as="div" className="col-span-12 lg:col-span-2 lg:pt-3">
-            <div className="catalog-num text-sm mb-2">§ I.</div>
             <div className="eyebrow-no-rule text-ochre-deep mb-4">A Brief Word</div>
             <p className="marginalia hidden lg:block">
               Posted from the house in Baltimore, on the day this site was first set live.
@@ -35,15 +34,6 @@ export function EditorialIntro() {
               </p>
             </div>
 
-            {/* House mark + signature */}
-            <div className="mt-10 pt-7 border-t border-ochre/30 flex items-center justify-between">
-              <div className="flex items-center gap-4 text-navy/60">
-                <div className="font-serif italic text-base">— The family, Baltimore</div>
-              </div>
-              <div className="font-serif italic text-base text-ochre-deep">
-                ἐκ Κεφαλονιάς
-              </div>
-            </div>
           </ScrollReveal>
 
           {/* Ionian map illustration */}

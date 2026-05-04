@@ -78,7 +78,6 @@ export function EaselLayout({ division }: LayoutProps) {
         <div className="container-editorial">
           <ScrollReveal>
             <div className="text-center mb-14 lg:mb-20">
-              <div className="catalog-num text-sm mb-3">§ I.</div>
               <div className="eyebrow text-ochre-deep mb-3 inline-block">The two studios</div>
               <h2 className="font-display text-display-lg text-navy mt-5 max-w-3xl mx-auto leading-tight">
                 Two sisters, two practices,
@@ -121,7 +120,6 @@ export function EaselLayout({ division }: LayoutProps) {
         <div className="container-prose max-w-2xl">
           <ScrollReveal>
             <div className="text-center mb-12">
-              <div className="catalog-num text-sm mb-2">§ II.</div>
               <div className="eyebrow-no-rule text-ochre-deep">A note on the division</div>
             </div>
           </ScrollReveal>
@@ -156,7 +154,6 @@ export function EaselLayout({ division }: LayoutProps) {
       <section className="ground-bone py-20 lg:py-24">
         <div className="container-prose max-w-xl text-center">
           <ScrollReveal>
-            <div className="catalog-num text-sm mb-2">§ III.</div>
             <div className="eyebrow-no-rule text-ochre-deep mb-3">Available work</div>
             <h3 className="font-display text-display-md text-navy mb-10">
               How to <em className="italic text-ochre-deep">acquire</em>.

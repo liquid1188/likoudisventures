@@ -30,7 +30,6 @@ export default function AboutPage() {
           </>
         }
         lede={about.hero.lede}
-        sectionNumber="§ I"
       />
 
       {/* Origin section */}
@@ -38,7 +37,6 @@ export default function AboutPage() {
         <div className="container-editorial">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 max-w-5xl mx-auto">
             <ScrollReveal as="div" className="lg:col-span-3">
-              <div className="catalog-num text-sm mb-3">§ II.</div>
               <div className="eyebrow text-ochre-deep mb-5">Origin</div>
             </ScrollReveal>
             <ScrollReveal as="div" delay={150} className="lg:col-span-9">
@@ -74,7 +72,6 @@ export default function AboutPage() {
               <div className="text-olive-glow mb-8 flex justify-center">
                 <OliveBranchMark size={50} />
               </div>
-              <div className="catalog-num text-sm mb-2">§ III.</div>
               <div className="eyebrow text-olive-glow mb-7 inline-block">
                 {about.philosophy.heading}
               </div>
@@ -99,7 +96,6 @@ export default function AboutPage() {
         <div className="container-editorial">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 mb-14 lg:mb-20">
             <ScrollReveal as="div" className="lg:col-span-5">
-              <div className="catalog-num text-sm mb-3">§ IV.</div>
               <div className="eyebrow text-ochre-deep mb-5">The Board</div>
               <h2 className="font-display text-display-xl text-navy leading-tight">
                 {about.family.heading}

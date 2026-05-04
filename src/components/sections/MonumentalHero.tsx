@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { OliveBranchInteractive } from '@/components/brand/OliveBranchInteractive';
 import { WordReveal } from '@/components/ui/WordReveal';
-import { site } from '@/content/site';
 
 /**
  * The new homepage hero.
@@ -37,22 +36,8 @@ export function MonumentalHero() {
         }}
       />
 
-      {/* Top catalog header */}
-      <div className="container-tight relative z-10 pt-32 lg:pt-36 pb-4">
-        <div className="flex justify-between items-start text-bone/60 font-sans text-[10px] uppercase tracking-eyebrow">
-          <div>
-            <div>Likoudis Ventures</div>
-            <div className="mt-1 text-bone/40">Baltimore</div>
-          </div>
-          <div className="text-right">
-            <div>Est. 2026</div>
-            <div className="mt-1 text-bone/40">Family-Held Holding Company</div>
-          </div>
-        </div>
-      </div>
-
       {/* Center stage — headline + branch */}
-      <div className="container-tight relative z-10 flex-1 flex flex-col justify-center pb-20 lg:pb-24">
+      <div className="container-tight relative z-10 flex-1 flex flex-col justify-center pt-32 lg:pt-36 pb-20 lg:pb-24">
         {/* Monumental headline */}
         <h1 className="text-center font-display text-monumental text-bone leading-none mb-12 lg:mb-16 mt-8 lg:mt-12">
           <span className="block">
@@ -86,12 +71,6 @@ export function MonumentalHero() {
         </div>
       </div>
 
-      {/* Bottom rule */}
-      <div className="container-tight relative z-10 pb-6 lg:pb-8">
-        <div className="border-t border-bone/10 pt-5 text-bone/40 font-sans text-[10px] uppercase tracking-eyebrow">
-          ↓ The work follows
-        </div>
-      </div>
     </section>
   );
 }

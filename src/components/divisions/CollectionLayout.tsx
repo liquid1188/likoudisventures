@@ -86,8 +86,6 @@ export function CollectionLayout({ division }: LayoutProps) {
         <div className="container-editorial">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
             <ScrollReveal as="div" className="lg:col-span-3">
-              <div className="catalog-num text-sm mb-3">Lot 0</div>
-              <div className="eyebrow text-ochre-deep mb-5">Curatorial Note</div>
               <p className="marginalia">
                 The family name on the division is intentional. Galleries and collections trade on the curator's name. Ours is now visible on the most discriminating part of the house.
               </p>
@@ -107,8 +105,6 @@ export function CollectionLayout({ division }: LayoutProps) {
       <section className="ground-bone py-24 lg:py-32 border-t border-navy/15">
         <div className="container-editorial">
           <ScrollReveal as="div" className="text-center mb-16">
-            <div className="catalog-num text-sm mb-3">The Catalogue</div>
-            <div className="eyebrow text-ochre-deep mb-5 inline-block">Categories within</div>
             <h2 className="font-display text-display-xl text-navy leading-tight">
               What the Collection <em className="italic text-ochre-deep">will hold</em>.
             </h2>
@@ -120,7 +116,7 @@ export function CollectionLayout({ division }: LayoutProps) {
           <div className="max-w-4xl mx-auto">
             {division.offerings.map((offering, i) => (
               <ScrollReveal key={i} as="div" delay={i * 60}>
-                <CatalogLot number={i + 1} description={offering} />
+                <CatalogLot description={offering} />
               </ScrollReveal>
             ))}
           </div>
@@ -141,8 +137,6 @@ export function CollectionLayout({ division }: LayoutProps) {
         <div className="container-editorial">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 max-w-5xl mx-auto items-start">
             <div>
-              <div className="catalog-num text-sm text-bone/70 mb-3">Forthcoming</div>
-              <div className="eyebrow text-ochre mb-5">Catalogue One</div>
               <h2 className="font-display text-display-xl text-bone mb-7 leading-tight">
                 The first catalogue is <em className="italic text-sky">in preparation</em>.
               </h2>
@@ -159,22 +153,14 @@ export function CollectionLayout({ division }: LayoutProps) {
 }
 
 interface CatalogLotProps {
-  number: number;
   description: string;
 }
 
-function CatalogLot({ number, description }: CatalogLotProps) {
+function CatalogLot({ description }: CatalogLotProps) {
   return (
     <div className="grid grid-cols-12 gap-4 lg:gap-8 py-6 lg:py-7 border-b border-navy/15 last:border-b-0 group hover:bg-cream/50 transition-colors">
-      <div className="col-span-2 lg:col-span-1">
-        <div className="catalog-num text-base lg:text-lg">
-          {String(number).padStart(2, '0')}.
-        </div>
-      </div>
-      <div className="col-span-10 lg:col-span-9">
-        <div className="font-serif text-lg lg:text-xl text-navy leading-relaxed">
-          {description}
-        </div>
+      <div className="col-span-12 lg:col-span-10 font-serif text-lg lg:text-xl text-navy leading-relaxed">
+        {description}
       </div>
       <div className="col-span-12 lg:col-span-2 lg:text-right flex lg:justify-end items-baseline">
         <span className="font-sans text-[9px] uppercase tracking-tag text-ochre-deep">

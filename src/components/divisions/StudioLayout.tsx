@@ -91,7 +91,6 @@ export function StudioLayout({ division }: LayoutProps) {
           <div className="grid grid-cols-12 gap-6 lg:gap-12">
             {/* Marginalia column */}
             <ScrollReveal as="div" className="col-span-12 lg:col-span-3 lg:pt-4">
-              <div className="catalog-num text-sm mb-2">§ I.</div>
               <div className="eyebrow-no-rule text-ochre-deep mb-4">The Work</div>
               <p className="marginalia hidden lg:block">
                 Lickity Split Web Design is the productized line of {division.name}. Custom builds, bespoke and well-tuned, hosted under your own ownership.
@@ -125,7 +124,6 @@ export function StudioLayout({ division }: LayoutProps) {
           {/* Offerings — numbered list, magazine feel */}
           <div className="grid grid-cols-12 gap-6 lg:gap-12">
             <ScrollReveal as="div" className="col-span-12 lg:col-span-3">
-              <div className="catalog-num text-sm mb-2">§ II.</div>
               <div className="eyebrow-no-rule text-ochre-deep mb-4">In Particulars</div>
               <h3 className="font-display text-display-md text-navy">
                 What we offer.
@@ -134,8 +132,7 @@ export function StudioLayout({ division }: LayoutProps) {
             <div className="col-span-12 lg:col-span-7 lg:col-start-5">
               <ul className="divide-y divide-navy/15">
                 {division.offerings.map((offering, i) => (
-                  <ScrollReveal key={i} as="li" delay={i * 60} className="py-5 lg:py-6 grid grid-cols-[40px_1fr] gap-6 items-baseline">
-                    <span className="catalog-num text-base">{String(i + 1).padStart(2, '0')}</span>
+                  <ScrollReveal key={i} as="li" delay={i * 60} className="py-5 lg:py-6">
                     <span className="font-serif text-lg lg:text-xl leading-relaxed text-navy/90">
                       {offering}
                     </span>
@@ -152,7 +149,6 @@ export function StudioLayout({ division }: LayoutProps) {
         <div className="container-editorial">
           <div className="grid grid-cols-12 gap-6 lg:gap-12 mb-12 lg:mb-16">
             <ScrollReveal as="div" className="col-span-12 lg:col-span-3">
-              <div className="catalog-num text-sm mb-2">§ III.</div>
               <div className="eyebrow-no-rule text-ochre-deep mb-4">Lickity Split</div>
               <h3 className="font-display text-display-md text-navy leading-[1.05]">
                 Productized<br/>web design.
@@ -293,7 +289,6 @@ export function StudioLayout({ division }: LayoutProps) {
         <div className="container-editorial">
           <div className="grid grid-cols-12 gap-6 lg:gap-12 mb-12 lg:mb-16">
             <ScrollReveal as="div" className="col-span-12 lg:col-span-3">
-              <div className="catalog-num text-sm mb-2">§ IV.</div>
               <div className="eyebrow-no-rule text-ochre-deep mb-4">Recent Work</div>
               <h3 className="font-display text-display-md text-navy leading-[1.05]">
                 Three live<br/>sites.

@@ -26,7 +26,6 @@ interface Department {
   /** Greek heading, matching the divisions vocabulary */
   greek: string;
   /** Catalog letter (Roman numeral by department) */
-  number: string;
   /** Short prose description of what's in the department */
   description: string;
   /** Status: 'live' if something can be bought now, 'forthcoming' if not */
@@ -41,7 +40,6 @@ const departments: Department[] = [
   {
     name: 'Design Packages',
     greek: 'Στούντιο',
-    number: 'I',
     description:
       'Hand-built websites and brand work from The Studio. Three set packages plus bespoke. Andrew and Elena run all delivery.',
     status: 'forthcoming',
@@ -59,7 +57,6 @@ const departments: Department[] = [
   {
     name: 'Original Art',
     greek: 'Καβαλέτο',
-    number: 'II',
     description:
       'Paintings, prints, and commissions from the two studios under The Easel. Caroline sells through Brush & Soul Studio. Elena sells through Elena Likoudis Art.',
     status: 'live',
@@ -78,7 +75,6 @@ const departments: Department[] = [
   {
     name: 'Greek Pantry',
     greek: 'Τράπεζα',
-    number: 'III',
     description:
       'Greek wines from named appellations and traditional spirits, alongside single-estate olive oil, table olives, honey, vinegar, and pantry staples — all carrying our name beside the producer’s. Launching with the line in time; sign up to be told first.',
     status: 'forthcoming',
@@ -98,7 +94,6 @@ const departments: Department[] = [
   {
     name: 'Curated Objects',
     greek: 'Ἡ Συλλογή',
-    number: 'IV',
     description:
       'Hand-painted Byzantine icons, Greek ceramics, olive-wood pieces, textiles, and select vintage items from The Likoudis Collection. By appointment as the catalog comes online.',
     status: 'forthcoming',
@@ -118,7 +113,6 @@ const departments: Department[] = [
   {
     name: 'Bespoke Commissions',
     greek: 'Ἐργαστήριον',
-    number: 'V',
     description:
       'Custom and bespoke pieces from The Workshop — by appointment. Luke and Jake handle scoping, sourcing, and delivery for high-ticket and one-of-one work.',
     status: 'live',
@@ -135,7 +129,6 @@ const departments: Department[] = [
   {
     name: 'Stays at Ithaca House',
     greek: 'Ἰθάκη',
-    number: 'VI',
     description:
       'Short-term rentals operated to a hotel standard. Currently Baltimore. Booking is direct; the page below has the calendar and rates.',
     status: 'live',
@@ -188,7 +181,6 @@ export default function ShopPage() {
           </>
         }
         text="We take requests. If a piece, a package, or a category isn't here yet, write — we may be working on it, or we may be willing to."
-        sectionMarker="§ Closing"
       />
     </>
   );
@@ -201,11 +193,10 @@ interface DepartmentRowProps {
 function DepartmentRow({ dept }: DepartmentRowProps) {
   return (
     <article className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 py-12 lg:py-14">
-      {/* Left: number + status + greek + olive icon */}
+      {/* Left: olive + status + greek */}
       <div className="lg:col-span-3">
-        <div className="flex items-center gap-3 mb-5">
+        <div className="mb-5">
           <OliveBranchMark size={32} className="text-olive-deep" />
-          <div className="catalog-num text-base">{dept.number}.</div>
         </div>
         <div className="font-serif italic text-ochre-deep text-base mb-3">
           {dept.greek}

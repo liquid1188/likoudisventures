@@ -17,8 +17,6 @@ export const site = {
   url: 'https://likoudisventures.com',
   email: 'hello@likoudisventures.com',
 
-  topRule: 'A Family-Held House of Enterprises · Baltimore',
-
   // The line that appears once on the About page tying Ithaca NY to Ithaca, Greece
   ithacaNote:
     'Named for both the island that called our family home and the town that raised the next generation.',
@@ -27,7 +25,6 @@ export const site = {
 export const nav = {
   primary: [
     { label: 'Divisions', href: '/#divisions' },
-    { label: 'Shop', href: '/shop' },
     { label: 'About', href: '/about' },
     { label: 'The Branch', href: '/the-branch' },
     { label: 'Contact', href: '/contact' },
@@ -52,7 +49,6 @@ export const footer = {
       heading: 'The House',
       links: [
         { label: 'About', href: '/about' },
-        { label: 'Shop', href: '/shop' },
         { label: 'The Branch', href: '/the-branch' },
       ],
     },

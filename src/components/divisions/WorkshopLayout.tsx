@@ -78,7 +78,6 @@ export function WorkshopLayout({ division }: LayoutProps) {
         <div className="container-prose max-w-2xl">
           <ScrollReveal>
             <div className="text-center mb-12">
-              <div className="catalog-num text-sm mb-2">§ I.</div>
               <div className="eyebrow-no-rule text-ochre-deep">On the Work</div>
             </div>
           </ScrollReveal>
@@ -105,7 +104,6 @@ export function WorkshopLayout({ division }: LayoutProps) {
           {/* Offerings — list with traditional bullets (·) */}
           <ScrollReveal>
             <div className="text-center mb-10">
-              <div className="catalog-num text-sm mb-2">§ II.</div>
               <div className="eyebrow-no-rule text-ochre-deep mb-3">Among the work</div>
               <h3 className="font-display text-display-md text-navy">
                 What may be commissioned.
