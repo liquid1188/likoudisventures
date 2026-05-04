@@ -296,6 +296,107 @@ export function WorkshopLayout({ division }: LayoutProps) {
         </div>
       </section>
 
+      {/* Prior Engagements — three case studies framed honestly as work that predates
+          the Workshop's 2026 formation. These are institutional experiences that
+          inform the practice, not Workshop client engagements. */}
+      <section className="ground-navy py-24 lg:py-32 border-t border-navy/15">
+        <div className="container-editorial">
+          <ScrollReveal as="div" className="text-center max-w-3xl mx-auto mb-14 lg:mb-20">
+            <div className="catalog-num text-sm mb-3 text-ochre-deep">Prior Engagements</div>
+            <div className="eyebrow-no-rule text-ochre mb-5 inline-block">Institutional Experience</div>
+            <h3 className="font-display text-display-xl text-bone leading-tight">
+              Work that <em className="italic text-ochre">informs</em> the practice.
+            </h3>
+            <p className="font-serif italic text-lg lg:text-xl text-bone/65 mt-6 leading-relaxed">
+              The Workshop is new. The work behind it is not. A few of the engagements that shaped the way we approach a brief.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+            <ScrollReveal as="div" delay={0}>
+              <article className="bg-navy-deep/60 ring-1 ring-bone/10 p-7 lg:p-8 h-full flex flex-col">
+                <div className="font-sans text-[10px] uppercase tracking-eyebrow text-olive-glow mb-3">
+                  Case I · 2022
+                </div>
+                <h4 className="font-display text-xl lg:text-2xl text-bone leading-tight mb-3">
+                  Procurement Accessibility for a Bloomberg-Backed Workforce Initiative
+                </h4>
+                <div className="font-serif italic text-sm text-bone/55 mb-5">
+                  Johns Hopkins University, in collaboration with Julep Consulting and Bloomberg Philanthropies
+                </div>
+                <p className="font-serif text-[15px] lg:text-base text-bone/80 leading-relaxed mb-5 flex-grow">
+                  Independent research on how university procurement processes could be made more accessible to small businesses, conducted as part of the OneStop initiative. Multi-stakeholder partnership across Hopkins, Goldman Sachs 10KSB, Baltimore City, and Baltimore Corps. Andrew compiled findings in a research workbook and drafted a policy memo with observations and recommendations. The memo opened a presentation to Bloomberg Philanthropies leadership in July 2022.
+                </p>
+                <div className="pt-4 border-t border-bone/15">
+                  <div className="font-sans text-[10px] uppercase tracking-caps text-olive-glow/80">
+                    Role
+                  </div>
+                  <div className="font-serif text-sm text-bone/85 mt-1.5 leading-snug">
+                    Fellow, Economic Development · Johns Hopkins University
+                  </div>
+                </div>
+              </article>
+            </ScrollReveal>
+
+            <ScrollReveal as="div" delay={120}>
+              <article className="bg-navy-deep/60 ring-1 ring-bone/10 p-7 lg:p-8 h-full flex flex-col">
+                <div className="font-sans text-[10px] uppercase tracking-eyebrow text-olive-glow mb-3">
+                  Case II · 2022
+                </div>
+                <h4 className="font-display text-xl lg:text-2xl text-bone leading-tight mb-3">
+                  Federal Contracting Pipeline Support for a Government Contracting Firm
+                </h4>
+                <div className="font-serif italic text-sm text-bone/55 mb-5">
+                  TargetGov, via Goldman Sachs 10,000 Small Businesses
+                </div>
+                <p className="font-serif text-[15px] lg:text-base text-bone/80 leading-relaxed mb-5 flex-grow">
+                  Marketing and business development support for a firm specializing in federal procurement. Andrew expanded the client and contracting databases, conducted procurement research across federal opportunities, and supported pipeline outreach. Tooling included Mailchimp, Salesforce, and Basecamp. The work was scoped and reviewed under the GS 10,000 Small Businesses fellowship structure.
+                </p>
+                <div className="pt-4 border-t border-bone/15">
+                  <div className="font-sans text-[10px] uppercase tracking-caps text-olive-glow/80">
+                    Role
+                  </div>
+                  <div className="font-serif text-sm text-bone/85 mt-1.5 leading-snug">
+                    Fellow, Marketing Development · Goldman Sachs 10,000 Small Businesses
+                  </div>
+                </div>
+              </article>
+            </ScrollReveal>
+
+            <ScrollReveal as="div" delay={240}>
+              <article className="bg-navy-deep/60 ring-1 ring-bone/10 p-7 lg:p-8 h-full flex flex-col">
+                <div className="font-sans text-[10px] uppercase tracking-eyebrow text-olive-glow mb-3">
+                  Case III · 2023
+                </div>
+                <h4 className="font-display text-xl lg:text-2xl text-bone leading-tight mb-3">
+                  Donor Engagement and Operations for a $5M Capital Campaign
+                </h4>
+                <div className="font-serif italic text-sm text-bone/55 mb-5">
+                  Cathedral of Mary Our Queen, Archdiocese of Baltimore
+                </div>
+                <p className="font-serif text-[15px] lg:text-base text-bone/80 leading-relaxed mb-5 flex-grow">
+                  Development and operational support for a $5M capital campaign. Communications, donation tracking, grant writing, compliance, and database management across the campaign lifecycle. Steady-state operational discipline at the scale a parish capital campaign demands, with patron stewardship as the through-line. The Cathedral is the seat of the Archdiocese of Baltimore.
+                </p>
+                <div className="pt-4 border-t border-bone/15">
+                  <div className="font-sans text-[10px] uppercase tracking-caps text-olive-glow/80">
+                    Role
+                  </div>
+                  <div className="font-serif text-sm text-bone/85 mt-1.5 leading-snug">
+                    Development Administrative Assistant · Cathedral of Mary Our Queen
+                  </div>
+                </div>
+              </article>
+            </ScrollReveal>
+          </div>
+
+          <ScrollReveal>
+            <p className="font-serif italic text-base text-bone/55 mt-14 lg:mt-16 text-center max-w-2xl mx-auto leading-relaxed">
+              These engagements were undertaken as a fellow or staff member at the named institutions, prior to the formation of Likoudis Ventures in 2026. They are noted here as institutional experience that informs Strategic Advisory work today.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* Testimonial — Rick Little, Julep Consulting (advisory work) */}
       <section className="ground-bone py-20 lg:py-28 border-t border-navy/10">
         <div className="container-editorial max-w-3xl">
