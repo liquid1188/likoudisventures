@@ -9,7 +9,7 @@ export const site = {
   dba: 'Likoudis Ventures',
   tagline: 'A house of considered enterprises.',
   description:
-    'A family business in Baltimore. Five siblings working under one name across hospitality, services and advisory, web design, original art, and a pantry that draws from both shores.',
+    'A family business in Baltimore. Five siblings working under one name across hospitality, services and advisory, web design, original art, and a pantry from the Ionian islands and the Finger Lakes.',
   founded: 2026,
   seat: 'Baltimore',
   greekRoot: 'Κεφαλονιά',
