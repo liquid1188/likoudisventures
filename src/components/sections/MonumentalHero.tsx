@@ -42,26 +42,19 @@ export function MonumentalHero() {
         <div className="flex justify-between items-start text-bone/60 font-sans text-[10px] uppercase tracking-eyebrow">
           <div>
             <div>Likoudis Ventures</div>
-            <div className="mt-1 text-bone/40">Κεφαλονιά · Baltimore</div>
+            <div className="mt-1 text-bone/40">Baltimore</div>
           </div>
           <div className="text-right">
             <div>Est. 2026</div>
-            <div className="mt-1 text-bone/40">A Family-Held House</div>
+            <div className="mt-1 text-bone/40">Family-Held Holding Company</div>
           </div>
         </div>
       </div>
 
       {/* Center stage — headline + branch */}
       <div className="container-tight relative z-10 flex-1 flex flex-col justify-center pb-20 lg:pb-24">
-        {/* Section eyebrow */}
-        <div className="text-center mb-8 lg:mb-12 stagger-fade">
-          <div className="font-serif italic text-ochre text-base lg:text-lg mb-3">
-            Likoudis Ventures, est. 2026
-          </div>
-        </div>
-
         {/* Monumental headline */}
-        <h1 className="text-center font-display text-monumental text-bone leading-none mb-12 lg:mb-16">
+        <h1 className="text-center font-display text-monumental text-bone leading-none mb-12 lg:mb-16 mt-8 lg:mt-12">
           <span className="block">
             <WordReveal text="A house of considered" italicMatch="considered" staggerMs={90} />
           </span>
@@ -95,11 +88,8 @@ export function MonumentalHero() {
 
       {/* Bottom rule */}
       <div className="container-tight relative z-10 pb-6 lg:pb-8">
-        <div className="flex justify-between items-center text-bone/40 font-sans text-[10px] uppercase tracking-eyebrow border-t border-bone/10 pt-5">
-          <div>↓ The work follows</div>
-          <div className="text-right">
-            ἐκ Κεφαλονιάς · 2026
-          </div>
+        <div className="border-t border-bone/10 pt-5 text-bone/40 font-sans text-[10px] uppercase tracking-eyebrow">
+          ↓ The work follows
         </div>
       </div>
     </section>

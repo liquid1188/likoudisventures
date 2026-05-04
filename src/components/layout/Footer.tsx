@@ -60,13 +60,10 @@ export function Footer() {
       {/* Bottom rule */}
       <div className="border-t border-bone/10 relative z-10">
         <div className="container-tight py-7 lg:py-8">
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 text-[12px] tracking-tight text-bone/45">
+          <div className="text-[12px] tracking-tight text-bone/45">
             <div className="font-serif italic">
               © {year} {site.legalEntity}, doing business as {site.dba}.
               <span className="text-ochre ml-2 not-italic">{site.greekRootClassical}</span>
-            </div>
-            <div className="font-sans text-[10px] uppercase tracking-eyebrow">
-              {site.separationDisclaimer}
             </div>
           </div>
         </div>

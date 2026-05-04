@@ -39,7 +39,7 @@ export function NotifyForm({ divisionName, divisionSlug }: NotifyFormProps) {
 
   if (status === 'success') {
     return (
-      <div className="bg-cream p-8 lg:p-10 max-w-xl">
+      <div className="bg-cream p-8 lg:p-10 max-w-xl mx-auto text-left">
         <p className="font-serif text-2xl text-navy leading-tight mb-3">Thank you.</p>
         <p className="font-serif italic text-base text-navy/75">{message}</p>
       </div>
@@ -47,7 +47,7 @@ export function NotifyForm({ divisionName, divisionSlug }: NotifyFormProps) {
   }
 
   return (
-    <div className="bg-cream p-8 lg:p-10 max-w-xl">
+    <div className="bg-cream p-8 lg:p-10 max-w-xl mx-auto text-left">
       <h3 className="font-serif text-2xl text-navy mb-3 leading-tight">
         Be the first to know.
       </h3>

@@ -122,28 +122,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* Separation note */}
-      <section className="ground-navy py-20 lg:py-28">
-        <div className="container-editorial">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 max-w-5xl mx-auto">
-            <ScrollReveal as="div" className="lg:col-span-3">
-              <div className="catalog-num text-sm text-bone/70 mb-3">§ V.</div>
-              <div className="eyebrow text-olive-glow mb-5 inline-block">
-                A Separation
-              </div>
-            </ScrollReveal>
-            <ScrollReveal as="div" delay={150} className="lg:col-span-9">
-              <h3 className="font-display text-display-lg text-bone mb-7 leading-tight">
-                {about.separation.heading}
-              </h3>
-              <p className="font-serif text-lg lg:text-xl leading-[1.6] text-bone/85">
-                {about.separation.body}
-              </p>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

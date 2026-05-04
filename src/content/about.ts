@@ -106,11 +106,6 @@ export const about = {
       },
     ] satisfies FamilyMember[],
   },
-
-  separation: {
-    heading: 'A note on the Foundation.',
-    body: 'The Likoudis Legacy Foundation is a separate 501(c)(3) Catholic ecumenical research institute, established in 2024 in memory of James Likoudis (1928–2024). The Foundation and Likoudis Ventures share a family but no commercial activity, board, or financial flow. Each operates under its own governance, its own donors or customers, and its own books.',
-  },
 };
 
 /**

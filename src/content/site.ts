@@ -11,21 +11,17 @@ export const site = {
   description:
     'A family business in Baltimore. Three brothers and two sisters working under one name across web design, hospitality, art, custom commissions, Greek wine and pantry goods, and curated objects.',
   founded: 2026,
-  seat: 'Canton · Baltimore',
+  seat: 'Baltimore',
   greekRoot: 'Κεφαλονιά',
   greekRootClassical: 'ἐκ Κεφαλονιάς',
   url: 'https://likoudisventures.com',
   email: 'hello@likoudisventures.com',
 
-  topRule: 'A Family-Held House of Enterprises · Canton, Baltimore',
+  topRule: 'A Family-Held House of Enterprises · Baltimore',
 
   // The line that appears once on the About page tying Ithaca NY to Ithaca, Greece
   ithacaNote:
     'Named for both the island that called our family home and the town that raised the next generation.',
-
-  // Family separation language (legal)
-  separationDisclaimer:
-    'A separate enterprise from the Likoudis Legacy Foundation.',
 } as const;
 
 export const nav = {
@@ -58,8 +54,6 @@ export const footer = {
         { label: 'About', href: '/about' },
         { label: 'Shop', href: '/shop' },
         { label: 'The Branch', href: '/the-branch' },
-        { label: 'The Foundation', href: '/the-foundation' },
-        { label: 'Press & Inquiry', href: '/contact' },
       ],
     },
     {
