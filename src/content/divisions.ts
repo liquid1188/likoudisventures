@@ -1,6 +1,18 @@
 /**
- * The six divisions of Likoudis Ventures.
+ * The five divisions of Likoudis Ventures.
  * Each division has its own subpage at /divisions/[slug].
+ *
+ * Array order is meaningful: this is the order olives appear left-to-right
+ * on the homepage interactive olive branch and the order divisions list
+ * on the homepage. The middle division (index 2) sits at the apex of the
+ * branch as the centerpiece olive.
+ *
+ * Order:
+ *   0. Ithaca House  — far left (the family seat)
+ *   1. The Workshop  — left
+ *   2. The Studio    — centerpiece
+ *   3. The Easel     — right
+ *   4. The Table     — far right (the line we send out)
  *
  * To add or modify a division: edit this file. The site rebuilds automatically.
  */
@@ -10,7 +22,7 @@ export type FamilyMemberId = 'andrew' | 'caroline' | 'elena' | 'luke' | 'jake';
 
 export interface DivisionLead {
   id: FamilyMemberId;
-  /** Domain-specific role within this division, e.g., "Operational Director", "Creative Director", "Hospitality Director", "Lead Artist". */
+  /** Domain-specific role within this division, e.g., "Operational Director", "Director of Hospitality", "Lead Designer". */
   role: string;
 }
 
@@ -21,77 +33,20 @@ export interface Division {
   greekTransliteration: string;
   greekTranslation: string;
   status: DivisionStatus;
-  tagline: string; // One-line summary, used in cards
-  shortDescription: string; // 1-2 sentences, used on homepage division card hover
-  longDescription: string; // 2-3 paragraph description for subpage hero
-  offerings: string[]; // Bullet list of what this division offers
-  ctaLabel: string; // "Begin a Project", "Inquire", "Notify Me", etc.
-  ctaType: 'inquiry' | 'notify'; // Determines which form appears on subpage
-  themeColor: 'navy' | 'olive' | 'sky' | 'ochre'; // Top border color on cards
-  notes?: string; // Optional special notes for the subpage (e.g., partnership disclosure)
-  /** Optional external references to surface alongside the note (e.g., kin properties, partner orgs) */
+  tagline: string;
+  shortDescription: string;
+  longDescription: string;
+  offerings: string[];
+  ctaLabel: string;
+  ctaType: 'inquiry' | 'notify';
+  themeColor: 'navy' | 'olive' | 'sky' | 'ochre';
+  notes?: string;
   notesLinks?: Array<{ label: string; href: string; descriptor?: string }>;
   /** Family members who lead this division. Each carries a domain-specific role for this division only. */
   leads: DivisionLead[];
 }
 
 export const divisions: Division[] = [
-  {
-    slug: 'the-studio',
-    name: 'The Studio',
-    greek: 'Στούντιο',
-    greekTransliteration: 'Stoúntio',
-    greekTranslation: 'Studio',
-    status: 'active',
-    tagline: 'Web design, photography, and content creation.',
-    shortDescription:
-      'Web design, photography, and content creation for businesses that have outgrown the template economy.',
-    longDescription:
-      "The Studio is the digital and visual practice of the house. Three disciplines under one roof: web design and build, photography for editorial and brand use, and content creation — writing, design systems, identity work, and the small craft of making a brand sound like a person.\n\nWebsites are built to be owned outright by the client. No subscriptions, no platforms held hostage, no recurring license fees. Performance-tested, accessible, and yours.",
-    offerings: [
-      'Custom websites — full design and build, owned outright by the client',
-      'Photography — editorial, product, and brand portraiture',
-      'Content creation — writing, editorial design, and visual systems',
-      'Brand identity, logo design, and design systems',
-      'Site rebuilds and migrations from page-builder platforms',
-      'Newsletter and Substack design',
-      'Ongoing maintenance and hosting (optional)',
-    ],
-    ctaLabel: 'Begin a Project',
-    ctaType: 'inquiry',
-    themeColor: 'navy',
-    leads: [
-      { id: 'andrew', role: 'Operational Director' },
-      { id: 'elena', role: 'Creative Director' },
-    ],
-  },
-  {
-    slug: 'the-workshop',
-    name: 'The Workshop',
-    greek: 'Ἐργαστήριον',
-    greekTransliteration: 'Ergastírion',
-    greekTranslation: 'Workshop',
-    status: 'active',
-    tagline: 'Services, advisory, and custom commissions.',
-    shortDescription:
-      'For projects that do not fit a standard package. By appointment, by referral, by careful conversation.',
-    longDescription:
-      "The Workshop is the family's services arm. Advisory engagements, brokerage and sourcing work, custom curation, bespoke commissions — anything that calls for a longer conversation than a standard service form can support.\n\nThis is the division that begins with a phone call rather than a price list. We work with a small number of clients at a time, on projects that warrant the attention.",
-    offerings: [
-      'Strategic advisory and consulting engagements',
-      'Brokerage services — sourcing specific items on a client\'s behalf',
-      'Bespoke curation projects (private libraries, art acquisitions, gift sourcing)',
-      'Custom-built solutions outside the standard division offerings',
-      'One-off projects, by appointment',
-    ],
-    ctaLabel: 'Open a Conversation',
-    ctaType: 'inquiry',
-    themeColor: 'olive',
-    leads: [
-      { id: 'luke', role: 'Operational Director' },
-      { id: 'jake', role: 'Sourcing & Logistics Director' },
-    ],
-  },
   {
     slug: 'ithaca-house',
     name: 'Ithaca House',
@@ -101,14 +56,14 @@ export const divisions: Division[] = [
     status: 'active',
     tagline: 'Hospitality and stays, kept to a hotel standard.',
     shortDescription:
-      'Short-term rentals operated to a hotel standard. Currently in Baltimore; expanding selectively along the Mid-Atlantic.',
+      'Short-term rentals operated to a hotel standard. Currently in Baltimore. Selective expansion along the Mid-Atlantic to follow.',
     longDescription:
-      "Ithaca House is the hospitality division of the house. The name carries two anchors: the Greek island that sits beside our family's Kefalonia in the Ionian chain, and the upstate New York town near where our family settled when they came west.\n\nWe operate short-term rentals to a hotel standard — careful turnover, considered welcome, properties chosen for character rather than yield. Baltimore today; selective expansion along the Mid-Atlantic to follow.",
+      "Ithaca House is the hospitality division of the house. The name carries two anchors: the Greek island that sits beside our family's Kefalonia in the Ionian chain, and the upstate New York town near where our family settled when they came west.\n\nWe operate short-term rentals to a hotel standard. Careful turnover, considered welcome, properties chosen for character rather than yield. Baltimore today; selective expansion along the Mid-Atlantic to follow.",
     offerings: [
       'Short-term rentals in Baltimore',
       'Boutique property management',
       'Curated guest welcomes and provisioning',
-      'Experiences — Greek dinners, kayaking, basilica visits, and more',
+      'Experiences (Greek dinners, kayaking, basilica visits, and more)',
       'Selective portfolio expansion across the Mid-Atlantic',
       'Small private gatherings and events on request',
     ],
@@ -116,7 +71,7 @@ export const divisions: Division[] = [
     ctaType: 'inquiry',
     themeColor: 'sky',
     notes:
-      'A note on the name. In Kioni, a small village on the north coast of Ithaka, two Likoudis-named guesthouses already welcome travelers — Likoudis Villas, run by Paul and Penelope Likoudis on a hillside above the harbor since 1998, and Likoudis Apartments, a smaller stone-and-wood building nearby. Across the channel in Argostoli, the capital of Kefalonia, Melissa Likoudis is a patisserie selling the traditional sweets of the island — mantola, mantolato, pasteli — alongside local wines and honey. We do not operate any of them. We acknowledge them here as kin. If your trip takes you to the Ionian instead of Baltimore, find them.',
+      'A note on the name. In Kioni, a small village on the north coast of Ithaka, two Likoudis-named guesthouses already welcome travelers: Likoudis Villas, run by Paul and Penelope Likoudis on a hillside above the harbor since 1998, and Likoudis Apartments, a smaller stone-and-wood building nearby. Across the channel in Argostoli, the capital of Kefalonia, Melissa Likoudis is a patisserie selling traditional sweets of the island (mantola, mantolato, pasteli) alongside local wines and honey. We do not operate any of them. We acknowledge them here as kin. If your trip takes you to the Ionian instead of Baltimore, find them.',
     notesLinks: [
       {
         label: 'Likoudis Villas',
@@ -135,8 +90,64 @@ export const divisions: Division[] = [
       },
     ],
     leads: [
+      { id: 'caroline', role: 'Director of Hospitality' },
+      { id: 'andrew', role: 'Experience Curator' },
+    ],
+  },
+  {
+    slug: 'the-workshop',
+    name: 'The Workshop',
+    greek: 'Ἐργαστήριον',
+    greekTransliteration: 'Ergastírion',
+    greekTranslation: 'Workshop',
+    status: 'active',
+    tagline: 'Services, advisory, and custom commissions.',
+    shortDescription:
+      'For projects that do not fit a standard package. By appointment, by referral, by careful conversation.',
+    longDescription:
+      "The Workshop is the family's services arm. Advisory engagements, brokerage and sourcing work, custom curation, bespoke commissions. Anything that calls for a longer conversation than a standard service form can support.\n\nThis is the division that begins with a phone call rather than a price list. We work with a small number of clients at a time, on projects that warrant the attention.",
+    offerings: [
+      'Strategic advisory and consulting engagements',
+      "Brokerage services (sourcing specific items on a client's behalf)",
+      'Bespoke curation projects (private libraries, art acquisitions, gift sourcing)',
+      'Custom-built solutions outside the standard division offerings',
+      'One-off projects, by appointment',
+    ],
+    ctaLabel: 'Open a Conversation',
+    ctaType: 'inquiry',
+    themeColor: 'olive',
+    leads: [
+      { id: 'jake', role: 'Operational Director' },
+      { id: 'luke', role: 'Sourcing Director' },
+    ],
+  },
+  {
+    slug: 'the-studio',
+    name: 'The Studio',
+    greek: 'Στούντιο',
+    greekTransliteration: 'Stoúntio',
+    greekTranslation: 'Studio',
+    status: 'active',
+    tagline: 'Web design, photography, and content creation.',
+    shortDescription:
+      'Web design, photography, and content creation for businesses that have outgrown the template economy.',
+    longDescription:
+      "The Studio is the digital and visual practice of the house. Three disciplines under one roof: web design and build, photography for editorial and brand use, and content creation. Writing, design systems, identity work, and the small craft of making a brand sound like a person.\n\nWebsites are built to be owned outright by the client. No subscriptions, no platforms held hostage, no recurring license fees. Performance-tested, accessible, and yours.",
+    offerings: [
+      'Custom websites, full design and build, owned outright by the client',
+      'Photography for editorial, product, and brand portraiture',
+      'Content creation, writing, editorial design, and visual systems',
+      'Brand identity, logo design, and design systems',
+      'Site rebuilds and migrations from page-builder platforms',
+      'Newsletter and Substack design',
+      'Ongoing maintenance and hosting (optional)',
+    ],
+    ctaLabel: 'Begin a Project',
+    ctaType: 'inquiry',
+    themeColor: 'navy',
+    leads: [
       { id: 'andrew', role: 'Operational Director' },
-      { id: 'caroline', role: 'Hospitality Director' },
+      { id: 'elena', role: 'Lead Designer' },
     ],
   },
   {
@@ -150,10 +161,10 @@ export const divisions: Division[] = [
     shortDescription:
       'Paintings, drawings, and prints from two sister studios. Available through each artist directly, with commissions arranged through the house.',
     longDescription:
-      "The Easel is the family's drawing-and-painting studio, named for the tool that holds the work. Caroline and Elena Likoudis make original art under the same family name but in distinct practices — Caroline at Brush & Soul Studio, painting in oil and watercolor; Elena at Elena Likoudis Art, working in vibrant portraits, prints, and custom commissions.\n\nThe word kavaléto came into Greek from Italian during the centuries of Venetian rule in the Ionian islands. It is, in that small way, a word our family already knew before it ever became part of Likoudis Ventures.",
+      "The Easel is the family's drawing-and-painting studio, named for the tool that holds the work. Caroline and Elena Likoudis make original art under the same family name but in distinct practices. Caroline at Brush & Soul Studio, painting in oil and watercolor. Elena at Elena Likoudis Art, working in vibrant portraits, prints, and custom commissions.\n\nThe word kavaléto came into Greek from Italian during the centuries of Venetian rule in the Ionian islands. It is, in that small way, a word our family already knew before it ever became part of Likoudis Ventures.",
     offerings: [
-      'Original paintings — oil and watercolor (Caroline)',
-      'Original works — vibrant portraits and pieces (Elena)',
+      'Original paintings, oil and watercolor (Caroline)',
+      'Original works, vibrant portraits and pieces (Elena)',
       'Limited print editions from both artists',
       'Commissioned portraits and custom pieces',
       'Direct correspondence with each artist',
@@ -162,8 +173,8 @@ export const divisions: Division[] = [
     ctaType: 'inquiry',
     themeColor: 'ochre',
     leads: [
+      { id: 'elena', role: 'Creative Director' },
       { id: 'caroline', role: 'Lead Artist, Brush & Soul Studio' },
-      { id: 'elena', role: 'Lead Artist, Elena Likoudis Art' },
     ],
   },
   {
@@ -175,15 +186,15 @@ export const divisions: Division[] = [
     status: 'forthcoming',
     tagline: 'Greek wine, spirits, and pantry, sourced and signed.',
     shortDescription:
-      'A line of Greek pantry goods — wine and spirits, olives and olive oil, honey and vinegar — with our name on each label.',
+      'A line of Greek pantry goods: wine and spirits, olives and olive oil, honey and vinegar, with our name on each label.',
     longDescription:
-      "The Table holds the family's line of Greek pantry goods: wines from named appellations and spirits from traditional distillers, olive oil from single-estate producers, table olives in the Kefaloniote tradition, honey from Greek apiaries, and vinegars rounding out the line. Shelf-stable by design — what travels well and what keeps.\n\nEvery product carries the Likoudis name beside the producer's, and a record of where it came from. We are not blending, not generic-labeling, not selling whatever fills a shelf. We choose slowly, sign together, and ship.",
+      "The Table holds the family's line of Greek pantry goods. Wines from named appellations and spirits from traditional distillers, olive oil from single-estate producers, table olives in the Kefaloniote tradition, honey from Greek apiaries, and vinegars rounding out the line. Shelf-stable by design. What travels well and what keeps.\n\nEvery product carries the Likoudis name beside the producer's, and a record of where it came from. We are not blending, not generic-labeling, not selling whatever fills a shelf. We choose slowly, sign together, and ship.",
     offerings: [
       'Greek wines: Robola, Assyrtiko, Agiorgitiko',
       'Spirits: ouzo, tsipouro, mastiha liqueur, Metaxa',
-      'Olive oil — single-estate, from Kefalonia and beyond',
-      'Olives — table and martini, brined in the Kefaloniote tradition',
-      'Honey — sourced from named Greek apiaries',
+      'Olive oil, single-estate, from Kefalonia and beyond',
+      'Olives, table and martini, brined in the Kefaloniote tradition',
+      'Honey, sourced from named Greek apiaries',
       'Vinegars and other pantry goods',
     ],
     ctaLabel: 'Notify Me When This Launches',
@@ -194,35 +205,6 @@ export const divisions: Division[] = [
       { id: 'jake', role: 'Sourcing Director' },
     ],
   },
-  {
-    slug: 'the-likoudis-collection',
-    name: 'The Likoudis Collection',
-    greek: 'Ἡ Συλλογή Λικούδη',
-    greekTransliteration: 'Hē Syllogē Likoúdē',
-    greekTranslation: 'The Likoudis Collection',
-    status: 'forthcoming',
-    tagline: 'Curated objects, art, and editions from select makers and provenances.',
-    shortDescription:
-      'Acquired and curated work — icons, ceramics, watches, antiques, art — assembled with a single curatorial intelligence behind it.',
-    longDescription:
-      "The Likoudis Collection is the curated luxury division of the house.\n\nUnlike The Easel, which holds work made by the family, The Collection holds work the family has acquired and chosen to offer onward. Hand-painted Byzantine icons. Greek ceramics from named producers. Olive-wood objects. Worry beads. Limited art editions. Vintage and antique pieces by appointment.\n\nThe family name on the division is intentional. Galleries and collections trade on the curator's name — the Frick, the Phillips, the Wallace — and we wanted ours visible on the most discriminating part of the house.",
-    offerings: [
-      'Hand-painted Byzantine icons, commissioned from icon-writers',
-      'Greek ceramics, traditional and contemporary',
-      'Olive-wood objects, kitchen pieces, and decorative work',
-      'Handwoven textiles — runners, throws, table linens',
-      'Komboloi (worry beads) and small heritage objects',
-      'Limited art editions and original works from select artists',
-      'Vintage and antique pieces — jewelry, watches, furniture — by appointment',
-    ],
-    ctaLabel: 'Notify Me When This Launches',
-    ctaType: 'notify',
-    themeColor: 'navy',
-    leads: [
-      { id: 'luke', role: 'Curatorial Director' },
-      { id: 'jake', role: 'Acquisitions Director' },
-    ],
-  },
 ];
 
 // Helper to fetch a single division by slug
@@ -230,7 +212,7 @@ export function getDivision(slug: string): Division | undefined {
   return divisions.find((d) => d.slug === slug);
 }
 
-// Helper to get only active divisions (for some homepage logic)
+// Helper to get only active divisions
 export function getActiveDivisions(): Division[] {
   return divisions.filter((d) => d.status === 'active');
 }

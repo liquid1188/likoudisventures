@@ -35,7 +35,7 @@ export function Hero({
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse at 75% 20%, rgba(143, 184, 206, 0.18) 0%, transparent 55%), radial-gradient(ellipse at 5% 85%, rgba(143, 166, 125, 0.1) 0%, transparent 60%)',
+            'radial-gradient(ellipse at 75% 20%, rgba(143, 184, 206, 0.24) 0%, transparent 55%), radial-gradient(ellipse at 5% 85%, rgba(143, 166, 125, 0.15) 0%, transparent 60%)',
         }}
       />
       {/* Catalog header */}

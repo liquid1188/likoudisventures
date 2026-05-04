@@ -4,7 +4,7 @@ interface OliveBranchMarkProps {
   /** Display width in px. Default 44. */
   size?: number;
   className?: string;
-  /** Number of olives to render (1–6). Default 6. */
+  /** Number of olives to render (1–5). Default 5. */
   olives?: number;
 }
 
@@ -14,11 +14,14 @@ interface OliveBranchMarkProps {
  * This is the SIMPLIFIED version of the interactive homepage centerpiece
  * (`OliveBranchInteractive`). They share the same composition:
  *   - Single graceful upward-curving arc
- *   - Six olives evenly spaced along the arc
+ *   - Five olives evenly spaced along the arc, with the centerpiece
+ *     olive sitting at the apex (one olive in the middle, two flanking
+ *     on each side). One olive per division of the house.
  *   - Each olive node has a matched pair of leaves (one up-and-out,
  *     one down-and-out)
  *   - Leaves on the left half lean leftward; leaves on the right half
- *     lean rightward — mirrored about the vertical center axis
+ *     lean rightward; the centerpiece olive's leaves are vertical
+ *     so the mark is mirror-symmetric about its center axis.
  *
  * Differences from the interactive:
  *   - No hover, no animation, no division-link mapping
@@ -32,7 +35,7 @@ interface OliveBranchMarkProps {
 export function OliveBranchMark({
   size = 44,
   className,
-  olives = 6,
+  olives = 5,
 }: OliveBranchMarkProps) {
   // Same bezier as the interactive version, scaled into a 70 × 54 viewBox.
   // P0 = (5, 32), P1 = (35, 12), P2 = (65, 32). Arc symmetric about x=35.
@@ -47,19 +50,22 @@ export function OliveBranchMark({
     return { x, y };
   }
 
-  // Same six t values as the interactive version
-  const oliveTs = [0.1, 0.26, 0.42, 0.58, 0.74, 0.9].slice(0, olives);
+  // Five evenly spaced t values, symmetric about t=0.5 (apex).
+  // The middle olive (i=2) sits at the apex and gets vertical leaves.
+  const oliveTs = [0.1, 0.3, 0.5, 0.7, 0.9].slice(0, olives);
   const STEM_LENGTH = 5;
   const LEAF_LENGTH = 7;
 
   const oliveNodes = oliveTs.map((t, i) => {
     const onBranch = sampleBezier(t);
+    // Lean: -1 = lean left, +1 = lean right, 0 = vertical (centerpiece)
+    const lean = i < 2 ? -1 : i > 2 ? 1 : 0;
     return {
       branchX: onBranch.x,
       branchY: onBranch.y,
       x: onBranch.x,
       y: onBranch.y + STEM_LENGTH,
-      leftHalf: i < 3,
+      lean,
     };
   });
 
@@ -101,12 +107,11 @@ export function OliveBranchMark({
         opacity="0.85"
       />
 
-      {/* Six olive nodes */}
+      {/* Five olive nodes */}
       {oliveNodes.map((node, i) => {
-        const leafLeanX = node.leftHalf ? -1 : 1;
-        const upLeafTipX = node.branchX + leafLeanX * 0.55 * LEAF_LENGTH;
+        const upLeafTipX = node.branchX + node.lean * 0.55 * LEAF_LENGTH;
         const upLeafTipY = node.branchY - 0.85 * LEAF_LENGTH;
-        const downLeafTipX = node.branchX - leafLeanX * 0.4 * LEAF_LENGTH;
+        const downLeafTipX = node.branchX - node.lean * 0.4 * LEAF_LENGTH;
         const downLeafTipY = node.branchY + 0.7 * LEAF_LENGTH;
 
         return (

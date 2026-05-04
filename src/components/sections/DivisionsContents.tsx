@@ -25,14 +25,14 @@ export function DivisionsContents() {
             </div>
             <div className="lg:col-span-7 lg:col-start-6 lg:pt-6">
               <p className="font-serif text-xl lg:text-2xl leading-relaxed text-navy/75 italic">
-                Six enterprises under one family name. Each runs on its own clock and its own customers. The standard underneath is the same. The family name goes on each one, so each one has to be worth signing.
+                Five divisions under one family name. Each runs on its own clock and its own customers. The standard underneath is the same. The family name goes on each one, so each one has to be worth signing.
               </p>
             </div>
           </div>
         </ScrollReveal>
 
         <ScrollReveal>
-          <div className="ornate-divider text-navy mb-2" />
+          <div className="ornate-divider text-olive-deep mb-2" />
         </ScrollReveal>
 
         {/* Rows */}
@@ -52,7 +52,7 @@ export function DivisionsContents() {
 
         {/* Bottom rule */}
         <ScrollReveal>
-          <div className="ornate-divider text-navy mt-2" />
+          <div className="ornate-divider text-olive-deep mt-2" />
         </ScrollReveal>
       </div>
     </section>
@@ -71,7 +71,7 @@ function DivisionRow({ slug, name, greek, tagline, status }: DivisionRowProps) {
   return (
     <Link
       href={`/divisions/${slug}`}
-      className="group block py-7 lg:py-9 border-b border-navy/10 hover:border-navy transition-colors duration-300"
+      className="group block py-7 lg:py-9 border-b border-olive-glow/25 hover:border-olive transition-colors duration-300"
     >
       <div className="grid grid-cols-12 gap-4 lg:gap-8 items-baseline">
         {/* Name + Greek */}

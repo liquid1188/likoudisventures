@@ -7,7 +7,6 @@ import { WorkshopLayout } from '@/components/divisions/WorkshopLayout';
 import { IthacaLayout } from '@/components/divisions/IthacaLayout';
 import { EaselLayout } from '@/components/divisions/EaselLayout';
 import { TableLayout } from '@/components/divisions/TableLayout';
-import { CollectionLayout } from '@/components/divisions/CollectionLayout';
 
 interface DivisionPageProps {
   params: Promise<{ slug: string }>;
@@ -46,8 +45,6 @@ export default async function DivisionPage({ params }: DivisionPageProps) {
         return <EaselLayout division={division} />;
       case 'the-table':
         return <TableLayout division={division} />;
-      case 'the-likoudis-collection':
-        return <CollectionLayout division={division} />;
       default:
         return <StudioLayout division={division} />;
     }

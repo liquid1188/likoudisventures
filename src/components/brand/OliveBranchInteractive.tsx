@@ -79,10 +79,12 @@ export function OliveBranchInteractive({
   }
 
   /**
-   * Six olives evenly spaced. Symmetric: indices 0–5 mirror around the center
-   * (t = 0.5). Each olive hangs straight down from the branch via a short stem.
+   * Five olives evenly spaced. Symmetric: indices 0–4 mirror around the center
+   * (t = 0.5). The middle olive (i=2) sits at the apex of the branch and is
+   * the centerpiece — leaves on it are vertical, not leaning. Each olive
+   * hangs straight down from the branch via a short stem.
    */
-  const oliveTs = [0.1, 0.26, 0.42, 0.58, 0.74, 0.9];
+  const oliveTs = [0.1, 0.3, 0.5, 0.7, 0.9];
   const STEM_LENGTH = 32;
 
   const oliveNodes = oliveTs.map((t) => {
@@ -122,7 +124,7 @@ export function OliveBranchInteractive({
           overflow: 'visible',
         }}
         role="group"
-        aria-label="Six divisions of Likoudis Ventures, arranged on an olive branch"
+        aria-label="Five divisions of Likoudis Ventures, arranged on an olive branch"
       >
         {/* The branch — single graceful arc, symmetric about x=600 */}
         <path
@@ -165,16 +167,16 @@ export function OliveBranchInteractive({
           }}
         />
 
-        {/* Six olive groups */}
+        {/* Five olive groups */}
         {oliveNodes.map((node, i) => {
           const division = divisions[i];
           if (!division) return null;
           const isHovered = hoveredIdx === i;
           const growDelay = 0.7 + i * 0.13;
 
-          // Mirror leaf direction for left vs right half
-          const leftHalf = i < 3;
-          const leafLeanX = leftHalf ? -1 : 1;
+          // Mirror leaf direction: olives left of centerpiece lean left, olives
+          // right of centerpiece lean right, centerpiece (i=2) gets vertical leaves
+          const leafLeanX = i < 2 ? -1 : i > 2 ? 1 : 0;
 
           // Up-and-out leaf — growing above the branch
           const upLeafTipX = node.branchX + leafLeanX * 0.55 * LEAF_LENGTH;
@@ -364,8 +366,8 @@ export function OliveBranchInteractive({
         </div>
       </div>
 
-      {/* Mobile: explicit grid of all six divisions as tap targets */}
-      <div className="md:hidden mt-4 grid grid-cols-3 gap-2 px-2">
+      {/* Mobile: tap targets for all five divisions */}
+      <div className="md:hidden mt-4 grid grid-cols-2 gap-2 px-2 [&>:last-child]:col-span-2 [&>:last-child]:max-w-[calc(50%-0.25rem)] [&>:last-child]:mx-auto [&>:last-child]:w-full">
         {divisions.map((d) => (
           <Link
             key={d.slug}

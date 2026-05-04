@@ -9,7 +9,7 @@ export const site = {
   dba: 'Likoudis Ventures',
   tagline: 'A house of considered enterprises.',
   description:
-    'A family business in Baltimore. Three brothers and two sisters working under one name across web design, hospitality, art, custom commissions, Greek wine and pantry goods, and curated objects.',
+    'A family business in Baltimore. Three brothers and two sisters working under one name across hospitality, services and advisory, web design, original art, and Greek pantry goods.',
   founded: 2026,
   seat: 'Baltimore',
   greekRoot: 'Κεφαλονιά',
@@ -36,19 +36,18 @@ export const footer = {
     {
       heading: 'Divisions',
       links: [
-        { label: 'The Studio', href: '/divisions/the-studio' },
-        { label: 'The Workshop', href: '/divisions/the-workshop' },
         { label: 'Ithaca House', href: '/divisions/ithaca-house' },
+        { label: 'The Workshop', href: '/divisions/the-workshop' },
+        { label: 'The Studio', href: '/divisions/the-studio' },
         { label: 'The Easel', href: '/divisions/the-easel' },
         { label: 'The Table', href: '/divisions/the-table' },
-        { label: 'The Likoudis Collection', href: '/divisions/the-likoudis-collection' },
       ],
     },
     {
       heading: 'The House',
       links: [
         { label: 'About', href: '/about' },
-        { label: 'Shop', href: '/shop' },
+        { label: 'The Collection', href: '/collection' },
         { label: 'The Branch', href: '/the-branch' },
         { label: 'Contact', href: '/contact' },
       ],
