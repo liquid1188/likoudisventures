@@ -233,7 +233,7 @@ export function IthacaLayout({ division }: LayoutProps) {
               >
                 <div className="relative aspect-[4/3] bg-navy/5 overflow-hidden">
                   <img
-                    src="https://a0.muscache.com/im/pictures/airflow/Hosting-44263588/original/f2e0d54e-9451-4031-9b01-315e0d34acb4.jpg?im_w=720"
+                    src="https://a0.muscache.com/im/pictures/airflow/Hosting-44263588/original/ad47efd2-8fda-48d4-bd6f-7cfb211ebb79.jpg?im_w=720"
                     alt="Spacious Queen Bedroom — queen bed, private bath with skylight, Patterson Park"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
