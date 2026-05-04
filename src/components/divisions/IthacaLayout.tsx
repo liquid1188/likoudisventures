@@ -92,7 +92,7 @@ export function IthacaLayout({ division }: LayoutProps) {
             </ScrollReveal>
           </div>
 
-          {/* Notes / partnership disclosure */}
+          {/* Notes / family-in-Greece disclosure */}
           {division.notes && (
             <ScrollReveal as="div">
               <div className="mt-20 lg:mt-28 max-w-3xl mx-auto bg-bone p-8 lg:p-10 border-l-2 border-ochre">
@@ -100,6 +100,37 @@ export function IthacaLayout({ division }: LayoutProps) {
                 <p className="font-serif italic text-lg lg:text-xl leading-relaxed text-navy/85">
                   {division.notes}
                 </p>
+                {division.notesLinks && division.notesLinks.length > 0 && (
+                  <div className="mt-7 pt-6 border-t border-navy/10">
+                    <div className="font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep mb-4">
+                      Find them in Kioni
+                    </div>
+                    <ul className="space-y-3">
+                      {division.notesLinks.map((link) => (
+                        <li key={link.href}>
+                          <a
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group inline-flex items-baseline gap-3 hover:text-olive-deep transition-colors"
+                          >
+                            <span className="font-display text-lg text-navy group-hover:text-olive-deep transition-colors">
+                              {link.label}
+                            </span>
+                            {link.descriptor && (
+                              <span className="font-serif italic text-sm text-navy/60">
+                                {link.descriptor}
+                              </span>
+                            )}
+                            <span aria-hidden className="text-xs text-ochre-deep transition-transform group-hover:translate-x-0.5">
+                              ↗
+                            </span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             </ScrollReveal>
           )}

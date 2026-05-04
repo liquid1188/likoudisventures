@@ -7,9 +7,9 @@ export const site = {
   name: 'Likoudis Ventures',
   legalEntity: 'Likoudis Legacy LLC',
   dba: 'Likoudis Ventures',
-  tagline: 'A family business in Canton, Baltimore.',
+  tagline: 'A house of considered enterprises.',
   description:
-    'Three brothers and two sisters, working under one name across web design, hospitality, art, custom commissions, Greek goods, and curated objects. Headquartered in Canton, Baltimore.',
+    'A family business in Baltimore. Three brothers and two sisters working under one name across web design, hospitality, art, custom commissions, Greek wines and goods, and curated objects.',
   founded: 2026,
   foundedRoman: 'MMXXVI',
   seat: 'Canton · Baltimore',

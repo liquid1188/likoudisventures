@@ -80,7 +80,7 @@ export function IonianMap({ className }: IonianMapProps) {
         fillOpacity="0.05"
       />
 
-      {/* Kioni — small marker on Ithaca, where Likoudis Villas is */}
+      {/* Kioni — small marker on Ithaca, where the cousin Likoudis properties are */}
       <circle cx="252" cy="135" r="3" fill="currentColor" />
       <circle cx="252" cy="135" r="6" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.4" />
 

@@ -24,6 +24,8 @@ export interface Division {
   ctaType: 'inquiry' | 'notify'; // Determines which form appears on subpage
   themeColor: 'navy' | 'olive' | 'sky' | 'ochre'; // Top border color on cards
   notes?: string; // Optional special notes for the subpage (e.g., partnership disclosure)
+  /** Optional external references to surface alongside the note (e.g., cousin properties, partner orgs) */
+  notesLinks?: Array<{ label: string; href: string; descriptor?: string }>;
   /** Family members who lead this division (referenced by id). Resolved against about.ts. */
   leads: FamilyMemberId[];
 }
@@ -106,7 +108,19 @@ export const divisions: Division[] = [
     ctaType: 'inquiry',
     themeColor: 'sky',
     notes:
-      'A note on the name: in Kioni, on the island of Ithaca itself, Likoudis Villas has welcomed travelers since 1998 — operated by relatives of our family line. We do not operate Likoudis Villas; bookings are made directly through them. We acknowledge them here as kin, not as a commercial partner.',
+      'A note on the name. In Kioni, on the island of Ithaca itself, two small Likoudis-named guesthouses already welcome travelers — Likoudis Villas, run by Paul and Penelope Likoudis on a hillside above the harbor since 1998, and Likoudis Apartments, a smaller stone-and-wood building nearby. We do not operate either of them; bookings are made directly through their own channels. We acknowledge them here as family in Greece — cousin operations of ours, working the same name on the same hill.',
+    notesLinks: [
+      {
+        label: 'Likoudis Villas',
+        href: 'https://www.facebook.com/likoudisVillas.gr/',
+        descriptor: 'Paul & Penelope · Kioni, Ithaka',
+      },
+      {
+        label: 'Likoudis Apartments',
+        href: 'https://www.ionianislandholidays.com/property/likoudis-apartments',
+        descriptor: 'via Ionian & Aegean Island Holidays',
+      },
+    ],
     leads: ['caroline', 'andrew'],
   },
   {
