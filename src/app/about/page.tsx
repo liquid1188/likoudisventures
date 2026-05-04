@@ -37,7 +37,7 @@ export default function AboutPage() {
         <div className="container-editorial">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 max-w-5xl mx-auto">
             <ScrollReveal as="div" className="lg:col-span-3">
-              <div className="eyebrow text-ochre-deep mb-5">Origin</div>
+              <div className="eyebrow-no-rule text-ochre-deep mb-5">Origin</div>
             </ScrollReveal>
             <ScrollReveal as="div" delay={150} className="lg:col-span-9">
               <h2 className="font-display text-display-xl text-navy mb-10 leading-tight">
@@ -72,7 +72,7 @@ export default function AboutPage() {
               <div className="text-olive-glow mb-8 flex justify-center">
                 <OliveBranchMark size={50} />
               </div>
-              <div className="eyebrow text-olive-glow mb-7 inline-block">
+              <div className="eyebrow-no-rule text-olive-glow mb-7 inline-block">
                 {about.philosophy.heading}
               </div>
               <div className="space-y-6 font-display text-2xl lg:text-3xl leading-[1.3] text-bone font-light">
@@ -96,7 +96,7 @@ export default function AboutPage() {
         <div className="container-editorial">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 mb-14 lg:mb-20">
             <ScrollReveal as="div" className="lg:col-span-5">
-              <div className="eyebrow text-ochre-deep mb-5">The Board</div>
+              <div className="eyebrow-no-rule text-ochre-deep mb-5">The Board</div>
               <h2 className="font-display text-display-xl text-navy leading-tight">
                 {about.family.heading}
               </h2>

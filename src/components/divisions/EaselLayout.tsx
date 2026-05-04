@@ -78,7 +78,7 @@ export function EaselLayout({ division }: LayoutProps) {
         <div className="container-editorial">
           <ScrollReveal>
             <div className="text-center mb-14 lg:mb-20">
-              <div className="eyebrow text-ochre-deep mb-3 inline-block">The two studios</div>
+              <div className="eyebrow-no-rule text-ochre-deep mb-3 inline-block">The two studios</div>
               <h2 className="font-display text-display-lg text-navy mt-5 max-w-3xl mx-auto leading-tight">
                 Two sisters, two practices,
                 <br />

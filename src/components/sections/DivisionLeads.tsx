@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { clsx } from 'clsx';
-import type { FamilyMemberId } from '@/content/divisions';
+import type { DivisionLead } from '@/content/divisions';
 import { getFamilyMember } from '@/content/about';
 
 interface DivisionLeadsProps {
-  leads: FamilyMemberId[];
+  leads: DivisionLead[];
   /** Visual theme — adjusts colors against light or dark grounds */
   theme?: 'light' | 'dark';
   /** Optional eyebrow label, e.g., 'Led by' (default), 'A note from', etc. */
@@ -18,11 +18,12 @@ interface DivisionLeadsProps {
  * Renders a small horizontal row of family members who lead a division.
  * Used near the top of each division subpage.
  *
- * Each lead: 56px circular portrait (or monogram if no photo) + name + division role.
- * Click a lead → goes to /about (anchored to the family grid).
+ * Each lead: 56px circular portrait (or monogram if no photo) + name + per-division role.
+ * The role text comes from the division's own leads entry, not the member's general
+ * board role — so a person can show as "Operational Director" on one division and
+ * "Hospitality Director" on another.
  *
- * Themes: 'light' reads on cream/bone grounds (navy/ochre type); 'dark' reads on
- * navy grounds (bone/olive-glow type).
+ * Click a lead → goes to /about (anchored to the family grid).
  */
 export function DivisionLeads({
   leads,
@@ -30,8 +31,14 @@ export function DivisionLeads({
   label = 'Led by',
   align = 'left',
 }: DivisionLeadsProps) {
-  const members = leads.map(getFamilyMember).filter((m) => m !== undefined);
-  if (members.length === 0) return null;
+  const resolved = leads
+    .map((lead) => {
+      const member = getFamilyMember(lead.id);
+      return member ? { member, role: lead.role } : null;
+    })
+    .filter((entry): entry is { member: NonNullable<ReturnType<typeof getFamilyMember>>; role: string } => entry !== null);
+
+  if (resolved.length === 0) return null;
 
   const isDark = theme === 'dark';
 
@@ -52,9 +59,9 @@ export function DivisionLeads({
       </div>
 
       <div className="flex items-center gap-4 lg:gap-5">
-        {members.map((m) => (
+        {resolved.map(({ member, role }) => (
           <Link
-            key={m!.id}
+            key={member.id}
             href="/about#family"
             className="group flex items-center gap-3 transition-opacity hover:opacity-80"
           >
@@ -65,20 +72,20 @@ export function DivisionLeads({
                 isDark ? 'ring-1 ring-bone/20' : 'ring-1 ring-navy/15'
               )}
             >
-              {m!.portrait ? (
+              {member.portrait ? (
                 <Image
-                  src={m!.portrait}
-                  alt={m!.name}
+                  src={member.portrait}
+                  alt={member.name}
                   fill
                   className="object-cover"
                   sizes="56px"
                 />
               ) : (
-                <Monogram name={m!.name} isDark={isDark} />
+                <Monogram name={member.name} isDark={isDark} />
               )}
             </div>
 
-            {/* Name */}
+            {/* Name + per-division role */}
             <div className="leading-tight">
               <div
                 className={clsx(
@@ -86,7 +93,7 @@ export function DivisionLeads({
                   isDark ? 'text-bone' : 'text-navy'
                 )}
               >
-                {m!.name.split(' ')[0]}
+                {member.name.split(' ')[0]}
               </div>
               <div
                 className={clsx(
@@ -94,7 +101,7 @@ export function DivisionLeads({
                   isDark ? 'text-olive-glow/80' : 'text-ochre-deep'
                 )}
               >
-                {firstWord(m!.role)}
+                {role}
               </div>
             </div>
           </Link>
@@ -126,15 +133,4 @@ function Monogram({ name, isDark }: { name: string; isDark: boolean }) {
       <span className="text-base lg:text-lg">{initials}</span>
     </div>
   );
-}
-
-/**
- * Pull the first word of the role string for the small caption.
- * "Founder & Chairman" -> "Founder"
- * "Artist · The Easel" -> "Artist"
- * "Partner · The Workshop & The Collection" -> "Partner"
- */
-function firstWord(role: string): string {
-  const cleaned = role.split('·')[0]?.split('&')[0]?.trim() ?? role;
-  return cleaned.split(' ')[0] ?? role;
 }

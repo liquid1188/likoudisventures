@@ -82,7 +82,7 @@ export function TableLayout({ division }: LayoutProps) {
               Every label tells you <em className="italic text-ochre-deep">where it came from</em>.
             </p>
             <p className="font-serif text-lg text-navy/65 mt-5 leading-relaxed">
-              The Table sources from Kefalonia and from named producers across Greece. Each product comes with the name of the estate, the apiary, the press — and ours, beside theirs, on the front of the bottle.
+              The Table sources from Kefalonia and from named producers across Greece. Each product comes with the name of the estate, the apiary, the press, and ours beside theirs on the front of the bottle.
             </p>
           </div>
         </div>
@@ -158,7 +158,7 @@ export function TableLayout({ division }: LayoutProps) {
               <div className="text-olive-glow mb-6 flex justify-center">
                 <OliveBranchMark size={42} />
               </div>
-              <div className="eyebrow text-olive-glow mb-5 inline-block">
+              <div className="eyebrow-no-rule text-olive-glow mb-5 inline-block">
                 When the line opens
               </div>
               <h3 className="font-display text-display-lg text-bone mb-6 leading-tight">

@@ -25,7 +25,7 @@ export function DivisionsContents() {
             </div>
             <div className="lg:col-span-7 lg:col-start-6 lg:pt-6">
               <p className="font-serif text-xl lg:text-2xl leading-relaxed text-navy/75 italic">
-                Six enterprises under one family name. Each runs on its own clock and its own customers, but the standard underneath is the same — the family name goes on each one, so each one has to be worth signing.
+                Six enterprises under one family name. Each runs on its own clock and its own customers. The standard underneath is the same. The family name goes on each one, so each one has to be worth signing.
               </p>
             </div>
           </div>

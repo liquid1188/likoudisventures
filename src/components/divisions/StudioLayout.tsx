@@ -156,7 +156,7 @@ export function StudioLayout({ division }: LayoutProps) {
             </ScrollReveal>
             <ScrollReveal as="div" delay={150} className="col-span-12 lg:col-span-7 lg:col-start-5">
               <p className="font-serif text-lg lg:text-xl leading-relaxed text-navy/85">
-                Lickity Split is The Studio&rsquo;s productized line — fast, fixed-price websites for Baltimore small businesses. Hand-coded, no platform fees, sub-second load times, and you own the files outright. A Starter site goes live in 48 hours.
+                Lickity Split is The Studio&rsquo;s productized line. Fast, fixed-price websites for Baltimore small businesses. Hand-coded, no platform fees, sub-second load times, and you own the files outright. A Starter site goes live in 48 hours.
               </p>
               <a
                 href="https://liquid1188.github.io/web-services"
@@ -264,7 +264,7 @@ export function StudioLayout({ division }: LayoutProps) {
                   <li>Site monitoring + uptime checks</li>
                   <li>Text, photo, hours updates</li>
                   <li>Minor layout tweaks included</li>
-                  <li>Direct line — no ticketing</li>
+                  <li>Direct line, no ticketing</li>
                 </ul>
                 <a
                   href="https://liquid1188.github.io/web-services"
@@ -351,7 +351,7 @@ export function StudioLayout({ division }: LayoutProps) {
                 <div className="catalog-num text-xs text-ochre-deep mb-2">Personal Brand · Author</div>
                 <h4 className="font-display text-2xl text-navy mb-3 group-hover:text-ochre-deep transition-colors">AndrewLikoudis.com</h4>
                 <p className="font-serif text-sm text-navy/85 leading-relaxed mb-5">
-                  Author and scholar portfolio. Writing, speaking, media, and press — editorial design built to establish credibility and drive speaking and publishing inquiries.
+                  Author and scholar portfolio. Writing, speaking, media, and press. Editorial design built to establish credibility and drive speaking and publishing inquiries.
                 </p>
                 <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/65 group-hover:text-ochre-deep transition-colors">
                   View live site →
@@ -371,7 +371,7 @@ export function StudioLayout({ division }: LayoutProps) {
             <br />with The Studio.
           </>
         }
-        text={`For ${division.name.toLowerCase()} engagements specifically — site builds, brand work, content, anything in between — write to us directly. ${site.email}.`}
+        text={`For ${division.name.toLowerCase()} engagements (site builds, brand work, content, anything in between), write to us at ${site.email}.`}
       />
     </>
   );

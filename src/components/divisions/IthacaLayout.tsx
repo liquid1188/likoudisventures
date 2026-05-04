@@ -77,7 +77,7 @@ export function IthacaLayout({ division }: LayoutProps) {
         <div className="container-editorial">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
             <ScrollReveal as="div" className="lg:col-span-5">
-              <div className="eyebrow text-ochre-deep mb-6">On the name</div>
+              <div className="eyebrow-no-rule text-ochre-deep mb-6">On the name</div>
               <h2 className="font-display text-display-xl text-navy leading-tight">
                 Two anchors, <em className="italic text-ochre-deep">one name</em>.
               </h2>
@@ -376,7 +376,7 @@ export function IthacaLayout({ division }: LayoutProps) {
       <section className="ground-navy py-24 lg:py-32">
         <div className="container-editorial">
           <ScrollReveal as="div" className="text-center mb-16">
-            <div className="eyebrow text-ochre mb-5 inline-block">What we offer</div>
+            <div className="eyebrow-no-rule text-ochre mb-5 inline-block">What we offer</div>
             <h3 className="font-display text-display-xl text-bone leading-tight max-w-3xl mx-auto">
               Properties chosen for <em className="italic text-sky">character</em>, not yield.
             </h3>
@@ -400,12 +400,12 @@ export function IthacaLayout({ division }: LayoutProps) {
       <section className="ground-olive py-24 lg:py-32 relative overflow-hidden">
         <div className="container-editorial relative">
           <ScrollReveal as="div" className="text-center mb-16 lg:mb-20">
-            <div className="eyebrow text-navy mb-5 inline-block">Experiences</div>
+            <div className="eyebrow-no-rule text-navy mb-5 inline-block">Experiences</div>
             <h3 className="font-display text-display-xl text-navy leading-tight max-w-3xl mx-auto">
               The stay is the <em className="italic">beginning</em>.
             </h3>
             <p className="font-serif text-lg lg:text-xl italic text-navy/80 leading-relaxed max-w-2xl mx-auto mt-7">
-              We arrange experiences — alongside the stay or on their own — for guests who want their visit to feel like a chapter, not a checkbox.
+              We arrange experiences alongside the stay, or on their own, for guests who want their visit to feel like a chapter, not a checkbox.
             </p>
           </ScrollReveal>
 
@@ -431,7 +431,7 @@ export function IthacaLayout({ division }: LayoutProps) {
             <ExperienceCard
               title="The Long Stay"
               kicker="Curated"
-              description="Anniversaries, honeymoons, writing weeks, family reunions. Stays prepared in advance — a stocked pantry, a few introductions, a quiet plan you can ignore."
+              description="Anniversaries, honeymoons, writing weeks, family reunions. Stays prepared in advance. A stocked pantry, a few introductions, a quiet plan you can ignore."
               delay={360}
             />
           </div>

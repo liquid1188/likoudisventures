@@ -8,6 +8,12 @@
 export type DivisionStatus = 'active' | 'forthcoming';
 export type FamilyMemberId = 'andrew' | 'caroline' | 'elena' | 'luke' | 'jake';
 
+export interface DivisionLead {
+  id: FamilyMemberId;
+  /** Domain-specific role within this division, e.g., "Operational Director", "Creative Director", "Hospitality Director", "Lead Artist". */
+  role: string;
+}
+
 export interface Division {
   slug: string;
   name: string;
@@ -25,8 +31,8 @@ export interface Division {
   notes?: string; // Optional special notes for the subpage (e.g., partnership disclosure)
   /** Optional external references to surface alongside the note (e.g., kin properties, partner orgs) */
   notesLinks?: Array<{ label: string; href: string; descriptor?: string }>;
-  /** Family members who lead this division (referenced by id). Resolved against about.ts. */
-  leads: FamilyMemberId[];
+  /** Family members who lead this division. Each carries a domain-specific role for this division only. */
+  leads: DivisionLead[];
 }
 
 export const divisions: Division[] = [
@@ -54,7 +60,10 @@ export const divisions: Division[] = [
     ctaLabel: 'Begin a Project',
     ctaType: 'inquiry',
     themeColor: 'navy',
-    leads: ['andrew', 'elena'],
+    leads: [
+      { id: 'andrew', role: 'Operational Director' },
+      { id: 'elena', role: 'Creative Director' },
+    ],
   },
   {
     slug: 'the-workshop',
@@ -78,7 +87,10 @@ export const divisions: Division[] = [
     ctaLabel: 'Open a Conversation',
     ctaType: 'inquiry',
     themeColor: 'olive',
-    leads: ['luke', 'jake'],
+    leads: [
+      { id: 'luke', role: 'Operational Director' },
+      { id: 'jake', role: 'Sourcing & Logistics Director' },
+    ],
   },
   {
     slug: 'ithaca-house',
@@ -122,7 +134,10 @@ export const divisions: Division[] = [
         descriptor: 'Patisserie · Argostoli, Kefalonia',
       },
     ],
-    leads: ['caroline', 'andrew'],
+    leads: [
+      { id: 'andrew', role: 'Operational Director' },
+      { id: 'caroline', role: 'Hospitality Director' },
+    ],
   },
   {
     slug: 'the-easel',
@@ -146,7 +161,10 @@ export const divisions: Division[] = [
     ctaLabel: 'Inquire About Work',
     ctaType: 'inquiry',
     themeColor: 'ochre',
-    leads: ['caroline', 'elena'],
+    leads: [
+      { id: 'caroline', role: 'Lead Artist, Brush & Soul Studio' },
+      { id: 'elena', role: 'Lead Artist, Elena Likoudis Art' },
+    ],
   },
   {
     slug: 'the-table',
@@ -171,7 +189,10 @@ export const divisions: Division[] = [
     ctaLabel: 'Notify Me When This Launches',
     ctaType: 'notify',
     themeColor: 'olive',
-    leads: ['luke', 'jake', 'andrew'],
+    leads: [
+      { id: 'luke', role: 'Operational Director' },
+      { id: 'jake', role: 'Sourcing Director' },
+    ],
   },
   {
     slug: 'the-likoudis-collection',
@@ -197,7 +218,10 @@ export const divisions: Division[] = [
     ctaLabel: 'Notify Me When This Launches',
     ctaType: 'notify',
     themeColor: 'navy',
-    leads: ['luke', 'jake'],
+    leads: [
+      { id: 'luke', role: 'Curatorial Director' },
+      { id: 'jake', role: 'Acquisitions Director' },
+    ],
   },
 ];
 

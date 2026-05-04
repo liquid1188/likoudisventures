@@ -141,7 +141,7 @@ export function CollectionLayout({ division }: LayoutProps) {
                 The first catalogue is <em className="italic text-sky">in preparation</em>.
               </h2>
               <p className="font-serif text-lg lg:text-xl text-bone/85 leading-relaxed">
-                Subscribers receive the inaugural Likoudis Collection catalogue in advance of any public release. Not a newsletter — only the catalogue, when it is ready, and only once it is.
+                Subscribers receive the inaugural Likoudis Collection catalogue in advance of any public release. Not a newsletter. Only the catalogue, when it is ready, and only once it is.
               </p>
             </div>
             <NotifyForm divisionName={division.name} divisionSlug={division.slug} />
