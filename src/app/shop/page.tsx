@@ -8,7 +8,7 @@ import { InquirySection } from '@/components/sections/InquirySection';
 export const metadata: Metadata = {
   title: 'Shop',
   description:
-    'A directory of work for sale across the house — design packages, original art, Greek consumables, and curated objects.',
+    'A directory of work for sale across the house — design packages, original art, Greek pantry goods, and curated objects.',
 };
 
 /**
@@ -76,18 +76,19 @@ const departments: Department[] = [
     ],
   },
   {
-    name: 'Greek Consumables',
+    name: 'Greek Pantry',
     greek: 'Τράπεζα',
     number: 'III',
     description:
-      'Single-estate olive oil, Greek apiary honey, olives, and pantry staples sourced and labeled under our name beside the producer’s. Launching with the line in time; sign up to be told first.',
+      'Greek wines from named appellations and traditional spirits, alongside single-estate olive oil, table olives, honey, vinegar, and pantry staples — all carrying our name beside the producer’s. Launching with the line in time; sign up to be told first.',
     status: 'forthcoming',
     what: [
+      'Greek wines: Robola, Assyrtiko, Agiorgitiko',
+      'Spirits: ouzo, tsipouro, mastiha liqueur, Metaxa',
       'Olive oil — single-estate from Kefalonia and beyond',
-      'Honey — from named Greek apiaries',
       'Olives — table and martini, Kefaloniote tradition',
-      'Vinegars and pantry goods',
-      'In time: feta, Greek wines, traditional spirits',
+      'Honey — from named Greek apiaries',
+      'Vinegars and other pantry goods',
     ],
     routes: [
       { label: 'Read about The Table', href: '/divisions/the-table' },

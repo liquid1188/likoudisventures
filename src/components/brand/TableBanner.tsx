@@ -21,7 +21,7 @@ export function TableBanner({ className }: TableBannerProps) {
       viewBox="0 0 1200 600"
       className={clsx('w-full h-auto', className)}
       preserveAspectRatio="xMidYMid slice"
-      aria-label="Illustration of a Mediterranean still life with olive oil, honey, olives, and bread"
+      aria-label="Illustration of a Mediterranean still life with olive oil, wine, olives, and honey"
     >
       <defs>
         <linearGradient id="tb-wall" x1="0" y1="0" x2="0" y2="1">
