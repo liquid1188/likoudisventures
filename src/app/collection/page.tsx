@@ -148,7 +148,7 @@ const categories: Category[] = [
     greek: 'Κομπολόι',
     status: 'forthcoming',
     description:
-      'Komboloi (worry beads), pocket icons, brass weights, votive plaques, evil-eye charms. Small things that carry weight beyond their size.',
+      'Komboloi (worry beads), pocket icons, brass weights, votive plaques, devotional brass. Small things that carry weight beyond their size.',
     samples: [
       {
         name: 'Amber komboloi, 19 beads',
@@ -159,8 +159,8 @@ const categories: Category[] = [
         detail: 'Approximately 2 × 3 in. Engraved reverse.',
       },
       {
-        name: 'Bronze evil-eye plaque',
-        detail: 'Wall-hung. Cast from a 19th-century pattern.',
+        name: 'Brass oil lamp (kandili)',
+        detail: 'Hanging form. The lamp kept burning before icons in Greek homes.',
       },
     ],
     routes: [

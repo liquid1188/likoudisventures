@@ -119,6 +119,7 @@ export const divisions: Division[] = [
     leads: [
       { id: 'jake', role: 'Operational Director' },
       { id: 'luke', role: 'Sourcing Director' },
+      { id: 'andrew', role: 'Strategic Advisor' },
     ],
   },
   {

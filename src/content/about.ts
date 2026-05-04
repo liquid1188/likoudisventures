@@ -58,9 +58,9 @@ export const about = {
       {
         id: 'andrew',
         name: 'Andrew Likoudis',
-        role: 'Founder · Operational Director, The Studio · Experience Curator, Ithaca House',
-        divisions: ['The Studio', 'Ithaca House', 'The Branch'],
-        bio: 'Andrew runs operations on The Studio with Elena leading design. At Ithaca House, where Caroline leads hospitality, he curates the experiences side: Greek dinners in the house, market runs, basilica visits with breakfast to follow, museum routing, harbor sailing arrangements, and pre-arrival reading lists for guests on long stays. He also writes The Branch, the monthly letter from the family. A graduate of Towson University and Franciscan University of Steubenville. Separately, he founded the Likoudis Legacy Foundation, a Catholic research institute named for his late grandfather, where he edits The Kydones Review.',
+        role: 'Founder · The Studio · The Workshop · Ithaca House',
+        divisions: ['The Studio', 'The Workshop', 'Ithaca House', 'The Branch'],
+        bio: 'Andrew runs operations on The Studio with Elena leading design. At The Workshop, he leads the Strategic Advisory line of work, drawing on a Johns Hopkins University fellowship in economic development, a Goldman Sachs 10,000 Small Businesses fellowship in marketing development, and the McKinsey & Company Forward Program. At Ithaca House, where Caroline leads hospitality, he curates the experiences side: Greek dinners in the house, market runs, basilica visits with breakfast to follow, museum routing, harbor sailing arrangements, and pre-arrival reading lists for guests on long stays. He also writes The Branch, the monthly letter from the family. A graduate of Towson University and Franciscan University of Steubenville. Separately, he founded the Likoudis Legacy Foundation, a Catholic research institute named for his late grandfather, where he edits The Kydones Review.',
         portrait: '/andrew-likoudis.jpg',
         siteLabel: 'andrewlikoudis.com',
         siteUrl: 'https://andrewlikoudis.com',

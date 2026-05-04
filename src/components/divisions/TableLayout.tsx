@@ -84,6 +84,9 @@ export function TableLayout({ division }: LayoutProps) {
             <p className="font-serif text-lg text-navy/65 mt-5 leading-relaxed">
               The Table sources from Kefalonia and from named producers across Greece, and from the Finger Lakes country in upstate New York where the family settled three generations ago and where the five of us grew up. The lakes there run long and deep, and the wineries that line them have raised a region of careful winemakers we still know. Each product comes with the name of the estate, the apiary, the press, and ours beside theirs on the front of the bottle.
             </p>
+            <p className="font-serif text-base text-navy/60 mt-5 leading-relaxed border-t border-navy/10 pt-5 max-w-xl mx-auto">
+              The wine selection is shaped by hospitality experience inside the family. Andrew worked at Charleston in Baltimore, winner of the 2025 James Beard Award for Outstanding Wine and Other Beverages Program, and at Wagner Vineyards in the Finger Lakes. The relationships and the palate carry over to the line on this page.
+            </p>
           </div>
         </div>
       </section>

@@ -438,6 +438,28 @@ export function IthacaLayout({ division }: LayoutProps) {
         </div>
       </section>
 
+      {/* Testimonial — Mark Krist, Airbnb consulting client (hospitality advisory) */}
+      <section className="ground-bone py-20 lg:py-28 border-t border-navy/10">
+        <div className="container-editorial max-w-3xl">
+          <ScrollReveal as="div" className="text-center">
+            <div className="text-ochre mb-6 flex justify-center">
+              <OliveBranchMark size={36} />
+            </div>
+            <div className="eyebrow-no-rule text-ochre-deep mb-8 inline-block">From a Hospitality Client</div>
+            <blockquote className="font-display text-xl lg:text-2xl text-navy leading-relaxed italic font-light">
+              &ldquo;Andrew has been helping us set up our home for Airbnb short-term rental. We can&rsquo;t say enough good things about how organized and thorough he has been, and patient. From walking through the steps we need to take, providing links to the appropriate places and advising about what we need to do to get the place together. We couldn&rsquo;t endorse Andrew any more highly. He is honest and nice and you should work with him if you need assistance.&rdquo;
+            </blockquote>
+            <div className="mt-10 pt-6 border-t border-navy/15 max-w-md mx-auto">
+              <div className="font-display text-lg text-navy">Mark Krist</div>
+              <div className="font-serif italic text-sm text-navy/65 mt-1">Airbnb Host, Maryland · August 2025</div>
+            </div>
+            <p className="font-serif italic text-sm text-navy/55 mt-8 max-w-xl mx-auto leading-relaxed">
+              Beyond the six properties Ithaca House operates, Andrew advises individual hosts on setup, listing, and turnover practice. By referral.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
       <InquirySection
         defaultDivision={division.slug}
         heading={
