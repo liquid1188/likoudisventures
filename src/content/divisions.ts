@@ -6,6 +6,7 @@
  */
 
 export type DivisionStatus = 'active' | 'forthcoming';
+export type FamilyMemberId = 'andrew' | 'caroline' | 'elena' | 'luke' | 'jake';
 
 export interface Division {
   slug: string;
@@ -23,6 +24,8 @@ export interface Division {
   ctaType: 'inquiry' | 'notify'; // Determines which form appears on subpage
   themeColor: 'navy' | 'olive' | 'sky' | 'ochre'; // Top border color on cards
   notes?: string; // Optional special notes for the subpage (e.g., partnership disclosure)
+  /** Family members who lead this division (referenced by id). Resolved against about.ts. */
+  leads: FamilyMemberId[];
 }
 
 export const divisions: Division[] = [
@@ -34,22 +37,24 @@ export const divisions: Division[] = [
     greekTransliteration: 'Stoúntio',
     greekTranslation: 'Studio',
     status: 'active',
-    tagline: 'Web design, content creation, and brand identity.',
+    tagline: 'Web design, photography, and content creation.',
     shortDescription:
-      'Hand-built websites and editorial work for businesses that have outgrown the template economy.',
+      'Web design, photography, and content creation for businesses that have outgrown the template economy.',
     longDescription:
-      "The Studio is where the digital work of the house is made. It contains Lickity Split Web Design as its productized line, alongside content creation, brand identity work, and editorial production for clients who want their digital presence to read like something written by a person.\n\nWe build websites that the client owns outright. No subscriptions, no platforms held hostage, no recurring license fees. The work is performance-tested, accessible, and yours.",
+      "The Studio is the digital and visual practice of the house. Three disciplines under one roof: web design and build, photography for editorial and brand use, and content creation — writing, design systems, identity work, and the small craft of making a brand sound like a person.\n\nWebsites are built to be owned outright by the client. No subscriptions, no platforms held hostage, no recurring license fees. Performance-tested, accessible, and yours.",
     offerings: [
-      'Custom websites — full design and build (Lickity Split Web Design)',
+      'Custom websites — full design and build, owned outright by the client',
+      'Photography — editorial, product, and brand portraiture',
+      'Content creation — writing, editorial design, and visual systems',
+      'Brand identity, logo design, and design systems',
       'Site rebuilds and migrations from page-builder platforms',
-      'Brand identity, logo design, and visual systems',
-      'Editorial writing and content production',
       'Newsletter and Substack design',
       'Ongoing maintenance and hosting (optional)',
     ],
     ctaLabel: 'Begin a Project',
     ctaType: 'inquiry',
     themeColor: 'navy',
+    leads: ['andrew', 'elena'],
   },
   {
     slug: 'the-workshop',
@@ -59,21 +64,22 @@ export const divisions: Division[] = [
     greekTransliteration: 'Ergastírion',
     greekTranslation: 'Workshop',
     status: 'active',
-    tagline: 'Custom commissions, advisory, and one-off projects.',
+    tagline: 'Services, advisory, and custom commissions.',
     shortDescription:
-      'For projects that do not fit the standard package. By appointment, by referral, by careful conversation.',
+      'For projects that do not fit a standard package. By appointment, by referral, by careful conversation.',
     longDescription:
-      "The Workshop is where one-off projects come to be made. Custom curation, brokerage work, advisory engagements, bespoke commissions — anything that calls for a longer conversation than a standard service form can support.\n\nThis is the division that begins with a phone call rather than a price list. We work with a small number of clients at a time, on projects that warrant the attention.",
+      "The Workshop is the family's services arm. Advisory engagements, brokerage and sourcing work, custom curation, bespoke commissions — anything that calls for a longer conversation than a standard service form can support.\n\nThis is the division that begins with a phone call rather than a price list. We work with a small number of clients at a time, on projects that warrant the attention.",
     offerings: [
-      'Bespoke curation projects (private libraries, art acquisitions, gift sourcing)',
-      'Brokerage services — sourcing specific items on a client\'s behalf',
       'Strategic advisory and consulting engagements',
+      'Brokerage services — sourcing specific items on a client\'s behalf',
+      'Bespoke curation projects (private libraries, art acquisitions, gift sourcing)',
       'Custom-built solutions outside the standard division offerings',
       'One-off projects, by appointment',
     ],
     ctaLabel: 'Open a Conversation',
     ctaType: 'inquiry',
     themeColor: 'olive',
+    leads: ['luke', 'jake'],
   },
   {
     slug: 'ithaca-house',
@@ -101,6 +107,7 @@ export const divisions: Division[] = [
     themeColor: 'sky',
     notes:
       'A note on the name: in Kioni, on the island of Ithaca itself, Likoudis Villas has welcomed travelers since 1998 — operated by relatives of our family line. We do not operate Likoudis Villas; bookings are made directly through them. We acknowledge them here as kin, not as a commercial partner.',
+    leads: ['caroline', 'andrew'],
   },
   {
     slug: 'the-easel',
@@ -125,6 +132,7 @@ export const divisions: Division[] = [
     ctaLabel: 'Inquire About Work',
     ctaType: 'inquiry',
     themeColor: 'ochre',
+    leads: ['caroline', 'elena'],
   },
   {
     slug: 'the-table',
@@ -151,6 +159,7 @@ export const divisions: Division[] = [
     ctaLabel: 'Notify Me When This Launches',
     ctaType: 'notify',
     themeColor: 'olive',
+    leads: ['luke', 'jake', 'andrew'],
   },
   {
     slug: 'the-likoudis-collection',
@@ -177,6 +186,7 @@ export const divisions: Division[] = [
     ctaLabel: 'Notify Me When This Launches',
     ctaType: 'notify',
     themeColor: 'navy',
+    leads: ['luke', 'jake'],
   },
 ];
 

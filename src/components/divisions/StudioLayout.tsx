@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { Division } from '@/content/divisions';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { OliveBranchMark } from '@/components/brand/OliveBranchMark';
+import { StudioBanner } from '@/components/brand/StudioBanner';
 import { InquirySection } from '@/components/sections/InquirySection';
 import { site } from '@/content/site';
 
@@ -11,32 +12,57 @@ interface LayoutProps {
 
 /**
  * The Studio — editorial blog/magazine register.
- * Two-column layout, marginalia, ornamental rules, generous prose.
+ * Full-bleed banner hero (editor's desk illustration), then two-column
+ * marginalia layout, ornamental rules, generous prose.
  */
 export function StudioLayout({ division }: LayoutProps) {
   const paragraphs = division.longDescription.split('\n\n');
 
   return (
     <>
-      {/* Editorial hero — navy with masthead feel */}
-      <section className="ground-navy relative pt-32 lg:pt-40 pb-20 lg:pb-24 overflow-hidden">
-        <div className="container-editorial relative z-10">
-          {/* Masthead bar */}
-          <div className="flex items-center justify-between mb-12 text-bone/60 font-sans text-[10px] uppercase tracking-eyebrow border-b border-bone/15 pb-5">
+      {/* Full-bleed hero with editor's-desk banner */}
+      <section className="relative min-h-[100svh] flex flex-col bg-navy overflow-hidden">
+        {/* Banner background */}
+        <div className="absolute inset-0">
+          <StudioBanner className="w-full h-full object-cover opacity-95" />
+        </div>
+
+        {/* Gradient overlay for text legibility */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              'linear-gradient(to bottom, rgba(14, 27, 44, 0.55) 0%, rgba(14, 27, 44, 0.15) 30%, rgba(14, 27, 44, 0.1) 50%, rgba(14, 27, 44, 0.78) 100%)',
+          }}
+        />
+
+        {/* Top masthead */}
+        <div className="container-tight relative z-10 pt-32 lg:pt-36 pb-2">
+          <div className="flex justify-between items-start text-bone font-sans text-[10px] uppercase tracking-eyebrow">
             <Link href="/#divisions" className="hover:text-ochre transition-colors">
               ← Likoudis Ventures
             </Link>
-            <span>The Studio · No. {division.number}</span>
+            <span>No. {division.number} · The Studio</span>
             <span className="text-ochre">{division.greek}</span>
           </div>
+        </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
-            {/* Margin column — section number + status */}
-            <div className="lg:col-span-2 lg:pt-3">
-              <span className="text-olive-glow opacity-70 inline-block mb-5">
-                <OliveBranchMark size={32} />
-              </span>
-              <div className="catalog-num text-bone/70 text-base mb-3">{division.number}.</div>
+        {/* Bottom-anchored content */}
+        <div className="container-editorial relative z-10 mt-auto pb-20 lg:pb-28">
+          <div className="max-w-3xl">
+            <div className="text-olive-glow opacity-80 mb-6 inline-block">
+              <OliveBranchMark size={36} />
+            </div>
+            <div className="font-serif italic text-ochre text-lg lg:text-xl mb-3">
+              {division.greek} · digital craft
+            </div>
+            <h1 className="font-display text-editorial text-bone leading-[0.95] tracking-tight mb-7">
+              {division.name}
+            </h1>
+            <p className="font-serif text-2xl lg:text-3xl text-bone/90 leading-tight italic font-light max-w-3xl">
+              {division.tagline}
+            </p>
+            <div className="mt-8">
               <span
                 className={
                   division.status === 'active'
@@ -46,19 +72,6 @@ export function StudioLayout({ division }: LayoutProps) {
               >
                 {division.status === 'active' ? 'Active' : 'Forthcoming'}
               </span>
-            </div>
-
-            {/* Headline column */}
-            <div className="lg:col-span-9">
-              <div className="font-serif italic text-ochre text-lg mb-4">
-                {division.greek} · digital craft
-              </div>
-              <h1 className="font-display text-editorial text-bone leading-[0.95] tracking-tight mb-8">
-                {division.name}
-              </h1>
-              <p className="font-serif text-2xl lg:text-3xl text-bone/85 leading-tight italic font-light max-w-3xl">
-                {division.tagline}
-              </p>
             </div>
           </div>
         </div>

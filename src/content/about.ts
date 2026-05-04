@@ -10,6 +10,8 @@
  */
 
 export interface FamilyMember {
+  /** Stable slug-style id used to cross-reference from divisions.ts */
+  id: 'andrew' | 'caroline' | 'elena' | 'luke' | 'jake';
   name: string;
   role: string;
   divisions: string[];
@@ -54,6 +56,7 @@ export const about = {
     intro: 'Likoudis Ventures is governed by its founding family. The board is the family — three brothers and two sisters — and each director leads the divisions where their work and judgment live. In practice we work for each other across the house, because that is how families build things that last.',
     members: [
       {
+        id: 'andrew',
         name: 'Andrew Likoudis',
         role: 'Founder, Chairman & Director · The Studio · Ithaca House · The Branch',
         divisions: ['The Studio', 'Ithaca House', 'The Branch'],
@@ -64,6 +67,7 @@ export const about = {
         order: 1,
       },
       {
+        id: 'luke',
         name: 'Luke Likoudis',
         role: 'Director · The Workshop · The Likoudis Collection · The Table',
         divisions: ['The Workshop', 'The Likoudis Collection', 'The Table'],
@@ -71,6 +75,7 @@ export const about = {
         order: 2,
       },
       {
+        id: 'jake',
         name: 'Jake Likoudis',
         role: 'Director · The Workshop · The Likoudis Collection · The Table',
         divisions: ['The Workshop', 'The Likoudis Collection', 'The Table'],
@@ -78,6 +83,7 @@ export const about = {
         order: 3,
       },
       {
+        id: 'caroline',
         name: 'Caroline Likoudis',
         role: 'Director · The Easel',
         divisions: ['The Easel'],
@@ -88,6 +94,7 @@ export const about = {
         order: 4,
       },
       {
+        id: 'elena',
         name: 'Elena Likoudis',
         role: 'Director · The Easel · The Studio',
         divisions: ['The Easel', 'The Studio'],
@@ -105,3 +112,11 @@ export const about = {
     body: 'The Likoudis Legacy Foundation is a separate 501(c)(3) Catholic ecumenical research institute, established in 2024 in memory of James Likoudis (1928–2024). The Foundation and Likoudis Ventures share a family but no commercial activity, board, or financial flow. Each operates under its own governance, its own donors or customers, and its own books.',
   },
 };
+
+/**
+ * Look up a family member by their stable id.
+ * Used by division pages to render lead photo + name rows.
+ */
+export function getFamilyMember(id: FamilyMember['id']): FamilyMember | undefined {
+  return about.family.members.find((m) => m.id === id);
+}

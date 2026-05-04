@@ -1,6 +1,7 @@
 import type { Division } from '@/content/divisions';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { OliveBranchMark } from '@/components/brand/OliveBranchMark';
+import { WorkshopBanner } from '@/components/brand/WorkshopBanner';
 import { InquirySection } from '@/components/sections/InquirySection';
 import Link from 'next/link';
 
@@ -9,46 +10,55 @@ interface LayoutProps {
 }
 
 /**
- * The Workshop — letterpress register.
- * Centered single-column, ornamental rules, classical typography,
- * the feel of a printed business card or trade announcement.
+ * The Workshop — letterpress register with a full-bleed shopfront banner.
+ * Centered classical typography, ornamental rules, the feel of a 19th-century
+ * trade announcement.
  */
 export function WorkshopLayout({ division }: LayoutProps) {
   const paragraphs = division.longDescription.split('\n\n');
 
   return (
     <>
-      {/* Hero — centered, classical */}
-      <section className="ground-navy relative pt-32 lg:pt-44 pb-20 lg:pb-28 overflow-hidden">
-        <div className="container-editorial relative z-10">
-          <div className="flex items-center justify-between mb-12 text-bone/60 font-sans text-[10px] uppercase tracking-eyebrow border-b border-bone/15 pb-5">
+      {/* Full-bleed hero with shopfront banner */}
+      <section className="relative min-h-[100svh] flex flex-col bg-navy overflow-hidden">
+        <div className="absolute inset-0">
+          <WorkshopBanner className="w-full h-full object-cover opacity-95" />
+        </div>
+
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              'linear-gradient(to bottom, rgba(14, 27, 44, 0.55) 0%, rgba(14, 27, 44, 0.18) 30%, rgba(14, 27, 44, 0.1) 50%, rgba(14, 27, 44, 0.78) 100%)',
+          }}
+        />
+
+        {/* Top masthead */}
+        <div className="container-tight relative z-10 pt-32 lg:pt-36 pb-2">
+          <div className="flex justify-between items-start text-bone font-sans text-[10px] uppercase tracking-eyebrow">
             <Link href="/#divisions" className="hover:text-ochre transition-colors">
               ← Likoudis Ventures
             </Link>
-            <span>By Appointment</span>
+            <span>By Appointment · No. {division.number}</span>
             <span className="text-ochre">{division.greek}</span>
           </div>
+        </div>
 
+        {/* Bottom-anchored content — centered in classical register */}
+        <div className="container-editorial relative z-10 mt-auto pb-20 lg:pb-28">
           <div className="text-center max-w-3xl mx-auto">
-            <div className="text-olive-glow opacity-70 mb-8 flex justify-center">
-              <OliveBranchMark size={48} />
+            <div className="text-olive-glow opacity-80 mb-6 flex justify-center">
+              <OliveBranchMark size={42} />
             </div>
-
-            <div className="catalog-num text-bone/70 text-base mb-4">No. {division.number}</div>
-
-            <div className="ornate-divider text-bone/30 my-3" />
-
-            <h1 className="font-display text-editorial text-bone leading-[0.95] tracking-tight mb-6 lg:mb-8">
+            <div className="ornate-divider text-bone/40 my-3" />
+            <h1 className="font-display text-editorial text-bone leading-[0.95] tracking-tight mb-6 lg:mb-7">
               {division.name}
             </h1>
-
-            <p className="font-serif text-xl lg:text-2xl text-bone/80 leading-relaxed italic font-light mb-10">
+            <p className="font-serif text-xl lg:text-2xl text-bone/90 leading-relaxed italic font-light mb-8">
               {division.tagline}
             </p>
-
-            <div className="ornate-divider text-bone/30 my-3" />
-
-            <div className="font-sans text-[10px] uppercase tracking-eyebrow text-bone/55">
+            <div className="ornate-divider text-bone/40 my-3" />
+            <div className="font-sans text-[10px] uppercase tracking-eyebrow text-bone/70 mt-5">
               Established MMXXVI · Baltimore
             </div>
           </div>

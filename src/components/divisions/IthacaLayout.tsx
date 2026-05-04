@@ -4,6 +4,7 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { OliveBranchMark } from '@/components/brand/OliveBranchMark';
 import { IonianSeascape } from '@/components/brand/IonianSeascape';
 import { InquirySection } from '@/components/sections/InquirySection';
+import { DivisionLeads } from '@/components/sections/DivisionLeads';
 
 interface LayoutProps {
   division: Division;
@@ -61,6 +62,13 @@ export function IthacaLayout({ division }: LayoutProps) {
               {division.tagline}
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Lead row */}
+      <section className="ground-bone py-7 lg:py-9 border-y border-navy/10">
+        <div className="container-editorial">
+          <DivisionLeads leads={division.leads} theme="light" />
         </div>
       </section>
 

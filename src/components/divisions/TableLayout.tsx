@@ -2,6 +2,7 @@ import type { Division } from '@/content/divisions';
 import Link from 'next/link';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { OliveBranchMark } from '@/components/brand/OliveBranchMark';
+import { TableBanner } from '@/components/brand/TableBanner';
 import { NotifyForm } from '@/components/forms/NotifyForm';
 
 interface LayoutProps {
@@ -9,65 +10,62 @@ interface LayoutProps {
 }
 
 /**
- * The Table — market-stall register.
- * Warm cream tones, food/drink illustration glyphs, recipe-card feel.
+ * The Table — market-stall register with a Mediterranean still-life banner.
+ * Warm cream tones, recipe-card feel.
  */
 export function TableLayout({ division }: LayoutProps) {
   const paragraphs = division.longDescription.split('\n\n');
 
   return (
     <>
-      {/* Hero — cream/ochre warmth */}
-      <section className="ground-cream relative pt-32 lg:pt-40 pb-20 lg:pb-28 overflow-hidden">
-        {/* Decorative warm gradient */}
+      {/* Full-bleed hero with still-life banner */}
+      <section className="relative min-h-[100svh] flex flex-col bg-navy overflow-hidden">
+        <div className="absolute inset-0">
+          <TableBanner className="w-full h-full object-cover opacity-95" />
+        </div>
+
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse at 80% 20%, rgba(200, 162, 74, 0.18) 0%, transparent 55%), radial-gradient(ellipse at 5% 85%, rgba(143, 166, 125, 0.15) 0%, transparent 60%)',
+              'linear-gradient(to bottom, rgba(14, 27, 44, 0.5) 0%, rgba(14, 27, 44, 0.12) 30%, rgba(14, 27, 44, 0.08) 50%, rgba(14, 27, 44, 0.78) 100%)',
           }}
         />
 
-        <div className="container-editorial relative z-10">
-          <div className="flex items-center justify-between mb-12 text-navy/55 font-sans text-[10px] uppercase tracking-eyebrow border-b border-navy/15 pb-5">
-            <Link href="/#divisions" className="hover:text-ochre-deep transition-colors">
+        <div className="container-tight relative z-10 pt-32 lg:pt-36 pb-2">
+          <div className="flex justify-between items-start text-bone font-sans text-[10px] uppercase tracking-eyebrow">
+            <Link href="/#divisions" className="hover:text-ochre transition-colors">
               ← Likoudis Ventures
             </Link>
-            <span>The Table · No. {division.number}</span>
-            <span className="text-ochre-deep italic font-serif">{division.greek}</span>
+            <span>No. {division.number} · The Table</span>
+            <span className="text-ochre">{division.greek}</span>
           </div>
+        </div>
 
-          {/* Asymmetric layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-end">
-            <div className="lg:col-span-7">
-              <div className="text-ochre opacity-90 mb-6 inline-block">
-                <OliveBranchMark size={42} />
-              </div>
-              <div className="font-serif italic text-ochre-deep text-lg lg:text-xl mb-5">
-                {division.greek} · come to the table
-              </div>
-              <h1 className="font-display text-editorial text-navy leading-[0.92] tracking-tight mb-6">
-                The <em className="italic text-ochre-deep">Table</em>
-              </h1>
-              <p className="font-serif text-2xl lg:text-3xl text-navy/85 italic leading-tight font-light max-w-xl">
-                {division.tagline}
-              </p>
+        <div className="container-editorial relative z-10 mt-auto pb-20 lg:pb-28">
+          <div className="max-w-3xl">
+            <div className="text-olive-glow opacity-85 mb-6 inline-block">
+              <OliveBranchMark size={42} />
             </div>
-
-            {/* Decorative product line-up */}
-            <div className="lg:col-span-5 grid grid-cols-3 gap-4 lg:gap-6">
-              <ProductGlyph icon="oil" label="Oil" />
-              <ProductGlyph icon="honey" label="Honey" />
-              <ProductGlyph icon="olives" label="Olives" />
-              <ProductGlyph icon="wine" label="Wine" />
-              <ProductGlyph icon="vinegar" label="Vinegar" />
-              <ProductGlyph icon="spirit" label="Spirits" />
+            <div className="font-serif italic text-ochre text-lg lg:text-xl mb-4">
+              {division.greek} · come to the table
+            </div>
+            <h1 className="font-display text-editorial text-bone leading-[0.92] tracking-tight mb-6">
+              The <em className="italic text-ochre">Table</em>
+            </h1>
+            <p className="font-serif text-2xl lg:text-3xl text-bone/90 italic leading-tight font-light max-w-2xl">
+              {division.tagline}
+            </p>
+            <div className="mt-7">
+              <span className="inline-block font-sans text-[9px] uppercase tracking-tag px-2.5 py-1 bg-ochre text-bone">
+                Forthcoming
+              </span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* On opening */}
+      {/* On the table — opening line */}
       <section className="ground-bone py-16 lg:py-20 border-y border-navy/10">
         <div className="container-editorial">
           <div className="text-center max-w-2xl mx-auto">
@@ -82,70 +80,92 @@ export function TableLayout({ division }: LayoutProps) {
         </div>
       </section>
 
-      {/* Long-form prose */}
-      <section className="ground-cream py-24 lg:py-32">
-        <div className="container-editorial">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
-            <ScrollReveal as="div" className="lg:col-span-4">
-              <div className="catalog-num text-sm mb-3">§ I.</div>
-              <div className="eyebrow text-ochre-deep mb-5">On sourcing</div>
-              <h2 className="font-display text-display-lg text-navy leading-tight">
-                One label, <em className="italic text-ochre-deep">one defense</em>.
-              </h2>
-            </ScrollReveal>
-            <ScrollReveal as="div" delay={150} className="lg:col-span-7 lg:col-start-6">
-              <div className="prose-editorial">
-                {paragraphs.map((para, i) => (
-                  <p key={i}>{para}</p>
-                ))}
-              </div>
-            </ScrollReveal>
-          </div>
+      {/* Long-form description */}
+      <section className="ground-cream py-24 lg:py-28">
+        <div className="container-prose max-w-2xl">
+          <ScrollReveal>
+            <div className="text-center mb-12">
+              <div className="catalog-num text-sm mb-2">§ I.</div>
+              <div className="eyebrow-no-rule text-ochre-deep">A note from the kitchen</div>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={150}>
+            <div className="prose-editorial">
+              {paragraphs.map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* The list */}
-      <section className="ground-bone py-20 lg:py-28">
+      {/* The line — visual category grid */}
+      <section className="ground-cream py-20 lg:py-24 border-t border-navy/10">
         <div className="container-editorial">
-          <ScrollReveal as="div" className="text-center mb-14">
-            <div className="catalog-num text-sm mb-3">§ II.</div>
-            <div className="eyebrow text-ochre-deep mb-4 inline-block">The list, in order</div>
-            <h3 className="font-display text-display-md text-navy">
-              What is coming to <em className="italic text-ochre-deep">the table</em>.
-            </h3>
+          <ScrollReveal>
+            <div className="text-center mb-14">
+              <div className="catalog-num text-sm mb-2">§ II.</div>
+              <div className="eyebrow-no-rule text-ochre-deep mb-3">The categories</div>
+              <h3 className="font-display text-display-md text-navy max-w-2xl mx-auto leading-tight">
+                Six families of <em className="italic text-ochre-deep">good things</em>.
+              </h3>
+            </div>
           </ScrollReveal>
 
-          <div className="max-w-2xl mx-auto">
-            <ul className="divide-y divide-navy/15">
-              {division.offerings.map((offering, i) => (
-                <ScrollReveal key={i} as="li" delay={i * 50} className="py-4 lg:py-5 grid grid-cols-[40px_1fr] gap-5 items-baseline">
-                  <span className="catalog-num text-base">{String(i + 1).padStart(2, '0')}</span>
-                  <span className="font-serif text-lg lg:text-xl text-navy/90 leading-relaxed">
-                    {offering}
-                  </span>
-                </ScrollReveal>
-              ))}
-            </ul>
-          </div>
+          <ScrollReveal delay={150}>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 lg:gap-5 max-w-3xl mx-auto">
+              <ProductGlyph icon="oil" label="Oil" />
+              <ProductGlyph icon="honey" label="Honey" />
+              <ProductGlyph icon="olives" label="Olives" />
+              <ProductGlyph icon="wine" label="Wine" />
+              <ProductGlyph icon="vinegar" label="Vinegar" />
+              <ProductGlyph icon="spirit" label="Spirits" />
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* Notify section */}
+      {/* Offerings list */}
+      <section className="ground-bone py-20 lg:py-24">
+        <div className="container-prose max-w-xl text-center">
+          <ScrollReveal>
+            <div className="catalog-num text-sm mb-2">§ III.</div>
+            <div className="eyebrow-no-rule text-ochre-deep mb-3">The line</div>
+            <h3 className="font-display text-display-md text-navy mb-10">
+              What we will <em className="italic text-ochre-deep">be selling</em>.
+            </h3>
+            <ul className="space-y-4">
+              {division.offerings.map((offering, i) => (
+                <li key={i} className="font-serif text-lg text-navy/85">
+                  {offering}
+                </li>
+              ))}
+            </ul>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Notify form */}
       <section className="ground-navy py-24 lg:py-28">
         <div className="container-editorial">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 max-w-5xl mx-auto items-start">
-            <div>
-              <div className="catalog-num text-sm text-bone/70 mb-3">§ III.</div>
-              <div className="eyebrow text-ochre mb-5">An invitation</div>
-              <h2 className="font-display text-display-xl text-bone mb-7 leading-tight">
-                A seat at the <em className="italic text-sky">first table</em>.
-              </h2>
-              <p className="font-serif text-lg lg:text-xl text-bone/85 leading-relaxed">
-                Subscribers receive notice when each product opens — usually starting with oil and honey. Subscriptions are used for nothing else.
+          <ScrollReveal>
+            <div className="max-w-2xl mx-auto text-center">
+              <div className="text-olive-glow mb-6 flex justify-center">
+                <OliveBranchMark size={42} />
+              </div>
+              <div className="catalog-num text-sm mb-2 text-bone/70">§ IV.</div>
+              <div className="eyebrow text-olive-glow mb-5 inline-block">
+                When the line opens
+              </div>
+              <h3 className="font-display text-display-lg text-bone mb-6 leading-tight">
+                Be the first to <em className="italic text-olive-glow">come to the table</em>.
+              </h3>
+              <p className="font-serif text-lg text-bone/85 leading-relaxed mb-10">
+                Leave your address and we'll write when the first products are ready to ship.
               </p>
+              <NotifyForm divisionName={division.name} divisionSlug={division.slug} />
             </div>
-            <NotifyForm divisionName={division.name} divisionSlug={division.slug} />
-          </div>
+          </ScrollReveal>
         </div>
       </section>
     </>

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { OliveBranchMark } from '@/components/brand/OliveBranchMark';
+import { EaselBanner } from '@/components/brand/EaselBanner';
 import { InquirySection } from '@/components/sections/InquirySection';
 
 interface LayoutProps {
@@ -12,40 +13,52 @@ interface LayoutProps {
 /**
  * The Easel — gallery wall register.
  *
- * Two artists, two studios, two real online destinations:
- *   - Caroline Likoudis · Brush & Soul Studio (oil & watercolor)
- *   - Elena Likoudis · Elena Likoudis Art (vibrant portraits, prints, custom)
- *
- * Visitors get linked to the actual studios. The Easel page is the hub that
- * introduces them and explains how the two practices sit under one division.
+ * Full-bleed gallery banner hero, then two studio cards leading visitors to
+ * Caroline (Brush & Soul Studio) and Elena (Elena Likoudis Art).
  */
 export function EaselLayout({ division }: LayoutProps) {
   const paragraphs = division.longDescription.split('\n\n');
 
   return (
     <>
-      {/* Hero */}
-      <section className="ground-cream relative pt-32 lg:pt-40 pb-20 lg:pb-24">
-        <div className="container-editorial relative z-10">
-          <div className="flex items-center justify-between mb-12 text-navy/55 font-sans text-[10px] uppercase tracking-eyebrow border-b border-navy/15 pb-5">
-            <Link href="/#divisions" className="hover:text-ochre-deep transition-colors">
+      {/* Full-bleed hero with gallery banner */}
+      <section className="relative min-h-[100svh] flex flex-col bg-navy overflow-hidden">
+        <div className="absolute inset-0">
+          <EaselBanner className="w-full h-full object-cover opacity-95" />
+        </div>
+
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              'linear-gradient(to bottom, rgba(14, 27, 44, 0.5) 0%, rgba(14, 27, 44, 0.12) 30%, rgba(14, 27, 44, 0.08) 50%, rgba(14, 27, 44, 0.78) 100%)',
+          }}
+        />
+
+        {/* Top masthead */}
+        <div className="container-tight relative z-10 pt-32 lg:pt-36 pb-2">
+          <div className="flex justify-between items-start text-bone font-sans text-[10px] uppercase tracking-eyebrow">
+            <Link href="/#divisions" className="hover:text-ochre transition-colors">
               ← Likoudis Ventures
             </Link>
-            <span>The Easel · No. {division.number}</span>
-            <span className="text-ochre-deep italic font-serif">{division.greek}</span>
+            <span>No. {division.number} · The Easel</span>
+            <span className="text-ochre">{division.greek}</span>
           </div>
+        </div>
 
+        {/* Bottom-anchored content */}
+        <div className="container-editorial relative z-10 mt-auto pb-20 lg:pb-28">
           <div className="text-center max-w-3xl mx-auto">
-            <div className="text-ochre opacity-80 mb-7 flex justify-center">
+            <div className="text-olive-glow opacity-80 mb-6 flex justify-center">
               <OliveBranchMark size={42} />
             </div>
-            <div className="font-serif italic text-ochre-deep text-lg mb-5">
+            <div className="font-serif italic text-ochre text-lg lg:text-xl mb-4">
               Καβαλέτο · the easel
             </div>
-            <h1 className="font-display text-editorial text-navy leading-[0.95] tracking-tight mb-8">
-              The <em className="italic text-ochre-deep">Easel</em>
+            <h1 className="font-display text-editorial text-bone leading-[0.95] tracking-tight mb-7">
+              The <em className="italic text-ochre">Easel</em>
             </h1>
-            <p className="font-serif text-xl lg:text-2xl text-navy/80 italic font-light leading-relaxed max-w-xl mx-auto">
+            <p className="font-serif text-xl lg:text-2xl text-bone/90 italic font-light leading-relaxed max-w-xl mx-auto">
               {division.tagline}
             </p>
           </div>
