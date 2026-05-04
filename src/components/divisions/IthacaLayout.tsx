@@ -229,7 +229,7 @@ export function IthacaLayout({ division }: LayoutProps) {
                   <p className="font-serif italic text-sm text-navy/70 leading-relaxed mb-4">
                     King bed, private bath, in an artist&rsquo;s rowhome filled with handmade art and original paintings.
                   </p>
-                  <div className="flex items-center justify-between font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
                     <span>★ 4.66 &middot; 86 reviews</span>
                     <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
                   </div>
@@ -264,7 +264,7 @@ export function IthacaLayout({ division }: LayoutProps) {
                   <p className="font-serif italic text-sm text-navy/70 leading-relaxed mb-4">
                     Full bed, shared bath, fully renovated lower level of an art-filled rowhome.
                   </p>
-                  <div className="flex items-center justify-between font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
                     <span>★ 4.85 &middot; 71 reviews</span>
                     <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
                   </div>
@@ -299,7 +299,7 @@ export function IthacaLayout({ division }: LayoutProps) {
                   <p className="font-serif italic text-sm text-navy/70 leading-relaxed mb-4">
                     Queen bed, private bath with skylight and tub, in a vibrant townhome filled with cultural pieces from around the world.
                   </p>
-                  <div className="flex items-center justify-between font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
                     <span>★ 4.81 &middot; 89 reviews</span>
                     <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
                   </div>
@@ -336,7 +336,7 @@ export function IthacaLayout({ division }: LayoutProps) {
                   <p className="font-serif italic text-sm text-navy/70 leading-relaxed mb-4">
                     Queen bed, dedicated bathroom, high ceilings and artistic touches. Two blocks to Patterson Park, less than a mile to Johns Hopkins Hospital.
                   </p>
-                  <div className="flex items-center justify-between font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
                     <span>★ 4.67 &middot; 195 reviews</span>
                     <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
                   </div>
@@ -371,7 +371,7 @@ export function IthacaLayout({ division }: LayoutProps) {
                   <p className="font-serif italic text-sm text-navy/70 leading-relaxed mb-4">
                     Private bedroom with private attached bathroom, espresso machine, drip coffee. Townhome convenient to Hopkins, the park, and downtown.
                   </p>
-                  <div className="flex items-center justify-between font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
                     <span>★ 4.20 &middot; 10 reviews</span>
                     <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
                   </div>
@@ -406,7 +406,7 @@ export function IthacaLayout({ division }: LayoutProps) {
                   <p className="font-serif italic text-sm text-navy/70 leading-relaxed mb-4">
                     Finished basement room with walk-out, shared bath. Five minutes to Hopkins, ten to the harbor and Fells Point.
                   </p>
-                  <div className="flex items-center justify-between font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
                     <span>★ 4.04 &middot; 23 reviews</span>
                     <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
                   </div>
