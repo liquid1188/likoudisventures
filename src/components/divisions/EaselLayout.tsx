@@ -130,41 +130,9 @@ export function EaselLayout({ division }: LayoutProps) {
             </div>
           </ScrollReveal>
 
-          {/* Caroline's row */}
-          <div className="mb-16 lg:mb-20">
-            <ScrollReveal>
-              <div className="flex items-baseline justify-between mb-6 pb-3 border-b border-navy/15">
-                <div>
-                  <div className="font-display text-2xl lg:text-3xl text-navy leading-tight">
-                    Caroline Likoudis
-                  </div>
-                  <div className="font-serif italic text-sm text-ochre-deep mt-1">
-                    Brush &amp; Soul Studio
-                  </div>
-                </div>
-                <a
-                  href="https://www.brushandsoulstudio.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-sans text-[11px] uppercase tracking-caps text-olive-deep hover:text-navy border-b border-olive-glow/40 hover:border-navy pb-1 transition-colors"
-                >
-                  Visit Brush &amp; Soul →
-                </a>
-              </div>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-7">
-              <ScrollReveal delay={0}>
-                <FeaturedWorkPlaceholder caption="Featured oil painting" />
-              </ScrollReveal>
-              <ScrollReveal delay={120}>
-                <FeaturedWorkPlaceholder caption="Featured watercolor" />
-              </ScrollReveal>
-            </div>
-          </div>
-
-          {/* Collaborative work — Our Lady, by Caroline and Elena together */}
-          <div className="mb-16 lg:mb-20">
+          {/* Collaborative work — Our Lady, by Caroline and Elena together. Featured first
+              as the page anchor — both artists' hands, the most finished work on the page. */}
+          <div className="mb-20 lg:mb-24">
             <ScrollReveal>
               <div className="text-center mb-8">
                 <div className="catalog-num text-sm mb-2">A Collaboration</div>
@@ -213,6 +181,39 @@ export function EaselLayout({ division }: LayoutProps) {
                 </div>
               </div>
             </ScrollReveal>
+          </div>
+
+          {/* Caroline's row */}
+          <div className="mb-16 lg:mb-20">
+            <ScrollReveal>
+              <div className="flex items-baseline justify-between mb-6 pb-3 border-b border-navy/15">
+                <div>
+                  <div className="font-display text-2xl lg:text-3xl text-navy leading-tight">
+                    Caroline Likoudis
+                  </div>
+                  <div className="font-serif italic text-sm text-ochre-deep mt-1">
+                    Brush &amp; Soul Studio
+                  </div>
+                </div>
+                <a
+                  href="https://www.brushandsoulstudio.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-sans text-[11px] uppercase tracking-caps text-olive-deep hover:text-navy border-b border-olive-glow/40 hover:border-navy pb-1 transition-colors"
+                >
+                  Visit Brush &amp; Soul →
+                </a>
+              </div>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-7">
+              <ScrollReveal delay={0}>
+                <FeaturedWorkPlaceholder caption="Featured oil painting" />
+              </ScrollReveal>
+              <ScrollReveal delay={120}>
+                <FeaturedWorkPlaceholder caption="Featured watercolor" />
+              </ScrollReveal>
+            </div>
           </div>
 
           {/* Elena's row */}
