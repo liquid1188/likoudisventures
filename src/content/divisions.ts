@@ -108,7 +108,7 @@ export const divisions: Division[] = [
     ctaType: 'inquiry',
     themeColor: 'sky',
     notes:
-      'A note on the name. In Kioni, on the island of Ithaca itself, two small Likoudis-named guesthouses already welcome travelers — Likoudis Villas, run by Paul and Penelope Likoudis on a hillside above the harbor since 1998, and Likoudis Apartments, a smaller stone-and-wood building nearby. We do not operate either of them; bookings are made directly through their own channels. We acknowledge them here as kin — working the same name on the same hill.',
+      'A note on the name. In Kioni, a small village on the north coast of Ithaka, two Likoudis-named guesthouses already welcome travelers — Likoudis Villas, run by Paul and Penelope Likoudis on a hillside above the harbor since 1998, and Likoudis Apartments, a smaller stone-and-wood building nearby. Across the channel in Argostoli, the capital of Kefalonia, Melissa Likoudis is a patisserie selling the traditional sweets of the island — mantola, mantolato, pasteli — alongside local wines and honey. We do not operate any of them. We acknowledge them here as kin. If your trip takes you to the Ionian instead of Baltimore, find them.',
     notesLinks: [
       {
         label: 'Likoudis Villas',
@@ -118,7 +118,12 @@ export const divisions: Division[] = [
       {
         label: 'Likoudis Apartments',
         href: 'https://www.ionianislandholidays.com/property/likoudis-apartments',
-        descriptor: 'via Ionian & Aegean Island Holidays',
+        descriptor: 'via Ionian & Aegean Island Holidays · Kioni, Ithaka',
+      },
+      {
+        label: 'Melissa Likoudis',
+        href: 'https://greece.terrabook.com/kefalonia/page/melissa-likoudis/',
+        descriptor: 'Patisserie · Argostoli, Kefalonia',
       },
     ],
     leads: ['caroline', 'andrew'],
