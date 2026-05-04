@@ -71,7 +71,7 @@ export const about = {
         name: 'Caroline Likoudis',
         role: 'Director of Hospitality, Ithaca House · Lead Artist, Brush & Soul Studio',
         divisions: ['Ithaca House', 'The Easel'],
-        bio: 'Caroline leads hospitality at Ithaca House and runs Brush & Soul Studio, one of two artist studios under The Easel. She paints in oil and watercolor. She works from Baltimore. A graduate of the Fashion Institute of Technology.',
+        bio: 'Caroline leads hospitality at Ithaca House and runs Brush & Soul Studio, one of two artist studios under The Easel. She paints in oil and watercolor. She works from Baltimore. She studied fashion design at the Fashion Institute of Technology.',
         portrait: '/caroline-likoudis.jpg',
         siteLabel: 'brushandsoulstudio.com',
         siteUrl: 'https://www.brushandsoulstudio.com',
