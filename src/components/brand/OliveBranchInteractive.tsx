@@ -13,43 +13,30 @@ interface OliveBranchInteractiveProps {
 /**
  * The interactive olive branch — homepage centerpiece.
  *
- * REDRAW NOTES
+ * DESIGN BRIEF
  *
- * Earlier versions read as a generic curved sprig. This version commits more
- * fully to the olive-branch idiom:
+ * This shares one visual vocabulary with the static OliveBranchMark used in
+ * nav and footer. The mark establishes the language; this is the
+ * mark-at-monumental-scale, with each olive made a tap target leading to a
+ * division.
  *
- * - The branch is no longer a single stroked arc. It's a filled silhouette
- *   that varies in thickness — thick at the cut end, tapering to slender at
- *   the tip — drawn as two parallel curves filled in olive tone with a darker
- *   centerline running through it. This is what real olive branches look like:
- *   woody, organic, not symmetrical.
+ * Shared anatomy:
+ *   - One graceful arc as the branch
+ *   - Six olive nodes evenly spaced along the arc
+ *   - At each node: a pair of mirrored lanceolate leaves (symmetric across
+ *     the branch axis), and a single olive hanging just below
+ *   - Single fill color (theme-resolved). No two-tone shading, no shadow
+ *     olives, no calyx detail, no filler leaves, no annual-ring flourish.
+ *     Botanical accuracy was actively reduced to make the mark read as a
+ *     mark.
  *
- * - The branch curve has been made more sculptural via cubic bezier with two
- *   control points, giving it an asymmetric profile (rises, dips, then rises
- *   again toward the tip) rather than a single graceful arc.
- *
- * - Six olives are placed at irregular spacing along the branch — clustered
- *   in two groups of three rather than evenly distributed. Real olive
- *   branches grow this way; the previous even spacing was the most generic
- *   visual choice.
- *
- * - Olives are now substantially larger (rx 28 / ry 38 vs former 19/26),
- *   two-tone with a darker shadow on one side and oil-shine highlight on the
- *   other, and connected to the branch by a visible woody stem nub.
- *
- * - Each olive node has ONE primary leaf, alternating above and below the
- *   branch line as you go from base to tip — the natural alternate-leaf
- *   pattern of real olive trees. Two additional "filler" leaves grow at
- *   non-olive points along the branch so the foliage isn't bunched only at
- *   the fruit.
- *
- * - Leaves themselves are larger lanceolates with a two-tone effect: top
- *   surface in lighter olive, underside (the side facing away from the
- *   light source) suggested with a darker centerline.
- *
- * Composition: viewBox 1200 × 560. The branch travels from lower-left to
- * upper-right, dipping in the middle under the visual weight of the olive
- * clusters, then rising again toward the tip.
+ * Differences from the static mark:
+ *   - Larger scale (viewBox 1200×560 vs 70×50)
+ *   - Olives are tap targets with hover halos, scale-up on hover, color
+ *     swap on hover, division name reveal on hover
+ *   - Roman numeral always shown beneath each olive
+ *   - Branch and olives animate in on mount (branch draws left to right;
+ *     olives drop in sequence with stagger)
  */
 export function OliveBranchInteractive({
   theme = 'on-navy',
@@ -69,146 +56,44 @@ export function OliveBranchInteractive({
 
   const isOnNavy = theme === 'on-navy';
 
-  // Theme-resolved colors
-  const branchLight = isOnNavy ? '#A6B594' : '#7A8B5F'; // olive-medium light side
-  const branchDark = isOnNavy ? '#5C7251' : '#3F5236'; // olive-deep shadow side
-  const oliveFill = isOnNavy ? '#8FA67D' : '#5C7251';
-  const oliveShadow = isOnNavy ? '#5C7251' : '#3F5236';
+  // Single theme-resolved color for the whole figure. The mark is
+  // monochromatic by intent; the only color shifts are during hover, where
+  // an olive briefly swaps to a contrasting tone to signal interactivity.
+  const figureColor = isOnNavy ? '#C9D7B8' : '#5C7251';
   const oliveHoverFill = isOnNavy ? '#FAF6EC' : '#0E1B2C';
-  const oliveStem = isOnNavy ? '#7A8B5F' : '#3F5236';
-  const leafTop = isOnNavy ? '#B5C4A2' : '#7A8B5F';
-  const leafUnder = isOnNavy ? '#7A8B5F' : '#5C7251';
+  const oliveHoverHalo = isOnNavy ? '#8FA67D' : '#5C7251';
   const numeralColor = isOnNavy ? '#C8A24A' : '#8E6420';
   const labelTextColor = isOnNavy ? 'text-bone' : 'text-navy';
   const labelGreekColor = isOnNavy ? 'text-ochre' : 'text-ochre-deep';
   const labelTaglineColor = isOnNavy ? 'text-bone/60' : 'text-navy/60';
 
-  /**
-   * Branch curve as a cubic bezier (two control points) for a more sculpted
-   * shape. The branch starts thick at the lower-left cut end (P0 ≈ 60, 380),
-   * sweeps up through the middle of the canvas, dips slightly under the
-   * weight of the central olive cluster, and tapers to a thin tip at upper
-   * right (P3 ≈ 1140, 220).
-   */
-  const P0 = { x: 60, y: 380 };
-  const P1 = { x: 360, y: 140 };
-  const P2 = { x: 820, y: 360 };
-  const P3 = { x: 1140, y: 220 };
+  // Branch: a clean quadratic arc from lower-left to right, apex slightly
+  // past midpoint. Same shape language as the static mark, scaled to the
+  // 1200×560 viewBox.
+  const P0 = { x: 80, y: 360 };
+  const P1 = { x: 600, y: 140 };
+  const P2 = { x: 1120, y: 240 };
 
-  /** Sample position and tangent on the cubic bezier at parameter t. */
   function sampleBezier(t: number) {
     const u = 1 - t;
-    const x =
-      u * u * u * P0.x +
-      3 * u * u * t * P1.x +
-      3 * u * t * t * P2.x +
-      t * t * t * P3.x;
-    const y =
-      u * u * u * P0.y +
-      3 * u * u * t * P1.y +
-      3 * u * t * t * P2.y +
-      t * t * t * P3.y;
-    // Derivative for tangent
-    const dx =
-      3 * u * u * (P1.x - P0.x) +
-      6 * u * t * (P2.x - P1.x) +
-      3 * t * t * (P3.x - P2.x);
-    const dy =
-      3 * u * u * (P1.y - P0.y) +
-      6 * u * t * (P2.y - P1.y) +
-      3 * t * t * (P3.y - P2.y);
-    const tangent = Math.atan2(dy, dx);
-    return { x, y, tangent };
+    const x = u * u * P0.x + 2 * u * t * P1.x + t * t * P2.x;
+    const y = u * u * P0.y + 2 * u * t * P1.y + t * t * P2.y;
+    const dx = 2 * u * (P1.x - P0.x) + 2 * t * (P2.x - P1.x);
+    const dy = 2 * u * (P1.y - P0.y) + 2 * t * (P2.y - P1.y);
+    return { x, y, tangent: Math.atan2(dy, dx) };
   }
 
-  /**
-   * Branch thickness profile — thick at the cut end, tapering to the tip.
-   * Returns half-thickness at parameter t.
-   */
-  function branchHalfWidth(t: number) {
-    return 14 - t * 9; // 14 → 5
-  }
+  // Six evenly-spaced olive nodes along the branch.
+  const nodeTs = [0.12, 0.28, 0.44, 0.6, 0.76, 0.92];
 
-  /**
-   * Build the branch silhouette as a filled SVG path. Sample the curve at
-   * many points; for each, compute the perpendicular and offset by the
-   * thickness; then trace one side forward and the other side back.
-   */
-  function buildBranchPath() {
-    const SAMPLES = 60;
-    const upper: Array<[number, number]> = [];
-    const lower: Array<[number, number]> = [];
-    for (let i = 0; i <= SAMPLES; i++) {
-      const t = i / SAMPLES;
-      const p = sampleBezier(t);
-      const w = branchHalfWidth(t);
-      const perp = p.tangent + Math.PI / 2;
-      upper.push([p.x + Math.cos(perp) * w, p.y + Math.sin(perp) * w]);
-      lower.push([p.x - Math.cos(perp) * w, p.y - Math.sin(perp) * w]);
-    }
-    const upperStr = upper.map(([x, y]) => `${x.toFixed(1)} ${y.toFixed(1)}`).join(' L ');
-    const lowerStr = lower
-      .reverse()
-      .map(([x, y]) => `${x.toFixed(1)} ${y.toFixed(1)}`)
-      .join(' L ');
-    return `M ${upperStr} L ${lowerStr} Z`;
-  }
-
-  const branchPath = buildBranchPath();
-
-  /**
-   * The centerline runs through the middle of the silhouette, suggesting
-   * the woody fiber. It's drawn as a stroked path along the bezier itself.
-   */
-  const centerlinePath = `M ${P0.x} ${P0.y} C ${P1.x} ${P1.y}, ${P2.x} ${P2.y}, ${P3.x} ${P3.y}`;
-
-  /**
-   * Six olive positions, irregularly spaced. Two clusters of three:
-   * one near the base, one in the middle-tip area. Real olive branches
-   * cluster their fruit; even spacing was the most generic visual choice.
-   */
-  const oliveTs = [0.16, 0.27, 0.38, 0.62, 0.74, 0.87];
-  const STEM_LENGTH_BASE = 36;
-
-  const oliveNodes = oliveTs.map((t, i) => {
-    const onBranch = sampleBezier(t);
-    // Olives hang downward from branch (perpendicular to tangent, pointing
-    // toward bottom of canvas). Slight per-olive variance in stem length and
-    // angle for a less mechanical look.
-    const stemAngle = onBranch.tangent + Math.PI / 2 + (i % 2 === 0 ? -0.18 : 0.12);
-    const stemLength = STEM_LENGTH_BASE + (i % 3) * 6;
-    const x = onBranch.x + Math.cos(stemAngle) * stemLength;
-    const y = onBranch.y + Math.sin(stemAngle) * stemLength;
-    return {
-      branchX: onBranch.x,
-      branchY: onBranch.y,
-      tangent: onBranch.tangent,
-      x,
-      y,
-      stemAngle,
-      // Alternate leaf side: above branch (-1) on even, below (+1) on odd
-      leafSide: i % 2 === 0 ? -1 : 1,
-    };
-  });
-
-  /**
-   * Filler leaves at points where there's no olive — keeps the branch from
-   * looking bare between fruit clusters and gives more sense of foliage.
-   */
-  const fillerLeafTs = [0.08, 0.48, 0.55, 0.95];
-  const fillerLeaves = fillerLeafTs.map((t, i) => {
-    const p = sampleBezier(t);
-    const side = i % 2 === 0 ? -1 : 1;
-    const length = 36 + (i % 2) * 8;
-    const angle = p.tangent + (Math.PI / 2) * side + side * 0.4;
-    return {
-      baseX: p.x,
-      baseY: p.y,
-      tipX: p.x + Math.cos(angle) * length,
-      tipY: p.y + Math.sin(angle) * length,
-      delay: 1.0 + i * 0.08,
-    };
-  });
+  // Geometry constants. Tuned so leaves at each node are clearly visible
+  // and the olive is well below the branch with a visible stem.
+  const LEAF_LENGTH = 95;
+  const LEAF_HALF_WIDTH = 22;
+  const LEAF_FORWARD_LEAN = 0.55; // radians of lean toward the branch tip
+  const OLIVE_RX = 22;
+  const OLIVE_RY = 30;
+  const OLIVE_DROP = 56; // distance the olive hangs below the branch node
 
   return (
     <div className="relative w-full">
@@ -217,100 +102,54 @@ export function OliveBranchInteractive({
         className="w-full h-auto select-none"
         style={{
           filter: isOnNavy
-            ? 'drop-shadow(0 12px 36px rgba(143, 184, 206, 0.18))'
-            : 'drop-shadow(0 6px 20px rgba(14, 27, 44, 0.1))',
+            ? 'drop-shadow(0 8px 32px rgba(143, 184, 206, 0.18))'
+            : 'drop-shadow(0 4px 16px rgba(14, 27, 44, 0.08))',
           overflow: 'visible',
         }}
         role="group"
         aria-label="Six divisions of Likoudis Ventures, arranged on an olive branch"
       >
-        {/* Branch silhouette — filled path with thickness variation */}
+        {/* The branch — one clean stroked arc, drawn in left-to-right */}
         <path
-          d={branchPath}
-          fill={branchLight}
-          opacity={0.92}
-          style={{
-            opacity: isMounted ? 0.92 : 0,
-            transition: 'opacity 1.4s cubic-bezier(0.65, 0, 0.35, 1)',
-          }}
-        />
-
-        {/* Centerline — darker stroke through the middle, suggesting woody fiber */}
-        <path
-          d={centerlinePath}
-          stroke={branchDark}
-          strokeWidth="1.5"
+          d={`M ${P0.x} ${P0.y} Q ${P1.x} ${P1.y}, ${P2.x} ${P2.y}`}
+          stroke={figureColor}
+          strokeWidth="5"
           fill="none"
           strokeLinecap="round"
-          opacity={0.6}
+          opacity={0.95}
           style={{
-            strokeDasharray: 1700,
-            strokeDashoffset: isMounted ? 0 : 1700,
+            strokeDasharray: 1500,
+            strokeDashoffset: isMounted ? 0 : 1500,
             transition: 'stroke-dashoffset 1.8s cubic-bezier(0.65, 0, 0.35, 1)',
           }}
         />
 
-        {/* Cut-end detail at base — small annual ring suggestion */}
-        <g
-          style={{
-            opacity: isMounted ? 0.7 : 0,
-            transition: 'opacity 0.6s ease-out 0.4s',
-          }}
-        >
-          <ellipse cx={P0.x + 4} cy={P0.y - 2} rx="11" ry="14" fill={branchDark} opacity="0.5" />
-          <ellipse cx={P0.x + 4} cy={P0.y - 2} rx="6" ry="9" fill={branchLight} opacity="0.85" />
-          <ellipse cx={P0.x + 4} cy={P0.y - 2} rx="2.5" ry="4" fill={branchDark} opacity="0.6" />
-        </g>
-
-        {/* Tip flourish — small curl at the upper-right end */}
-        <path
-          d={`M ${P3.x} ${P3.y} q 18 -4, 28 8 q 4 8, -2 14`}
-          stroke={branchDark}
-          strokeWidth="2.5"
-          fill="none"
-          strokeLinecap="round"
-          opacity={0.7}
-          style={{
-            opacity: isMounted ? 0.7 : 0,
-            transition: 'opacity 0.6s ease-out 1.4s',
-          }}
-        />
-
-        {/* Filler leaves — between olive clusters */}
-        {fillerLeaves.map((leaf, i) => (
-          <g
-            key={`filler-${i}`}
-            style={{
-              opacity: isMounted ? 0.9 : 0,
-              transition: `opacity 0.7s ease-out ${leaf.delay}s`,
-            }}
-          >
-            <Lanceolate
-              baseX={leaf.baseX}
-              baseY={leaf.baseY}
-              tipX={leaf.tipX}
-              tipY={leaf.tipY}
-              halfWidth={11}
-              fillTop={leafTop}
-              fillUnder={leafUnder}
-            />
-          </g>
-        ))}
-
-        {/* Six olive groups */}
-        {oliveNodes.map((node, i) => {
+        {/* Six olive groups — each is a Link to a division */}
+        {nodeTs.map((t, i) => {
           const division = divisions[i];
           if (!division) return null;
           const isHovered = hoveredIdx === i;
-          const growDelay = 0.7 + i * 0.13;
+          const growDelay = 0.6 + i * 0.13;
 
-          // Primary leaf for this olive — emerges from the branch (not the
-          // olive stem) on the alternate side.
-          const leafLength = 56;
-          const leafAngle =
-            node.tangent + (Math.PI / 2) * node.leafSide + node.leafSide * 0.55;
-          const leafTipX = node.branchX + Math.cos(leafAngle) * leafLength;
-          const leafTipY = node.branchY + Math.sin(leafAngle) * leafLength;
+          const node = sampleBezier(t);
+          const perp = node.tangent + Math.PI / 2;
+
+          // Mirror pair of lanceolate leaves at this node
+          const upperAngle = node.tangent - Math.PI / 2 + LEAF_FORWARD_LEAN;
+          const lowerAngle = node.tangent + Math.PI / 2 - LEAF_FORWARD_LEAN;
+          const upperTip = {
+            x: node.x + Math.cos(upperAngle) * LEAF_LENGTH,
+            y: node.y + Math.sin(upperAngle) * LEAF_LENGTH,
+          };
+          const lowerTip = {
+            x: node.x + Math.cos(lowerAngle) * LEAF_LENGTH,
+            y: node.y + Math.sin(lowerAngle) * LEAF_LENGTH,
+          };
+
+          // Olive position
+          const oliveCx = node.x + Math.cos(perp) * OLIVE_DROP;
+          const oliveCy = node.y + Math.sin(perp) * OLIVE_DROP;
+          const oliveAngleDeg = (perp * 180) / Math.PI - 90;
 
           return (
             <Link
@@ -327,15 +166,15 @@ export function OliveBranchInteractive({
                 style={{ cursor: 'pointer', outline: 'none' }}
                 className="group"
               >
-                {/* Generous invisible hit target */}
-                <circle cx={node.x} cy={node.y} r="62" fill="transparent" />
+                {/* Generous invisible hit target around the whole node */}
+                <circle cx={oliveCx} cy={oliveCy} r="60" fill="transparent" />
 
                 {/* Hover halo */}
                 <circle
-                  cx={node.x}
-                  cy={node.y}
-                  r={isHovered ? 70 : 50}
-                  fill={oliveFill}
+                  cx={oliveCx}
+                  cy={oliveCy}
+                  r={isHovered ? 60 : 42}
+                  fill={oliveHoverHalo}
                   opacity={isHovered ? 0.16 : 0}
                   style={{
                     transition:
@@ -343,33 +182,40 @@ export function OliveBranchInteractive({
                   }}
                 />
 
-                {/* Primary leaf — alternates above/below branch */}
+                {/* Mirror pair of leaves */}
                 <g
                   style={{
                     opacity: isMounted ? 1 : 0,
                     transition: `opacity 0.7s ease-out ${growDelay - 0.1}s, transform 0.4s ease-out`,
-                    transformOrigin: `${node.branchX}px ${node.branchY}px`,
-                    transform: isHovered ? 'scale(1.18)' : 'scale(1)',
+                    transformOrigin: `${node.x}px ${node.y}px`,
+                    transform: isHovered ? 'scale(1.08)' : 'scale(1)',
                   }}
                 >
                   <Lanceolate
-                    baseX={node.branchX}
-                    baseY={node.branchY}
-                    tipX={leafTipX}
-                    tipY={leafTipY}
-                    halfWidth={13}
-                    fillTop={leafTop}
-                    fillUnder={leafUnder}
+                    baseX={node.x}
+                    baseY={node.y}
+                    tipX={upperTip.x}
+                    tipY={upperTip.y}
+                    halfWidth={LEAF_HALF_WIDTH}
+                    fill={figureColor}
+                  />
+                  <Lanceolate
+                    baseX={node.x}
+                    baseY={node.y}
+                    tipX={lowerTip.x}
+                    tipY={lowerTip.y}
+                    halfWidth={LEAF_HALF_WIDTH}
+                    fill={figureColor}
                   />
                 </g>
 
-                {/* Olive stem — short woody connector from branch to fruit */}
+                {/* Olive stem */}
                 <line
-                  x1={node.branchX}
-                  y1={node.branchY}
-                  x2={node.x}
-                  y2={node.y - 22}
-                  stroke={oliveStem}
+                  x1={node.x}
+                  y1={node.y}
+                  x2={oliveCx}
+                  y2={oliveCy}
+                  stroke={figureColor}
                   strokeWidth="3"
                   strokeLinecap="round"
                   opacity={0.9}
@@ -379,88 +225,31 @@ export function OliveBranchInteractive({
                   }}
                 />
 
-                {/* Olive — shadow side (drawn first, larger, behind) */}
+                {/* Olive */}
                 <ellipse
-                  cx={node.x + 4}
-                  cy={node.y + 2}
-                  rx={isHovered ? 32 : 28}
-                  ry={isHovered ? 42 : 38}
-                  fill={oliveShadow}
-                  opacity={0.85}
-                  style={{
-                    transition:
-                      'rx 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), ry 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease-out',
-                    opacity: isMounted ? 0.85 : 0,
-                    animation: isMounted
-                      ? `oliveGrow 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) ${growDelay}s backwards`
-                      : 'none',
-                    transformOrigin: `${node.x}px ${node.y}px`,
-                  }}
-                />
-
-                {/* Olive — main body (on top of shadow, slightly offset) */}
-                <ellipse
-                  cx={node.x}
-                  cy={node.y}
-                  rx={isHovered ? 32 : 28}
-                  ry={isHovered ? 42 : 38}
-                  fill={isHovered ? oliveHoverFill : oliveFill}
+                  cx={oliveCx}
+                  cy={oliveCy}
+                  rx={isHovered ? OLIVE_RX + 4 : OLIVE_RX}
+                  ry={isHovered ? OLIVE_RY + 5 : OLIVE_RY}
+                  fill={isHovered ? oliveHoverFill : figureColor}
+                  transform={`rotate(${oliveAngleDeg} ${oliveCx} ${oliveCy})`}
                   style={{
                     transition:
                       'rx 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), ry 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), fill 0.4s ease-out, opacity 0.7s ease-out',
                     opacity: isMounted ? 1 : 0,
                     animation: isMounted
-                      ? `oliveGrow 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) ${growDelay + 0.04}s backwards`
+                      ? `oliveGrow 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) ${growDelay}s backwards`
                       : 'none',
-                    transformOrigin: `${node.x}px ${node.y}px`,
+                    transformOrigin: `${oliveCx}px ${oliveCy}px`,
                   }}
                 />
 
-                {/* Oil-shine highlight — main bright catch */}
-                <ellipse
-                  cx={node.x - 8}
-                  cy={node.y - 14}
-                  rx="6"
-                  ry="11"
-                  fill="white"
-                  opacity={isHovered ? 0.45 : 0.28}
-                  style={{
-                    transition: 'opacity 0.4s ease-out',
-                    pointerEvents: 'none',
-                  }}
-                  transform={`rotate(-15 ${node.x - 8} ${node.y - 14})`}
-                />
-
-                {/* Secondary smaller highlight */}
-                <ellipse
-                  cx={node.x - 4}
-                  cy={node.y + 8}
-                  rx="2"
-                  ry="4"
-                  fill="white"
-                  opacity={isHovered ? 0.3 : 0.18}
-                  style={{ transition: 'opacity 0.4s ease-out', pointerEvents: 'none' }}
-                />
-
-                {/* Calyx — tiny olive crown at the top where stem joins fruit */}
-                <path
-                  d={`M ${node.x - 4} ${node.y - 36} Q ${node.x} ${node.y - 40}, ${node.x + 4} ${node.y - 36}`}
-                  stroke={oliveStem}
-                  strokeWidth="1.2"
-                  fill="none"
-                  strokeLinecap="round"
-                  opacity={isMounted ? 0.7 : 0}
-                  style={{
-                    transition: `opacity 0.5s ease-out ${growDelay + 0.15}s`,
-                  }}
-                />
-
-                {/* Roman numeral — below the olive */}
+                {/* Roman numeral — always shown beneath the olive */}
                 <text
-                  x={node.x}
-                  y={node.y + 78}
+                  x={oliveCx}
+                  y={oliveCy + 60}
                   textAnchor="middle"
-                  fontSize="26"
+                  fontSize="22"
                   fontStyle="italic"
                   fill={numeralColor}
                   fontFamily="var(--font-cormorant), Georgia, serif"
@@ -475,10 +264,10 @@ export function OliveBranchInteractive({
 
                 {/* Division name — only shown on hover */}
                 <text
-                  x={node.x}
-                  y={node.y + 102}
+                  x={oliveCx}
+                  y={oliveCy + 84}
                   textAnchor="middle"
-                  fontSize="13"
+                  fontSize="12"
                   fill={isOnNavy ? '#FAF6EC' : '#0E1B2C'}
                   fontFamily="var(--font-inter), sans-serif"
                   letterSpacing="0.18em"
@@ -562,72 +351,32 @@ export function OliveBranchInteractive({
 }
 
 /**
- * Lanceolate (lance-shaped) leaf — the silhouette of an olive leaf.
- *
- * Real olive leaves are long, narrow, pointed at both ends, with a visible
- * central vein and a two-tone color (lighter top, darker underside). This
- * helper draws one from a base attachment point outward to a tip.
- *
- * Two-tone effect: the leaf body is filled in `fillTop`; a thinner half-leaf
- * shape is laid over one side in `fillUnder`, suggesting the underside
- * catching less light.
+ * Lanceolate (lance-shaped) leaf — single solid fill, no central vein, no
+ * underside shading. The shared leaf shape used by both the static mark
+ * and this interactive version.
  */
 interface LanceolateProps {
   baseX: number;
   baseY: number;
   tipX: number;
   tipY: number;
-  halfWidth?: number;
-  fillTop: string;
-  fillUnder: string;
+  halfWidth: number;
+  fill: string;
 }
 
-function Lanceolate({
-  baseX,
-  baseY,
-  tipX,
-  tipY,
-  halfWidth = 8,
-  fillTop,
-  fillUnder,
-}: LanceolateProps) {
+function Lanceolate({ baseX, baseY, tipX, tipY, halfWidth, fill }: LanceolateProps) {
   const midX = (baseX + tipX) / 2;
   const midY = (baseY + tipY) / 2;
   const angleRad = Math.atan2(tipY - baseY, tipX - baseX);
-  const perpAngle = angleRad + Math.PI / 2;
-  const bx1 = midX + Math.cos(perpAngle) * halfWidth;
-  const by1 = midY + Math.sin(perpAngle) * halfWidth;
-  const bx2 = midX - Math.cos(perpAngle) * halfWidth;
-  const by2 = midY - Math.sin(perpAngle) * halfWidth;
-
+  const perp = angleRad + Math.PI / 2;
+  const bx1 = midX + Math.cos(perp) * halfWidth;
+  const by1 = midY + Math.sin(perp) * halfWidth;
+  const bx2 = midX - Math.cos(perp) * halfWidth;
+  const by2 = midY - Math.sin(perp) * halfWidth;
   return (
-    <g>
-      {/* Top surface — full leaf body */}
-      <path
-        d={`M ${baseX} ${baseY} Q ${bx1} ${by1}, ${tipX} ${tipY} Q ${bx2} ${by2}, ${baseX} ${baseY} Z`}
-        fill={fillTop}
-        stroke={fillUnder}
-        strokeWidth="0.6"
-        strokeLinejoin="round"
-      />
-      {/* Underside half — darker, on the perpendicular-2 side */}
-      <path
-        d={`M ${baseX} ${baseY} Q ${(baseX + bx2) / 2} ${(baseY + by2) / 2}, ${bx2} ${by2} Q ${(bx2 + tipX) / 2} ${(by2 + tipY) / 2}, ${tipX} ${tipY}`}
-        fill={fillUnder}
-        opacity="0.55"
-        stroke="none"
-      />
-      {/* Central vein */}
-      <line
-        x1={baseX}
-        y1={baseY}
-        x2={tipX}
-        y2={tipY}
-        stroke={fillUnder}
-        strokeWidth="0.8"
-        opacity="0.7"
-        strokeLinecap="round"
-      />
-    </g>
+    <path
+      d={`M ${baseX.toFixed(1)} ${baseY.toFixed(1)} Q ${bx1.toFixed(1)} ${by1.toFixed(1)}, ${tipX.toFixed(1)} ${tipY.toFixed(1)} Q ${bx2.toFixed(1)} ${by2.toFixed(1)}, ${baseX.toFixed(1)} ${baseY.toFixed(1)} Z`}
+      fill={fill}
+    />
   );
 }
