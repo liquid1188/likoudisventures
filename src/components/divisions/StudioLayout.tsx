@@ -144,6 +144,52 @@ export function StudioLayout({ division }: LayoutProps) {
         </div>
       </section>
 
+      {/* § II.5 — Two practices, side-by-side. Mirrors the Easel page's
+          "Original art, from two studios" pattern. Typographic only for now —
+          logo files come later, when Andrew has them in hand. */}
+      <section className="ground-bone py-24 lg:py-32 border-t border-navy/10">
+        <div className="container-editorial">
+          <ScrollReveal as="div" className="text-center mb-14 lg:mb-20">
+            <h2 className="font-display text-display-lg text-navy max-w-3xl mx-auto leading-tight">
+              Web design,
+              <br />
+              <em className="italic text-ochre-deep">from two practices</em>.
+            </h2>
+            <p className="font-serif text-lg text-navy/70 max-w-2xl mx-auto mt-6 leading-relaxed">
+              Andrew runs Lickity Split, the productized line. Elena runs her own design studio,
+              the bespoke and systems-driven side. Visitors come to The Studio, then route to
+              whichever shape fits.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+            <ScrollReveal delay={0}>
+              <PracticeCard
+                designer="Andrew Likoudis"
+                practiceName="Lickity Split"
+                tagline="Productized web design"
+                description="Fast, fixed-price websites for Baltimore small businesses. Hand-coded, no platform fees, sub-second load times, and you own the files outright. A Starter site goes live in 48 hours."
+                shape="Fixed price · Fast turnaround · Owned files"
+                href="https://liquid1188.github.io/web-services"
+                hrefLabel="Visit Lickity Split"
+              />
+            </ScrollReveal>
+
+            <ScrollReveal delay={150}>
+              <PracticeCard
+                designer="Elena Likoudis"
+                practiceName="Elena Likoudis Design"
+                tagline="Bespoke design and systems"
+                description="Product design, design systems, and end-to-end user experience. Empathy-led, research-grounded, and built for real-world use. Case studies live on her site."
+                shape="Bespoke · Research-led · Higher-end engagements"
+                href="https://elenalikoudisdesign.com"
+                hrefLabel="Visit Elena Likoudis Design"
+              />
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
       {/* § III — Lickity Split packages */}
       <section className="ground-cream py-24 lg:py-32 border-t border-navy/10">
         <div className="container-editorial">
@@ -404,5 +450,75 @@ export function StudioLayout({ division }: LayoutProps) {
         text={`For ${division.name.toLowerCase()} engagements (site builds, brand work, content, anything in between), write to us at ${site.email}.`}
       />
     </>
+  );
+}
+
+interface PracticeCardProps {
+  designer: string;
+  practiceName: string;
+  tagline: string;
+  description: string;
+  shape: string;
+  href: string;
+  hrefLabel: string;
+}
+
+function PracticeCard({
+  designer,
+  practiceName,
+  tagline,
+  description,
+  shape,
+  href,
+  hrefLabel,
+}: PracticeCardProps) {
+  return (
+    <article className="group bg-cream overflow-hidden border-t-[3px] border-t-ochre transition-all duration-500 hover:-translate-y-1 h-full flex flex-col">
+      {/* Typographic header — stands in for a logo until logo files are ready */}
+      <div className="aspect-[4/3] bg-bone flex items-center justify-center px-8 relative overflow-hidden">
+        <div className="text-center">
+          <div className="font-display text-3xl lg:text-4xl text-navy leading-tight tracking-tight">
+            {practiceName}
+          </div>
+          <div className="font-serif italic text-sm lg:text-base text-navy/55 mt-3">
+            {tagline}
+          </div>
+        </div>
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'linear-gradient(to bottom, transparent 60%, rgba(14, 27, 44, 0.06) 100%)',
+          }}
+        />
+      </div>
+
+      {/* Caption */}
+      <div className="p-7 lg:p-9 flex flex-col flex-1">
+        <div className="font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep mb-2">
+          {designer}
+        </div>
+        <p className="font-serif text-base lg:text-lg text-navy/85 leading-relaxed mb-5">
+          {description}
+        </p>
+        <div className="font-serif italic text-sm text-navy/55 mb-7 pt-4 border-t border-navy/10">
+          {shape}
+        </div>
+
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 font-sans text-[11px] uppercase tracking-caps text-navy hover:text-ochre-deep transition-colors group/cta mt-auto"
+        >
+          <span>{hrefLabel}</span>
+          <span
+            aria-hidden
+            className="transition-transform duration-300 group-hover/cta:translate-x-1"
+          >
+            →
+          </span>
+        </a>
+      </div>
+    </article>
   );
 }
