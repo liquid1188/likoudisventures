@@ -57,7 +57,7 @@ export function MonumentalHero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 max-w-5xl mx-auto w-full mt-8 lg:mt-12 stagger-fade">
           <div className="lg:col-span-7 lg:col-start-1">
             <p className="font-serif text-xl lg:text-2xl leading-[1.5] text-bone/85 font-light">
-              Three brothers and two sisters, working in Baltimore under one family name. Hospitality, services and advisory, web design, original art, and Greek pantry goods. <span className="text-bone">Five divisions, kept distinct on purpose. The work has to be good enough to sign.</span>
+              Five siblings, five service divisions. <span className="text-bone">One family brand.</span>
             </p>
           </div>
           <div className="lg:col-span-5 flex flex-col gap-3 lg:items-end">
