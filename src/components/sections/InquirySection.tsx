@@ -7,6 +7,12 @@ interface InquirySectionProps {
   heading?: ReactNode;
   text?: string;
   defaultDivision?: string;
+  /**
+   * When true, renders form-only — drops the left column with heading,
+   * lede, contact details, and heritage signature. Use on the homepage
+   * where the Inquiry section is a quick form CTA, not the main contact page.
+   */
+  compact?: boolean;
 }
 
 export function InquirySection({
@@ -17,7 +23,27 @@ export function InquirySection({
   ),
   text = 'For new engagements, partnership inquiries, or press, write to us directly. Every message is read by a person and replied to in order, by hand.',
   defaultDivision,
+  compact = false,
 }: InquirySectionProps) {
+  if (compact) {
+    return (
+      <section id="inquiry" className="ground-bone py-28 lg:py-36 relative">
+        <div className="container-editorial">
+          <ScrollReveal as="div" className="max-w-2xl mx-auto">
+            <div className="bg-cream p-8 lg:p-12 relative editorial-frame text-navy">
+              <div className="mb-8 pb-6 border-b border-navy/15">
+                <div className="font-display text-2xl lg:text-3xl text-navy">
+                  A note <em className="italic text-ochre-deep">from you</em>
+                </div>
+              </div>
+              <InquiryForm defaultDivision={defaultDivision} />
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="inquiry" className="ground-bone py-28 lg:py-36 relative">
       <div className="container-editorial">

@@ -96,14 +96,6 @@ export function Hero({
           </div>
         </div>
       </div>
-
-      {/* Bottom rule */}
-      <div className="container-tight relative z-10 pb-6">
-        <div className="border-t border-bone/10 pt-5 flex justify-between items-center text-bone/40 font-sans text-[10px] uppercase tracking-eyebrow">
-          <div>↓ Continued below</div>
-          <div className="text-right">ἐκ Κεφαλονιάς</div>
-        </div>
-      </div>
     </section>
   );
 }
