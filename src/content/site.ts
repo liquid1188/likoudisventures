@@ -48,6 +48,7 @@ export const footer = {
       heading: 'The House',
       links: [
         { label: 'About', href: '/about' },
+        { label: 'Shop', href: '/shop' },
         { label: 'The Branch', href: '/the-branch' },
         { label: 'Contact', href: '/contact' },
       ],
@@ -56,7 +57,6 @@ export const footer = {
       heading: 'Correspondence',
       links: [
         { label: 'hello@likoudisventures.com', href: 'mailto:hello@likoudisventures.com' },
-        { label: 'Begin a Project', href: '/contact' },
       ],
     },
   ],
