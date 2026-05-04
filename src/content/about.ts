@@ -32,7 +32,7 @@ export const about = {
     eyebrow: 'About the House',
     title: 'A family business, plainly stated.',
     titleEmphasis: 'plainly stated',
-    lede: 'Likoudis Ventures is the working life of three brothers and two sisters. The business is based in Baltimore. The work happens wherever each of us is, usually somewhere along the East Coast.',
+    lede: 'Likoudis Ventures is the working life of five siblings. The business is based in Baltimore. The work happens wherever each of us is, usually somewhere along the East Coast.',
   },
 
   origin: {
@@ -52,7 +52,7 @@ export const about = {
   },
 
   family: {
-    heading: 'Three brothers, two sisters, one family.',
+    heading: 'Five siblings, one family.',
     intro: 'The board is the family. Each sibling leads the division where their work and judgment live, and supports another where their second skill belongs.',
     members: [
       {
