@@ -82,7 +82,7 @@ export const about = {
         name: 'Elena Likoudis',
         role: 'Creative Director, The Easel · Lead Designer, The Studio',
         divisions: ['The Easel', 'The Studio'],
-        bio: 'Elena leads creative on The Easel and runs Elena Likoudis Art, one of two artist studios under that division. She also serves as Lead Designer at The Studio. A senior user-experience designer by trade. Her painting practice runs alongside her design work — she paints in oil and contributes to collaborative pieces with Caroline. She has one son. She studied at Syracuse University. She works from Pittsburgh.',
+        bio: 'Elena leads creative on The Easel and runs Elena Likoudis Art, one of two artist studios under that division. She paints in oil, drawn to bold color and pieces that feel alive — portraits, moments, ideas full of emotion and movement. Her painting practice runs alongside her professional work as a senior user-experience designer; she keeps her own design studio at elenalikoudisdesign.com. She also serves as Lead Designer at The Studio, where her practical UX work informs the bespoke, higher-end client engagements. She has one son. She studied at Syracuse University. She works from Pittsburgh.',
         portrait: '/elena-likoudis.webp',
         siteLabel: 'elenalikoudisart.com',
         siteUrl: 'https://elenalikoudisart.com',

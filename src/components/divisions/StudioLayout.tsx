@@ -284,6 +284,36 @@ export function StudioLayout({ division }: LayoutProps) {
         </div>
       </section>
 
+      {/* § III.5 — Elena Likoudis Design (the Studio's bespoke / systems line) */}
+      <section className="ground-bone py-24 lg:py-32 border-t border-navy/10">
+        <div className="container-editorial">
+          <div className="grid grid-cols-12 gap-6 lg:gap-12">
+            <ScrollReveal as="div" className="col-span-12 lg:col-span-3">
+              <div className="eyebrow-no-rule text-ochre-deep mb-4">Elena Likoudis Design</div>
+              <h3 className="font-display text-display-md text-navy leading-[1.05]">
+                Systems<br/>and UX.
+              </h3>
+            </ScrollReveal>
+            <ScrollReveal as="div" delay={150} className="col-span-12 lg:col-span-7 lg:col-start-5">
+              <p className="font-serif text-lg lg:text-xl leading-relaxed text-navy/85">
+                Elena keeps her own design studio at elenalikoudisdesign.com. Product design, design systems, and end-to-end user experience. She approaches design through empathy, research, and collaboration, building structure that is intuitive, consistent, and made for real-world use. Her case studies live there.
+              </p>
+              <p className="font-serif italic text-sm text-navy/65 mt-5 leading-relaxed">
+                Elena leads design at The Studio. Lickity Split is Andrew&rsquo;s fixed-price line for small businesses; Elena&rsquo;s practice is the systems and bespoke side, drawn on for higher-end engagements.
+              </p>
+              <a
+                href="https://www.elenalikoudisdesign.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-6 font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep hover:text-ochre transition-colors"
+              >
+                Visit Elena Likoudis Design →
+              </a>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
       {/* § IV — Recent Work */}
       <section className="ground-bone py-24 lg:py-32 border-t border-navy/10">
         <div className="container-editorial">

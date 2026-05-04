@@ -104,7 +104,7 @@ export function EaselLayout({ division }: LayoutProps) {
                 artist="Elena Likoudis"
                 studioName="Elena Likoudis Art"
                 portrait="/elena-likoudis.webp"
-                description="Vibrant, one-of-a-kind portraits and pieces shaped around energy, color, and expression. Elena also designs the digital practice of the house. She works from Pittsburgh."
+                description="Vibrant, one-of-a-kind portraits and pieces shaped around energy, color, and expression. Elena is drawn to work that feels alive — portraits, moments, and ideas full of emotion and movement. She works from Pittsburgh."
                 medium="Original art · Custom commissions · Prints"
                 href="https://elenalikoudisart.com"
                 hrefLabel="Visit Elena Likoudis Art"
