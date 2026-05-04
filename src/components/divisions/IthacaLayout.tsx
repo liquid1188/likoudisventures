@@ -136,6 +136,58 @@ export function IthacaLayout({ division }: LayoutProps) {
         </div>
       </section>
 
+      {/* By the numbers — combined hosting record across all six properties */}
+      <section className="ground-bone py-16 lg:py-20 border-t border-navy/10">
+        <div className="container-editorial">
+          <ScrollReveal as="div" className="text-center mb-10 lg:mb-12">
+            <div className="eyebrow-no-rule text-ochre-deep inline-block">By the numbers</div>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 max-w-5xl mx-auto">
+            <ScrollReveal as="div" delay={0}>
+              <div className="text-center">
+                <div className="font-display text-5xl lg:text-6xl text-navy leading-none">20</div>
+                <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/60 mt-3">
+                  Combined years hosting
+                </div>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal as="div" delay={80}>
+              <div className="text-center">
+                <div className="font-display text-5xl lg:text-6xl text-navy leading-none">6</div>
+                <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/60 mt-3">
+                  Properties
+                </div>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal as="div" delay={160}>
+              <div className="text-center">
+                <div className="font-display text-5xl lg:text-6xl text-navy leading-none">533</div>
+                <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/60 mt-3">
+                  Reviews on Airbnb
+                </div>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal as="div" delay={240}>
+              <div className="text-center">
+                <div className="font-display text-5xl lg:text-6xl text-navy leading-none">
+                  4.7<span className="text-ochre-deep">★</span>
+                </div>
+                <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/60 mt-3">
+                  Combined rating
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          <ScrollReveal>
+            <p className="font-serif italic text-sm text-navy/55 mt-12 text-center max-w-xl mx-auto leading-relaxed">
+              Across both hosts, six properties, and a decade of work in Canton and Patterson Park.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* The Properties — six Airbnb listings in the Canton / Patterson Park neighborhood */}
       <section className="ground-sky py-24 lg:py-32 border-t border-navy/10">
         <div className="container-editorial">
