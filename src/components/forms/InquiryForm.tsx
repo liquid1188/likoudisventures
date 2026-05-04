@@ -1,17 +1,45 @@
 'use client';
 
-import { useState, useTransition } from 'react';
+import { useState, useTransition, useEffect } from 'react';
 import { submitInquiry } from '@/lib/actions/submit-inquiry';
 import { divisions } from '@/content/divisions';
 
 interface InquiryFormProps {
   defaultDivision?: string;
+  defaultMessage?: string;
 }
 
-export function InquiryForm({ defaultDivision }: InquiryFormProps) {
+export function InquiryForm({ defaultDivision, defaultMessage }: InquiryFormProps) {
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const [isPending, startTransition] = useTransition();
+  const [presetMessage, setPresetMessage] = useState(defaultMessage ?? '');
+
+  // Read ?experience= query param on mount and pre-fill the message field with a
+  // ready-to-edit booking-request template. Used when a guest clicks "Request" on
+  // an experience card and is scrolled to this form.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const templates: Record<string, string> = {
+      'at-the-table': 'I would like to book an At the Table Greek dinner experience.\n\nDates I am considering:\n\nNumber of guests:\n\nAny dietary notes or preferences:\n\nAdditional questions:',
+      'on-the-water': 'I would like to book an On the Water experience.\n\nWhich (kayaking, harbor sailing, neighborhood walk, or open):\n\nDates I am considering:\n\nNumber of guests:\n\nAdditional questions:',
+      'sacred-and-civic': 'I would like to book a Sacred & Civic morning.\n\nDates I am considering:\n\nNumber of guests:\n\nAny preferences (Basilica visit, breakfast spot, museum routing):\n\nAdditional questions:',
+      'the-long-stay': 'I would like to inquire about The Long Stay curation.\n\nOccasion (anniversary, honeymoon, writing week, family reunion):\n\nApproximate dates:\n\nNumber of guests:\n\nWhat I am hoping for:',
+    };
+
+    const readExperience = () => {
+      const params = new URLSearchParams(window.location.search);
+      const exp = params.get('experience');
+      if (exp && templates[exp]) {
+        setPresetMessage(templates[exp]);
+      }
+    };
+
+    readExperience();
+    window.addEventListener('experience-changed', readExperience);
+    return () => window.removeEventListener('experience-changed', readExperience);
+  }, []);
 
   const handleSubmit = (formData: FormData) => {
     startTransition(async () => {
@@ -98,11 +126,13 @@ export function InquiryForm({ defaultDivision }: InquiryFormProps) {
           The Particulars
         </label>
         <textarea
+          key={presetMessage}
           id="message"
           name="message"
           required
-          rows={4}
+          rows={presetMessage ? 8 : 4}
           disabled={isPending}
+          defaultValue={presetMessage}
           className="field-input resize-y min-h-[100px]"
           placeholder="Tell us what you have in mind."
         />

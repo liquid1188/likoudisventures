@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { OliveBranchMark } from '@/components/brand/OliveBranchMark';
 import { IonianSeascape } from '@/components/brand/IonianSeascape';
+import { ExperienceRequestButton } from '@/components/divisions/ExperienceRequestButton';
 import { InquirySection } from '@/components/sections/InquirySection';
 import { DivisionLeads } from '@/components/sections/DivisionLeads';
 
@@ -463,7 +464,7 @@ export function IthacaLayout({ division }: LayoutProps) {
               The stay is the <em className="italic">beginning</em>.
             </h3>
             <p className="font-serif text-lg lg:text-xl italic text-navy/80 leading-relaxed max-w-2xl mx-auto mt-7">
-              We arrange experiences alongside the stay, or on their own, for guests who want their visit to feel like a chapter, not a checkbox.
+              We arrange experiences alongside the stay or on their own. Open to staying guests and visitors alike. Each begins with a request, scoped to your dates and group, with a quote returned within a few days.
             </p>
           </ScrollReveal>
 
@@ -472,24 +473,32 @@ export function IthacaLayout({ division }: LayoutProps) {
               title="At the Table"
               kicker="Cooking & food"
               description="A Greek dinner hosted in the house, prepared or arranged. Provisioning runs to Cross Street Market or Lexington Market. If your stay overlaps with our monthly family Greek dinner, you are welcome to come."
+              priceLabel="From $95 / person"
+              slug="at-the-table"
               delay={0}
             />
             <ExperienceCard
               title="On the Water"
               kicker="Outdoors"
               description="Kayaking the harbor, sailing arrangements with local captains, slow walks through the neighborhoods nearest the house."
+              priceLabel="From $65 / person"
+              slug="on-the-water"
               delay={120}
             />
             <ExperienceCard
               title="Sacred & Civic"
               kicker="Cultural"
               description="A guided morning at the Baltimore Basilica with breakfast to follow. Mass and music when the calendar permits. Museum routing through the Walters, the BMA, and the Peabody Library."
+              priceLabel="From $85 / person"
+              slug="sacred-and-civic"
               delay={240}
             />
             <ExperienceCard
               title="The Long Stay"
               kicker="Curated"
               description="Anniversaries, honeymoons, writing weeks, family reunions. Stays prepared in advance with a reading list, a driving route, a stocked pantry, a few introductions, and a quiet plan you can ignore."
+              priceLabel="From $200 / stay"
+              slug="the-long-stay"
               delay={360}
             />
           </div>
@@ -536,12 +545,14 @@ interface ExperienceCardProps {
   kicker: string;
   description: string;
   delay: number;
+  priceLabel: string;
+  slug: string;
 }
 
-function ExperienceCard({ title, kicker, description, delay }: ExperienceCardProps) {
+function ExperienceCard({ title, kicker, description, delay, priceLabel, slug }: ExperienceCardProps) {
   return (
     <ScrollReveal delay={delay}>
-      <article className="bg-bone/95 p-7 lg:p-8 h-full border-t-[3px] border-t-navy transition-all duration-500 hover:-translate-y-1 hover:bg-bone">
+      <article className="bg-bone/95 p-7 lg:p-8 h-full border-t-[3px] border-t-navy transition-all duration-500 hover:-translate-y-1 hover:bg-bone flex flex-col">
         <div className="mb-4">
           <span className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/55">
             {kicker}
@@ -550,9 +561,15 @@ function ExperienceCard({ title, kicker, description, delay }: ExperienceCardPro
         <h4 className="font-display text-2xl lg:text-[26px] text-navy leading-tight mb-4">
           {title}
         </h4>
-        <p className="font-serif text-[15px] lg:text-base text-navy/80 leading-relaxed">
+        <p className="font-serif text-[15px] lg:text-base text-navy/80 leading-relaxed flex-grow">
           {description}
         </p>
+        <div className="mt-5 pt-4 border-t border-navy/15">
+          <div className="font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep">
+            {priceLabel}
+          </div>
+          <ExperienceRequestButton experienceSlug={slug} />
+        </div>
       </article>
     </ScrollReveal>
   );
