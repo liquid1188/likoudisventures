@@ -163,6 +163,58 @@ export function EaselLayout({ division }: LayoutProps) {
             </div>
           </div>
 
+          {/* Collaborative work — Our Lady, by Caroline and Elena together */}
+          <div className="mb-16 lg:mb-20">
+            <ScrollReveal>
+              <div className="text-center mb-8">
+                <div className="catalog-num text-sm mb-2">A Collaboration</div>
+                <div className="eyebrow-no-rule text-ochre-deep mb-4 inline-block">Caroline &amp; Elena, together</div>
+                <h4 className="font-display text-display-md text-navy leading-tight">
+                  Our Lady.
+                </h4>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={150} variant="blur">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                {/* The painting itself — large feature image */}
+                <div className="lg:col-span-7 lg:col-start-1">
+                  <div className="relative bg-navy/5 border border-navy/10 overflow-hidden">
+                    <Image
+                      src="/our-lady-collaboration.jpg"
+                      alt="Our Lady — a collaborative painting by Caroline and Elena Likoudis. Mary in a Guadalupean register, painted on a mosaic-style ground with a rayed gold halo."
+                      width={1126}
+                      height={1687}
+                      className="w-full h-auto"
+                      priority={false}
+                    />
+                  </div>
+                </div>
+
+                {/* Caption block — runs alongside the painting on desktop, below on mobile */}
+                <div className="lg:col-span-5 lg:pt-6">
+                  <div className="prose-editorial">
+                    <p className="font-serif text-lg lg:text-xl leading-relaxed text-navy/85">
+                      A Marian image in a Guadalupean register. Painted by Caroline and Elena together. Mosaic ground, gold-leaf rays, Mary in oil.
+                    </p>
+                    <p className="font-serif text-base lg:text-lg leading-relaxed text-navy/70 mt-5">
+                      The original was donated to a school fundraiser raffle. Prints will be available.
+                    </p>
+                  </div>
+
+                  <div className="mt-8 pt-6 border-t border-navy/15">
+                    <div className="font-sans text-[10px] uppercase tracking-tag text-ochre-deep/80">
+                      Original · Donated
+                    </div>
+                    <div className="font-serif italic text-sm text-navy/55 mt-2">
+                      Prints forthcoming.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+
           {/* Elena's row */}
           <div>
             <ScrollReveal>

@@ -182,7 +182,7 @@ export function IthacaLayout({ division }: LayoutProps) {
                     <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
                   </div>
                   <div className="mt-3 pt-3 border-t border-navy/10 font-sans text-[10px] uppercase tracking-eyebrow text-navy/45">
-                    Caroline · co-hosted by Andrew &amp; Tetiana
+                    Caroline
                   </div>
                 </div>
               </a>
@@ -217,7 +217,7 @@ export function IthacaLayout({ division }: LayoutProps) {
                     <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
                   </div>
                   <div className="mt-3 pt-3 border-t border-navy/10 font-sans text-[10px] uppercase tracking-eyebrow text-navy/45">
-                    Caroline · co-hosted by Andrew &amp; Tetiana
+                    Caroline
                   </div>
                 </div>
               </a>
@@ -252,7 +252,7 @@ export function IthacaLayout({ division }: LayoutProps) {
                     <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
                   </div>
                   <div className="mt-3 pt-3 border-t border-navy/10 font-sans text-[10px] uppercase tracking-eyebrow text-navy/45">
-                    Caroline · co-hosted by Andrew &amp; Tetiana
+                    Caroline
                   </div>
                 </div>
               </a>
@@ -289,7 +289,7 @@ export function IthacaLayout({ division }: LayoutProps) {
                     <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
                   </div>
                   <div className="mt-3 pt-3 border-t border-navy/10 font-sans text-[10px] uppercase tracking-eyebrow text-navy/45">
-                    Andrew · sole host
+                    Andrew
                   </div>
                 </div>
               </a>
@@ -324,7 +324,7 @@ export function IthacaLayout({ division }: LayoutProps) {
                     <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
                   </div>
                   <div className="mt-3 pt-3 border-t border-navy/10 font-sans text-[10px] uppercase tracking-eyebrow text-navy/45">
-                    Andrew · sole host
+                    Andrew
                   </div>
                 </div>
               </a>
@@ -359,7 +359,7 @@ export function IthacaLayout({ division }: LayoutProps) {
                     <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
                   </div>
                   <div className="mt-3 pt-3 border-t border-navy/10 font-sans text-[10px] uppercase tracking-eyebrow text-navy/45">
-                    Andrew · sole host
+                    Andrew
                   </div>
                 </div>
               </a>
