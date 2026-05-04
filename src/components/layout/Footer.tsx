@@ -25,7 +25,7 @@ export function Footer() {
           <div className="lg:col-span-5">
             <Wordmark size="lg" className="text-bone mb-5" />
             <p className="font-serif italic text-lg lg:text-xl leading-relaxed max-w-md mb-10 text-bone/75">
-              A family-held house of considered enterprises, headquartered in {site.seat}.
+              Three brothers and two sisters, working under one name from {site.seat}.
             </p>
             <div className="max-w-md">
               <NewsletterSignup variant="footer" />

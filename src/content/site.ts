@@ -7,9 +7,9 @@ export const site = {
   name: 'Likoudis Ventures',
   legalEntity: 'Likoudis Legacy LLC',
   dba: 'Likoudis Ventures',
-  tagline: 'A house of considered enterprises.',
+  tagline: 'A family business in Canton, Baltimore.',
   description:
-    'A family-held holding company operating across web design, hospitality, custom commissions, art, Greek consumables, and curated objects. Baltimore, with roots in Kefalonia.',
+    'Three brothers and two sisters, working under one name across web design, hospitality, art, custom commissions, Greek goods, and curated objects. Headquartered in Canton, Baltimore.',
   founded: 2026,
   foundedRoman: 'MMXXVI',
   seat: 'Canton · Baltimore',
@@ -32,6 +32,7 @@ export const site = {
 export const nav = {
   primary: [
     { label: 'Divisions', href: '/#divisions' },
+    { label: 'Shop', href: '/shop' },
     { label: 'About', href: '/about' },
     { label: 'The Branch', href: '/the-branch' },
     { label: 'Contact', href: '/contact' },
@@ -56,6 +57,7 @@ export const footer = {
       heading: 'The House',
       links: [
         { label: 'About', href: '/about' },
+        { label: 'Shop', href: '/shop' },
         { label: 'The Branch', href: '/the-branch' },
         { label: 'The Foundation', href: '/the-foundation' },
         { label: 'Press & Inquiry', href: '/contact' },

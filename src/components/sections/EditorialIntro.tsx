@@ -25,20 +25,20 @@ export function EditorialIntro() {
             <div className="prose-editorial">
               <p className="drop-cap-style">
                 <span className="font-display text-7xl lg:text-8xl text-ochre float-left mr-3 mt-1 leading-[0.85] font-light">W</span>
-                e are brothers and sisters, and we work the way our grandparents worked. Patiently, with our names on the door. The categories we have chosen are deliberately varied because the discipline beneath them is not.
+                e are three brothers and two sisters, and we work the way our grandparents worked. Patiently. With our names on the door. The six divisions on this site are unrelated on the surface and identical underneath: every one of them is the same act in a different medium.
               </p>
               <p>
-                A website built well, a guest welcomed properly, a drawing finished with care, a jar of olive oil sourced honestly, an icon acquired with a record of where it came from — these are the same act in different mediums.
+                A website built carefully. A guest welcomed properly. A painting finished with care. A jar of olive oil sourced from a press whose owner you can name. An icon hung with a record of where it came from. None of it is hard, exactly. It just takes attention.
               </p>
               <p className="text-navy">
-                We do not sign our names to work we cannot defend. <em className="italic text-ochre-deep">That sentence is the entire philosophy.</em>
+                <em className="italic text-ochre-deep">Build it well, sign your name to it, and the rest takes care of itself.</em> That is the whole rule. Everything else on this site is a footnote to it.
               </p>
             </div>
 
             {/* House mark + signature */}
             <div className="mt-10 pt-7 border-t border-ochre/30 flex items-center justify-between">
               <div className="flex items-center gap-4 text-navy/60">
-                <div className="font-serif italic text-base">— The brothers, Baltimore</div>
+                <div className="font-serif italic text-base">— The family, Baltimore</div>
               </div>
               <div className="font-serif italic text-base text-ochre-deep">
                 ἐκ Κεφαλονιάς

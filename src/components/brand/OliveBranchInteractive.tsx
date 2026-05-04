@@ -160,7 +160,7 @@ export function OliveBranchInteractive({
           // Leaf direction perpendicular to stem
           const stemAngle = Math.atan2(stemDy, stemDx);
           const perpAngle = stemAngle - Math.PI / 2;
-          const leafSize = 16;
+          const leafSize = 22;
           const leafLeft = {
             tipX: stemMidX + Math.cos(perpAngle) * leafSize,
             tipY: stemMidY + Math.sin(perpAngle) * leafSize - 6,
@@ -225,25 +225,21 @@ export function OliveBranchInteractive({
                     transform: isHovered ? 'scale(1.15)' : 'scale(1)',
                   }}
                 >
-                  <ellipse
-                    cx={(stemMidX + leafLeft.tipX) / 2}
-                    cy={(stemMidY + leafLeft.tipY) / 2}
-                    rx="9"
-                    ry="3.5"
+                  {/* Left lanceolate leaf */}
+                  <Lanceolate
+                    baseX={stemMidX}
+                    baseY={stemMidY}
+                    tipX={leafLeft.tipX}
+                    tipY={leafLeft.tipY}
                     fill={leafColor}
-                    transform={`rotate(${
-                      (Math.atan2(leafLeft.tipY - stemMidY, leafLeft.tipX - stemMidX) * 180) / Math.PI
-                    } ${(stemMidX + leafLeft.tipX) / 2} ${(stemMidY + leafLeft.tipY) / 2})`}
                   />
-                  <ellipse
-                    cx={(stemMidX + leafRight.tipX) / 2}
-                    cy={(stemMidY + leafRight.tipY) / 2}
-                    rx="9"
-                    ry="3.5"
+                  {/* Right lanceolate leaf */}
+                  <Lanceolate
+                    baseX={stemMidX}
+                    baseY={stemMidY}
+                    tipX={leafRight.tipX}
+                    tipY={leafRight.tipY}
                     fill={leafColor}
-                    transform={`rotate(${
-                      (Math.atan2(leafRight.tipY - stemMidY, leafRight.tipX - stemMidX) * 180) / Math.PI
-                    } ${(stemMidX + leafRight.tipX) / 2} ${(stemMidY + leafRight.tipY) / 2})`}
                   />
                 </g>
 
@@ -384,5 +380,56 @@ export function OliveBranchInteractive({
         ))}
       </div>
     </div>
+  );
+}
+
+/**
+ * Lanceolate (lance-shaped) leaf — the actual silhouette of an olive leaf.
+ * Real olive leaves are long, narrow, and pointed at both ends, with a
+ * visible central vein. This helper draws one from a base attachment point
+ * outward to a tip.
+ */
+interface LanceolateProps {
+  baseX: number;
+  baseY: number;
+  tipX: number;
+  tipY: number;
+  fill: string;
+}
+
+function Lanceolate({ baseX, baseY, tipX, tipY, fill }: LanceolateProps) {
+  const midX = (baseX + tipX) / 2;
+  const midY = (baseY + tipY) / 2;
+  const angleRad = Math.atan2(tipY - baseY, tipX - baseX);
+  const perpAngle = angleRad + Math.PI / 2;
+  // Width of the leaf at its widest (mid-belly)
+  const halfWidth = 4.2;
+  const bx1 = midX + Math.cos(perpAngle) * halfWidth;
+  const by1 = midY + Math.sin(perpAngle) * halfWidth;
+  const bx2 = midX - Math.cos(perpAngle) * halfWidth;
+  const by2 = midY - Math.sin(perpAngle) * halfWidth;
+
+  return (
+    <g>
+      {/* Leaf body — pointed at base, pointed at tip, curved sides */}
+      <path
+        d={`M ${baseX} ${baseY} Q ${bx1} ${by1}, ${tipX} ${tipY} Q ${bx2} ${by2}, ${baseX} ${baseY} Z`}
+        fill={fill}
+        stroke={fill}
+        strokeWidth="0.5"
+        strokeLinejoin="round"
+      />
+      {/* Central vein — runs the length of the leaf */}
+      <line
+        x1={baseX}
+        y1={baseY}
+        x2={tipX}
+        y2={tipY}
+        stroke={fill}
+        strokeWidth="0.6"
+        opacity="0.4"
+        strokeLinecap="round"
+      />
+    </g>
   );
 }

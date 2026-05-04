@@ -63,15 +63,15 @@ export function MonumentalHero() {
         {/* Monumental headline */}
         <h1 className="text-center font-display text-monumental text-bone leading-none mb-12 lg:mb-16">
           <span className="block">
-            <WordReveal text="A house of considered" italicMatch="considered" staggerMs={90} />
+            <WordReveal text="One family." italicMatch="family." staggerMs={90} />
           </span>
           <span className="block mt-1 lg:mt-2">
-            <WordReveal text="enterprises." staggerMs={90} initialDelayMs={550} />
+            <WordReveal text="Six enterprises." staggerMs={90} initialDelayMs={550} />
           </span>
         </h1>
 
         {/* The interactive olive branch — centerpiece */}
-        <div className="relative max-w-5xl mx-auto w-full px-2 lg:px-0 mb-16 lg:mb-20">
+        <div className="relative max-w-7xl mx-auto w-full px-2 lg:px-0 mb-16 lg:mb-20">
           <OliveBranchInteractive theme="on-navy" />
         </div>
 
@@ -79,7 +79,7 @@ export function MonumentalHero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 max-w-5xl mx-auto w-full mt-8 lg:mt-12 stagger-fade">
           <div className="lg:col-span-7 lg:col-start-1">
             <p className="font-serif text-xl lg:text-2xl leading-[1.5] text-bone/85 font-light">
-              A family-held holding company operating across web design, hospitality, custom commissions, original art, Greek consumables, and curated objects. <span className="text-bone">One name, six disciplines, one standard of work.</span>
+              The working life of three brothers and two sisters, run from a row house in Canton, Baltimore. We design and build websites. We host travelers. We sell our sisters' paintings and, in time, our family's olive oil. <span className="text-bone">One name on the door. The work has to be good enough to leave it there.</span>
             </p>
           </div>
           <div className="lg:col-span-5 flex flex-col gap-3 lg:items-end">
@@ -96,7 +96,7 @@ export function MonumentalHero() {
       {/* Bottom rule */}
       <div className="container-tight relative z-10 pb-6 lg:pb-8">
         <div className="flex justify-between items-center text-bone/40 font-sans text-[10px] uppercase tracking-eyebrow border-t border-bone/10 pt-5">
-          <div>↓ Scroll for the work, plainly stated</div>
+          <div>↓ The work follows</div>
           <div className="text-right">
             ἐκ Κεφαλονιάς · 2026
           </div>
