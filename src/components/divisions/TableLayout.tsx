@@ -85,7 +85,7 @@ export function TableLayout({ division }: LayoutProps) {
               The Table sources from Kefalonia and from named producers across Greece, and from the Finger Lakes country in upstate New York where the family settled three generations ago and where the five of us grew up. The lakes there run long and deep, and the wineries that line them have raised a region of careful winemakers we still know. Each product comes with the name of the estate, the apiary, the press, and ours beside theirs on the front of the bottle.
             </p>
             <p className="font-serif text-base text-navy/60 mt-5 leading-relaxed border-t border-navy/10 pt-5 max-w-xl mx-auto">
-              The wine selection is shaped by hospitality experience inside the family. Andrew worked at Charleston Restaurant in Baltimore, a 25-time James Beard Award nominee with a 1,100-label wine program, and at Wagner Vineyards in the Finger Lakes. The relationships and the palate carry over to the line on this page.
+              The wine selection is shaped by hospitality experience inside the family. Andrew worked at Charleston Restaurant in Baltimore and at Wagner Vineyards in the Finger Lakes. Charleston was named to OpenTable&rsquo;s Top 100 Best Restaurants for Wine Lovers in America in 2018, and in 2025 received the James Beard Foundation&rsquo;s national award for outstanding wine program after twenty-five years as a nominee.
             </p>
           </div>
         </div>
