@@ -105,7 +105,7 @@ export const divisions: Division[] = [
     shortDescription:
       'For projects that do not fit a standard package. By appointment, by referral, by careful conversation.',
     longDescription:
-      "The Workshop is the family's services arm. Advisory engagements, brokerage and sourcing work, custom curation, bespoke commissions. Anything that calls for a longer conversation than a standard service form can support.\n\nThis is the division that begins with a phone call rather than a price list. We work with a small number of clients at a time, on projects that warrant the attention.",
+      "The Workshop is the family's services arm. Brokerage and sourcing work, custom curation, bespoke commissions, and strategic advisory engagements. Anything that calls for a longer conversation than a standard service form can support.\n\nJake and Luke run the operational and sourcing sides of the work — both of them on rotation in the United States Coast Guard, both careful with logistics and standards. Andrew comes in on the advisory side, bringing institutional experience to founders, small-business owners, and nonprofit leaders working through strategic questions.\n\nThis is the division that begins with a phone call rather than a price list. We work with a small number of clients at a time, on projects that warrant the attention.",
     offerings: [
       'Strategic advisory and consulting engagements',
       "Brokerage services (sourcing specific items on a client's behalf)",
