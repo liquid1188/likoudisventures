@@ -26,16 +26,6 @@ export function MonumentalHero() {
         }}
       />
 
-      {/* Subtle grid */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.06]"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(143, 184, 206, 1) 1px, transparent 1px), linear-gradient(90deg, rgba(143, 184, 206, 1) 1px, transparent 1px)',
-          backgroundSize: '120px 120px',
-        }}
-      />
-
       {/* Center stage — headline + branch */}
       <div className="container-tight relative z-10 flex-1 flex flex-col justify-center pt-32 lg:pt-36 pb-20 lg:pb-24">
         {/* Monumental headline */}
