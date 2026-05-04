@@ -163,8 +163,9 @@ export function WorkshopLayout({ division }: LayoutProps) {
                 <p className="font-serif text-base lg:text-lg text-navy/75 leading-relaxed mb-5">
                   For founders, small-business owners, and nonprofit leaders working through positioning, naming, capital strategy, fundraising design, governance questions, or growth decisions. By the hour or by the project. The advisor brings institutional experience: Johns Hopkins University fellow in economic development; Goldman Sachs 10,000 Small Businesses fellow in marketing development; alum of McKinsey &amp; Company&rsquo;s Forward Program; supported a $5M capital campaign at the Cathedral of Mary Our Queen.
                 </p>
-                <div className="font-sans text-[10px] uppercase tracking-tag text-ochre-deep/70 pt-4 border-t border-navy/10">
-                  Andrew Likoudis · Strategic Advisor
+                <div className="pt-4 border-t border-navy/10">
+                  <div className="font-display text-base text-navy">Andrew Likoudis</div>
+                  <div className="font-sans text-[10px] uppercase tracking-caps text-ochre-deep/70 mt-1">Strategic Advisor</div>
                 </div>
               </div>
             </ScrollReveal>
@@ -178,8 +179,9 @@ export function WorkshopLayout({ division }: LayoutProps) {
                 <p className="font-serif text-base lg:text-lg text-navy/75 leading-relaxed mb-5">
                   For clients looking for specific objects. A particular bottle. A hard-to-find book. An antique piece. A gift built around a brief. We make the calls, we vet the seller, we handle the transaction. The work is finished when the object is in the right hands. Discreet, by appointment, fee scoped to the brief.
                 </p>
-                <div className="font-sans text-[10px] uppercase tracking-tag text-ochre-deep/70 pt-4 border-t border-navy/10">
-                  Luke Likoudis · Sourcing Director
+                <div className="pt-4 border-t border-navy/10">
+                  <div className="font-display text-base text-navy">Luke Likoudis</div>
+                  <div className="font-sans text-[10px] uppercase tracking-caps text-ochre-deep/70 mt-1">Sourcing Director</div>
                 </div>
               </div>
             </ScrollReveal>
@@ -193,8 +195,9 @@ export function WorkshopLayout({ division }: LayoutProps) {
                 <p className="font-serif text-base lg:text-lg text-navy/75 leading-relaxed mb-5">
                   For buyers building a private library, an art collection, a wine cellar, or a curated gift package. Engagements begin with the budget, the brief, and the room or shelf the work will land in. We propose, the client selects, we deliver. Provenance documented. Price agreed up front.
                 </p>
-                <div className="font-sans text-[10px] uppercase tracking-tag text-ochre-deep/70 pt-4 border-t border-navy/10">
-                  Jake Likoudis · Operational Director
+                <div className="pt-4 border-t border-navy/10">
+                  <div className="font-display text-base text-navy">Jake Likoudis</div>
+                  <div className="font-sans text-[10px] uppercase tracking-caps text-ochre-deep/70 mt-1">Operational Director</div>
                 </div>
               </div>
             </ScrollReveal>
@@ -264,7 +267,7 @@ export function WorkshopLayout({ division }: LayoutProps) {
                 </div>
                 <div className="col-span-12 lg:col-span-10">
                   <p className="font-serif text-lg lg:text-xl leading-relaxed text-navy/85">
-                    Half the fee, signed agreement, calendar set. Weekly or biweekly check-ins, depending on the brief. The client is in the loop throughout. No ghosting.
+                    Half the fee, signed agreement, calendar set. Weekly or biweekly check-ins, depending on the brief. The client is in the loop throughout.
                   </p>
                 </div>
               </div>
@@ -300,7 +303,7 @@ export function WorkshopLayout({ division }: LayoutProps) {
             <div className="text-ochre mb-6 flex justify-center">
               <OliveBranchMark size={36} />
             </div>
-            <div className="eyebrow-no-rule text-ochre-deep mb-8 inline-block">From a Past Engagement</div>
+            <div className="eyebrow-no-rule text-ochre-deep mb-8 inline-block">From a Past Supervisor</div>
             <blockquote className="font-display text-2xl lg:text-3xl text-navy leading-relaxed italic font-light">
               &ldquo;Andrew was a thoughtful and dependable collaborator. He took initiative, engaged seriously with the work, and consistently delivered quality research and analysis.&rdquo;
             </blockquote>

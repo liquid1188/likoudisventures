@@ -41,12 +41,14 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-bone text-navy font-sans;
     font-feature-settings: "ss01", "kern", "liga";
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
   }
 
   /* Subtle paper grain on light grounds — applied as a fixed overlay */
