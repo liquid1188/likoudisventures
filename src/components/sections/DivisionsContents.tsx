@@ -42,7 +42,6 @@ export function DivisionsContents() {
             <ScrollReveal key={division.slug} delay={idx * 80}>
               <DivisionRow
                 slug={division.slug}
-                number={division.number}
                 name={division.name}
                 greek={division.greek}
                 tagline={division.tagline}
@@ -66,27 +65,21 @@ export function DivisionsContents() {
 
 interface DivisionRowProps {
   slug: string;
-  number: string;
   name: string;
   greek: string;
   tagline: string;
   status: 'active' | 'forthcoming';
 }
 
-function DivisionRow({ slug, number, name, greek, tagline, status }: DivisionRowProps) {
+function DivisionRow({ slug, name, greek, tagline, status }: DivisionRowProps) {
   return (
     <Link
       href={`/divisions/${slug}`}
       className="group block py-7 lg:py-9 border-b border-navy/10 hover:border-navy transition-colors duration-300"
     >
       <div className="grid grid-cols-12 gap-4 lg:gap-8 items-baseline">
-        {/* Roman numeral */}
-        <div className="col-span-1 catalog-num text-base lg:text-lg pt-1">
-          {number}.
-        </div>
-
         {/* Name + Greek */}
-        <div className="col-span-11 lg:col-span-5">
+        <div className="col-span-12 lg:col-span-6">
           <div className="font-display text-3xl lg:text-5xl text-navy leading-tight tracking-tight transition-all duration-500 group-hover:translate-x-1">
             {name}
           </div>

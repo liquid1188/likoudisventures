@@ -10,7 +10,6 @@ export type FamilyMemberId = 'andrew' | 'caroline' | 'elena' | 'luke' | 'jake';
 
 export interface Division {
   slug: string;
-  number: string; // Roman numeral display (i, ii, iii, iv, v, vi)
   name: string;
   greek: string;
   greekTransliteration: string;
@@ -33,7 +32,6 @@ export interface Division {
 export const divisions: Division[] = [
   {
     slug: 'the-studio',
-    number: 'i',
     name: 'The Studio',
     greek: 'Στούντιο',
     greekTransliteration: 'Stoúntio',
@@ -60,7 +58,6 @@ export const divisions: Division[] = [
   },
   {
     slug: 'the-workshop',
-    number: 'ii',
     name: 'The Workshop',
     greek: 'Ἐργαστήριον',
     greekTransliteration: 'Ergastírion',
@@ -85,7 +82,6 @@ export const divisions: Division[] = [
   },
   {
     slug: 'ithaca-house',
-    number: 'iii',
     name: 'Ithaca House',
     greek: 'Ἰθάκη',
     greekTransliteration: 'Ithakē',
@@ -130,7 +126,6 @@ export const divisions: Division[] = [
   },
   {
     slug: 'the-easel',
-    number: 'iv',
     name: 'The Easel',
     greek: 'Καβαλέτο',
     greekTransliteration: 'Kavaléto',
@@ -155,7 +150,6 @@ export const divisions: Division[] = [
   },
   {
     slug: 'the-table',
-    number: 'v',
     name: 'The Table',
     greek: 'Τράπεζα',
     greekTransliteration: 'Trápeza',
@@ -182,7 +176,6 @@ export const divisions: Division[] = [
   },
   {
     slug: 'the-likoudis-collection',
-    number: 'vi',
     name: 'The Likoudis Collection',
     greek: 'Ἡ Συλλογή Λικούδη',
     greekTransliteration: 'Hē Syllogē Likoúdē',

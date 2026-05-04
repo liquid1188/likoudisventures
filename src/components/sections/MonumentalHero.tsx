@@ -45,7 +45,7 @@ export function MonumentalHero() {
             <div className="mt-1 text-bone/40">Κεφαλονιά · Baltimore</div>
           </div>
           <div className="text-right">
-            <div>Volume I · {site.foundedRoman}</div>
+            <div>Est. 2026</div>
             <div className="mt-1 text-bone/40">A Family-Held House</div>
           </div>
         </div>
@@ -56,7 +56,7 @@ export function MonumentalHero() {
         {/* Section eyebrow */}
         <div className="text-center mb-8 lg:mb-12 stagger-fade">
           <div className="font-serif italic text-ochre text-base lg:text-lg mb-3">
-            Likoudis Ventures, est. MMXXVI
+            Likoudis Ventures, est. 2026
           </div>
         </div>
 

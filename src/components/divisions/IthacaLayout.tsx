@@ -41,7 +41,7 @@ export function IthacaLayout({ division }: LayoutProps) {
             <Link href="/#divisions" className="hover:text-ochre transition-colors">
               ← Likoudis Ventures
             </Link>
-            <span>No. {division.number} · Ithaca House</span>
+            <span>Ithaca House</span>
             <span className="text-ochre">{division.greek}</span>
           </div>
         </div>

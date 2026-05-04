@@ -43,7 +43,7 @@ export function StudioLayout({ division }: LayoutProps) {
             <Link href="/#divisions" className="hover:text-ochre transition-colors">
               ← Likoudis Ventures
             </Link>
-            <span>No. {division.number} · The Studio</span>
+            <span>The Studio</span>
             <span className="text-ochre">{division.greek}</span>
           </div>
         </div>

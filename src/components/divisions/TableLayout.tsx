@@ -38,7 +38,7 @@ export function TableLayout({ division }: LayoutProps) {
             <Link href="/#divisions" className="hover:text-ochre transition-colors">
               ← Likoudis Ventures
             </Link>
-            <span>No. {division.number} · The Table</span>
+            <span>The Table</span>
             <span className="text-ochre">{division.greek}</span>
           </div>
         </div>

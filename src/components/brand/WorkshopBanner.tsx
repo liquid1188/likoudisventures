@@ -115,7 +115,7 @@ export function WorkshopBanner({ className }: WorkshopBannerProps) {
       {/* Frieze with date */}
       <rect x="370" y="200" width="460" height="28" fill="#1A2638" />
       <text x="600" y="220" textAnchor="middle" fill="#C8A24A" fontFamily="serif" fontSize="14" letterSpacing="3" fontStyle="italic">
-        ESTABLISHED · MMXXVI
+        ESTABLISHED · 2026
       </text>
 
       {/* Left window */}

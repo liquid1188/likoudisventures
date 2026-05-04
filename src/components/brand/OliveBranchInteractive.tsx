@@ -55,7 +55,6 @@ export function OliveBranchInteractive({
   const oliveStem = isOnNavy ? '#7A8B5F' : '#3F5236';
   const leafFill = isOnNavy ? '#B5C4A2' : '#7A8B5F';
   const leafVein = isOnNavy ? '#7A8B5F' : '#5C7251';
-  const numeralColor = isOnNavy ? '#C8A24A' : '#8E6420';
   const labelTextColor = isOnNavy ? 'text-bone' : 'text-navy';
   const labelGreekColor = isOnNavy ? 'text-ochre' : 'text-ochre-deep';
   const labelTaglineColor = isOnNavy ? 'text-bone/60' : 'text-navy/60';
@@ -305,35 +304,20 @@ export function OliveBranchInteractive({
                   transform={`rotate(-15 ${node.x - 7} ${node.y - 12})`}
                 />
 
-                {/* Roman numeral — below the olive */}
+                {/* Division name — below the olive, always visible */}
                 <text
                   x={node.x}
-                  y={node.y + 72}
+                  y={node.y + 78}
                   textAnchor="middle"
-                  fontSize="24"
-                  fontStyle="italic"
-                  fill={numeralColor}
-                  fontFamily="var(--font-cormorant), Georgia, serif"
-                  opacity={isHovered ? 1 : 0.85}
+                  fontSize="14"
+                  fill={isOnNavy ? '#FAF6EC' : '#0E1B2C'}
+                  fontFamily="var(--font-inter), sans-serif"
+                  letterSpacing="0.18em"
+                  opacity={isHovered ? 1 : 0.75}
                   style={{
                     transition: 'opacity 0.4s ease-out',
                     pointerEvents: 'none',
                   }}
-                >
-                  {division.number}
-                </text>
-
-                {/* Division name — only shown on hover */}
-                <text
-                  x={node.x}
-                  y={node.y + 96}
-                  textAnchor="middle"
-                  fontSize="12"
-                  fill={isOnNavy ? '#FAF6EC' : '#0E1B2C'}
-                  fontFamily="var(--font-inter), sans-serif"
-                  letterSpacing="0.18em"
-                  opacity={isHovered ? 0.9 : 0}
-                  style={{ transition: 'opacity 0.4s ease-out', pointerEvents: 'none' }}
                 >
                   {division.name.toUpperCase()}
                 </text>
@@ -393,15 +377,7 @@ export function OliveBranchInteractive({
                 : 'border-navy/15 active:border-ochre active:bg-navy/5'
             )}
           >
-            <div
-              className={clsx(
-                'font-serif italic text-[11px]',
-                isOnNavy ? 'text-ochre' : 'text-ochre-deep'
-              )}
-            >
-              {d.number}.
-            </div>
-            <div className={clsx('font-display text-sm leading-tight mt-0.5', labelTextColor)}>
+            <div className={clsx('font-display text-sm leading-tight', labelTextColor)}>
               {d.name}
             </div>
           </Link>

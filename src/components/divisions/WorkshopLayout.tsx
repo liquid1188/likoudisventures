@@ -40,7 +40,7 @@ export function WorkshopLayout({ division }: LayoutProps) {
             <Link href="/#divisions" className="hover:text-ochre transition-colors">
               ← Likoudis Ventures
             </Link>
-            <span>By Appointment · No. {division.number}</span>
+            <span>By Appointment</span>
             <span className="text-ochre">{division.greek}</span>
           </div>
         </div>
@@ -60,7 +60,7 @@ export function WorkshopLayout({ division }: LayoutProps) {
             </p>
             <div className="ornate-divider text-bone/40 my-3" />
             <div className="font-sans text-[10px] uppercase tracking-eyebrow text-bone/70 mt-5">
-              Established MMXXVI · Baltimore
+              Established 2026 · Baltimore
             </div>
           </div>
         </div>

@@ -46,7 +46,7 @@ export function Hero({
             {sectionNumber && <div className="mt-1 text-bone/40">{sectionNumber}</div>}
           </div>
           <div className="text-right">
-            <div>Est. {site.foundedRoman}</div>
+            <div>Est. {site.founded}</div>
             <div className="mt-1 text-bone/40">{site.seat}</div>
           </div>
         </div>

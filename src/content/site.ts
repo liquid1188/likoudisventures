@@ -11,7 +11,6 @@ export const site = {
   description:
     'A family business in Baltimore. Three brothers and two sisters working under one name across web design, hospitality, art, custom commissions, Greek wines and goods, and curated objects.',
   founded: 2026,
-  foundedRoman: 'MMXXVI',
   seat: 'Canton · Baltimore',
   greekRoot: 'Κεφαλονιά',
   greekRootClassical: 'ἐκ Κεφαλονιάς',
