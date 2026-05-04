@@ -100,7 +100,7 @@ function DivisionRow({ slug, name, greek, tagline, status }: DivisionRowProps) {
           >
             {status === 'active' ? 'Active' : 'Forthcoming'}
           </span>
-          <span className="font-display text-2xl lg:text-3xl text-navy/40 group-hover:text-ochre-deep group-hover:translate-x-2 transition-all duration-500">
+          <span className="font-display text-2xl lg:text-3xl text-navy/40 group-hover:text-sky-deep group-hover:translate-x-2 transition-all duration-500">
             →
           </span>
         </div>

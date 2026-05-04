@@ -26,7 +26,7 @@ export function FamilyMemberCard({ member }: FamilyMemberCardProps) {
   return (
     <article className="group bg-bone overflow-hidden border-t-[3px] border-t-ochre transition-all duration-500 hover:-translate-y-1">
       {/* Portrait area (3:4) */}
-      <div className="relative aspect-[3/4] bg-cream overflow-hidden">
+      <div className="relative aspect-[3/4] bg-sky-light overflow-hidden">
         {member.portrait ? (
           <Image
             src={member.portrait}

@@ -33,7 +33,7 @@ export default function AboutPage() {
       />
 
       {/* Origin section */}
-      <section className="ground-cream py-24 lg:py-32">
+      <section className="ground-sky py-24 lg:py-32">
         <div className="container-editorial">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 max-w-5xl mx-auto">
             <ScrollReveal as="div" className="lg:col-span-3">
@@ -92,7 +92,7 @@ export default function AboutPage() {
       </section>
 
       {/* Family section */}
-      <section className="ground-bone py-24 lg:py-32">
+      <section className="ground-cream py-24 lg:py-32">
         <div className="container-editorial">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 mb-14 lg:mb-20">
             <ScrollReveal as="div" className="lg:col-span-5">

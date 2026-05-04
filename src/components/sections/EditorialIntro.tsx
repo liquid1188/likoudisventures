@@ -11,7 +11,7 @@ import { IonianMap } from '@/components/brand/IonianMap';
  */
 export function EditorialIntro() {
   return (
-    <section className="ground-cream py-28 lg:py-36 relative">
+    <section className="ground-olive py-28 lg:py-36 relative">
       <div className="container-editorial">
         <div className="grid grid-cols-12 gap-6 lg:gap-12 items-start">
           {/* Marginalia — small left label */}
