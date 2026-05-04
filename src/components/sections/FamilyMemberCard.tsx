@@ -32,7 +32,12 @@ export function FamilyMemberCard({ member }: FamilyMemberCardProps) {
             src={member.portrait}
             alt={`Portrait of ${member.name}`}
             fill
-            className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+            className={clsx(
+              'object-cover transition-transform duration-700 group-hover:scale-105',
+              member.portraitFocus === 'center' && 'object-center',
+              member.portraitFocus === 'top' && 'object-top',
+              !member.portraitFocus && 'object-top'
+            )}
             sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 100vw"
           />
         ) : (

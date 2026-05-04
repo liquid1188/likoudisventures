@@ -188,7 +188,7 @@ export const divisions: Division[] = [
     shortDescription:
       'A line of pantry goods, mostly Greek, occasionally from upstate New York. Wine, olive oil, olives, honey, vinegar, with our name beside the producer’s.',
     longDescription:
-      "The Table holds the family's pantry line. Wines from named Greek appellations and from the Finger Lakes country where the family settled three generations ago. Spirits from traditional distillers. Olive oil from single-estate producers. Table olives in the Kefaloniote tradition. Honey from Greek apiaries. Vinegars rounding out the line. Shelf-stable by design. What travels well and what keeps.\n\nEvery product carries the Likoudis name beside the producer's, and a record of where it came from. We are not blending, not generic-labeling, not selling whatever fills a shelf. We source from people we know, in places that raised us, and we put the name down on each label.",
+      "The Table holds the family's pantry line. Wines from named Greek appellations and from the Finger Lakes country where the family settled three generations ago. Spirits from traditional distillers. Olive oil from single-estate producers. Table olives in the Kefaloniote tradition. Honey from Greek apiaries. Vinegars rounding out the line. Shelf-stable by design. What travels well and what keeps.\n\nEvery product carries the Likoudis name beside the producer's, and a record of where it came from. We source from people we know, in places that raised us, and we put the name down on each label.",
     offerings: [
       'Greek wines: Robola, Assyrtiko, Agiorgitiko',
       'Finger Lakes wines: Riesling, Cabernet Franc, and others from upstate New York',

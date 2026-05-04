@@ -17,6 +17,8 @@ export interface FamilyMember {
   divisions: string[];
   bio: string;
   portrait?: string;
+  /** Where to anchor the portrait crop. Default 'top' to keep heads whole. */
+  portraitFocus?: 'top' | 'center';
   /** Optional personal/professional site for this member */
   siteUrl?: string;
   /** Display label for the site link (e.g., 'brushandsoulstudio.com') */

@@ -78,11 +78,10 @@ export function EaselLayout({ division }: LayoutProps) {
         <div className="container-editorial">
           <ScrollReveal>
             <div className="text-center mb-14 lg:mb-20">
-              <div className="eyebrow-no-rule text-ochre-deep mb-3 inline-block">The two studios</div>
-              <h2 className="font-display text-display-lg text-navy mt-5 max-w-3xl mx-auto leading-tight">
-                Two sisters, two practices,
+              <h2 className="font-display text-display-lg text-navy max-w-3xl mx-auto leading-tight">
+                Original art,
                 <br />
-                <em className="italic text-ochre-deep">one shelf in the house</em>.
+                <em className="italic text-ochre-deep">from two studios</em>.
               </h2>
             </div>
           </ScrollReveal>
@@ -111,6 +110,90 @@ export function EaselLayout({ division }: LayoutProps) {
                 hrefLabel="Visit Elena Likoudis Art"
               />
             </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured work — showcase a few pieces from each artist with placeholder
+          scaffolding ready to receive real artwork. When real images are
+          provided, swap the placeholder div for an Image component. */}
+      <section className="ground-cream py-20 lg:py-28 border-t border-olive-glow/20">
+        <div className="container-editorial">
+          <ScrollReveal>
+            <div className="text-center mb-14 lg:mb-16 max-w-2xl mx-auto">
+              <h3 className="font-display text-display-lg text-navy leading-tight">
+                A few <em className="italic text-ochre-deep">pieces</em>.
+              </h3>
+              <p className="font-serif italic text-lg lg:text-xl text-navy/70 mt-5 leading-relaxed">
+                Selected work. For full inventory, visit each studio directly.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          {/* Caroline's row */}
+          <div className="mb-16 lg:mb-20">
+            <ScrollReveal>
+              <div className="flex items-baseline justify-between mb-6 pb-3 border-b border-navy/15">
+                <div>
+                  <div className="font-display text-2xl lg:text-3xl text-navy leading-tight">
+                    Caroline Likoudis
+                  </div>
+                  <div className="font-serif italic text-sm text-ochre-deep mt-1">
+                    Brush &amp; Soul Studio
+                  </div>
+                </div>
+                <a
+                  href="https://www.brushandsoulstudio.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-sans text-[11px] uppercase tracking-caps text-olive-deep hover:text-navy border-b border-olive-glow/40 hover:border-navy pb-1 transition-colors"
+                >
+                  Visit Brush &amp; Soul →
+                </a>
+              </div>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-7">
+              <ScrollReveal delay={0}>
+                <FeaturedWorkPlaceholder caption="Featured oil painting" />
+              </ScrollReveal>
+              <ScrollReveal delay={120}>
+                <FeaturedWorkPlaceholder caption="Featured watercolor" />
+              </ScrollReveal>
+            </div>
+          </div>
+
+          {/* Elena's row */}
+          <div>
+            <ScrollReveal>
+              <div className="flex items-baseline justify-between mb-6 pb-3 border-b border-navy/15">
+                <div>
+                  <div className="font-display text-2xl lg:text-3xl text-navy leading-tight">
+                    Elena Likoudis
+                  </div>
+                  <div className="font-serif italic text-sm text-ochre-deep mt-1">
+                    Elena Likoudis Art
+                  </div>
+                </div>
+                <a
+                  href="https://elenalikoudisart.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-sans text-[11px] uppercase tracking-caps text-olive-deep hover:text-navy border-b border-olive-glow/40 hover:border-navy pb-1 transition-colors"
+                >
+                  Visit Elena Likoudis Art →
+                </a>
+              </div>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-7">
+              <ScrollReveal delay={0}>
+                <FeaturedWorkPlaceholder caption="Featured portrait" />
+              </ScrollReveal>
+              <ScrollReveal delay={120}>
+                <FeaturedWorkPlaceholder caption="Featured original" />
+              </ScrollReveal>
+            </div>
           </div>
         </div>
       </section>
@@ -254,5 +337,58 @@ function StudioCard({
         </a>
       </div>
     </article>
+  );
+}
+
+/**
+ * Placeholder slot for a featured artwork. Renders a 3:4 aspect-ratio frame with
+ * a subtle texture, a small "forthcoming" mark, and a caption beneath. When real
+ * artwork is provided, swap the inner div for an Image component pointed at the
+ * artwork file in /public, and remove the placeholder marks.
+ */
+function FeaturedWorkPlaceholder({ caption }: { caption: string }) {
+  return (
+    <div className="group">
+      <div className="relative aspect-[3/4] bg-cream border border-navy/10 overflow-hidden">
+        {/* Inner double-rule frame, gallery register */}
+        <div className="absolute inset-4 border border-ochre/30" />
+        <div className="absolute inset-6 border border-ochre/10" />
+
+        {/* Center mark — small olive */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <svg
+            width="56"
+            height="28"
+            viewBox="0 0 70 35"
+            fill="none"
+            className="text-ochre/55"
+            aria-hidden
+          >
+            <path
+              d="M 5 22 Q 35 8, 65 22"
+              stroke="currentColor"
+              strokeWidth="1.2"
+              fill="none"
+              strokeLinecap="round"
+            />
+            <ellipse cx="20" cy="20" rx="2.4" ry="3.2" fill="currentColor" />
+            <ellipse cx="35" cy="14" rx="2.4" ry="3.2" fill="currentColor" />
+            <ellipse cx="50" cy="20" rx="2.4" ry="3.2" fill="currentColor" />
+          </svg>
+        </div>
+
+        {/* Forthcoming label */}
+        <div className="absolute bottom-5 left-0 right-0 text-center">
+          <span className="font-sans text-[10px] uppercase tracking-tag text-ochre-deep/70 bg-cream px-3 py-1">
+            Forthcoming
+          </span>
+        </div>
+      </div>
+
+      {/* Caption */}
+      <div className="mt-3 font-serif italic text-sm text-navy/65 text-center">
+        {caption}
+      </div>
+    </div>
   );
 }
