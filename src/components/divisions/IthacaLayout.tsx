@@ -137,6 +137,242 @@ export function IthacaLayout({ division }: LayoutProps) {
         </div>
       </section>
 
+      {/* The Properties — six Airbnb listings in the Canton / Patterson Park neighborhood */}
+      <section className="ground-cream py-24 lg:py-32 border-t border-navy/10">
+        <div className="container-editorial">
+          <ScrollReveal as="div" className="text-center mb-12 lg:mb-16 max-w-3xl mx-auto">
+            <div className="catalog-num text-sm mb-3">The Properties</div>
+            <div className="eyebrow-no-rule text-ochre-deep mb-5 inline-block">Canton · Patterson Park</div>
+            <h3 className="font-display text-display-xl text-navy leading-tight">
+              Six rooms in the <em className="italic text-ochre-deep">quaint</em> Canton / Patterson Park neighborhood.
+            </h3>
+            <p className="font-serif italic text-lg lg:text-xl text-navy/65 mt-6 leading-relaxed">
+              Run by the family. Each property listed directly on Airbnb &mdash; book through the platform you already trust.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+            {/* Caroline's three (longer tenure, higher rated, art-led aesthetic) */}
+
+            {/* Master Suite (king, private bath, master bedroom) */}
+            <ScrollReveal as="div" delay={0}>
+              <a
+                href="https://www.airbnb.com/rooms/45953387?unique_share_id=0d774be8-8d26-42ab-b84e-1779102b68b2&viralityEntryPoint=1&s=76"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block bg-bone border border-navy/15 hover:border-ochre transition-colors h-full overflow-hidden"
+              >
+                <div className="relative aspect-[4/3] bg-navy/5 overflow-hidden">
+                  <img
+                    src="https://a0.muscache.com/im/pictures/airflow/Hosting-45953387/original/51871439-b848-4782-95af-cee4114a9119.jpg?im_w=720"
+                    alt="Master Suite — king bedroom, private bath, Patterson Park rowhome"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-5 lg:p-6">
+                  <div className="catalog-num text-xs text-ochre-deep mb-2">Patterson Park · Master Suite</div>
+                  <h4 className="font-display text-xl text-navy leading-snug mb-2 group-hover:text-ochre-deep transition-colors">
+                    Relaxing Master Suite in a Colorful Home
+                  </h4>
+                  <p className="font-serif italic text-sm text-navy/70 leading-relaxed mb-4">
+                    King bed, private bath, in an artist&rsquo;s rowhome filled with handmade art and original paintings.
+                  </p>
+                  <div className="flex items-center justify-between font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
+                    <span>★ 4.66 &middot; 86 reviews</span>
+                    <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
+                  </div>
+                  <div className="mt-3 pt-3 border-t border-navy/10 font-sans text-[10px] uppercase tracking-eyebrow text-navy/45">
+                    Caroline · co-hosted by Andrew &amp; Tetiana
+                  </div>
+                </div>
+              </a>
+            </ScrollReveal>
+
+            {/* Lower-level bedroom (full bed, shared bath) */}
+            <ScrollReveal as="div" delay={80}>
+              <a
+                href="https://www.airbnb.com/rooms/649048737097044142?unique_share_id=c05a57d9-df85-491e-89df-dd2fbe5fee06&viralityEntryPoint=1&s=76"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block bg-bone border border-navy/15 hover:border-ochre transition-colors h-full overflow-hidden"
+              >
+                <div className="relative aspect-[4/3] bg-navy/5 overflow-hidden">
+                  <img
+                    src="https://a0.muscache.com/im/pictures/2599cc6f-15d1-4d5e-a690-e57cf9449a30.jpg?im_w=720"
+                    alt="Lower-level bedroom — full bed, shared bath, Patterson Park rowhome"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-5 lg:p-6">
+                  <div className="catalog-num text-xs text-ochre-deep mb-2">Patterson Park · Garden Level</div>
+                  <h4 className="font-display text-xl text-navy leading-snug mb-2 group-hover:text-ochre-deep transition-colors">
+                    Relaxing Bedroom Convenient to Hopkins
+                  </h4>
+                  <p className="font-serif italic text-sm text-navy/70 leading-relaxed mb-4">
+                    Full bed, shared bath, fully renovated lower level of an art-filled rowhome.
+                  </p>
+                  <div className="flex items-center justify-between font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
+                    <span>★ 4.85 &middot; 71 reviews</span>
+                    <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
+                  </div>
+                  <div className="mt-3 pt-3 border-t border-navy/10 font-sans text-[10px] uppercase tracking-eyebrow text-navy/45">
+                    Caroline · co-hosted by Andrew &amp; Tetiana
+                  </div>
+                </div>
+              </a>
+            </ScrollReveal>
+
+            {/* Spacious Queen (queen, private bath) */}
+            <ScrollReveal as="div" delay={160}>
+              <a
+                href="https://www.airbnb.com/rooms/44263588?unique_share_id=128fa5fb-1462-4403-938a-fc7537d6b761&viralityEntryPoint=1&s=76"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block bg-bone border border-navy/15 hover:border-ochre transition-colors h-full overflow-hidden"
+              >
+                <div className="relative aspect-[4/3] bg-navy/5 overflow-hidden">
+                  <img
+                    src="https://a0.muscache.com/im/pictures/airflow/Hosting-44263588/original/f2e0d54e-9451-4031-9b01-315e0d34acb4.jpg?im_w=720"
+                    alt="Spacious Queen Bedroom — queen bed, private bath with skylight, Patterson Park"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-5 lg:p-6">
+                  <div className="catalog-num text-xs text-ochre-deep mb-2">Patterson Park · Queen Suite</div>
+                  <h4 className="font-display text-xl text-navy leading-snug mb-2 group-hover:text-ochre-deep transition-colors">
+                    Spacious Queen Bedroom &amp; Private Bath
+                  </h4>
+                  <p className="font-serif italic text-sm text-navy/70 leading-relaxed mb-4">
+                    Queen bed, private bath with skylight and tub, in a vibrant townhome filled with cultural pieces from around the world.
+                  </p>
+                  <div className="flex items-center justify-between font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
+                    <span>★ 4.81 &middot; 89 reviews</span>
+                    <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
+                  </div>
+                  <div className="mt-3 pt-3 border-t border-navy/10 font-sans text-[10px] uppercase tracking-eyebrow text-navy/45">
+                    Caroline · co-hosted by Andrew &amp; Tetiana
+                  </div>
+                </div>
+              </a>
+            </ScrollReveal>
+
+            {/* Andrew's three */}
+
+            {/* Comfortable Oasis (queen, private bath) */}
+            <ScrollReveal as="div" delay={240}>
+              <a
+                href="https://www.airbnb.com/rooms/16000758?unique_share_id=c9abbcfc-76ea-4a2b-9b1f-a918c702ab32&viralityEntryPoint=1&s=76"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block bg-bone border border-navy/15 hover:border-ochre transition-colors h-full overflow-hidden"
+              >
+                <div className="relative aspect-[4/3] bg-navy/5 overflow-hidden">
+                  <img
+                    src="https://a0.muscache.com/im/pictures/f37e01f6-c234-4a69-a2f8-8257ac78a7a7.jpg?im_w=720"
+                    alt="Comfortable Oasis — queen bedroom with private bath, near Hopkins"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-5 lg:p-6">
+                  <div className="catalog-num text-xs text-ochre-deep mb-2">Patterson Park · Comfortable Oasis</div>
+                  <h4 className="font-display text-xl text-navy leading-snug mb-2 group-hover:text-ochre-deep transition-colors">
+                    Comfortable Oasis Close to Hopkins
+                  </h4>
+                  <p className="font-serif italic text-sm text-navy/70 leading-relaxed mb-4">
+                    Queen bed, dedicated bathroom, high ceilings and artistic touches. Two blocks to Patterson Park, less than a mile to Johns Hopkins Hospital.
+                  </p>
+                  <div className="flex items-center justify-between font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
+                    <span>★ 4.67 &middot; 195 reviews</span>
+                    <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
+                  </div>
+                  <div className="mt-3 pt-3 border-t border-navy/10 font-sans text-[10px] uppercase tracking-eyebrow text-navy/45">
+                    Andrew · sole host
+                  </div>
+                </div>
+              </a>
+            </ScrollReveal>
+
+            {/* Convenient Oasis (private bath, smaller listing) */}
+            <ScrollReveal as="div" delay={320}>
+              <a
+                href="https://www.airbnb.com/rooms/1009422679116749556?unique_share_id=365b84bd-520a-45f0-90c6-f0185838bf66&viralityEntryPoint=1&s=76"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block bg-bone border border-navy/15 hover:border-ochre transition-colors h-full overflow-hidden"
+              >
+                <div className="relative aspect-[4/3] bg-navy/5 overflow-hidden">
+                  <img
+                    src="https://a0.muscache.com/im/pictures/hosting/Hosting-1009422679116749556/original/bb54e33b-4639-47f9-9b33-4360d11f1834.jpeg?im_w=720"
+                    alt="Relaxing, Convenient Oasis — bedroom with private bath, Patterson Park"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-5 lg:p-6">
+                  <div className="catalog-num text-xs text-ochre-deep mb-2">Patterson Park · Convenient Oasis</div>
+                  <h4 className="font-display text-xl text-navy leading-snug mb-2 group-hover:text-ochre-deep transition-colors">
+                    Relaxing, Convenient Oasis
+                  </h4>
+                  <p className="font-serif italic text-sm text-navy/70 leading-relaxed mb-4">
+                    Private bedroom with private attached bathroom, espresso machine, drip coffee. Townhome convenient to Hopkins, the park, and downtown.
+                  </p>
+                  <div className="flex items-center justify-between font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
+                    <span>★ 4.20 &middot; 10 reviews</span>
+                    <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
+                  </div>
+                  <div className="mt-3 pt-3 border-t border-navy/10 font-sans text-[10px] uppercase tracking-eyebrow text-navy/45">
+                    Andrew · sole host
+                  </div>
+                </div>
+              </a>
+            </ScrollReveal>
+
+            {/* Relaxing Getaway (basement, walk-out, shared bath, lower entry) */}
+            <ScrollReveal as="div" delay={400}>
+              <a
+                href="https://www.airbnb.com/rooms/582871859089019533?unique_share_id=5731f7e0-8398-43f1-bce6-eaf669fe36e0&viralityEntryPoint=1&s=76"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block bg-bone border border-navy/15 hover:border-ochre transition-colors h-full overflow-hidden"
+              >
+                <div className="relative aspect-[4/3] bg-navy/5 overflow-hidden">
+                  <img
+                    src="https://a0.muscache.com/im/pictures/miso/Hosting-582871859089019533/original/20868c3e-9c1d-4d8a-b802-411f5dc385f5.jpeg?im_w=720"
+                    alt="Relaxing Getaway — finished basement room, walk-out, shared bath"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-5 lg:p-6">
+                  <div className="catalog-num text-xs text-ochre-deep mb-2">Patterson Park · Garden Walk-Out</div>
+                  <h4 className="font-display text-xl text-navy leading-snug mb-2 group-hover:text-ochre-deep transition-colors">
+                    Relaxing Getaway near Hopkins
+                  </h4>
+                  <p className="font-serif italic text-sm text-navy/70 leading-relaxed mb-4">
+                    Finished basement room with walk-out, shared bath. Five minutes to Hopkins, ten to the harbor and Fells Point.
+                  </p>
+                  <div className="flex items-center justify-between font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
+                    <span>★ 4.04 &middot; 23 reviews</span>
+                    <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
+                  </div>
+                  <div className="mt-3 pt-3 border-t border-navy/10 font-sans text-[10px] uppercase tracking-eyebrow text-navy/45">
+                    Andrew · sole host
+                  </div>
+                </div>
+              </a>
+            </ScrollReveal>
+          </div>
+
+          <p className="font-serif italic text-sm text-navy/55 mt-10 lg:mt-12 text-center max-w-2xl mx-auto leading-relaxed">
+            Six properties, run by the family, in one Baltimore neighborhood. Caroline hosts three; Andrew hosts three. Across all six, the family handles bookings, turnover, and welcome.
+          </p>
+        </div>
+      </section>
+
       {/* Stays + offerings */}
       <section className="ground-navy py-24 lg:py-32">
         <div className="container-editorial">
