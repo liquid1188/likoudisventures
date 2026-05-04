@@ -308,6 +308,26 @@ export function EaselLayout({ division }: LayoutProps) {
         </div>
       </section>
 
+      {/* Testimonial — Christine A., recipient of Caroline's "Our Lady" donation
+          (parish/auction context — placeholder caption, refine after permission/context confirmed) */}
+      <section className="ground-bone py-20 lg:py-28 border-t border-navy/10">
+        <div className="container-editorial max-w-3xl">
+          <ScrollReveal as="div" className="text-center">
+            <div className="text-ochre mb-6 flex justify-center">
+              <OliveBranchMark size={36} />
+            </div>
+            <div className="eyebrow-no-rule text-ochre-deep mb-8 inline-block">From a Patron</div>
+            <blockquote className="font-display text-2xl lg:text-3xl text-navy leading-relaxed italic font-light">
+              &ldquo;Absolutely stunning. It brought me to tears. Your family is so talented.&rdquo;
+            </blockquote>
+            <div className="mt-10 pt-6 border-t border-navy/15 max-w-md mx-auto">
+              <div className="font-display text-lg text-navy">Christine A.</div>
+              <div className="font-serif italic text-sm text-navy/65 mt-1">On Caroline&rsquo;s &ldquo;Our Lady&rdquo;</div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       <InquirySection
         defaultDivision={division.slug}
         heading={
