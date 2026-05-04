@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { OliveBranchMark } from '@/components/brand/OliveBranchMark';
 import { EaselBanner } from '@/components/brand/EaselBanner';
+import { DivisionLeads } from '@/components/sections/DivisionLeads';
 import { InquirySection } from '@/components/sections/InquirySection';
 
 interface LayoutProps {
@@ -62,6 +63,13 @@ export function EaselLayout({ division }: LayoutProps) {
               {division.tagline}
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Lead row */}
+      <section className="ground-bone py-7 lg:py-9 border-b border-navy/10">
+        <div className="container-editorial">
+          <DivisionLeads leads={division.leads} theme="light" />
         </div>
       </section>
 

@@ -2,6 +2,7 @@ import type { Division } from '@/content/divisions';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { OliveBranchMark } from '@/components/brand/OliveBranchMark';
 import { WorkshopBanner } from '@/components/brand/WorkshopBanner';
+import { DivisionLeads } from '@/components/sections/DivisionLeads';
 import { InquirySection } from '@/components/sections/InquirySection';
 import Link from 'next/link';
 
@@ -62,6 +63,13 @@ export function WorkshopLayout({ division }: LayoutProps) {
               Established MMXXVI · Baltimore
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Lead row */}
+      <section className="ground-bone py-7 lg:py-9 border-b border-navy/10">
+        <div className="container-editorial">
+          <DivisionLeads leads={division.leads} theme="light" />
         </div>
       </section>
 

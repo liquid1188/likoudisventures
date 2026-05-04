@@ -3,6 +3,7 @@ import type { Division } from '@/content/divisions';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { OliveBranchMark } from '@/components/brand/OliveBranchMark';
 import { StudioBanner } from '@/components/brand/StudioBanner';
+import { DivisionLeads } from '@/components/sections/DivisionLeads';
 import { InquirySection } from '@/components/sections/InquirySection';
 import { site } from '@/content/site';
 
@@ -74,6 +75,13 @@ export function StudioLayout({ division }: LayoutProps) {
               </span>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Lead row */}
+      <section className="ground-bone py-7 lg:py-9 border-b border-navy/10">
+        <div className="container-editorial">
+          <DivisionLeads leads={division.leads} theme="light" />
         </div>
       </section>
 

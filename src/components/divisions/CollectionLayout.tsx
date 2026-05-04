@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { OliveBranchMark } from '@/components/brand/OliveBranchMark';
 import { CollectionBanner } from '@/components/brand/CollectionBanner';
+import { DivisionLeads } from '@/components/sections/DivisionLeads';
 import { NotifyForm } from '@/components/forms/NotifyForm';
 
 interface LayoutProps {
@@ -70,6 +71,13 @@ export function CollectionLayout({ division }: LayoutProps) {
               </span>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Lead row */}
+      <section className="ground-bone py-7 lg:py-9 border-b border-navy/10">
+        <div className="container-editorial">
+          <DivisionLeads leads={division.leads} theme="light" />
         </div>
       </section>
 
