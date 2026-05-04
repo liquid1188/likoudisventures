@@ -91,48 +91,7 @@ export function IthacaLayout({ division }: LayoutProps) {
             </ScrollReveal>
           </div>
 
-          {/* Notes / family-in-Greece disclosure */}
-          {division.notes && (
-            <ScrollReveal as="div">
-              <div className="mt-20 lg:mt-28 max-w-3xl mx-auto bg-bone p-8 lg:p-10 border-l-2 border-ochre">
-                <div className="catalog-num text-sm mb-3">A Note</div>
-                <p className="font-serif italic text-lg lg:text-xl leading-relaxed text-navy/85">
-                  {division.notes}
-                </p>
-                {division.notesLinks && division.notesLinks.length > 0 && (
-                  <div className="mt-7 pt-6 border-t border-navy/10">
-                    <div className="font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep mb-4">
-                      If you are in Greece
-                    </div>
-                    <ul className="space-y-3">
-                      {division.notesLinks.map((link) => (
-                        <li key={link.href}>
-                          <a
-                            href={link.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group inline-flex items-baseline gap-3 hover:text-olive-deep transition-colors"
-                          >
-                            <span className="font-display text-lg text-navy group-hover:text-olive-deep transition-colors">
-                              {link.label}
-                            </span>
-                            {link.descriptor && (
-                              <span className="font-serif italic text-sm text-navy/60">
-                                {link.descriptor}
-                              </span>
-                            )}
-                            <span aria-hidden className="text-xs text-ochre-deep transition-transform group-hover:translate-x-0.5">
-                              ↗
-                            </span>
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-            </ScrollReveal>
-          )}
+          {/* Notes / family-in-Greece disclosure — moved below Properties section */}
         </div>
       </section>
 
@@ -423,6 +382,53 @@ export function IthacaLayout({ division }: LayoutProps) {
           </p>
         </div>
       </section>
+
+      {/* Notes / family-in-Greece disclosure — placed after Properties so it reads as a quiet aside, not a foregrounded claim */}
+      {division.notes && (
+        <section className="ground-cream py-20 lg:py-24 border-t border-navy/10">
+          <div className="container-editorial">
+            <ScrollReveal as="div">
+              <div className="max-w-3xl mx-auto bg-bone p-8 lg:p-10 border-l-2 border-ochre">
+                <div className="catalog-num text-sm mb-3">A Note</div>
+                <p className="font-serif italic text-lg lg:text-xl leading-relaxed text-navy/85">
+                  {division.notes}
+                </p>
+                {division.notesLinks && division.notesLinks.length > 0 && (
+                  <div className="mt-7 pt-6 border-t border-navy/10">
+                    <div className="font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep mb-4">
+                      If you are in Greece
+                    </div>
+                    <ul className="space-y-3">
+                      {division.notesLinks.map((link) => (
+                        <li key={link.href}>
+                          <a
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group inline-flex items-baseline gap-3 hover:text-olive-deep transition-colors"
+                          >
+                            <span className="font-display text-lg text-navy group-hover:text-olive-deep transition-colors">
+                              {link.label}
+                            </span>
+                            {link.descriptor && (
+                              <span className="font-serif italic text-sm text-navy/60">
+                                {link.descriptor}
+                              </span>
+                            )}
+                            <span aria-hidden className="text-xs text-ochre-deep transition-transform group-hover:translate-x-0.5">
+                              ↗
+                            </span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
 
       {/* Stays + offerings */}
       <section className="ground-navy py-24 lg:py-32">
