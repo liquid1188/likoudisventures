@@ -24,7 +24,7 @@ export function EditorialIntro() {
             <div className="prose-editorial">
               <p className="drop-cap-style">
                 <span className="font-display text-7xl lg:text-8xl text-ochre float-left mr-3 mt-1 leading-[0.85] font-light">W</span>
-                e are three brothers and two sisters, working in Baltimore under one family name. Five divisions of unrelated work on the surface, the same standard underneath.
+                e come from Kefalonia by way of upstate New York. Today we work in Baltimore under one family name. Five divisions of unrelated work on the surface, the same standard underneath.
               </p>
             </div>
           </ScrollReveal>

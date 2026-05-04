@@ -134,9 +134,6 @@ export function WorkshopLayout({ division }: LayoutProps) {
               <p className="font-serif italic text-xl text-ochre-deep">
                 Each project begins with a conversation.
               </p>
-              <p className="font-serif italic text-base text-navy/60 mt-3">
-                — The brothers, Baltimore
-              </p>
             </div>
           </ScrollReveal>
         </div>

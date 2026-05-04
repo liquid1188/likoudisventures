@@ -413,7 +413,7 @@ export function IthacaLayout({ division }: LayoutProps) {
             <ExperienceCard
               title="At the Table"
               kicker="Cooking & food"
-              description="Greek dinners hosted in the house, walking tours of the markets, an evening of wine and small plates with notes on what is in front of you."
+              description="A Greek dinner hosted in the house, prepared or arranged. Provisioning runs to Cross Street Market or Lexington Market. If your stay overlaps with our monthly family Greek dinner, you are welcome to come."
               delay={0}
             />
             <ExperienceCard
@@ -425,13 +425,13 @@ export function IthacaLayout({ division }: LayoutProps) {
             <ExperienceCard
               title="Sacred & Civic"
               kicker="Cultural"
-              description="A guided morning at the Baltimore Basilica, sacred-music concerts when the calendar permits, museum and gallery routing tailored to the visit."
+              description="A guided morning at the Baltimore Basilica with breakfast to follow. Mass and music when the calendar permits. Museum routing through the Walters, the BMA, and the Peabody Library."
               delay={240}
             />
             <ExperienceCard
               title="The Long Stay"
               kicker="Curated"
-              description="Anniversaries, honeymoons, writing weeks, family reunions. Stays prepared in advance. A stocked pantry, a few introductions, a quiet plan you can ignore."
+              description="Anniversaries, honeymoons, writing weeks, family reunions. Stays prepared in advance with a reading list, a driving route, a stocked pantry, a few introductions, and a quiet plan you can ignore."
               delay={360}
             />
           </div>

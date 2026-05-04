@@ -184,7 +184,7 @@ export const divisions: Division[] = [
     greekTransliteration: 'Trápeza',
     greekTranslation: 'Table',
     status: 'forthcoming',
-    tagline: 'Greek wine, spirits, and pantry, sourced and signed.',
+    tagline: 'Wine and pantry, sourced for the table.',
     shortDescription:
       'A line of Greek pantry goods: wine and spirits, olives and olive oil, honey and vinegar, with our name on each label.',
     longDescription:

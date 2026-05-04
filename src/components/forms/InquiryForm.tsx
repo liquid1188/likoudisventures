@@ -90,9 +90,6 @@ export function InquiryForm({ defaultDivision }: InquiryFormProps) {
               {d.name} — {d.tagline}
             </option>
           ))}
-          <option value="press">Press or media</option>
-          <option value="partnership">Partnership</option>
-          <option value="other">Something else</option>
         </select>
       </div>
 

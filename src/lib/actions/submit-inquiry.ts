@@ -42,15 +42,7 @@ export async function submitInquiry(formData: FormData): Promise<InquiryResult> 
 
   // Resolve division to a friendly label
   const divisionRecord = divisions.find((d) => d.slug === division);
-  const divisionLabel =
-    divisionRecord?.name ??
-    (division === 'press'
-      ? 'Press or media'
-      : division === 'partnership'
-        ? 'Partnership'
-        : division === 'other'
-          ? 'General inquiry'
-          : 'Inquiry');
+  const divisionLabel = divisionRecord?.name ?? 'Inquiry';
 
   // If Resend isn't configured, log and return success so dev/local doesn't block
   if (!isResendConfigured()) {
