@@ -27,7 +27,6 @@ export const nav = {
     { label: 'Divisions', href: '/#divisions' },
     { label: 'About', href: '/about' },
     { label: 'The Branch', href: '/the-branch' },
-    { label: 'Contact', href: '/contact' },
   ],
   cta: { label: 'Begin', href: '/contact' },
 } as const;
@@ -50,6 +49,7 @@ export const footer = {
       links: [
         { label: 'About', href: '/about' },
         { label: 'The Branch', href: '/the-branch' },
+        { label: 'Contact', href: '/contact' },
       ],
     },
     {
