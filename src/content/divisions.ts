@@ -58,12 +58,13 @@ export const divisions: Division[] = [
     shortDescription:
       'Short-term rentals operated to a hotel standard. Currently in Baltimore. Selective expansion along the Mid-Atlantic to follow.',
     longDescription:
-      "Ithaca House is the hospitality division of the house. The name carries two anchors: the Greek island that sits beside our family's Kefalonia in the Ionian chain, and the upstate New York town near where our family settled when they came west.\n\nWe operate short-term rentals to a hotel standard. Careful turnover, considered welcome, properties chosen for character rather than yield. Baltimore today; selective expansion along the Mid-Atlantic to follow. A Morocco property is in early planning, the family's first international addition.",
+      "Ithaca House is the hospitality division of the house. The name carries two anchors: the Greek island that sits beside our family's Kefalonia in the Ionian chain, and the upstate New York town near where our family settled when they came west.\n\nWe operate short-term rentals to a hotel standard. Careful turnover, considered welcome, properties chosen for character rather than yield. Baltimore today; selective expansion along the Mid-Atlantic to follow. A Morocco property is in early planning, the family's first international addition.\n\nBeyond the stays themselves, Ithaca House offers Airbnb Experiences for guests — Greek dinners, kayaking on the harbor, basilica visits — and consulting for other hosts working to bring their own properties to the same standard.",
     offerings: [
       'Short-term rentals in Baltimore',
       'Boutique property management',
       'Curated guest welcomes and provisioning',
-      'Experiences (Greek dinners, kayaking, basilica visits, and more)',
+      'Airbnb Experiences — Greek dinners, kayaking, basilica visits, and more',
+      'Airbnb hosting consulting — listing setup, optimization, and co-hosting for other owners',
       'Selective portfolio expansion across the Mid-Atlantic',
       'Small private gatherings and events on request',
     ],
@@ -105,9 +106,10 @@ export const divisions: Division[] = [
     shortDescription:
       'For projects that do not fit a standard package. By appointment, by referral, by careful conversation.',
     longDescription:
-      "The Workshop is the family's services arm. Brokerage and sourcing work, custom curation, bespoke commissions, and strategic advisory engagements. Anything that calls for a longer conversation than a standard service form can support.\n\nJake and Luke run the operational and sourcing sides of the work — both of them on rotation in the United States Coast Guard, both careful with logistics and standards. Andrew comes in on the advisory side, bringing institutional experience to founders, small-business owners, and nonprofit leaders working through strategic questions.\n\nThis is the division that begins with a phone call rather than a price list. We work with a small number of clients at a time, on projects that warrant the attention.",
+      "The Workshop is the family's services arm. Brokerage and sourcing work, custom curation, bespoke commissions, marketing and brand strategy, and strategic advisory engagements. Anything that calls for a longer conversation than a standard service form can support.\n\nJake and Luke run the operational and sourcing sides of the work — both of them on rotation in the United States Coast Guard, both careful with logistics and standards. Andrew comes in on the advisory side, bringing institutional experience to founders, small-business owners, and nonprofit leaders working through strategic questions.\n\nThis is the division that begins with a phone call rather than a price list. We work with a small number of clients at a time, on projects that warrant the attention.",
     offerings: [
       'Strategic advisory and consulting engagements',
+      'Marketing and brand strategy — campaigns, positioning, and go-to-market',
       "Brokerage services (sourcing specific items on a client's behalf)",
       'Bespoke curation projects (private libraries, art acquisitions, gift sourcing)',
       'Custom-built solutions outside the standard division offerings',
