@@ -36,6 +36,8 @@ export function OliveBranchInteractive({
 }: OliveBranchInteractiveProps) {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [isMounted, setIsMounted] = useState(false);
+  const [activeIdx, setActiveIdx] = useState<number | null>(null);
+  const [isCoarse, setIsCoarse] = useState(false);
 
   useEffect(() => {
     if (!animate) {
@@ -45,6 +47,16 @@ export function OliveBranchInteractive({
     const t = setTimeout(() => setIsMounted(true), 80);
     return () => clearTimeout(t);
   }, [animate]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.matchMedia) {
+      setIsCoarse(window.matchMedia('(pointer: coarse)').matches);
+    }
+  }, []);
+
+  // On touch devices, the previewed olive is the tapped (active) one; on
+  // pointer devices it's whatever is hovered. This drives every highlight.
+  const shownIdx = hoveredIdx ?? activeIdx;
 
   const isOnNavy = theme === 'on-navy';
 
@@ -171,7 +183,7 @@ export function OliveBranchInteractive({
         {oliveNodes.map((node, i) => {
           const division = divisions[i];
           if (!division) return null;
-          const isHovered = hoveredIdx === i;
+          const isHovered = shownIdx === i;
           const growDelay = 0.7 + i * 0.13;
 
           // Mirror leaf direction: olives left of centerpiece lean left, olives
@@ -191,6 +203,14 @@ export function OliveBranchInteractive({
               key={division.slug}
               href={`/divisions/${division.slug}`}
               aria-label={`${division.name} — ${division.tagline}`}
+              onClick={(e) => {
+                // Touch: first tap previews (sets active); a second tap on the
+                // same olive falls through to navigate.
+                if (isCoarse && activeIdx !== i) {
+                  e.preventDefault();
+                  setActiveIdx(i);
+                }
+              }}
             >
               <g
                 onMouseEnter={() => setHoveredIdx(i)}
@@ -329,22 +349,22 @@ export function OliveBranchInteractive({
         })}
       </svg>
 
-      {/* Tagline panel beneath the branch (desktop hover state) */}
+      {/* Tagline panel beneath the branch — hover (desktop) or tap (touch) */}
       <div
-        className="hidden md:block absolute left-0 right-0 -bottom-2 lg:bottom-0 pointer-events-none"
+        className="block md:absolute md:left-0 md:right-0 md:-bottom-2 lg:bottom-0 pointer-events-none mt-3 md:mt-0"
         aria-live="polite"
       >
         <div
           className={clsx(
             'transition-all duration-500 text-center',
-            hoveredIdx !== null ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+            shownIdx !== null ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
           )}
         >
-          {hoveredIdx !== null && divisions[hoveredIdx] && (
+          {shownIdx !== null && divisions[shownIdx] && (
             <div className={clsx('font-serif italic text-base lg:text-lg', labelGreekColor)}>
-              {divisions[hoveredIdx].greek}
+              {divisions[shownIdx].greek}
               <span className={clsx('ml-3', labelTaglineColor)}>
-                {divisions[hoveredIdx].tagline}
+                {divisions[shownIdx].tagline}
               </span>
             </div>
           )}
@@ -352,7 +372,7 @@ export function OliveBranchInteractive({
         <div
           className={clsx(
             'transition-all duration-500 text-center mt-1',
-            hoveredIdx === null && isMounted ? 'opacity-60' : 'opacity-0'
+            shownIdx === null && isMounted ? 'opacity-60' : 'opacity-0'
           )}
         >
           <span
@@ -361,29 +381,53 @@ export function OliveBranchInteractive({
               labelTextColor
             )}
           >
-            Hover over an olive
+            <span className="md:hidden">Tap an olive</span>
+            <span className="hidden md:inline">Hover over an olive</span>
           </span>
         </div>
       </div>
 
       {/* Mobile: tap targets for all five divisions */}
       <div className="md:hidden mt-4 grid grid-cols-2 gap-2 px-2 [&>:last-child]:col-span-2 [&>:last-child]:max-w-[calc(50%-0.25rem)] [&>:last-child]:mx-auto [&>:last-child]:w-full">
-        {divisions.map((d) => (
-          <Link
-            key={d.slug}
-            href={`/divisions/${d.slug}`}
-            className={clsx(
-              'block text-center py-3 px-1 border transition-colors',
-              isOnNavy
-                ? 'border-bone/15 active:border-ochre active:bg-bone/5'
-                : 'border-navy/15 active:border-ochre active:bg-navy/5'
-            )}
-          >
-            <div className={clsx('font-display text-sm leading-tight', labelTextColor)}>
-              {d.name}
-            </div>
-          </Link>
-        ))}
+        {divisions.map((d, i) => {
+          const isActive = activeIdx === i;
+          return (
+            <Link
+              key={d.slug}
+              href={`/divisions/${d.slug}`}
+              onClick={(e) => {
+                if (isCoarse && activeIdx !== i) {
+                  e.preventDefault();
+                  setActiveIdx(i);
+                }
+              }}
+              className={clsx(
+                'block text-center py-3 px-1 border transition-colors',
+                isOnNavy
+                  ? isActive
+                    ? 'border-ochre bg-bone/5'
+                    : 'border-bone/15'
+                  : isActive
+                    ? 'border-ochre bg-navy/5'
+                    : 'border-navy/15'
+              )}
+            >
+              <div className={clsx('font-display text-sm leading-tight', labelTextColor)}>
+                {d.name}
+              </div>
+              <div
+                className={clsx(
+                  'overflow-hidden transition-all duration-300',
+                  isActive ? 'max-h-10 opacity-100 mt-1' : 'max-h-0 opacity-0'
+                )}
+              >
+                <span className={clsx('font-sans text-[10px] uppercase tracking-eyebrow', labelGreekColor)}>
+                  Tap again to enter →
+                </span>
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
