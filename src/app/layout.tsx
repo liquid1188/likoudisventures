@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     title: site.name,
     description: site.description,
   },
-  icons: { icon: '/favicon.ico' },
+  icons: { icon: [{ url: '/favicon.ico', sizes: '32x32' }, { url: '/favicon.svg', type: 'image/svg+xml' }], apple: '/apple-touch-icon.png' },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
