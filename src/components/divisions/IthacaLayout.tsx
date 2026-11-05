@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { OliveBranchMark } from '@/components/brand/OliveBranchMark';
 import { IonianSeascape } from '@/components/brand/IonianSeascape';
+import { IonianMap } from '@/components/brand/IonianMap';
 import { ExperienceRequestButton } from '@/components/divisions/ExperienceRequestButton';
 import { InquirySection } from '@/components/sections/InquirySection';
 import { DivisionLeads } from '@/components/sections/DivisionLeads';
@@ -12,7 +13,7 @@ interface LayoutProps {
 }
 
 /**
- * Ithaca House — full-bleed seascape, hospitality register.
+ * Ithaca House — travel and stays. Full-bleed seascape, Baltimore stays, Ionian travel notes.
  * Full-bleed illustrated background, text overlays in cream, generous breathing room.
  */
 export function IthacaLayout({ division }: LayoutProps) {
@@ -56,9 +57,12 @@ export function IthacaLayout({ division }: LayoutProps) {
             <div className="font-serif italic text-ochre text-lg lg:text-xl mb-3">
               {division.greek} · the place you return to
             </div>
-            <h1 className="font-display text-editorial text-bone leading-[0.95] tracking-tight mb-8">
+            <h1 className="font-display text-editorial text-bone leading-[0.95] tracking-tight mb-4">
               Ithaca <em className="italic">House</em>
             </h1>
+            <div className="font-sans text-[11px] uppercase tracking-eyebrow text-ochre mb-8">
+              Travel &amp; Stays
+            </div>
             <p className="font-serif text-xl lg:text-2xl text-bone/95 leading-snug italic font-light max-w-2xl">
               {division.tagline}
             </p>
@@ -92,7 +96,47 @@ export function IthacaLayout({ division }: LayoutProps) {
             </ScrollReveal>
           </div>
 
-          {/* Notes / family-in-Greece disclosure — moved below Properties section */}
+        </div>
+      </section>
+
+      {/* Destinations — the three places Ithaca House works */}
+      <section className="ground-bone py-20 lg:py-24 border-t border-navy/10">
+        <div className="container-editorial">
+          <ScrollReveal as="div" className="text-center mb-12 lg:mb-14">
+            <div className="eyebrow-no-rule text-ochre-deep mb-5 inline-block">Where we go</div>
+            <h2 className="font-display text-display-xl text-navy leading-tight">
+              Three places, <em className="italic text-ochre-deep">one standard</em>.
+            </h2>
+          </ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-7 max-w-6xl mx-auto">
+            <DestinationCard
+              place="Baltimore"
+              region="Canton · Patterson Park"
+              status="Stay with us"
+              description="Six family-run rooms near the harbor and the park, with experiences in the city alongside the stay."
+              href="#stays"
+              linkLabel="See the properties"
+              delay={0}
+            />
+            <DestinationCard
+              place="The Ionian Islands"
+              region="Kefalonia · Ithaka"
+              status="Travel notes"
+              description="The islands the family came from. Where to stay, what to eat, how to get across, and the Likoudis places still there."
+              href="#ionian"
+              linkLabel="Read the notes"
+              delay={120}
+            />
+            <DestinationCard
+              place="Morocco"
+              region="Caroline's next property"
+              status="In early planning"
+              description="The family's first stay abroad, led by Caroline. Join The Branch to hear when it opens."
+              href="/the-branch"
+              linkLabel="Follow along"
+              delay={240}
+            />
+          </div>
         </div>
       </section>
 
@@ -149,7 +193,7 @@ export function IthacaLayout({ division }: LayoutProps) {
       </section>
 
       {/* The Properties — six Airbnb listings in the Canton / Patterson Park neighborhood */}
-      <section className="ground-sky py-24 lg:py-32 border-t border-navy/10">
+      <section id="stays" className="ground-sky py-24 lg:py-32 border-t border-navy/10 scroll-mt-20">
         <div className="container-editorial">
           <ScrollReveal as="div" className="text-center mb-12 lg:mb-16 max-w-3xl mx-auto">
             <div className="catalog-num text-sm mb-3">The Properties</div>
@@ -384,52 +428,105 @@ export function IthacaLayout({ division }: LayoutProps) {
         </div>
       </section>
 
-      {/* Notes / family-in-Greece disclosure — placed after Properties so it reads as a quiet aside, not a foregrounded claim */}
-      {division.notes && (
-        <section className="ground-cream py-20 lg:py-24 border-t border-navy/10">
-          <div className="container-editorial">
-            <ScrollReveal as="div">
-              <div className="max-w-3xl mx-auto bg-bone p-8 lg:p-10 border-l-2 border-ochre">
-                <div className="catalog-num text-sm mb-3">A Note</div>
-                <p className="font-serif italic text-lg lg:text-xl leading-relaxed text-navy/85">
-                  {division.notes}
+      {/* The Ionian — travel notes for Kefalonia and Ithaka */}
+      <section id="ionian" className="ground-cream py-24 lg:py-32 border-t border-navy/10 scroll-mt-20">
+        <div className="container-editorial">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 mb-16 lg:mb-20">
+            <ScrollReveal as="div" className="lg:col-span-5">
+              <div className="catalog-num text-sm mb-3">Travel Notes</div>
+              <div className="eyebrow-no-rule text-ochre-deep mb-5">Κεφαλονιά · Ἰθάκη</div>
+              <h2 className="font-display text-display-xl text-navy leading-tight">
+                If you are going <em className="italic text-ochre-deep">to Greece</em>.
+              </h2>
+              <div className="text-navy/70 mt-10 max-w-sm hidden lg:block">
+                <IonianMap />
+              </div>
+            </ScrollReveal>
+            <ScrollReveal as="div" delay={150} className="lg:col-span-6 lg:col-start-7">
+              <div className="prose-editorial">
+                <p>
+                  Kefalonia is the family&rsquo;s island, the largest of the Ionians. Ithaka sits just to the east across a narrow channel. Most of what we know about travel we learned going back and forth between the two.
                 </p>
-                {division.notesLinks && division.notesLinks.length > 0 && (
-                  <div className="mt-7 pt-6 border-t border-navy/10">
-                    <div className="font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep mb-4">
-                      If you are in Greece
-                    </div>
-                    <ul className="space-y-3">
-                      {division.notesLinks.map((link) => (
-                        <li key={link.href}>
-                          <a
-                            href={link.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group inline-flex items-baseline gap-3 hover:text-olive-deep transition-colors"
-                          >
-                            <span className="font-display text-lg text-navy group-hover:text-olive-deep transition-colors">
-                              {link.label}
-                            </span>
-                            {link.descriptor && (
-                              <span className="font-serif italic text-sm text-navy/60">
-                                {link.descriptor}
-                              </span>
-                            )}
-                            <span aria-hidden className="text-xs text-ochre-deep transition-transform group-hover:translate-x-0.5">
-                              ↗
-                            </span>
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+                <p>
+                  These are the notes we give friends before they go. They are short on purpose. If you want more, write to us and we will help you plan the trip.
+                </p>
               </div>
             </ScrollReveal>
           </div>
-        </section>
-      )}
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-7 max-w-5xl mx-auto mb-16 lg:mb-20">
+            <IslandCard
+              name="Kefalonia"
+              greek="Κεφαλονιά"
+              lines={[
+                'Argostoli is the capital and has the island\u2019s airport, with summer flights from Athens and across Europe.',
+                'Robola is the white wine grown on the island\u2019s mountain slopes. Ask for it by name.',
+                'Mantola and pasteli are the island sweets. Melissa Likoudis in Argostoli makes both.',
+              ]}
+              delay={0}
+            />
+            <IslandCard
+              name="Ithaka"
+              greek="Ἰθάκη"
+              lines={[
+                'The home of Odysseus in the story, and the reason for our name.',
+                'Ferries cross to Ithaka from Sami, on the east coast of Kefalonia.',
+                'Kioni, on the north coast, is a small harbor village. The two Likoudis guesthouses are there.',
+              ]}
+              delay={120}
+            />
+          </div>
+
+          {division.notesLinks && division.notesLinks.length > 0 && (
+            <ScrollReveal as="div">
+              <div className="max-w-3xl mx-auto bg-bone p-8 lg:p-10 border-l-2 border-ochre">
+                <div className="catalog-num text-sm mb-3">Where we send people</div>
+                {division.notes && (
+                  <p className="font-serif italic text-lg lg:text-xl leading-relaxed text-navy/85">
+                    {division.notes}
+                  </p>
+                )}
+                <div className="mt-7 pt-6 border-t border-navy/10">
+                  <ul className="space-y-3">
+                    {division.notesLinks.map((link) => (
+                      <li key={link.href}>
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group inline-flex items-baseline gap-3 hover:text-olive-deep transition-colors"
+                        >
+                          <span className="font-display text-lg text-navy group-hover:text-olive-deep transition-colors">
+                            {link.label}
+                          </span>
+                          {link.descriptor && (
+                            <span className="font-serif italic text-sm text-navy/60">
+                              {link.descriptor}
+                            </span>
+                          )}
+                          <span aria-hidden className="text-xs text-ochre-deep transition-transform group-hover:translate-x-0.5">
+                            ↗
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </ScrollReveal>
+          )}
+
+          <ScrollReveal as="div" className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
+            <ExperienceRequestButton experienceSlug="plan-a-trip" label="Help me plan a trip" />
+            <Link
+              href="/divisions/the-table"
+              className="sm:mt-5 font-sans text-[10px] uppercase tracking-eyebrow text-navy/65 hover:text-ochre-deep transition-colors"
+            >
+              Bring the islands home · The Table →
+            </Link>
+          </ScrollReveal>
+        </div>
+      </section>
 
       {/* Stays + offerings */}
       <section className="ground-navy py-24 lg:py-32">
@@ -437,7 +534,7 @@ export function IthacaLayout({ division }: LayoutProps) {
           <ScrollReveal as="div" className="text-center mb-16">
             <div className="eyebrow-no-rule text-ochre mb-5 inline-block">What we offer</div>
             <h3 className="font-display text-display-xl text-bone leading-tight max-w-3xl mx-auto">
-              Properties chosen for <em className="italic text-sky">character</em>, not yield.
+              Coming in or <em className="italic text-sky">going out</em>.
             </h3>
           </ScrollReveal>
 
@@ -531,10 +628,10 @@ export function IthacaLayout({ division }: LayoutProps) {
         defaultDivision={division.slug}
         heading={
           <>
-            Inquire <em className="italic text-ochre-deep">about a stay</em>.
+            Plan a stay <em className="italic text-ochre-deep">or a trip</em>.
           </>
         }
-        text="Tell us when you are visiting and what you are looking for. We will reply with availability and a few notes about the property and the city."
+        text="Tell us where you are headed and when. For a stay in Baltimore we will reply with availability and a few notes on the property and the city. For Greece we will send what we know and offer to help plan the rest."
       />
     </>
   );
@@ -570,6 +667,62 @@ function ExperienceCard({ title, kicker, description, delay, priceLabel, slug }:
           </div>
           <ExperienceRequestButton experienceSlug={slug} />
         </div>
+      </article>
+    </ScrollReveal>
+  );
+}
+
+interface DestinationCardProps {
+  place: string;
+  region: string;
+  status: string;
+  description: string;
+  href: string;
+  linkLabel: string;
+  delay: number;
+}
+
+function DestinationCard({ place, region, status, description, href, linkLabel, delay }: DestinationCardProps) {
+  return (
+    <ScrollReveal delay={delay}>
+      <Link
+        href={href}
+        className="group block bg-cream p-7 lg:p-8 h-full border-t-[3px] border-t-sky-deep hover:border-t-ochre transition-colors flex flex-col"
+      >
+        <div className="font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep mb-4">{status}</div>
+        <h3 className="font-display text-2xl lg:text-[28px] text-navy leading-tight mb-1">{place}</h3>
+        <div className="font-serif italic text-sm text-navy/60 mb-5">{region}</div>
+        <p className="font-serif text-[15px] lg:text-base text-navy/80 leading-relaxed flex-grow">{description}</p>
+        <div className="mt-6 pt-4 border-t border-navy/15 font-sans text-[10px] uppercase tracking-eyebrow text-navy/70 group-hover:text-ochre-deep transition-colors">
+          {linkLabel} →
+        </div>
+      </Link>
+    </ScrollReveal>
+  );
+}
+
+interface IslandCardProps {
+  name: string;
+  greek: string;
+  lines: string[];
+  delay: number;
+}
+
+function IslandCard({ name, greek, lines, delay }: IslandCardProps) {
+  return (
+    <ScrollReveal delay={delay}>
+      <article className="bg-bone p-7 lg:p-9 h-full border border-navy/10">
+        <div className="flex items-baseline justify-between mb-6 pb-4 border-b border-navy/10">
+          <h3 className="font-display text-3xl text-navy">{name}</h3>
+          <span className="font-serif italic text-ochre-deep">{greek}</span>
+        </div>
+        <ul className="space-y-4">
+          {lines.map((line, i) => (
+            <li key={i} className="font-serif text-[15px] lg:text-base text-navy/80 leading-relaxed pl-4 border-l border-ochre/50">
+              {line}
+            </li>
+          ))}
+        </ul>
       </article>
     </ScrollReveal>
   );

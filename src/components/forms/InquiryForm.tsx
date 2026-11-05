@@ -25,6 +25,7 @@ export function InquiryForm({ defaultDivision, defaultMessage }: InquiryFormProp
       'at-the-table': 'I would like to book an At the Table Greek dinner experience.\n\nDates I am considering:\n\nNumber of guests:\n\nAny dietary notes or preferences:\n\nAdditional questions:',
       'on-the-water': 'I would like to book an On the Water experience.\n\nWhich (kayaking, harbor sailing, neighborhood walk, or open):\n\nDates I am considering:\n\nNumber of guests:\n\nAdditional questions:',
       'sacred-and-civic': 'I would like to book a Sacred & Civic morning.\n\nDates I am considering:\n\nNumber of guests:\n\nAny preferences (Basilica visit, breakfast spot, museum routing):\n\nAdditional questions:',
+      'plan-a-trip': 'I would like help planning a trip to Greece.\n\nWhere I am hoping to go (Kefalonia, Ithaka, elsewhere):\n\nApproximate dates:\n\nNumber of travelers:\n\nWhat I am hoping for:',
       'the-long-stay': 'I would like to inquire about The Long Stay curation.\n\nOccasion (anniversary, honeymoon, writing week, family reunion):\n\nApproximate dates:\n\nNumber of guests:\n\nWhat I am hoping for:',
     };
 
