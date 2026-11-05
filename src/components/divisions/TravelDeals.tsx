@@ -10,6 +10,7 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 type Hotel = (typeof deals.hotels)[number];
 type Flight = (typeof deals.flights)[number];
+type Promo = { kind: string; title: string; detail: string; url: string; partner?: string; expires?: string };
 
 const REGIONS = ['Kefalonia', 'Ithaka', 'Baltimore', 'Athens'];
 
@@ -62,6 +63,31 @@ export function TravelDeals() {
                 <FlightRow key={i} flight={f} delay={i * 80} />
               ))}
             </div>
+          </div>
+        )}
+
+        {(deals.promos as Promo[]).length > 0 && (
+          <div className="max-w-5xl mx-auto mb-12">
+            <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/55 mb-4">Sales and tours worth knowing</div>
+            <ul className="divide-y divide-navy/10 border-y border-navy/10">
+              {(deals.promos as Promo[]).map((p) => (
+                <li key={p.url}>
+                  <a
+                    href={p.partner ? affiliateUrl(p.partner as PartnerId, p.url) : p.url}
+                    target="_blank"
+                    rel={p.partner ? 'noopener noreferrer sponsored' : 'noopener noreferrer'}
+                    className="group flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6 py-4"
+                  >
+                    <span className="font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep sm:w-24 shrink-0">{p.kind}</span>
+                    <span className="font-display text-lg text-navy group-hover:text-ochre-deep transition-colors">{p.title}</span>
+                    <span className="font-serif italic text-sm text-navy/60 flex-grow">{p.detail}</span>
+                    {p.expires && (
+                      <span className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/50 shrink-0">Ends {fmtDate(p.expires)}</span>
+                    )}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         )}
 
