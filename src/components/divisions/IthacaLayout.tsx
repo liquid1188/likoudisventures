@@ -8,6 +8,7 @@ import { ExperienceRequestButton } from '@/components/divisions/ExperienceReques
 import { InquirySection } from '@/components/sections/InquirySection';
 import { DivisionLeads } from '@/components/sections/DivisionLeads';
 import { TravelDeals } from '@/components/divisions/TravelDeals';
+import { FerryCrossing } from '@/components/divisions/FerryCrossing';
 
 interface LayoutProps {
   division: Division;
@@ -477,6 +478,8 @@ export function IthacaLayout({ division }: LayoutProps) {
               delay={120}
             />
           </div>
+
+          <FerryCrossing />
 
           {division.notesLinks && division.notesLinks.length > 0 && (
             <ScrollReveal as="div">

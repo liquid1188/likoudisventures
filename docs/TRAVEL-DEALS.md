@@ -4,13 +4,18 @@ The Deals section on `/divisions/ithaca-house` reads `src/content/deals.json`.
 
 ## Daily refresh
 
-A Claude scheduled task runs each morning. It searches Expedia for marked-down
-hotels on Kefalonia, Ithaka, and in Baltimore, plus round-trip fares from
-Baltimore/Washington to Athens, rewrites `deals.json`, builds the site, and
-commits to `main`. Vercel redeploys on the push.
+A Claude scheduled task runs each morning. It searches Expedia and Booking.com
+for hotels on Kefalonia, Ithaka, and in Baltimore, compares the same hotel across
+sites, and posts the best rates with the cheapest place to book. It also checks
+round-trip fares from Baltimore/Washington to Athens and looks on the web for
+current sales (airlines, ferries, Greek hotels). It rewrites `deals.json`,
+builds the site, and commits. Vercel redeploys on the push.
+
+Each hotel has an `offers` list, one per site. The card shows the cheapest offer
+and how much it saves against the most expensive site or the strikeout price.
 
 Rules the task follows:
-- Only hotels with a real strikeout price (marked down) and a guest rating of 8.0 or higher.
+- Guest rating 8.8 or higher. Prefer hotels that are cheaper on one site than another, or marked down; one or two top-rated value picks are fine.
 - Three to six hotels total, at least one per region when available.
 - One or two flights, at most one stop.
 - Strip tracking parameters from partner URLs (keep dates and room params only).

@@ -50,7 +50,7 @@ export function TravelDeals() {
             What is on sale <em className="italic text-ochre-deep">right now</em>.
           </h2>
           <p className="font-serif italic text-lg lg:text-xl text-navy/65 mt-6 leading-relaxed">
-            We check hotel and flight prices for Kefalonia, Ithaka, and Baltimore every morning and post the ones marked down. Prices move, so check the final price before you book.
+            Every morning we compare hotel and flight prices for Kefalonia, Ithaka, and Baltimore across booking sites, then post the best rates and the cheapest place to book them. Prices move, so check the final price before you book.
           </p>
         </ScrollReveal>
 
@@ -70,7 +70,7 @@ export function TravelDeals() {
             <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/55 mb-4">Hotels</div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
               {hotels.map((h, i) => (
-                <HotelCard key={h.url} hotel={h} delay={(i % 3) * 80} />
+                <HotelCard key={h.name} hotel={h} delay={(i % 3) * 80} />
               ))}
             </div>
           </div>
@@ -112,20 +112,45 @@ export function TravelDeals() {
   );
 }
 
+type Offer = { partner: string; total: number; was?: number; url: string };
+
+const PARTNER_NAMES: Record<string, string> = {
+  booking: 'Booking.com',
+  expedia: 'Expedia',
+};
+
 function HotelCard({ hotel: h, delay }: { hotel: Hotel; delay: number }) {
-  const off = h.was > h.total ? Math.round((1 - h.total / h.was) * 100) : 0;
+  const offers = [...(h.offers as Offer[])].sort((a, b) => a.total - b.total);
+  const best = offers[0];
+  const priciest = offers[offers.length - 1];
+  // Reference price: the highest other site, or the site's own strikeout price
+  const ref = Math.max(priciest.total, best.was ?? 0);
+  const save = ref > best.total ? ref - best.total : 0;
+  const pct = save ? Math.round((save / ref) * 100) : 0;
+  const nights = Math.round(
+    (Date.parse(h.checkOut) - Date.parse(h.checkIn)) / 86_400_000,
+  );
+  const vsLabel =
+    offers.length > 1 && priciest.total > best.total
+      ? `vs ${PARTNER_NAMES[priciest.partner] ?? priciest.partner}`
+      : 'off';
+
   return (
     <ScrollReveal delay={delay}>
       <a
-        href={affiliateUrl(h.partner as PartnerId, h.url)}
+        href={affiliateUrl(best.partner as PartnerId, best.url)}
         target="_blank"
         rel="noopener noreferrer sponsored"
         className="group flex flex-col bg-cream p-6 h-full border-t-[3px] border-t-sky-deep hover:border-t-ochre transition-colors"
       >
         <div className="flex items-baseline justify-between mb-3">
           <span className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/60">{h.region}</span>
-          {off > 0 && (
-            <span className="font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep">{off}% off</span>
+          {pct > 0 ? (
+            <span className="font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep">
+              {pct}% {vsLabel === 'off' ? 'off' : 'less'}
+            </span>
+          ) : (
+            <span className="font-sans text-[10px] uppercase tracking-eyebrow text-olive-deep">Top rated</span>
           )}
         </div>
         <h4 className="font-display text-xl text-navy leading-snug mb-2 group-hover:text-ochre-deep transition-colors">
@@ -136,12 +161,20 @@ function HotelCard({ hotel: h, delay }: { hotel: Hotel; delay: number }) {
           {h.rating.toFixed(1)}/10 from {h.reviews.toLocaleString('en-US')} reviews
         </div>
         <div className="mt-auto pt-4 border-t border-navy/15">
-          <div className="flex items-baseline gap-2">
-            <span className="font-display text-2xl text-navy">{money(h.total)}</span>
-            {off > 0 && <span className="font-serif text-sm text-navy/45 line-through">{money(h.was)}</span>}
+          <div className="flex items-baseline gap-2 flex-wrap">
+            <span className="font-display text-2xl text-navy">{money(best.total)}</span>
+            {save > 0 && <span className="font-serif text-sm text-navy/45 line-through">{money(ref)}</span>}
+            <span className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/55">
+              on {PARTNER_NAMES[best.partner] ?? best.partner}
+            </span>
           </div>
+          {save > 0 && vsLabel !== 'off' && (
+            <div className="font-serif italic text-sm text-ochre-deep mt-1">
+              Save {money(save)} {vsLabel}
+            </div>
+          )}
           <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/55 mt-2">
-            {fmtDate(h.checkIn)} to {fmtDate(h.checkOut)}, {fmtYear(h.checkOut)} · 2 guests · {money(h.nightly)}/night
+            {fmtDate(h.checkIn)} to {fmtDate(h.checkOut)}, {fmtYear(h.checkOut)} · 2 guests · {money(best.total / nights)}/night
           </div>
         </div>
       </a>

@@ -3,17 +3,41 @@
   "hotels": [
     {
       "region": "Kefalonia",
-      "name": "Thalassa Boutique Hotel (Adults Only)",
-      "stars": 4,
+      "name": "Electra Kefalonia Hotel & Spa",
+      "stars": 5,
       "rating": 9.2,
-      "reviews": 135,
-      "nightly": 239,
-      "total": 1413,
-      "was": 1619,
+      "reviews": 254,
       "checkIn": "2027-05-15",
       "checkOut": "2027-05-20",
-      "partner": "expedia",
-      "url": "https://www.expedia.com/.h1219084.Hotel-Information?chkin=2027-05-15&chkout=2027-05-20&rm1=a2"
+      "offers": [
+        { "partner": "booking", "total": 1272, "url": "https://www.booking.com/hotel/gr/electra-kefalonia.html?checkin=2027-05-15&checkout=2027-05-20&no_rooms=1&group_adults=2&selected_currency=USD" },
+        { "partner": "expedia", "total": 1531, "was": 1787, "url": "https://www.expedia.com/.h47080412.Hotel-Information?chkin=2027-05-15&chkout=2027-05-20&rm1=a2" }
+      ]
+    },
+    {
+      "region": "Kefalonia",
+      "name": "Thalassa Boutique Hotel (Adults Only)",
+      "stars": 4,
+      "rating": 9.1,
+      "reviews": 360,
+      "checkIn": "2027-05-15",
+      "checkOut": "2027-05-20",
+      "offers": [
+        { "partner": "booking", "total": 1193, "url": "https://www.booking.com/hotel/gr/thalassa-kefalonia.html?checkin=2027-05-15&checkout=2027-05-20&no_rooms=1&group_adults=2&selected_currency=USD" },
+        { "partner": "expedia", "total": 1413, "was": 1619, "url": "https://www.expedia.com/.h1219084.Hotel-Information?chkin=2027-05-15&chkout=2027-05-20&rm1=a2" }
+      ]
+    },
+    {
+      "region": "Kefalonia",
+      "name": "Anthemis Living, Argostoli",
+      "stars": 4,
+      "rating": 9.7,
+      "reviews": 281,
+      "checkIn": "2027-05-15",
+      "checkOut": "2027-05-20",
+      "offers": [
+        { "partner": "booking", "total": 426, "url": "https://www.booking.com/hotel/gr/anthemis-living.html?checkin=2027-05-15&checkout=2027-05-20&no_rooms=1&group_adults=2&selected_currency=USD" }
+      ]
     },
     {
       "region": "Kefalonia",
@@ -21,27 +45,11 @@
       "stars": 3,
       "rating": 9.0,
       "reviews": 117,
-      "nightly": 76,
-      "total": 458,
-      "was": 617,
       "checkIn": "2027-05-15",
       "checkOut": "2027-05-20",
-      "partner": "expedia",
-      "url": "https://www.expedia.com/.h4850945.Hotel-Information?chkin=2027-05-15&chkout=2027-05-20&rm1=a2"
-    },
-    {
-      "region": "Kefalonia",
-      "name": "Emelisse Nature Resort",
-      "stars": 5,
-      "rating": 9.4,
-      "reviews": 244,
-      "nightly": 289,
-      "total": 1382,
-      "was": 1690,
-      "checkIn": "2027-05-20",
-      "checkOut": "2027-05-24",
-      "partner": "expedia",
-      "url": "https://www.expedia.com/.h1269735.Hotel-Information?chkin=2027-05-20&chkout=2027-05-24&rm1=a2"
+      "offers": [
+        { "partner": "expedia", "total": 458, "was": 617, "url": "https://www.expedia.com/.h4850945.Hotel-Information?chkin=2027-05-15&chkout=2027-05-20&rm1=a2" }
+      ]
     },
     {
       "region": "Ithaka",
@@ -49,13 +57,11 @@
       "stars": 4,
       "rating": 8.8,
       "reviews": 12,
-      "nightly": 112,
-      "total": 552,
-      "was": 621,
       "checkIn": "2027-05-20",
       "checkOut": "2027-05-24",
-      "partner": "expedia",
-      "url": "https://www.expedia.com/.h15249689.Hotel-Information?chkin=2027-05-20&chkout=2027-05-24&rm1=a2"
+      "offers": [
+        { "partner": "expedia", "total": 552, "was": 621, "url": "https://www.expedia.com/.h15249689.Hotel-Information?chkin=2027-05-20&chkout=2027-05-24&rm1=a2" }
+      ]
     },
     {
       "region": "Baltimore",
@@ -63,27 +69,11 @@
       "stars": 3.5,
       "rating": 8.4,
       "reviews": 2675,
-      "nightly": 167,
-      "total": 393,
-      "was": 491,
       "checkIn": "2026-12-04",
       "checkOut": "2026-12-06",
-      "partner": "expedia",
-      "url": "https://www.expedia.com/.h8842065.Hotel-Information?chkin=2026-12-04&chkout=2026-12-06&rm1=a2"
-    },
-    {
-      "region": "Baltimore",
-      "name": "Hyatt Regency Baltimore Inner Harbor",
-      "stars": 4,
-      "rating": 8.4,
-      "reviews": 2063,
-      "nightly": 256,
-      "total": 601,
-      "was": 751,
-      "checkIn": "2026-12-04",
-      "checkOut": "2026-12-06",
-      "partner": "expedia",
-      "url": "https://www.expedia.com/.h9379.Hotel-Information?chkin=2026-12-04&chkout=2026-12-06&rm1=a2"
+      "offers": [
+        { "partner": "expedia", "total": 393, "was": 491, "url": "https://www.expedia.com/.h8842065.Hotel-Information?chkin=2026-12-04&chkout=2026-12-06&rm1=a2" }
+      ]
     }
   ],
   "flights": [
@@ -101,5 +91,6 @@
       "url": "https://www.expedia.com/Flights-Search?trip=roundtrip&leg1=from:IAD,to:ATH,departure:5/13/2027TANYT&leg2=from:ATH,to:IAD,departure:5/27/2027TANYT&passengers=adults:1&mode=search",
       "note": "From Athens, Kefalonia is a short domestic flight or a ferry from Kyllini."
     }
-  ]
+  ],
+  "promos": []
 }
