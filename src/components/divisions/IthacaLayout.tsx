@@ -7,6 +7,7 @@ import { IonianMap } from '@/components/brand/IonianMap';
 import { ExperienceRequestButton } from '@/components/divisions/ExperienceRequestButton';
 import { InquirySection } from '@/components/sections/InquirySection';
 import { DivisionLeads } from '@/components/sections/DivisionLeads';
+import { TravelDeals } from '@/components/divisions/TravelDeals';
 
 interface LayoutProps {
   division: Division;
@@ -121,7 +122,7 @@ export function IthacaLayout({ division }: LayoutProps) {
             <DestinationCard
               place="The Ionian Islands"
               region="Kefalonia · Ithaka"
-              status="Travel notes"
+              status="Travel notes · Deals"
               description="The islands the family came from. Where to stay, what to eat, how to get across, and the Likoudis places still there."
               href="#ionian"
               linkLabel="Read the notes"
@@ -527,6 +528,8 @@ export function IthacaLayout({ division }: LayoutProps) {
           </ScrollReveal>
         </div>
       </section>
+
+      <TravelDeals />
 
       {/* Stays + offerings */}
       <section className="ground-navy py-24 lg:py-32">
