@@ -135,15 +135,16 @@ export const divisions: Division[] = [
     shortDescription:
       'Web design, photography, and content creation for businesses that have outgrown the template economy.',
     longDescription:
-      "The Studio is the digital and visual practice of the house. Three disciplines under one roof: web design and build, photography for editorial and brand use, and content creation. Writing, design systems, identity work, and the small craft of making a brand sound like a person.\n\nWebsites are built to be owned outright by the client. No subscriptions, no platforms held hostage, no recurring license fees. Performance-tested, accessible, and yours.",
+      "The Studio brings together Andrew’s work in web development and communications with Elena’s experience in user-experience and product design.\n\nThrough Lickity Split Web Design, Andrew offers affordable websites for small businesses and independent professionals. Elena operates her own design practice, specializing in UX, product design, and more extensive digital projects.\n\nWe also provide photography, writing, branding, and related creative services, depending on the needs of each project.\n\nOur approach emphasizes clear communication, functional design, and client ownership of the finished work.",
     offerings: [
-      'Custom websites, full design and build, owned outright by the client',
-      'Photography for editorial, product, and brand portraiture',
-      'Content creation, writing, editorial design, and visual systems',
-      'Brand identity, logo design, and design systems',
-      'Site rebuilds and migrations from page-builder platforms',
+      'Custom website design and development',
+      'UX and product design',
+      'Brand identity and visual design',
+      'Photography for businesses, products, and editorial use',
+      'Writing, editing, and digital content',
+      'Website redesigns and migrations',
       'Newsletter and Substack design',
-      'Ongoing maintenance and hosting (optional)',
+      'Optional maintenance and hosting',
     ],
     ctaLabel: 'Begin a Project',
     ctaType: 'inquiry',
