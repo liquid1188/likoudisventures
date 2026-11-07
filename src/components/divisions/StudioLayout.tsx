@@ -291,18 +291,18 @@ export function StudioLayout({ division }: LayoutProps) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            {/* Ana Restaurant */}
+            {/* Frank La Rocca */}
             <ScrollReveal as="div" delay={0}>
               <a
-                href="https://liquid1188.github.io/ana-restaurant"
+                href="https://www.franklarocca.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block bg-cream border border-navy/15 p-6 lg:p-7 h-full hover:border-ochre transition-colors group"
               >
-                <div className="catalog-num text-xs text-ochre-deep mb-2">Restaurant | Baltimore</div>
-                <h4 className="font-display text-2xl text-navy mb-3 group-hover:text-ochre-deep transition-colors">Ana Restaurant</h4>
+                <div className="catalog-num text-xs text-ochre-deep mb-2">Composer | Sacred Music</div>
+                <h4 className="font-display text-2xl text-navy mb-3 group-hover:text-ochre-deep transition-colors">Frank La Rocca</h4>
                 <p className="font-serif text-sm text-navy/85 leading-relaxed mb-5">
-                  A bilingual restaurant website featuring the menu, photography, location information, and online ordering.
+                  A website for a composer of sacred and concert music, featuring his works, recordings, and news.
                 </p>
                 <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/65 group-hover:text-ochre-deep transition-colors">
                   View live site →
