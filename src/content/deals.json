@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-06",
+  "updated": "2026-11-07",
   "hotels": [
     {
       "region": "Kefalonia",
@@ -10,47 +10,21 @@
       "checkIn": "2027-05-21",
       "checkOut": "2027-05-26",
       "offers": [
-        { "partner": "booking", "total": 1271, "url": "https://www.booking.com/hotel/gr/electra-kefalonia.html?checkin=2027-05-21&checkout=2027-05-26&no_rooms=1&group_adults=2&selected_currency=USD" },
-        { "partner": "expedia", "total": 1530, "was": 1785, "url": "https://www.expedia.com/.h47080412.Hotel-Information?chkin=2027-05-21&chkout=2027-05-26&rm1=a2" }
+        { "partner": "booking", "total": 1262, "url": "https://www.booking.com/hotel/gr/electra-kefalonia.html?checkin=2027-05-21&checkout=2027-05-26&no_rooms=1&group_adults=2&selected_currency=USD" },
+        { "partner": "expedia", "total": 1518, "was": 1772, "url": "https://www.expedia.com/.h47080412.Hotel-Information?chkin=2027-05-21&chkout=2027-05-26&rm1=a2" }
       ]
     },
     {
       "region": "Kefalonia",
-      "name": "Tetra Retreat Kefalonia (Adults Only)",
+      "name": "Thalassa Boutique Hotel (Adults Only), Lassi",
       "stars": 4,
       "rating": 9.1,
-      "reviews": 75,
+      "reviews": 360,
       "checkIn": "2027-05-21",
       "checkOut": "2027-05-26",
       "offers": [
-        { "partner": "booking", "total": 897, "url": "https://www.booking.com/hotel/gr/tetra-resort-amp-spa-kefalonia.html?checkin=2027-05-21&checkout=2027-05-26&no_rooms=1&group_adults=2&selected_currency=USD" },
-        { "partner": "expedia", "total": 961, "was": 1387, "url": "https://www.expedia.com/.h108566222.Hotel-Information?chkin=2027-05-21&chkout=2027-05-26&rm1=a2" }
-      ]
-    },
-    {
-      "region": "Kefalonia",
-      "name": "Mouikis Hotel Kefalonia, Argostoli",
-      "stars": 3,
-      "rating": 8.8,
-      "reviews": 696,
-      "checkIn": "2027-05-21",
-      "checkOut": "2027-05-26",
-      "offers": [
-        { "partner": "expedia", "total": 525, "was": 811, "url": "https://www.expedia.com/.h12514227.Hotel-Information?chkin=2027-05-21&chkout=2027-05-26&rm1=a2" },
-        { "partner": "booking", "total": 559, "url": "https://www.booking.com/hotel/gr/mouikis.html?checkin=2027-05-21&checkout=2027-05-26&no_rooms=1&group_adults=2&selected_currency=USD" }
-      ]
-    },
-    {
-      "region": "Kefalonia",
-      "name": "Diana Studios, Trapezaki",
-      "stars": 4,
-      "rating": 9.4,
-      "reviews": 82,
-      "checkIn": "2027-05-21",
-      "checkOut": "2027-05-26",
-      "offers": [
-        { "partner": "expedia", "total": 466, "was": 522, "url": "https://www.expedia.com/.h4482243.Hotel-Information?chkin=2027-05-21&chkout=2027-05-26&rm1=a2" },
-        { "partner": "booking", "total": 467, "url": "https://www.booking.com/hotel/gr/diana-studios.html?checkin=2027-05-21&checkout=2027-05-26&no_rooms=1&group_adults=2&selected_currency=USD" }
+        { "partner": "booking", "total": 1267, "url": "https://www.booking.com/hotel/gr/thalassa-kefalonia.html?checkin=2027-05-21&checkout=2027-05-26&no_rooms=1&group_adults=2&selected_currency=USD" },
+        { "partner": "expedia", "total": 1495, "was": 1714, "url": "https://www.expedia.com/.h1219084.Hotel-Information?chkin=2027-05-21&chkout=2027-05-26&rm1=a2" }
       ]
     },
     {
@@ -62,25 +36,65 @@
       "checkIn": "2027-05-21",
       "checkOut": "2027-05-26",
       "offers": [
-        { "partner": "expedia", "total": 690, "was": 776, "url": "https://www.expedia.com/.h15249689.Hotel-Information?chkin=2027-05-21&chkout=2027-05-26&rm1=a2" },
-        { "partner": "booking", "total": 757, "url": "https://www.booking.com/hotel/gr/korina-gallery.html?checkin=2027-05-21&checkout=2027-05-26&no_rooms=1&group_adults=2&selected_currency=USD" }
+        { "partner": "booking", "total": 751, "url": "https://www.booking.com/hotel/gr/korina-gallery.html?checkin=2027-05-21&checkout=2027-05-26&no_rooms=1&group_adults=2&selected_currency=USD" },
+        { "partner": "expedia", "total": 941, "was": 1061, "url": "https://www.expedia.com/.h15249689.Hotel-Information?chkin=2027-05-21&chkout=2027-05-26&rm1=a2" }
+      ]
+    },
+    {
+      "region": "Kefalonia",
+      "name": "Mouikis Hotel Kefalonia, Argostoli",
+      "stars": 3,
+      "rating": 8.8,
+      "reviews": 699,
+      "checkIn": "2027-05-21",
+      "checkOut": "2027-05-26",
+      "offers": [
+        { "partner": "expedia", "total": 521, "was": 805, "url": "https://www.expedia.com/.h12514227.Hotel-Information?chkin=2027-05-21&chkout=2027-05-26&rm1=a2" },
+        { "partner": "booking", "total": 555, "url": "https://www.booking.com/hotel/gr/mouikis.html?checkin=2027-05-21&checkout=2027-05-26&no_rooms=1&group_adults=2&selected_currency=USD" }
       ]
     },
     {
       "region": "Baltimore",
-      "name": "ROOST Baltimore",
+      "name": "Baltimore Marriott Waterfront",
       "stars": 4,
-      "rating": 9.6,
-      "reviews": 591,
-      "checkIn": "2026-12-04",
-      "checkOut": "2026-12-06",
+      "rating": 9.2,
+      "reviews": 1039,
+      "checkIn": "2026-11-20",
+      "checkOut": "2026-11-22",
       "offers": [
-        { "partner": "booking", "total": 358, "url": "https://www.booking.com/hotel/us/roost-baltimore.html?checkin=2026-12-04&checkout=2026-12-06&no_rooms=1&group_adults=2&selected_currency=USD" },
-        { "partner": "expedia", "total": 400, "was": 421, "url": "https://www.expedia.com/.h95348917.Hotel-Information?chkin=2026-12-04&chkout=2026-12-06&rm1=a2" }
+        { "partner": "booking", "total": 302, "url": "https://www.booking.com/hotel/us/baltimore-marriott-waterfront.html?checkin=2026-11-20&checkout=2026-11-22&no_rooms=1&group_adults=2&selected_currency=USD" },
+        { "partner": "expedia", "total": 355, "url": "https://www.expedia.com/.h580418.Hotel-Information?chkin=2026-11-20&chkout=2026-11-22&rm1=a2" }
+      ]
+    },
+    {
+      "region": "Kefalonia",
+      "name": "Diana Studios, Trapezaki",
+      "stars": 4,
+      "rating": 9.4,
+      "reviews": 82,
+      "checkIn": "2027-05-21",
+      "checkOut": "2027-05-26",
+      "offers": [
+        { "partner": "expedia", "total": 463, "was": 518, "url": "https://www.expedia.com/.h4482243.Hotel-Information?chkin=2027-05-21&chkout=2027-05-26&rm1=a2" },
+        { "partner": "booking", "total": 464, "url": "https://www.booking.com/hotel/gr/diana-studios.html?checkin=2027-05-21&checkout=2027-05-26&no_rooms=1&group_adults=2&selected_currency=USD" }
       ]
     }
   ],
   "flights": [
+    {
+      "from": "IAD",
+      "fromCity": "Washington Dulles",
+      "to": "ATH",
+      "toCity": "Athens",
+      "price": 786,
+      "depart": "2027-04-15",
+      "return": "2027-04-29",
+      "stops": "1 stop via Copenhagen",
+      "airline": "Scandinavian Airlines",
+      "partner": "expedia",
+      "url": "https://www.expedia.com/Flights-Search?trip=roundtrip&leg1=from:IAD,to:ATH,departure:4/15/2027TANYT&leg2=from:ATH,to:IAD,departure:4/29/2027TANYT&passengers=adults:1&mode=search",
+      "note": "Lowest fare found. Light fare: personal item only, and the return has a long overnight connection in Copenhagen."
+    },
     {
       "from": "IAD",
       "fromCity": "Washington Dulles",
@@ -94,20 +108,6 @@
       "partner": "expedia",
       "url": "https://www.expedia.com/Flights-Search?trip=roundtrip&leg1=from:IAD,to:ATH,departure:4/8/2027TANYT&leg2=from:ATH,to:IAD,departure:4/22/2027TANYT&passengers=adults:1&mode=search",
       "note": "Carry-on included. From Athens, Kefalonia is a short domestic flight or a ferry from Kyllini."
-    },
-    {
-      "from": "IAD",
-      "fromCity": "Washington Dulles",
-      "to": "ATH",
-      "toCity": "Athens",
-      "price": 858,
-      "depart": "2027-04-15",
-      "return": "2027-04-29",
-      "stops": "1 stop via Istanbul",
-      "airline": "Turkish Airlines",
-      "partner": "expedia",
-      "url": "https://www.expedia.com/Flights-Search?trip=roundtrip&leg1=from:IAD,to:ATH,departure:4/15/2027TANYT&leg2=from:ATH,to:IAD,departure:4/29/2027TANYT&passengers=adults:1&mode=search",
-      "note": "First checked bag included, and a short 1h 20m connection outbound."
     }
   ],
   "promos": [
@@ -121,20 +121,20 @@
       "kind": "Hotel",
       "title": "Celestial All Suites: 10% early-booking rate with breakfast",
       "detail": "Mr & Mrs Smith lists 10% off a non-refundable breakfast rate for stays from Oct 2026 to Oct 2027, with sparkling wine and a poolside lunch on stays of two nights or more.",
-      "url": "https://www.mrandmrssmith.com/luxury-hotels/celestial-all-suites-kefalonia/offers",
+      "url": "https://www.mrandmrssmith.com/luxury-hotels/celestial-all-suites-kefalonia/offers/90489/90489-early-booking-10-off-non-refundable-rate-with-breakfast",
       "expires": "2027-10-31"
     },
     {
       "kind": "Tour",
       "title": "Queen Bee sunset cruise from Argostoli",
-      "detail": "Sunset cruise with swim stops and dinner, rated 4.8 of 5 from 151 reviews, from about $51 a person.",
+      "detail": "Sunset cruise with swim stops and dinner, rated 4.8 of 5 from 151 reviews, from about $50 a person.",
       "url": "https://www.booking.com/attractions/gr/prsrf4uygnu9-queen-bee-sunset-cruise-with-swim-stops-and-dinner.en-gb.html?start_date=2027-04-10&end_date=2027-05-04&selected_currency=USD",
       "partner": "booking"
     },
     {
       "kind": "Tour",
       "title": "Dreamy Cruise on a traditional Greek boat",
-      "detail": "Day cruise from Argostoli harbour, rated 4.85 of 5 from 82 reviews, from about $73 a person.",
+      "detail": "Day cruise from Argostoli harbour, rated 4.85 of 5 from 82 reviews, from about $72 a person.",
       "url": "https://www.booking.com/attractions/gr/priylveoaajs-dreamy-cruisedaily-cruise-from-argostoli-harbour-with-a-traditional.en-gb.html?start_date=2027-04-10&end_date=2027-05-04&selected_currency=USD",
       "partner": "booking"
     }
