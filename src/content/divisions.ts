@@ -54,25 +54,25 @@ export const divisions: Division[] = [
     greekTransliteration: 'Ithakē',
     greekTranslation: 'Ithaca',
     status: 'active',
-    tagline: 'Hospitality and stays, kept to a hotel standard.',
+    tagline: 'Travel and stays, from Baltimore to the Ionian.',
     shortDescription:
-      'Short-term rentals operated to a hotel standard. Currently in Baltimore. Selective expansion along the Mid-Atlantic to follow.',
+      'The travel side of the house. Six family-run stays in Baltimore, experiences in the city, and travel notes for Kefalonia and Ithaka from the family that came from there.',
     longDescription:
-      "Ithaca House is the hospitality division of the house. The name carries two anchors: the Greek island that sits beside our family's Kefalonia in the Ionian chain, and the upstate New York town near where our family settled when they came west.\n\nWe operate short-term rentals to a hotel standard. Careful turnover, considered welcome, properties chosen for character rather than yield. Baltimore today; selective expansion along the Mid-Atlantic to follow. A Morocco property is in early planning, the family's first international addition.\n\nBeyond the stays themselves, Ithaca House offers Airbnb Experiences for guests — Greek dinners, kayaking on the harbor, basilica visits — and consulting for other hosts working to bring their own properties to the same standard.",
+      "Ithaca House is the travel side of the house. The name carries two anchors. One is the Greek island that sits beside our family's Kefalonia in the Ionian chain. The other is the upstate New York town near where our family settled when they came west.\n\nThe work runs in both directions. For people coming to Baltimore, we host six short-term rentals in Canton and Patterson Park, kept to a hotel standard, with experiences in the city alongside the stay. For people going out, we share the places we know first, starting with Kefalonia and Ithaka, where the family name still hangs on a guesthouse above the harbor at Kioni.\n\nA Morocco property is in early planning, the family's first stay abroad. Caroline, who leads the division, has lived in four countries and traveled to more than a dozen others. The travel side of Ithaca House draws on that.",
     offerings: [
-      'Short-term rentals in Baltimore',
-      'Boutique property management',
-      'Curated guest welcomes and provisioning',
-      'Airbnb Experiences — Greek dinners, kayaking, basilica visits, and more',
-      'Airbnb hosting consulting — listing setup, optimization, and co-hosting for other owners',
-      'Selective portfolio expansion across the Mid-Atlantic',
-      'Small private gatherings and events on request',
+      'Short-term rentals in Canton and Patterson Park, Baltimore',
+      'Experiences in Baltimore, including Greek dinners, harbor kayaking, and basilica visits',
+      'Travel notes for Kefalonia and Ithaka, with the family places we recommend',
+      'Trip planning on request, for Greece and the Ionian islands',
+      'Long-stay preparation, with reading lists, driving routes, and a stocked pantry',
+      'Airbnb hosting consulting for other owners, covering setup, listing, and co-hosting',
+      'A Morocco property, in early planning',
     ],
-    ctaLabel: 'Inquire About a Stay',
+    ctaLabel: 'Plan a Stay or a Trip',
     ctaType: 'inquiry',
     themeColor: 'sky',
     notes:
-      'A note on the name. In Kioni, a small village on the north coast of Ithaka, two Likoudis-named guesthouses welcome travelers: Likoudis Villas, run by Paul and Penelope Likoudis on a hillside above the harbor since 1998, and Likoudis Apartments, a smaller stone-and-wood building nearby. Across the channel in Argostoli, the capital of Kefalonia, Melissa Likoudis is a patisserie selling traditional sweets of the island (mantola, mantolato, pasteli) alongside local wines and honey. We recommend them if you are in Greece. In Baltimore, we have built our own.',
+      'In Kioni, on the north coast of Ithaka, two guesthouses carry the family name. Likoudis Villas has been run by Paul and Penelope Likoudis on a hillside above the harbor since 1998, and Likoudis Apartments is a smaller stone-and-wood building nearby. Across the channel in Argostoli, Melissa Likoudis is a patisserie selling the traditional sweets of the island (mantola, mantolato, pasteli) alongside local wines and honey. In Baltimore, we have built our own.',
     notesLinks: [
       {
         label: 'Likoudis Villas',
