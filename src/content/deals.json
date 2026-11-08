@@ -1,82 +1,107 @@
 {
-  "updated": "2026-11-07",
+  "updated": "2026-11-08",
   "hotels": [
-    {
-      "region": "Kefalonia",
-      "name": "Electra Kefalonia Hotel & Spa",
-      "stars": 5,
-      "rating": 9.2,
-      "reviews": 254,
-      "checkIn": "2027-05-21",
-      "checkOut": "2027-05-26",
-      "offers": [
-        { "partner": "booking", "total": 1262, "url": "https://www.booking.com/hotel/gr/electra-kefalonia.html?checkin=2027-05-21&checkout=2027-05-26&no_rooms=1&group_adults=2&selected_currency=USD" },
-        { "partner": "expedia", "total": 1518, "was": 1772, "url": "https://www.expedia.com/.h47080412.Hotel-Information?chkin=2027-05-21&chkout=2027-05-26&rm1=a2" }
-      ]
-    },
-    {
-      "region": "Kefalonia",
-      "name": "Thalassa Boutique Hotel (Adults Only), Lassi",
-      "stars": 4,
-      "rating": 9.1,
-      "reviews": 360,
-      "checkIn": "2027-05-21",
-      "checkOut": "2027-05-26",
-      "offers": [
-        { "partner": "booking", "total": 1267, "url": "https://www.booking.com/hotel/gr/thalassa-kefalonia.html?checkin=2027-05-21&checkout=2027-05-26&no_rooms=1&group_adults=2&selected_currency=USD" },
-        { "partner": "expedia", "total": 1495, "was": 1714, "url": "https://www.expedia.com/.h1219084.Hotel-Information?chkin=2027-05-21&chkout=2027-05-26&rm1=a2" }
-      ]
-    },
-    {
-      "region": "Ithaka",
-      "name": "Korina Gallery Hotel, Vathy",
-      "stars": 4,
-      "rating": 9.0,
-      "reviews": 111,
-      "checkIn": "2027-05-21",
-      "checkOut": "2027-05-26",
-      "offers": [
-        { "partner": "booking", "total": 751, "url": "https://www.booking.com/hotel/gr/korina-gallery.html?checkin=2027-05-21&checkout=2027-05-26&no_rooms=1&group_adults=2&selected_currency=USD" },
-        { "partner": "expedia", "total": 941, "was": 1061, "url": "https://www.expedia.com/.h15249689.Hotel-Information?chkin=2027-05-21&chkout=2027-05-26&rm1=a2" }
-      ]
-    },
     {
       "region": "Kefalonia",
       "name": "Mouikis Hotel Kefalonia, Argostoli",
       "stars": 3,
       "rating": 8.8,
       "reviews": 699,
-      "checkIn": "2027-05-21",
-      "checkOut": "2027-05-26",
+      "checkIn": "2026-12-18",
+      "checkOut": "2026-12-21",
       "offers": [
-        { "partner": "expedia", "total": 521, "was": 805, "url": "https://www.expedia.com/.h12514227.Hotel-Information?chkin=2027-05-21&chkout=2027-05-26&rm1=a2" },
-        { "partner": "booking", "total": 555, "url": "https://www.booking.com/hotel/gr/mouikis.html?checkin=2027-05-21&checkout=2027-05-26&no_rooms=1&group_adults=2&selected_currency=USD" }
-      ]
-    },
-    {
-      "region": "Baltimore",
-      "name": "Baltimore Marriott Waterfront",
-      "stars": 4,
-      "rating": 9.2,
-      "reviews": 1039,
-      "checkIn": "2026-11-20",
-      "checkOut": "2026-11-22",
-      "offers": [
-        { "partner": "booking", "total": 302, "url": "https://www.booking.com/hotel/us/baltimore-marriott-waterfront.html?checkin=2026-11-20&checkout=2026-11-22&no_rooms=1&group_adults=2&selected_currency=USD" },
-        { "partner": "expedia", "total": 355, "url": "https://www.expedia.com/.h580418.Hotel-Information?chkin=2026-11-20&chkout=2026-11-22&rm1=a2" }
+        {
+          "partner": "expedia",
+          "total": 230,
+          "was": 360,
+          "url": "https://www.expedia.com/.h12514227.Hotel-Information?chkin=2026-12-18&chkout=2026-12-21&rm1=a2"
+        },
+        {
+          "partner": "booking",
+          "total": 250,
+          "url": "https://www.booking.com/hotel/gr/mouikis.html?checkin=2026-12-18&checkout=2026-12-21&no_rooms=1&group_adults=2&selected_currency=USD"
+        }
       ]
     },
     {
       "region": "Kefalonia",
-      "name": "Diana Studios, Trapezaki",
+      "name": "Meliti Waterfront Suites, Karavomylos",
       "stars": 4,
-      "rating": 9.4,
-      "reviews": 82,
-      "checkIn": "2027-05-21",
-      "checkOut": "2027-05-26",
+      "rating": 9.1,
+      "reviews": 339,
+      "checkIn": "2026-12-18",
+      "checkOut": "2026-12-21",
       "offers": [
-        { "partner": "expedia", "total": 463, "was": 518, "url": "https://www.expedia.com/.h4482243.Hotel-Information?chkin=2027-05-21&chkout=2027-05-26&rm1=a2" },
-        { "partner": "booking", "total": 464, "url": "https://www.booking.com/hotel/gr/diana-studios.html?checkin=2027-05-21&checkout=2027-05-26&no_rooms=1&group_adults=2&selected_currency=USD" }
+        {
+          "partner": "booking",
+          "total": 420,
+          "url": "https://www.booking.com/hotel/gr/eucalyptus-apartments.html?checkin=2026-12-18&checkout=2026-12-21&no_rooms=1&group_adults=2&selected_currency=USD"
+        },
+        {
+          "partner": "expedia",
+          "total": 484,
+          "was": 538,
+          "url": "https://www.expedia.com/.h38238152.Hotel-Information?chkin=2026-12-18&chkout=2026-12-21&rm1=a2"
+        }
+      ]
+    },
+    {
+      "region": "Ithaka",
+      "name": "Panorama, Vathy",
+      "stars": 4,
+      "rating": 9.3,
+      "reviews": 169,
+      "checkIn": "2026-12-18",
+      "checkOut": "2026-12-21",
+      "offers": [
+        {
+          "partner": "booking",
+          "total": 159,
+          "url": "https://www.booking.com/hotel/gr/panorama-vatha.html?checkin=2026-12-18&checkout=2026-12-21&no_rooms=1&group_adults=2&selected_currency=USD"
+        }
+      ]
+    },
+    {
+      "region": "Baltimore",
+      "name": "Canopy by Hilton Baltimore Harbor Point, Fells Point",
+      "stars": 4,
+      "rating": 8.9,
+      "reviews": 274,
+      "checkIn": "2026-12-11",
+      "checkOut": "2026-12-13",
+      "offers": [
+        {
+          "partner": "booking",
+          "total": 461,
+          "url": "https://www.booking.com/hotel/us/canopy-by-hilton-baltimore-harbor-point.html?checkin=2026-12-11&checkout=2026-12-13&no_rooms=1&group_adults=2&selected_currency=USD"
+        },
+        {
+          "partner": "expedia",
+          "total": 541,
+          "url": "https://www.expedia.com/.h45976006.Hotel-Information?chkin=2026-12-11&chkout=2026-12-13&rm1=a2"
+        }
+      ]
+    },
+    {
+      "region": "Baltimore",
+      "name": "The Royal Sonesta Harbor Court, Inner Harbor",
+      "stars": 4,
+      "rating": 8.8,
+      "reviews": 2070,
+      "checkIn": "2026-12-11",
+      "checkOut": "2026-12-13",
+      "offers": [
+        {
+          "partner": "booking",
+          "total": 383,
+          "url": "https://www.booking.com/hotel/us/royal-sonesta-harbor-court-baltimore.html?checkin=2026-12-11&checkout=2026-12-13&no_rooms=1&group_adults=2&selected_currency=USD"
+        },
+        {
+          "partner": "expedia",
+          "total": 436,
+          "was": 503,
+          "url": "https://www.expedia.com/.h24651.Hotel-Information?chkin=2026-12-11&chkout=2026-12-13&rm1=a2"
+        }
       ]
     }
   ],
@@ -86,28 +111,14 @@
       "fromCity": "Washington Dulles",
       "to": "ATH",
       "toCity": "Athens",
-      "price": 786,
-      "depart": "2027-04-15",
-      "return": "2027-04-29",
-      "stops": "1 stop via Copenhagen",
-      "airline": "Scandinavian Airlines",
+      "price": 858,
+      "depart": "2027-01-21",
+      "return": "2027-02-04",
+      "stops": "1 stop via Istanbul",
+      "airline": "Turkish Airlines",
       "partner": "expedia",
-      "url": "https://www.expedia.com/Flights-Search?trip=roundtrip&leg1=from:IAD,to:ATH,departure:4/15/2027TANYT&leg2=from:ATH,to:IAD,departure:4/29/2027TANYT&passengers=adults:1&mode=search",
-      "note": "Lowest fare found. Light fare: personal item only, and the return has a long overnight connection in Copenhagen."
-    },
-    {
-      "from": "IAD",
-      "fromCity": "Washington Dulles",
-      "to": "ATH",
-      "toCity": "Athens",
-      "price": 807,
-      "depart": "2027-04-08",
-      "return": "2027-04-22",
-      "stops": "1 stop via Lisbon",
-      "airline": "TAP Air Portugal",
-      "partner": "expedia",
-      "url": "https://www.expedia.com/Flights-Search?trip=roundtrip&leg1=from:IAD,to:ATH,departure:4/8/2027TANYT&leg2=from:ATH,to:IAD,departure:4/22/2027TANYT&passengers=adults:1&mode=search",
-      "note": "Carry-on included. From Athens, Kefalonia is a short domestic flight or a ferry from Kyllini."
+      "url": "https://www.expedia.com/Flights-Search?trip=roundtrip&leg1=from:IAD,to:ATH,departure:1/21/2027TANYT&leg2=from:ATH,to:IAD,departure:2/4/2027TANYT&passengers=adults:1&mode=search",
+      "note": "Lowest one-stop fare found from BWI, IAD or DCA. Carry-on and one checked bag included, with a one-hour connection in Istanbul on the way out. From Athens, Kefalonia is a short domestic flight or a ferry from Kyllini."
     }
   ],
   "promos": [
