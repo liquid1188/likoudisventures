@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-08",
+  "updated": "2026-11-09",
   "hotels": [
     {
       "region": "Kefalonia",
@@ -46,6 +46,28 @@
       ]
     },
     {
+      "region": "Kefalonia",
+      "name": "GreKa Ionian Suites, Agia Efimia",
+      "stars": 4,
+      "rating": 9.5,
+      "reviews": 70,
+      "checkIn": "2026-12-18",
+      "checkOut": "2026-12-21",
+      "offers": [
+        {
+          "partner": "booking",
+          "total": 236,
+          "url": "https://www.booking.com/hotel/gr/greka-ionian-suites.html?checkin=2026-12-18&checkout=2026-12-21&no_rooms=1&group_adults=2&selected_currency=USD"
+        },
+        {
+          "partner": "expedia",
+          "total": 253,
+          "was": 269,
+          "url": "https://www.expedia.com/.h4724243.Hotel-Information?chkin=2026-12-18&chkout=2026-12-21&rm1=a2"
+        }
+      ]
+    },
+    {
       "region": "Ithaka",
       "name": "Panorama, Vathy",
       "stars": 4,
@@ -72,12 +94,12 @@
       "offers": [
         {
           "partner": "booking",
-          "total": 461,
+          "total": 459,
           "url": "https://www.booking.com/hotel/us/canopy-by-hilton-baltimore-harbor-point.html?checkin=2026-12-11&checkout=2026-12-13&no_rooms=1&group_adults=2&selected_currency=USD"
         },
         {
           "partner": "expedia",
-          "total": 541,
+          "total": 539,
           "url": "https://www.expedia.com/.h45976006.Hotel-Information?chkin=2026-12-11&chkout=2026-12-13&rm1=a2"
         }
       ]
@@ -87,19 +109,19 @@
       "name": "The Royal Sonesta Harbor Court, Inner Harbor",
       "stars": 4,
       "rating": 8.8,
-      "reviews": 2070,
+      "reviews": 2073,
       "checkIn": "2026-12-11",
       "checkOut": "2026-12-13",
       "offers": [
         {
           "partner": "booking",
-          "total": 383,
+          "total": 382,
           "url": "https://www.booking.com/hotel/us/royal-sonesta-harbor-court-baltimore.html?checkin=2026-12-11&checkout=2026-12-13&no_rooms=1&group_adults=2&selected_currency=USD"
         },
         {
           "partner": "expedia",
-          "total": 436,
-          "was": 503,
+          "total": 435,
+          "was": 502,
           "url": "https://www.expedia.com/.h24651.Hotel-Information?chkin=2026-12-11&chkout=2026-12-13&rm1=a2"
         }
       ]
