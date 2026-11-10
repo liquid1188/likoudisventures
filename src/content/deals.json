@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-09",
+  "updated": "2026-11-10",
   "hotels": [
     {
       "region": "Kefalonia",
@@ -12,13 +12,13 @@
       "offers": [
         {
           "partner": "expedia",
-          "total": 230,
-          "was": 360,
+          "total": 238,
+          "was": 369,
           "url": "https://www.expedia.com/.h12514227.Hotel-Information?chkin=2026-12-18&chkout=2026-12-21&rm1=a2"
         },
         {
           "partner": "booking",
-          "total": 250,
+          "total": 256,
           "url": "https://www.booking.com/hotel/gr/mouikis.html?checkin=2026-12-18&checkout=2026-12-21&no_rooms=1&group_adults=2&selected_currency=USD"
         }
       ]
@@ -34,14 +34,8 @@
       "offers": [
         {
           "partner": "booking",
-          "total": 420,
+          "total": 422,
           "url": "https://www.booking.com/hotel/gr/eucalyptus-apartments.html?checkin=2026-12-18&checkout=2026-12-21&no_rooms=1&group_adults=2&selected_currency=USD"
-        },
-        {
-          "partner": "expedia",
-          "total": 484,
-          "was": 538,
-          "url": "https://www.expedia.com/.h38238152.Hotel-Information?chkin=2026-12-18&chkout=2026-12-21&rm1=a2"
         }
       ]
     },
@@ -56,14 +50,8 @@
       "offers": [
         {
           "partner": "booking",
-          "total": 236,
+          "total": 237,
           "url": "https://www.booking.com/hotel/gr/greka-ionian-suites.html?checkin=2026-12-18&checkout=2026-12-21&no_rooms=1&group_adults=2&selected_currency=USD"
-        },
-        {
-          "partner": "expedia",
-          "total": 253,
-          "was": 269,
-          "url": "https://www.expedia.com/.h4724243.Hotel-Information?chkin=2026-12-18&chkout=2026-12-21&rm1=a2"
         }
       ]
     },
@@ -78,7 +66,7 @@
       "offers": [
         {
           "partner": "booking",
-          "total": 159,
+          "total": 160,
           "url": "https://www.booking.com/hotel/gr/panorama-vatha.html?checkin=2026-12-18&checkout=2026-12-21&no_rooms=1&group_adults=2&selected_currency=USD"
         }
       ]
@@ -88,19 +76,14 @@
       "name": "Canopy by Hilton Baltimore Harbor Point, Fells Point",
       "stars": 4,
       "rating": 8.9,
-      "reviews": 274,
+      "reviews": 273,
       "checkIn": "2026-12-11",
       "checkOut": "2026-12-13",
       "offers": [
         {
           "partner": "booking",
-          "total": 459,
+          "total": 495,
           "url": "https://www.booking.com/hotel/us/canopy-by-hilton-baltimore-harbor-point.html?checkin=2026-12-11&checkout=2026-12-13&no_rooms=1&group_adults=2&selected_currency=USD"
-        },
-        {
-          "partner": "expedia",
-          "total": 539,
-          "url": "https://www.expedia.com/.h45976006.Hotel-Information?chkin=2026-12-11&chkout=2026-12-13&rm1=a2"
         }
       ]
     },
@@ -109,19 +92,19 @@
       "name": "The Royal Sonesta Harbor Court, Inner Harbor",
       "stars": 4,
       "rating": 8.8,
-      "reviews": 2073,
+      "reviews": 2077,
       "checkIn": "2026-12-11",
       "checkOut": "2026-12-13",
       "offers": [
         {
           "partner": "booking",
-          "total": 382,
+          "total": 383,
           "url": "https://www.booking.com/hotel/us/royal-sonesta-harbor-court-baltimore.html?checkin=2026-12-11&checkout=2026-12-13&no_rooms=1&group_adults=2&selected_currency=USD"
         },
         {
           "partner": "expedia",
-          "total": 435,
-          "was": 502,
+          "total": 436,
+          "was": 503,
           "url": "https://www.expedia.com/.h24651.Hotel-Information?chkin=2026-12-11&chkout=2026-12-13&rm1=a2"
         }
       ]
@@ -133,7 +116,7 @@
       "fromCity": "Washington Dulles",
       "to": "ATH",
       "toCity": "Athens",
-      "price": 858,
+      "price": 857,
       "depart": "2027-01-21",
       "return": "2027-02-04",
       "stops": "1 stop via Istanbul",
@@ -149,13 +132,6 @@
       "title": "Electra Kefalonia: 15% off when you book early, direct",
       "detail": "The hotel's own site lists an Early Booking Escape at 15% off, plus a half-board version at the same discount.",
       "url": "https://www.electrahotels.gr/hotels/electra-kefalonia-hotel-and-spa/offers"
-    },
-    {
-      "kind": "Hotel",
-      "title": "Celestial All Suites: 10% early-booking rate with breakfast",
-      "detail": "Mr & Mrs Smith lists 10% off a non-refundable breakfast rate for stays from Oct 2026 to Oct 2027, with sparkling wine and a poolside lunch on stays of two nights or more.",
-      "url": "https://www.mrandmrssmith.com/luxury-hotels/celestial-all-suites-kefalonia/offers/90489/90489-early-booking-10-off-non-refundable-rate-with-breakfast",
-      "expires": "2027-10-31"
     },
     {
       "kind": "Tour",
