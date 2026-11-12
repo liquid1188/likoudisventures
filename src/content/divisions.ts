@@ -106,10 +106,11 @@ export const divisions: Division[] = [
     shortDescription:
       'For projects that do not fit a standard package. By appointment, by referral, by careful conversation.',
     longDescription:
-      "The Workshop is the family's services arm. Brokerage and sourcing work, custom curation, bespoke commissions, marketing and brand strategy, and strategic advisory engagements. Anything that calls for a longer conversation than a standard service form can support.\n\nJake and Luke run the operational and sourcing sides of the work — both of them on rotation in the United States Coast Guard, both careful with logistics and standards. Andrew comes in on the advisory side, bringing institutional experience to founders, small-business owners, and nonprofit leaders working through strategic questions.\n\nThis is the division that begins with a phone call rather than a price list. We work with a small number of clients at a time, on projects that warrant the attention.",
+      "The Workshop is the family's services arm. Nonprofit and business formation, strategic advisory, marketing and brand strategy, brokerage and sourcing, and custom curation. Anything that calls for a longer conversation than a standard service form can support.\n\nJake and Luke run the operational and sourcing sides of the work. Both serve on rotation in the United States Coast Guard, and both are careful with logistics and standards. Andrew leads the advisory and formation work for founders, small-business owners, and nonprofit leaders.\n\nThis is the division that begins with a phone call rather than a price list. We work with a small number of clients at a time, on projects that warrant the attention.",
     offerings: [
+      'Nonprofit and business formation, from incorporation through IRS determination',
       'Strategic advisory and consulting engagements',
-      'Marketing and brand strategy — campaigns, positioning, and go-to-market',
+      'Marketing and brand strategy, including campaigns, positioning, and go-to-market',
       "Brokerage services (sourcing specific items on a client's behalf)",
       'Bespoke curation projects (private libraries, art acquisitions, gift sourcing)',
       'Custom-built solutions outside the standard division offerings',

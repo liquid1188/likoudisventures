@@ -35,17 +35,17 @@ export function IthacaLayout({ division }: LayoutProps) {
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              'linear-gradient(to bottom, rgba(14, 27, 44, 0.6) 0%, rgba(14, 27, 44, 0.15) 30%, rgba(14, 27, 44, 0.05) 50%, rgba(14, 27, 44, 0.7) 100%)',
+              'linear-gradient(to bottom, rgba(14, 27, 44, 0.6) 0%, rgba(14, 27, 44, 0.15) 30%, rgba(14, 27, 44, 0.05) 50%, rgba(14, 27, 44, 0.6) 72%, rgba(14, 27, 44, 0.92) 100%)',
           }}
         />
 
         {/* Top masthead */}
-        <div className="container-tight relative z-10 pt-32 lg:pt-36 pb-2">
+        <div className="container-tight w-full relative z-10 pt-32 lg:pt-36 pb-2">
           <div className="flex justify-between items-start text-bone font-sans text-[10px] uppercase tracking-eyebrow">
             <Link href="/#divisions" className="hover:text-ochre transition-colors">
               ← Likoudis Ventures
             </Link>
-            <span>Ithaca House</span>
+            <span className="hidden sm:inline">Ithaca House</span>
             <span className="text-ochre">{division.greek}</span>
           </div>
         </div>

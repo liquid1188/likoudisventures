@@ -6,6 +6,50 @@ import { DivisionLeads } from '@/components/sections/DivisionLeads';
 import { InquirySection } from '@/components/sections/InquirySection';
 import Link from 'next/link';
 
+const FORMATION_STAGES = [
+  {
+    num: 'i.',
+    title: 'Formation',
+    body: 'Choosing the right structure, drafting articles and bylaws, filing with the state, seating a board, and getting an EIN.',
+  },
+  {
+    num: 'ii.',
+    title: 'Tax Exemption',
+    body: 'Preparing Form 1023 or 1023-EZ, keeping the records the IRS expects, and seeing the application through to a determination letter.',
+  },
+  {
+    num: 'iii.',
+    title: 'Registration',
+    body: 'State charitable registration, qualifying to work in another state, annual 990 filings, and SAM.gov registration for organizations pursuing grants or contracts.',
+  },
+  {
+    num: 'iv.',
+    title: 'Funding and Launch',
+    body: 'Grant research and applications, plus the website, brand, and email a new organization needs, built through The Studio.',
+  },
+];
+
+const FORMATION_RECORD = [
+  {
+    kind: 'Nonprofit · Baltimore',
+    name: 'Likoudis Legacy Foundation',
+    body: 'A Catholic research institute. Founded by Andrew and recognized by the IRS as a 501(c)(3) public charity in 2024.',
+    role: 'Founder and President',
+  },
+  {
+    kind: 'Nonprofit · Michigan',
+    name: 'Where Peter Is',
+    body: 'A Catholic publication. Andrew led its incorporation and federal exemption filing, and the IRS recognized it as a 501(c)(3) public charity in October 2026.',
+    role: 'Board Secretary',
+  },
+  {
+    kind: 'Company · Maryland',
+    name: 'Likoudis Legacy LLC',
+    body: 'The family company, formed in May 2026 and doing business as Likoudis Ventures. Home to The Workshop, The Studio, and Lickity Split.',
+    role: 'Managing Member',
+  },
+];
+
 interface LayoutProps {
   division: Division;
 }
@@ -30,17 +74,17 @@ export function WorkshopLayout({ division }: LayoutProps) {
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              'linear-gradient(to bottom, rgba(14, 27, 44, 0.55) 0%, rgba(14, 27, 44, 0.18) 30%, rgba(14, 27, 44, 0.1) 50%, rgba(14, 27, 44, 0.78) 100%)',
+              'linear-gradient(to bottom, rgba(14, 27, 44, 0.55) 0%, rgba(14, 27, 44, 0.18) 30%, rgba(14, 27, 44, 0.1) 50%, rgba(14, 27, 44, 0.6) 72%, rgba(14, 27, 44, 0.92) 100%)',
           }}
         />
 
         {/* Top masthead */}
-        <div className="container-tight relative z-10 pt-32 lg:pt-36 pb-2">
+        <div className="container-tight w-full relative z-10 pt-32 lg:pt-36 pb-2">
           <div className="flex justify-between items-start text-bone font-sans text-[10px] uppercase tracking-eyebrow">
             <Link href="/#divisions" className="hover:text-ochre transition-colors">
               ← Likoudis Ventures
             </Link>
-            <span>By Appointment</span>
+            <span className="hidden sm:inline">By Appointment</span>
             <span className="text-ochre">{division.greek}</span>
           </div>
         </div>
@@ -135,6 +179,62 @@ export function WorkshopLayout({ division }: LayoutProps) {
                 Each project begins with a conversation.
               </p>
             </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Formation — nonprofit and business setup, the Workshop's lead advisory service.
+          Every track-record line below is a verified filing; do not add claims without one. */}
+      <section id="formation" className="ground-navy py-24 lg:py-32 border-t border-navy/15">
+        <div className="container-editorial">
+          <ScrollReveal as="div" className="text-center max-w-3xl mx-auto mb-14 lg:mb-20">
+            <div className="catalog-num text-sm mb-3 text-ochre-deep">Formation</div>
+            <div className="eyebrow-no-rule text-ochre mb-5 inline-block">Nonprofit and Business Setup</div>
+            <h3 className="font-display text-display-xl text-bone leading-tight">
+              Starting a <em className="italic text-ochre">nonprofit</em> or a business.
+            </h3>
+            <p className="font-serif italic text-lg lg:text-xl text-bone/70 mt-6 leading-relaxed">
+              Andrew has taken two nonprofits through incorporation and IRS recognition, and formed the family&rsquo;s own company. The Workshop offers the same work to founders, ministries, and small organizations who want it done right the first time.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-6xl mx-auto">
+            {FORMATION_STAGES.map((stage, i) => (
+              <ScrollReveal as="div" key={stage.title} delay={i * 80}>
+                <div className="h-full p-7 lg:p-8 bg-navy-deep/60 ring-1 ring-bone/10 border-t-[3px] border-t-ochre">
+                  <div className="catalog-num text-xs text-ochre mb-4">{stage.num}</div>
+                  <h4 className="font-display text-xl lg:text-2xl text-bone leading-tight mb-4">{stage.title}</h4>
+                  <p className="font-serif text-[15px] lg:text-base text-bone/80 leading-relaxed">{stage.body}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <ScrollReveal as="div" className="text-center mt-20 lg:mt-24 mb-10">
+            <div className="eyebrow-no-rule text-ochre inline-block">On the Record</div>
+            <h4 className="font-display text-display-md text-bone mt-4">Organizations Andrew has set up.</h4>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+            {FORMATION_RECORD.map((rec, i) => (
+              <ScrollReveal as="div" key={rec.name} delay={i * 100}>
+                <article className="h-full flex flex-col bg-bone p-7 lg:p-8">
+                  <div className="font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep mb-3">{rec.kind}</div>
+                  <h5 className="font-display text-xl lg:text-2xl text-navy leading-tight mb-4">{rec.name}</h5>
+                  <p className="font-serif text-[15px] lg:text-base text-navy/75 leading-relaxed mb-5 flex-grow">{rec.body}</p>
+                  <div className="pt-4 border-t border-navy/10">
+                    <div className="font-sans text-[10px] uppercase tracking-caps text-ochre-deep/80">Andrew&rsquo;s role</div>
+                    <div className="font-serif text-sm text-navy/85 mt-1.5">{rec.role}</div>
+                  </div>
+                </article>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <ScrollReveal>
+            <p className="font-serif italic text-base text-bone/60 mt-14 lg:mt-16 text-center max-w-2xl mx-auto leading-relaxed">
+              Formation work is quoted by the project after a free first call. The Workshop provides practical guidance and filing preparation. It is not a law firm or an accounting firm and does not give legal or tax advice. When a question needs an attorney or a CPA, we will say so.
+            </p>
           </ScrollReveal>
         </div>
       </section>
