@@ -34,6 +34,8 @@ export const metadata: Metadata = {
     template: `%s — ${site.name}`,
   },
   description: site.description,
+  // Site is still being built: keep it out of search engines until launch.
+  robots: { index: false, follow: false, googleBot: { index: false, follow: false } },
   openGraph: {
     title: site.name,
     description: site.description,
