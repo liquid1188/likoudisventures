@@ -119,6 +119,8 @@ export const divisions: Division[] = [
     themeColor: 'olive',
     leads: [
       { id: 'andrew', role: 'Principal' },
+      { id: 'jake', role: 'Partner' },
+      { id: 'luke', role: 'Partner' },
     ],
   },
   {

@@ -29,22 +29,25 @@ const FORMATION_STAGES = [
   },
 ];
 
-const FORMATION_RECORD: { kind: string; name: string; body: string; note?: string; role: string }[] = [
+const FORMATION_RECORD: { kind: string; name: string; body: string; note?: string; role: string; logo: string }[] = [
   {
     kind: 'Nonprofit · Baltimore',
     name: 'Likoudis Legacy Foundation',
+    logo: '/logos/llf-mark.png',
     body: 'A Catholic research institute. Founded by Andrew and recognized by the IRS as a 501(c)(3) public charity in 2024.',
     role: 'Founder and President',
   },
   {
     kind: 'Nonprofit · Michigan',
     name: 'Where Peter Is',
+    logo: '/logos/wpi.png',
     body: 'A Catholic publication. Andrew led its incorporation and federal exemption filing, and the IRS recognized it as a 501(c)(3) public charity in October 2026.',
     role: 'Board Secretary',
   },
   {
     kind: 'Company · Maryland',
     name: 'Likoudis Ventures',
+    logo: 'olive',
     body: 'The family company, formed in 2026. Home to The Workshop, The Studio, Ithaca House, and The Easel.',
     note: 'Likoudis Ventures is the trade name of Likoudis Legacy LLC, a Maryland limited liability company.',
     role: 'Founder and Managing Member',
@@ -52,6 +55,7 @@ const FORMATION_RECORD: { kind: string; name: string; body: string; note?: strin
   {
     kind: 'Web Design · Nationwide',
     name: 'Lickity Split',
+    logo: '/logos/lickity-split.svg',
     body: 'Andrew\u2019s web design studio. Custom-coded websites for authors, artists, ministries, and small businesses, with free hosting and sites the client owns.',
     role: 'Founder and Designer',
   },
@@ -226,6 +230,14 @@ export function WorkshopLayout({ division }: LayoutProps) {
             {FORMATION_RECORD.map((rec, i) => (
               <ScrollReveal as="div" key={rec.name} delay={i * 100}>
                 <article className="h-full flex flex-col bg-bone p-7 lg:p-8">
+                  <div className="h-16 mb-6 flex items-center">
+                    {rec.logo === 'olive' ? (
+                      <span className="text-olive-deep"><OliveBranchMark size={64} /></span>
+                    ) : (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={rec.logo} alt={`${rec.name} logo`} className="h-16 w-auto object-contain" />
+                    )}
+                  </div>
                   <div className="font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep mb-3">{rec.kind}</div>
                   <h5 className="font-display text-xl lg:text-2xl text-navy leading-tight mb-4">{rec.name}</h5>
                   <p className="font-serif text-[15px] lg:text-base text-navy/75 leading-relaxed mb-3">{rec.body}</p>
