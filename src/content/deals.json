@@ -1,24 +1,24 @@
 {
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "hotels": [
     {
       "region": "Kefalonia",
       "name": "Mouikis Hotel Kefalonia, Argostoli",
       "stars": 3,
       "rating": 8.8,
-      "reviews": 699,
+      "reviews": 698,
       "checkIn": "2026-12-18",
       "checkOut": "2026-12-21",
       "offers": [
         {
           "partner": "expedia",
-          "total": 237,
-          "was": 367,
+          "total": 236,
+          "was": 364,
           "url": "https://www.expedia.com/.h12514227.Hotel-Information?chkin=2026-12-18&chkout=2026-12-21&rm1=a2"
         },
         {
           "partner": "booking",
-          "total": 255,
+          "total": 253,
           "url": "https://www.booking.com/hotel/gr/mouikis.html?checkin=2026-12-18&checkout=2026-12-21&no_rooms=1&group_adults=2&selected_currency=USD"
         }
       ]
@@ -34,8 +34,14 @@
       "offers": [
         {
           "partner": "booking",
-          "total": 421,
+          "total": 418,
           "url": "https://www.booking.com/hotel/gr/eucalyptus-apartments.html?checkin=2026-12-18&checkout=2026-12-21&no_rooms=1&group_adults=2&selected_currency=USD"
+        },
+        {
+          "partner": "expedia",
+          "total": 482,
+          "was": 535,
+          "url": "https://www.expedia.com/.h38238152.Hotel-Information?chkin=2026-12-18&chkout=2026-12-21&rm1=a2"
         }
       ]
     },
@@ -50,8 +56,14 @@
       "offers": [
         {
           "partner": "booking",
-          "total": 236,
+          "total": 235,
           "url": "https://www.booking.com/hotel/gr/greka-ionian-suites.html?checkin=2026-12-18&checkout=2026-12-21&no_rooms=1&group_adults=2&selected_currency=USD"
+        },
+        {
+          "partner": "expedia",
+          "total": 252,
+          "was": 268,
+          "url": "https://www.expedia.com/.h4724243.Hotel-Information?chkin=2026-12-18&chkout=2026-12-21&rm1=a2"
         }
       ]
     },
@@ -66,7 +78,7 @@
       "offers": [
         {
           "partner": "booking",
-          "total": 159,
+          "total": 158,
           "url": "https://www.booking.com/hotel/gr/panorama-vatha.html?checkin=2026-12-18&checkout=2026-12-21&no_rooms=1&group_adults=2&selected_currency=USD"
         }
       ]
@@ -82,7 +94,7 @@
       "offers": [
         {
           "partner": "booking",
-          "total": 177,
+          "total": 176,
           "url": "https://www.booking.com/hotel/gr/iris-apartments-vathi.html?checkin=2026-12-18&checkout=2026-12-21&no_rooms=1&group_adults=2&selected_currency=USD"
         }
       ]
@@ -92,13 +104,13 @@
       "name": "Canopy by Hilton Baltimore Harbor Point, Fells Point",
       "stars": 4,
       "rating": 8.9,
-      "reviews": 273,
+      "reviews": 274,
       "checkIn": "2026-12-18",
       "checkOut": "2026-12-20",
       "offers": [
         {
           "partner": "booking",
-          "total": 370,
+          "total": 368,
           "url": "https://www.booking.com/hotel/us/canopy-by-hilton-baltimore-harbor-point.html?checkin=2026-12-18&checkout=2026-12-20&no_rooms=1&group_adults=2&selected_currency=USD"
         }
       ]
