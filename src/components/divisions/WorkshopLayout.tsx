@@ -29,7 +29,7 @@ const FORMATION_STAGES = [
   },
 ];
 
-const FORMATION_RECORD = [
+const FORMATION_RECORD: { kind: string; name: string; body: string; note?: string; role: string }[] = [
   {
     kind: 'Nonprofit · Baltimore',
     name: 'Likoudis Legacy Foundation',
@@ -44,9 +44,16 @@ const FORMATION_RECORD = [
   },
   {
     kind: 'Company · Maryland',
-    name: 'Likoudis Legacy LLC',
-    body: 'The family company, formed in May 2026 and doing business as Likoudis Ventures. Home to The Workshop, The Studio, and Lickity Split.',
-    role: 'Managing Member',
+    name: 'Likoudis Ventures',
+    body: 'The family company, formed in 2026. Home to The Workshop, The Studio, Ithaca House, and The Easel.',
+    note: 'Likoudis Ventures is the trade name of Likoudis Legacy LLC, a Maryland limited liability company.',
+    role: 'Founder and Managing Member',
+  },
+  {
+    kind: 'Web Design · Nationwide',
+    name: 'Lickity Split',
+    body: 'Andrew\u2019s web design studio. Custom-coded websites for authors, artists, ministries, and small businesses, with free hosting and sites the client owns.',
+    role: 'Founder and Designer',
   },
 ];
 
@@ -113,7 +120,7 @@ export function WorkshopLayout({ division }: LayoutProps) {
       {/* Lead row */}
       <section className="ground-bone py-7 lg:py-9 border-b border-navy/10">
         <div className="container-editorial">
-          <DivisionLeads leads={division.leads} theme="light" secondaryLast />
+          <DivisionLeads leads={division.leads} theme="light" />
         </div>
       </section>
 
@@ -194,7 +201,7 @@ export function WorkshopLayout({ division }: LayoutProps) {
               Starting a <em className="italic text-ochre">nonprofit</em> or a business.
             </h3>
             <p className="font-serif italic text-lg lg:text-xl text-bone/70 mt-6 leading-relaxed">
-              Andrew has taken two nonprofits through incorporation and IRS recognition, and formed the family&rsquo;s own company. The Workshop offers the same work to founders, ministries, and small organizations who want it done right the first time.
+              Andrew has taken two nonprofits through incorporation and IRS recognition, and founded the family&rsquo;s company and its web design studio. The Workshop offers the same work to founders, ministries, and small organizations who want it done right the first time.
             </p>
           </ScrollReveal>
 
@@ -212,16 +219,18 @@ export function WorkshopLayout({ division }: LayoutProps) {
 
           <ScrollReveal as="div" className="text-center mt-20 lg:mt-24 mb-10">
             <div className="eyebrow-no-rule text-ochre inline-block">On the Record</div>
-            <h4 className="font-display text-display-md text-bone mt-4">Organizations Andrew has set up.</h4>
+            <h4 className="font-display text-display-md text-bone mt-4">Organizations Andrew has founded or built.</h4>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7 max-w-6xl mx-auto">
             {FORMATION_RECORD.map((rec, i) => (
               <ScrollReveal as="div" key={rec.name} delay={i * 100}>
                 <article className="h-full flex flex-col bg-bone p-7 lg:p-8">
                   <div className="font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep mb-3">{rec.kind}</div>
                   <h5 className="font-display text-xl lg:text-2xl text-navy leading-tight mb-4">{rec.name}</h5>
-                  <p className="font-serif text-[15px] lg:text-base text-navy/75 leading-relaxed mb-5 flex-grow">{rec.body}</p>
+                  <p className="font-serif text-[15px] lg:text-base text-navy/75 leading-relaxed mb-3">{rec.body}</p>
+                  {rec.note && <p className="font-sans text-[11px] leading-snug text-navy/55 mb-5">{rec.note}</p>}
+                  <div className="flex-grow" />
                   <div className="pt-4 border-t border-navy/10">
                     <div className="font-sans text-[10px] uppercase tracking-caps text-ochre-deep/80">Andrew&rsquo;s role</div>
                     <div className="font-serif text-sm text-navy/85 mt-1.5">{rec.role}</div>
@@ -265,7 +274,7 @@ export function WorkshopLayout({ division }: LayoutProps) {
                 </p>
                 <div className="pt-4 border-t border-navy/10">
                   <div className="font-display text-base text-navy">Andrew Likoudis</div>
-                  <div className="font-sans text-[10px] uppercase tracking-caps text-ochre-deep/70 mt-1">Strategic Advisor</div>
+                  <div className="font-sans text-[10px] uppercase tracking-caps text-ochre-deep/70 mt-1">Principal</div>
                 </div>
               </div>
             </ScrollReveal>
@@ -274,14 +283,14 @@ export function WorkshopLayout({ division }: LayoutProps) {
               <div className="bg-bone p-8 lg:p-10 h-full border-t-[3px] border-t-ochre">
                 <div className="catalog-num text-xs text-ochre-deep mb-4">ii.</div>
                 <h4 className="font-display text-2xl lg:text-3xl text-navy leading-tight mb-5">
-                  Sourcing &amp; Brokerage
+                  Nonprofit and Business Formation
                 </h4>
                 <p className="font-serif text-base lg:text-lg text-navy/75 leading-relaxed mb-5">
-                  For clients looking for specific objects. A particular bottle. A hard-to-find book. An antique piece. A gift built around a brief. We make the calls, we vet the seller, we handle the transaction. The work is finished when the object is in the right hands. Discreet, by appointment, fee scoped to the brief.
+                  For founders starting a nonprofit, a ministry, or a small company. Choosing the structure, state filings, IRS exemption, and the registrations that follow. Quoted by the project. See the Formation section above for the full process.
                 </p>
                 <div className="pt-4 border-t border-navy/10">
-                  <div className="font-display text-base text-navy">Luke Likoudis</div>
-                  <div className="font-sans text-[10px] uppercase tracking-caps text-ochre-deep/70 mt-1">Sourcing Director</div>
+                  <div className="font-display text-base text-navy">Andrew Likoudis</div>
+                  <div className="font-sans text-[10px] uppercase tracking-caps text-ochre-deep/70 mt-1">Principal</div>
                 </div>
               </div>
             </ScrollReveal>
@@ -290,14 +299,14 @@ export function WorkshopLayout({ division }: LayoutProps) {
               <div className="bg-bone p-8 lg:p-10 h-full border-t-[3px] border-t-ochre">
                 <div className="catalog-num text-xs text-ochre-deep mb-4">iii.</div>
                 <h4 className="font-display text-2xl lg:text-3xl text-navy leading-tight mb-5">
-                  Bespoke Curation
+                  Marketing and Brand Strategy
                 </h4>
                 <p className="font-serif text-base lg:text-lg text-navy/75 leading-relaxed mb-5">
-                  For buyers building a private library, an art collection, a wine cellar, or a curated gift package. Engagements begin with the budget, the brief, and the room or shelf the work will land in. We propose, the client selects, we deliver. Provenance documented. Price agreed up front.
+                  For organizations that need a clear message and a plan to reach people. Positioning, campaigns, email, social media, and press outreach. Website builds are handled by The Studio and Lickity Split, so strategy and build can sit under one roof.
                 </p>
                 <div className="pt-4 border-t border-navy/10">
-                  <div className="font-display text-base text-navy">Jake Likoudis</div>
-                  <div className="font-sans text-[10px] uppercase tracking-caps text-ochre-deep/70 mt-1">Operational Director</div>
+                  <div className="font-display text-base text-navy">Andrew Likoudis</div>
+                  <div className="font-sans text-[10px] uppercase tracking-caps text-ochre-deep/70 mt-1">Principal</div>
                 </div>
               </div>
             </ScrollReveal>
@@ -339,7 +348,7 @@ export function WorkshopLayout({ division }: LayoutProps) {
                 </div>
                 <div className="col-span-12 lg:col-span-10">
                   <p className="font-serif text-lg lg:text-xl leading-relaxed text-navy/85">
-                    We write back with a written scope. What we propose to do. What we propose not to do. The format of the deliverable. The lead Workshop sibling on the engagement.
+                    We write back with a written scope. What we propose to do. What we propose not to do. The format of the deliverable. Who will do the work, and when.
                   </p>
                 </div>
               </div>

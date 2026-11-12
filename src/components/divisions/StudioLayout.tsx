@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import type { Division } from '@/content/divisions';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
@@ -5,6 +6,37 @@ import { OliveBranchMark } from '@/components/brand/OliveBranchMark';
 import { StudioBanner } from '@/components/brand/StudioBanner';
 import { DivisionLeads } from '@/components/sections/DivisionLeads';
 import { InquirySection } from '@/components/sections/InquirySection';
+
+const STUDIO_PROJECTS = [
+  {
+    name: 'Frank La Rocca',
+    kind: 'Composer | Sacred Music',
+    body: 'A website for a composer of sacred and concert music, featuring his works, recordings, and news.',
+    href: 'https://www.franklarocca.com',
+    image: '/work-frank-la-rocca.webp',
+  },
+  {
+    name: 'Brush & Soul Studio',
+    kind: 'Artist | Online Shop',
+    body: 'An online shop and studio site for a painter, with original paintings, prints, and commissions.',
+    href: 'https://www.brushandsoulstudio.com',
+    image: '/work-brush-and-soul.webp',
+  },
+  {
+    name: 'Likoudis Legacy Foundation',
+    kind: 'Nonprofit | Baltimore',
+    body: 'A website for a Catholic nonprofit, featuring its programs, publications, events, and opportunities for supporters to contribute.',
+    href: 'https://likoudislegacy.com',
+    image: '/work-likoudis-legacy.webp',
+  },
+  {
+    name: 'AndrewLikoudis.com',
+    kind: 'Author | Personal Website',
+    body: 'An editorial-style portfolio bringing together publications, speaking engagements, media appearances, and professional information.',
+    href: 'https://andrewlikoudis.com',
+    image: '/work-andrew-likoudis.webp',
+  },
+];
 
 interface LayoutProps {
   division: Division;
@@ -290,63 +322,35 @@ export function StudioLayout({ division }: LayoutProps) {
             </ScrollReveal>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            {/* Frank La Rocca */}
-            <ScrollReveal as="div" delay={0}>
-              <a
-                href="https://www.franklarocca.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block bg-cream border border-navy/15 p-6 lg:p-7 h-full hover:border-ochre transition-colors group"
-              >
-                <div className="catalog-num text-xs text-ochre-deep mb-2">Composer | Sacred Music</div>
-                <h4 className="font-display text-2xl text-navy mb-3 group-hover:text-ochre-deep transition-colors">Frank La Rocca</h4>
-                <p className="font-serif text-sm text-navy/85 leading-relaxed mb-5">
-                  A website for a composer of sacred and concert music, featuring his works, recordings, and news.
-                </p>
-                <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/65 group-hover:text-ochre-deep transition-colors">
-                  View live site →
-                </div>
-              </a>
-            </ScrollReveal>
-
-            {/* Likoudis Legacy Foundation */}
-            <ScrollReveal as="div" delay={120}>
-              <a
-                href="https://likoudislegacy.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block bg-cream border border-navy/15 p-6 lg:p-7 h-full hover:border-ochre transition-colors group"
-              >
-                <div className="catalog-num text-xs text-ochre-deep mb-2">Nonprofit | Baltimore</div>
-                <h4 className="font-display text-2xl text-navy mb-3 group-hover:text-ochre-deep transition-colors">Likoudis Legacy Foundation</h4>
-                <p className="font-serif text-sm text-navy/85 leading-relaxed mb-5">
-                  A website for a Catholic nonprofit, featuring its programs, publications, events, and opportunities for supporters to contribute.
-                </p>
-                <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/65 group-hover:text-ochre-deep transition-colors">
-                  View live site →
-                </div>
-              </a>
-            </ScrollReveal>
-
-            {/* AndrewLikoudis.com */}
-            <ScrollReveal as="div" delay={240}>
-              <a
-                href="https://andrewlikoudis.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block bg-cream border border-navy/15 p-6 lg:p-7 h-full hover:border-ochre transition-colors group"
-              >
-                <div className="catalog-num text-xs text-ochre-deep mb-2">Author &amp; Personal Website</div>
-                <h4 className="font-display text-2xl text-navy mb-3 group-hover:text-ochre-deep transition-colors">AndrewLikoudis.com</h4>
-                <p className="font-serif text-sm text-navy/85 leading-relaxed mb-5">
-                  An editorial-style portfolio bringing together publications, speaking engagements, media appearances, and professional information.
-                </p>
-                <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/65 group-hover:text-ochre-deep transition-colors">
-                  View live site →
-                </div>
-              </a>
-            </ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
+            {STUDIO_PROJECTS.map((proj, i) => (
+              <ScrollReveal as="div" key={proj.name} delay={(i % 2) * 120}>
+                <a
+                  href={proj.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block bg-cream border border-navy/15 h-full hover:border-ochre transition-colors group overflow-hidden"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden border-b border-navy/10 bg-bone">
+                    <Image
+                      src={proj.image}
+                      alt={`Home page of ${proj.name}`}
+                      fill
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+                    />
+                  </div>
+                  <div className="p-6 lg:p-7">
+                    <div className="catalog-num text-xs text-ochre-deep mb-2">{proj.kind}</div>
+                    <h4 className="font-display text-2xl text-navy mb-3 group-hover:text-ochre-deep transition-colors">{proj.name}</h4>
+                    <p className="font-serif text-sm text-navy/85 leading-relaxed mb-5">{proj.body}</p>
+                    <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/65 group-hover:text-ochre-deep transition-colors">
+                      View live site →
+                    </div>
+                  </div>
+                </a>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </section>

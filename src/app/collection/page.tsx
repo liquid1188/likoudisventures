@@ -216,6 +216,23 @@ const categories: Category[] = [
   },
 ];
 
+const COLLECTION_SERVICES = [
+  {
+    num: 'i.',
+    title: 'Sourcing and Brokerage',
+    body: 'For clients looking for specific objects. A particular bottle. A hard-to-find book. An antique piece. A gift built around a brief. We make the calls, we vet the seller, we handle the transaction. Discreet, by appointment, fee scoped to the brief.',
+    lead: 'Luke Likoudis',
+    role: 'Sourcing Director',
+  },
+  {
+    num: 'ii.',
+    title: 'Bespoke Curation',
+    body: 'For buyers building a private library, an art collection, a wine cellar, or a curated gift package. Engagements begin with the budget, the brief, and the room or shelf the work will land in. We propose, the client selects, we deliver. Provenance documented. Price agreed up front.',
+    lead: 'Jake Likoudis',
+    role: 'Curation Director',
+  },
+];
+
 export default function CollectionPage() {
   return (
     <>
@@ -251,6 +268,45 @@ export default function CollectionPage() {
               </div>
             </ScrollReveal>
           </div>
+        </div>
+      </section>
+
+      {/* Sourcing and Curation — services moved here from The Workshop (Nov 2026) */}
+      <section className="ground-bone py-20 lg:py-28 border-t border-navy/10">
+        <div className="container-editorial">
+          <ScrollReveal>
+            <div className="mb-12 lg:mb-16 max-w-3xl">
+              <div className="eyebrow-no-rule text-ochre-deep mb-4">By Appointment</div>
+              <h2 className="font-display text-display-xl text-navy leading-tight">
+                Sourcing and <em className="italic text-ochre-deep">curation</em>.
+              </h2>
+              <p className="font-serif italic text-lg lg:text-xl text-navy/65 mt-5 leading-relaxed">
+                Beyond the catalogue, the Collection finds and assembles pieces to order.
+              </p>
+            </div>
+          </ScrollReveal>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 max-w-5xl">
+            {COLLECTION_SERVICES.map((svc, i) => (
+              <ScrollReveal as="div" key={svc.title} delay={i * 120}>
+                <div className="bg-cream p-8 lg:p-10 h-full border-t-[3px] border-t-ochre flex flex-col">
+                  <div className="catalog-num text-xs text-ochre-deep mb-4">{svc.num}</div>
+                  <h3 className="font-display text-2xl lg:text-3xl text-navy leading-tight mb-5">{svc.title}</h3>
+                  <p className="font-serif text-base lg:text-lg text-navy/75 leading-relaxed mb-5 flex-grow">{svc.body}</p>
+                  <div className="pt-4 border-t border-navy/10">
+                    <div className="font-display text-base text-navy">{svc.lead}</div>
+                    <div className="font-sans text-[10px] uppercase tracking-caps text-ochre-deep/70 mt-1">{svc.role}</div>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+          <ScrollReveal>
+            <div className="mt-10">
+              <Link href="/contact" className="inline-block font-sans text-[11px] uppercase tracking-caps text-olive-deep hover:text-navy border-b border-olive-glow/40 hover:border-navy pb-1 transition-colors">
+                Make a request →
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
