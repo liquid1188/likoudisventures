@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-12",
+  "updated": "2026-11-13",
   "hotels": [
     {
       "region": "Kefalonia",
@@ -12,8 +12,8 @@
       "offers": [
         {
           "partner": "expedia",
-          "total": 236,
-          "was": 364,
+          "total": 237,
+          "was": 363,
           "url": "https://www.expedia.com/.h12514227.Hotel-Information?chkin=2026-12-18&chkout=2026-12-21&rm1=a2"
         },
         {
@@ -25,45 +25,17 @@
     },
     {
       "region": "Kefalonia",
-      "name": "Meliti Waterfront Suites, Karavomylos",
+      "name": "Anthemis Living, Argostoli",
       "stars": 4,
-      "rating": 9.1,
-      "reviews": 339,
+      "rating": 9.7,
+      "reviews": 282,
       "checkIn": "2026-12-18",
       "checkOut": "2026-12-21",
       "offers": [
         {
           "partner": "booking",
-          "total": 418,
-          "url": "https://www.booking.com/hotel/gr/eucalyptus-apartments.html?checkin=2026-12-18&checkout=2026-12-21&no_rooms=1&group_adults=2&selected_currency=USD"
-        },
-        {
-          "partner": "expedia",
-          "total": 482,
-          "was": 535,
-          "url": "https://www.expedia.com/.h38238152.Hotel-Information?chkin=2026-12-18&chkout=2026-12-21&rm1=a2"
-        }
-      ]
-    },
-    {
-      "region": "Kefalonia",
-      "name": "GreKa Ionian Suites, Agia Efimia",
-      "stars": 4,
-      "rating": 9.5,
-      "reviews": 70,
-      "checkIn": "2026-12-18",
-      "checkOut": "2026-12-21",
-      "offers": [
-        {
-          "partner": "booking",
-          "total": 235,
-          "url": "https://www.booking.com/hotel/gr/greka-ionian-suites.html?checkin=2026-12-18&checkout=2026-12-21&no_rooms=1&group_adults=2&selected_currency=USD"
-        },
-        {
-          "partner": "expedia",
-          "total": 252,
-          "was": 268,
-          "url": "https://www.expedia.com/.h4724243.Hotel-Information?chkin=2026-12-18&chkout=2026-12-21&rm1=a2"
+          "total": 203,
+          "url": "https://www.booking.com/hotel/gr/anthemis-living.html?checkin=2026-12-18&checkout=2026-12-21&no_rooms=1&group_adults=2&selected_currency=USD"
         }
       ]
     },
@@ -110,8 +82,34 @@
       "offers": [
         {
           "partner": "booking",
-          "total": 368,
+          "total": 353,
           "url": "https://www.booking.com/hotel/us/canopy-by-hilton-baltimore-harbor-point.html?checkin=2026-12-18&checkout=2026-12-20&no_rooms=1&group_adults=2&selected_currency=USD"
+        },
+        {
+          "partner": "expedia",
+          "total": 415,
+          "url": "https://www.expedia.com/.h45976006.Hotel-Information?chkin=2026-12-18&chkout=2026-12-20&rm1=a2"
+        }
+      ]
+    },
+    {
+      "region": "Baltimore",
+      "name": "Courtyard by Marriott Baltimore Downtown/Inner Harbor, Harbor East",
+      "stars": 3,
+      "rating": 9.2,
+      "reviews": 1001,
+      "checkIn": "2026-12-18",
+      "checkOut": "2026-12-20",
+      "offers": [
+        {
+          "partner": "booking",
+          "total": 230,
+          "url": "https://www.booking.com/hotel/us/courtyard-baltimore-downtown-inner-harbor.html?checkin=2026-12-18&checkout=2026-12-20&no_rooms=1&group_adults=2&selected_currency=USD"
+        },
+        {
+          "partner": "expedia",
+          "total": 271,
+          "url": "https://www.expedia.com/.h566607.Hotel-Information?chkin=2026-12-18&chkout=2026-12-20&rm1=a2"
         }
       ]
     }
@@ -129,16 +127,10 @@
       "airline": "Turkish Airlines",
       "partner": "expedia",
       "url": "https://www.expedia.com/Flights-Search?trip=roundtrip&leg1=from:IAD,to:ATH,departure:1/21/2027TANYT&leg2=from:ATH,to:IAD,departure:2/4/2027TANYT&passengers=adults:1&mode=search",
-      "note": "Lowest one-stop fare with a checked bag found from BWI, IAD or DCA. Carry-on and one checked bag included, with a one-hour connection in Istanbul on the way out and a 3h20 connection coming home. From Athens, Kefalonia is a short domestic flight or a ferry from Kyllini."
+      "note": "Lowest one-stop fare with a checked bag found from BWI, IAD or DCA. Carry-on and one checked bag included, with a one-hour connection in Istanbul on the way out and a 3h20 connection coming home. TAP via Lisbon is cheaper at $806 but charges $262 for a checked bag and has a 15-hour layover outbound. From Athens, Kefalonia is a short domestic flight or a ferry from Kyllini."
     }
   ],
   "promos": [
-    {
-      "kind": "Hotel",
-      "title": "Electra Kefalonia: 15% off when you book early, direct",
-      "detail": "The hotel's own site lists an Early Booking Escape at 15% off, plus a half-board version at the same discount.",
-      "url": "https://www.electrahotels.gr/hotels/electra-kefalonia-hotel-and-spa/offers"
-    },
     {
       "kind": "Tour",
       "title": "Queen Bee sunset cruise from Argostoli",
