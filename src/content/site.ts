@@ -7,56 +7,50 @@ export const site = {
   name: 'Likoudis Ventures',
   legalEntity: 'Likoudis Legacy LLC',
   dba: 'Likoudis Ventures',
-  tagline: 'A house of considered enterprises.',
+  headline: 'A few things run in the family.',
+  intro:
+    "Likoudis Ventures brings together our work in hospitality, design, art, and consulting, along with a few ideas we're still developing. Based in Baltimore, with roots in Kefalonia and the Finger Lakes.",
+  seoTitle: 'Likoudis Ventures | Hospitality, Design, Art & Consulting',
   description:
-    'A family business in Baltimore. Five siblings working under one name across travel and stays, services and advisory, web design, original art, and a pantry from the Ionian islands and the Finger Lakes.',
-  founded: 2026,
+    'Family ventures based in Baltimore, with roots in Kefalonia and the Finger Lakes. Explore hospitality, design, original art, consulting, and developing projects.',
   seat: 'Baltimore',
   greekRoot: 'Κεφαλονιά',
-  greekRootClassical: 'ἐκ Κεφαλονιάς',
+  /** Final production domain. Canonical URLs use this. */
   url: 'https://likoudisventures.com',
   email: 'hello@likoudisventures.com',
-
-  // The line that appears once on the About page tying Ithaca NY to Ithaca, Greece
-  ithacaNote:
-    'Named for both the island that called our family home and the town that raised the next generation.',
 } as const;
 
 export const nav = {
   primary: [
-    { label: 'Divisions', href: '/#divisions' },
-    { label: 'About', href: '/about' },
-    { label: 'The Branch', href: '/the-branch' },
+    { label: 'The Ventures', href: '/#ventures' },
+    { label: 'The Family', href: '/about' },
   ],
-  cta: { label: 'Begin', href: '/contact' },
+  cta: { label: 'Get in Touch', href: '/contact' },
 } as const;
 
 export const footer = {
-  columns: [
-    {
-      heading: 'Divisions',
-      links: [
-        { label: 'Ithaca House', href: '/divisions/ithaca-house' },
-        { label: 'The Workshop', href: '/divisions/the-workshop' },
-        { label: 'The Studio', href: '/divisions/the-studio' },
-        { label: 'The Easel', href: '/divisions/the-easel' },
-        { label: 'The Table', href: '/divisions/the-table' },
-      ],
-    },
-    {
-      heading: 'The House',
-      links: [
-        { label: 'About', href: '/about' },
-        { label: 'The Collection', href: '/collection' },
-        { label: 'The Branch', href: '/the-branch' },
-        { label: 'Contact', href: '/contact' },
-      ],
-    },
-    {
-      heading: 'Correspondence',
-      links: [
-        { label: 'hello@likoudisventures.com', href: 'mailto:hello@likoudisventures.com' },
-      ],
-    },
+  ventures: [
+    { label: 'Ithaca House', href: '/divisions/ithaca-house' },
+    { label: 'The Studio', href: '/divisions/the-studio' },
+    { label: 'The Easel', href: '/divisions/the-easel' },
+    { label: 'The Workshop', href: '/divisions/the-workshop' },
+    { label: 'The Collection', href: '/collection', sub: true },
+    { label: 'The Table', href: '/divisions/the-table' },
+  ],
+  more: [
+    { label: 'About the family', href: '/about' },
+    { label: 'The Branch', href: '/the-branch' },
+    { label: 'Contact', href: '/contact' },
   ],
 } as const;
+
+/** Choices for "What is this about?" on the contact form. */
+export const inquiryTopics = [
+  'Ithaca House',
+  'The Studio',
+  'The Easel',
+  'The Workshop',
+  'The Table',
+  'The Collection',
+  'General Inquiry',
+] as const;

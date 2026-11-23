@@ -21,9 +21,10 @@ export async function generateMetadata({ params }: DivisionPageProps): Promise<M
   const division = getDivision(slug);
   if (!division) return { title: 'Not Found' };
   return {
-    title: division.name,
-    description: division.tagline,
-    openGraph: { title: division.name, description: division.tagline },
+    title: division.seoTitle,
+    description: division.seoDescription,
+    alternates: { canonical: `/divisions/${division.slug}` },
+    openGraph: { title: division.seoTitle, description: division.seoDescription },
   };
 }
 

@@ -5,25 +5,16 @@ import { clsx } from 'clsx';
 
 interface ScrollRevealProps {
   children: ReactNode;
-  variant?: 'fade-up' | 'blur';
   delay?: number;
   className?: string;
-  /**
-   * Threshold for triggering reveal — 0 = top of element enters viewport, 1 = fully in.
-   * Default 0.15 = 15% visible.
-   */
-  threshold?: number;
   as?: 'div' | 'section' | 'article' | 'li';
 }
 
-export function ScrollReveal({
-  children,
-  variant = 'fade-up',
-  delay = 0,
-  className,
-  threshold = 0.15,
-  as: Tag = 'div',
-}: ScrollRevealProps) {
+/**
+ * A light fade as a block enters the viewport. Content is only hidden once
+ * JavaScript has marked the page (html.js), so it never stays invisible.
+ */
+export function ScrollReveal({ children, delay = 0, className, as: Tag = 'div' }: ScrollRevealProps) {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -42,19 +33,16 @@ export function ScrollReveal({
           }
         });
       },
-      { threshold, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, [delay, threshold]);
-
-  const variantClass = variant === 'blur' ? 'scroll-reveal-blur' : 'scroll-reveal';
+  }, [delay]);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const RefAny = ref as any;
-
   return (
-    <Tag ref={RefAny} className={clsx(variantClass, className)}>
+    <Tag ref={RefAny} className={clsx('scroll-reveal', className)}>
       {children}
     </Tag>
   );

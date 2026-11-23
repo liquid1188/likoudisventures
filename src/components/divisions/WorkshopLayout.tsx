@@ -1,430 +1,149 @@
-import type { Division } from '@/content/divisions';
-import { ScrollReveal } from '@/components/ui/ScrollReveal';
-import { OliveBranchMark } from '@/components/brand/OliveBranchMark';
-import { WorkshopBanner } from '@/components/brand/WorkshopBanner';
-import { DivisionLeads } from '@/components/sections/DivisionLeads';
-import { InquirySection } from '@/components/sections/InquirySection';
 import Link from 'next/link';
+import type { Division } from '@/content/divisions';
+import { PageHero, SectionHeading } from '@/components/sections/PageHero';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { InquiryForm } from '@/components/forms/InquiryForm';
 
-interface LayoutProps {
-  division: Division;
-}
+const areas = [
+  { name: 'Research & Analysis', text: 'Background research, organizational assessments, industry research, briefing materials, and preparation for decisions or new initiatives.' },
+  { name: 'Communications & Editorial Work', text: 'Writing, editing, publication planning, messaging, outreach materials, and assistance with external communications.' },
+  { name: 'Nonprofit & Organizational Support', text: 'Fundraising communications, donor stewardship processes, organizational planning, program support, and administrative improvements.' },
+  { name: 'Business Development & Strategy', text: 'Market research, positioning, outreach planning, and practical support for small businesses developing new initiatives.' },
+];
 
 /**
- * The Workshop — letterpress register with a full-bleed shopfront banner.
- * Centered classical typography, ornamental rules, the feel of a 19th-century
- * trade announcement.
+ * Earlier work, done as a fellow or staff member at these institutions before
+ * Likoudis Ventures existed. None of these institutions are clients.
  */
-export function WorkshopLayout({ division }: LayoutProps) {
-  const paragraphs = division.longDescription.split('\n\n');
+const priorWork = [
+  {
+    year: '2022',
+    title: 'Research on procurement access for small businesses',
+    where: 'Johns Hopkins University, with Julep Consulting and Bloomberg Philanthropies',
+    role: 'Fellow, Economic Development, Johns Hopkins University',
+    text: 'Research for the OneStop initiative on how university procurement could be made more accessible to small businesses. Andrew compiled the findings in a research workbook and drafted a policy memo with observations and recommendations, which opened a presentation to Bloomberg Philanthropies leadership in July 2022.',
+  },
+  {
+    year: '2022',
+    title: 'Federal contracting research and outreach',
+    where: 'TargetGov, through Goldman Sachs 10,000 Small Businesses',
+    role: 'Fellow, Marketing Development, Goldman Sachs 10,000 Small Businesses',
+    text: 'Marketing and business development support for a firm specializing in federal procurement: expanding the client and contracting databases, researching federal opportunities, and supporting pipeline outreach.',
+  },
+  {
+    year: '2023',
+    title: 'Development operations for a capital campaign',
+    where: 'Cathedral of Mary Our Queen, Baltimore',
+    role: 'Development Administrative Assistant (staff)',
+    text: 'Communications, donation tracking, grant writing, compliance, and database management for a $5 million capital campaign.',
+  },
+];
 
+export function WorkshopLayout({ division }: { division: Division }) {
   return (
     <>
-      {/* Full-bleed hero with shopfront banner */}
-      <section className="relative min-h-[100svh] flex flex-col bg-navy overflow-hidden">
-        <div className="absolute inset-0">
-          <WorkshopBanner className="w-full h-full object-cover opacity-95" />
-        </div>
+      <PageHero
+        kicker={division.name}
+        greek={division.greek}
+        title="A second set of eyes can be useful."
+        status="Developing. Selected inquiries welcome."
+        actions={<Link href="#contact" className="btn-olive-on-dark">Discuss a Project</Link>}
+      >
+        <p>The Workshop provides research, consulting, and practical support for businesses, nonprofit organizations, and individuals working through particular projects or decisions.</p>
+        <p>Our experience is strongest in communications, publishing, economic development, nonprofit operations, and organizational research.</p>
+        <p>We take on selected projects where that background can be useful.</p>
+      </PageHero>
 
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              'linear-gradient(to bottom, rgba(14, 27, 44, 0.55) 0%, rgba(14, 27, 44, 0.18) 30%, rgba(14, 27, 44, 0.1) 50%, rgba(14, 27, 44, 0.78) 100%)',
-          }}
-        />
-
-        {/* Top masthead */}
-        <div className="container-tight relative z-10 pt-32 lg:pt-36 pb-2">
-          <div className="flex justify-between items-start text-bone font-sans text-[10px] uppercase tracking-eyebrow">
-            <Link href="/#divisions" className="hover:text-ochre transition-colors">
-              ← Likoudis Ventures
-            </Link>
-            <span>By Appointment</span>
-            <span className="text-ochre">{division.greek}</span>
-          </div>
-        </div>
-
-        {/* Bottom-anchored content — centered in classical register */}
-        <div className="container-editorial relative z-10 mt-auto pb-20 lg:pb-28">
-          <div className="text-center max-w-3xl mx-auto">
-            <div className="text-olive-glow opacity-80 mb-6 flex justify-center">
-              <OliveBranchMark size={42} />
-            </div>
-            <div className="ornate-divider text-bone/40 my-3" />
-            <h1 className="font-display text-editorial text-bone leading-[0.95] tracking-tight mb-6 lg:mb-7">
-              {division.name}
-            </h1>
-            <p className="font-serif text-xl lg:text-2xl text-bone/90 leading-relaxed italic font-light mb-8">
-              {division.tagline}
-            </p>
-            <div className="ornate-divider text-bone/40 my-3" />
-            <div className="font-sans text-[10px] uppercase tracking-eyebrow text-bone/70 mt-5">
-              Established 2026 · Baltimore
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Lead row */}
-      <section className="ground-bone py-7 lg:py-9 border-b border-navy/10">
+      <section className="ground-bone section">
         <div className="container-editorial">
-          <DivisionLeads leads={division.leads} theme="light" secondaryLast />
+          <SectionHeading
+            title="Areas of work"
+            intro={
+              <p>
+                Websites and practical digital systems are handled by{' '}
+                <a href="https://lickitysplitweb.com/technology-consulting" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">Lickity Split</a>. The Workshop takes on research, communications, planning, and organizational work.
+              </p>
+            }
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+            {areas.map((a) => (
+              <div key={a.name} className="border-t border-navy/15 pt-5">
+                <h3 className="font-display text-2xl text-navy">{a.name}</h3>
+                <p className="font-sans text-[16px] text-navy/80 leading-relaxed mt-3">{a.text}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Long-form prose — single centered column */}
-      <section className="ground-cream py-24 lg:py-32">
-        <div className="container-prose max-w-2xl">
-          <ScrollReveal>
-            <div className="text-center mb-12">
-              <div className="eyebrow-no-rule text-ochre-deep">On the Work</div>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={150}>
-            <div className="prose-editorial text-center">
-              {paragraphs.map((para, i) => {
-                if (i === 0) {
-                  return (
-                    <p key={i} className="text-2xl lg:text-3xl leading-relaxed text-navy first-letter:font-display first-letter:text-ochre first-letter:text-7xl first-letter:font-light first-letter:leading-none first-letter:float-left first-letter:mr-3 first-letter:mt-1">
-                      {para}
-                    </p>
-                  );
-                }
-                return <p key={i} className="text-xl lg:text-2xl">{para}</p>;
-              })}
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal>
-            <div className="ornate-divider text-navy/30 my-20" />
-          </ScrollReveal>
-
-          {/* Offerings — list with traditional bullets (·) */}
-          <ScrollReveal>
-            <div className="text-center mb-10">
-              <div className="eyebrow-no-rule text-ochre-deep mb-3">Among the work</div>
-              <h3 className="font-display text-display-md text-navy">
-                What may be commissioned.
-              </h3>
-            </div>
-          </ScrollReveal>
-
-          <ul className="space-y-5 max-w-xl mx-auto">
-            {division.offerings.map((offering, i) => (
-              <ScrollReveal key={i} as="li" delay={i * 60}>
-                <div className="text-center font-serif text-lg lg:text-xl leading-relaxed text-navy/90">
-                  {offering}
-                </div>
-                {i < division.offerings.length - 1 && (
-                  <div className="text-center text-ochre/40 my-4 text-base">·</div>
-                )}
+      <section className="ground-cream section">
+        <div className="container-editorial">
+          <SectionHeading
+            title="Experience behind the work"
+            intro={
+              <>
+                <p>Andrew&rsquo;s professional background includes a fellowship in economic development at Johns Hopkins University, participation in Goldman Sachs 10,000 Small Businesses, completion of McKinsey&rsquo;s Forward program, and development operations at the Cathedral of Mary Our Queen in Baltimore.</p>
+                <p>His other work includes publishing, editorial leadership, and nonprofit administration.</p>
+                <p>These experiences preceded or exist independently of Likoudis Ventures. They inform the consulting services offered through the Workshop.</p>
+              </>
+            }
+          />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {priorWork.map((w, i) => (
+              <ScrollReveal key={w.title} delay={i * 60}>
+                <article className="bg-bone/70 border border-navy/10 p-6 lg:p-7 h-full">
+                  <p className="font-sans text-[14px] text-olive-deep">{w.year} · {w.where}</p>
+                  <h3 className="font-display text-xl text-navy leading-snug mt-2">{w.title}</h3>
+                  <p className="font-sans text-[15px] text-navy/80 leading-relaxed mt-3">{w.text}</p>
+                  <p className="font-sans text-[14px] text-navy/60 mt-4 pt-4 border-t border-navy/10">Role: {w.role}</p>
+                </article>
               </ScrollReveal>
             ))}
-          </ul>
-
-          <ScrollReveal>
-            <div className="ornate-divider text-navy/30 my-20" />
-          </ScrollReveal>
-
-          {/* Closing flourish */}
-          <ScrollReveal>
-            <div className="text-center">
-              <p className="font-serif italic text-xl text-ochre-deep">
-                Each project begins with a conversation.
-              </p>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Engagement Types — three categories of work, sky ground for separation */}
-      <section className="ground-sky py-24 lg:py-32 border-t border-navy/10">
-        <div className="container-editorial">
-          <ScrollReveal as="div" className="text-center max-w-3xl mx-auto mb-14 lg:mb-20">
-            <div className="catalog-num text-sm mb-3">Engagement Types</div>
-            <div className="eyebrow-no-rule text-ochre-deep mb-5 inline-block">Three Lines of Work</div>
-            <h3 className="font-display text-display-xl text-navy leading-tight">
-              The kinds of <em className="italic text-ochre-deep">work</em> we take on.
-            </h3>
-            <p className="font-serif italic text-lg lg:text-xl text-navy/65 mt-6 leading-relaxed">
-              The Workshop accepts engagements in three formats. Each begins the same way. The shape of the work is set in conversation.
-            </p>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 max-w-6xl mx-auto">
-            <ScrollReveal as="div" delay={0}>
-              <div className="bg-bone p-8 lg:p-10 h-full border-t-[3px] border-t-ochre">
-                <div className="catalog-num text-xs text-ochre-deep mb-4">i.</div>
-                <h4 className="font-display text-2xl lg:text-3xl text-navy leading-tight mb-5">
-                  Strategic Advisory
-                </h4>
-                <p className="font-serif text-base lg:text-lg text-navy/75 leading-relaxed mb-5">
-                  For founders, small-business owners, and nonprofit leaders working through positioning, naming, capital strategy, fundraising design, governance questions, or growth decisions. By the hour or by the project. The advisor brings institutional experience: Johns Hopkins University fellow in economic development; Goldman Sachs 10,000 Small Businesses fellow in marketing development; alum of McKinsey &amp; Company&rsquo;s Forward Program; supported a $5M capital campaign at the Cathedral of Mary Our Queen.
-                </p>
-                <div className="pt-4 border-t border-navy/10">
-                  <div className="font-display text-base text-navy">Andrew Likoudis</div>
-                  <div className="font-sans text-[10px] uppercase tracking-caps text-ochre-deep/70 mt-1">Strategic Advisor</div>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal as="div" delay={100}>
-              <div className="bg-bone p-8 lg:p-10 h-full border-t-[3px] border-t-ochre">
-                <div className="catalog-num text-xs text-ochre-deep mb-4">ii.</div>
-                <h4 className="font-display text-2xl lg:text-3xl text-navy leading-tight mb-5">
-                  Sourcing &amp; Brokerage
-                </h4>
-                <p className="font-serif text-base lg:text-lg text-navy/75 leading-relaxed mb-5">
-                  For clients looking for specific objects. A particular bottle. A hard-to-find book. An antique piece. A gift built around a brief. We make the calls, we vet the seller, we handle the transaction. The work is finished when the object is in the right hands. Discreet, by appointment, fee scoped to the brief.
-                </p>
-                <div className="pt-4 border-t border-navy/10">
-                  <div className="font-display text-base text-navy">Luke Likoudis</div>
-                  <div className="font-sans text-[10px] uppercase tracking-caps text-ochre-deep/70 mt-1">Sourcing Director</div>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal as="div" delay={200}>
-              <div className="bg-bone p-8 lg:p-10 h-full border-t-[3px] border-t-ochre">
-                <div className="catalog-num text-xs text-ochre-deep mb-4">iii.</div>
-                <h4 className="font-display text-2xl lg:text-3xl text-navy leading-tight mb-5">
-                  Bespoke Curation
-                </h4>
-                <p className="font-serif text-base lg:text-lg text-navy/75 leading-relaxed mb-5">
-                  For buyers building a private library, an art collection, a wine cellar, or a curated gift package. Engagements begin with the budget, the brief, and the room or shelf the work will land in. We propose, the client selects, we deliver. Provenance documented. Price agreed up front.
-                </p>
-                <div className="pt-4 border-t border-navy/10">
-                  <div className="font-display text-base text-navy">Jake Likoudis</div>
-                  <div className="font-sans text-[10px] uppercase tracking-caps text-ochre-deep/70 mt-1">Operational Director</div>
-                </div>
-              </div>
-            </ScrollReveal>
           </div>
-        </div>
-      </section>
-
-      {/* How We Work — process flow on cream */}
-      <section className="ground-cream py-24 lg:py-32 border-t border-navy/10">
-        <div className="container-editorial max-w-4xl">
-          <ScrollReveal as="div" className="text-center mb-16 lg:mb-20">
-            <div className="catalog-num text-sm mb-3">How We Work</div>
-            <div className="eyebrow-no-rule text-ochre-deep mb-5 inline-block">By the conversation, not by the form</div>
-            <h3 className="font-display text-display-xl text-navy leading-tight">
-              From first call <em className="italic text-ochre-deep">to delivery</em>.
-            </h3>
-          </ScrollReveal>
-
-          <div className="space-y-10 lg:space-y-12">
-            <ScrollReveal as="div" delay={0}>
-              <div className="grid grid-cols-12 gap-6 lg:gap-8">
-                <div className="col-span-12 lg:col-span-2">
-                  <div className="catalog-num text-2xl lg:text-3xl text-ochre-deep">i.</div>
-                  <div className="font-sans text-[10px] uppercase tracking-tag text-navy/55 mt-1">First Conversation</div>
-                </div>
-                <div className="col-span-12 lg:col-span-10">
-                  <p className="font-serif text-lg lg:text-xl leading-relaxed text-navy/85">
-                    A phone call or a written exchange. We learn what the project is, what the constraint is, what the deadline is. No NDAs at this stage. The first call is on us.
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal as="div" delay={80}>
-              <div className="grid grid-cols-12 gap-6 lg:gap-8">
-                <div className="col-span-12 lg:col-span-2">
-                  <div className="catalog-num text-2xl lg:text-3xl text-ochre-deep">ii.</div>
-                  <div className="font-sans text-[10px] uppercase tracking-tag text-navy/55 mt-1">Scoping</div>
-                </div>
-                <div className="col-span-12 lg:col-span-10">
-                  <p className="font-serif text-lg lg:text-xl leading-relaxed text-navy/85">
-                    We write back with a written scope. What we propose to do. What we propose not to do. The format of the deliverable. The lead Workshop sibling on the engagement.
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal as="div" delay={160}>
-              <div className="grid grid-cols-12 gap-6 lg:gap-8">
-                <div className="col-span-12 lg:col-span-2">
-                  <div className="catalog-num text-2xl lg:text-3xl text-ochre-deep">iii.</div>
-                  <div className="font-sans text-[10px] uppercase tracking-tag text-navy/55 mt-1">Proposal</div>
-                </div>
-                <div className="col-span-12 lg:col-span-10">
-                  <p className="font-serif text-lg lg:text-xl leading-relaxed text-navy/85">
-                    A fixed fee where the work permits, an hourly rate where it does not. Stated up front. Half on kickoff, half on delivery. Rates and terms in writing before any work begins.
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal as="div" delay={240}>
-              <div className="grid grid-cols-12 gap-6 lg:gap-8">
-                <div className="col-span-12 lg:col-span-2">
-                  <div className="catalog-num text-2xl lg:text-3xl text-ochre-deep">iv.</div>
-                  <div className="font-sans text-[10px] uppercase tracking-tag text-navy/55 mt-1">Kickoff</div>
-                </div>
-                <div className="col-span-12 lg:col-span-10">
-                  <p className="font-serif text-lg lg:text-xl leading-relaxed text-navy/85">
-                    Half the fee, signed agreement, calendar set. Weekly or biweekly check-ins, depending on the brief. The client is in the loop throughout.
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal as="div" delay={320}>
-              <div className="grid grid-cols-12 gap-6 lg:gap-8">
-                <div className="col-span-12 lg:col-span-2">
-                  <div className="catalog-num text-2xl lg:text-3xl text-ochre-deep">v.</div>
-                  <div className="font-sans text-[10px] uppercase tracking-tag text-navy/55 mt-1">Delivery</div>
-                </div>
-                <div className="col-span-12 lg:col-span-10">
-                  <p className="font-serif text-lg lg:text-xl leading-relaxed text-navy/85">
-                    The deliverable, the second invoice, a brief debrief. If revisions were scoped, they are honored. If something fell short, we say so and make it right.
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-
-          <ScrollReveal>
-            <p className="font-serif italic text-base text-navy/55 mt-16 text-center max-w-2xl mx-auto leading-relaxed">
-              The Workshop takes on a small number of clients at any given time. We would rather decline than disappoint.
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Prior Engagements — three case studies framed honestly as work that predates
-          the Workshop's 2026 formation. These are institutional experiences that
-          inform the practice, not Workshop client engagements. */}
-      <section className="ground-navy py-24 lg:py-32 border-t border-navy/15">
-        <div className="container-editorial">
-          <ScrollReveal as="div" className="text-center max-w-3xl mx-auto mb-14 lg:mb-20">
-            <div className="catalog-num text-sm mb-3 text-ochre-deep">Prior Engagements</div>
-            <div className="eyebrow-no-rule text-ochre mb-5 inline-block">Institutional Experience</div>
-            <h3 className="font-display text-display-xl text-bone leading-tight">
-              Work that <em className="italic text-ochre">informs</em> the practice.
-            </h3>
-            <p className="font-serif italic text-lg lg:text-xl text-bone/65 mt-6 leading-relaxed">
-              The Workshop is new. The work behind it is not. A few of the engagements that shaped the way we approach a brief.
-            </p>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
-            <ScrollReveal as="div" delay={0}>
-              <article className="bg-navy-deep/60 ring-1 ring-bone/10 p-7 lg:p-8 h-full flex flex-col">
-                <div className="font-sans text-[10px] uppercase tracking-eyebrow text-olive-glow mb-3">
-                  Case I · 2022
-                </div>
-                <h4 className="font-display text-xl lg:text-2xl text-bone leading-tight mb-3">
-                  Procurement Accessibility for a Bloomberg-Backed Workforce Initiative
-                </h4>
-                <div className="font-serif italic text-sm text-bone/55 mb-5">
-                  Johns Hopkins University, in collaboration with Julep Consulting and Bloomberg Philanthropies
-                </div>
-                <p className="font-serif text-[15px] lg:text-base text-bone/80 leading-relaxed mb-5 flex-grow">
-                  Independent research on how university procurement processes could be made more accessible to small businesses, conducted as part of the OneStop initiative. Multi-stakeholder partnership across Hopkins, Goldman Sachs 10KSB, Baltimore City, and Baltimore Corps. Andrew compiled findings in a research workbook and drafted a policy memo with observations and recommendations. The memo opened a presentation to Bloomberg Philanthropies leadership in July 2022.
-                </p>
-                <div className="pt-4 border-t border-bone/15">
-                  <div className="font-sans text-[10px] uppercase tracking-caps text-olive-glow/80">
-                    Role
-                  </div>
-                  <div className="font-serif text-sm text-bone/85 mt-1.5 leading-snug">
-                    Fellow, Economic Development · Johns Hopkins University
-                  </div>
-                </div>
-              </article>
-            </ScrollReveal>
-
-            <ScrollReveal as="div" delay={120}>
-              <article className="bg-navy-deep/60 ring-1 ring-bone/10 p-7 lg:p-8 h-full flex flex-col">
-                <div className="font-sans text-[10px] uppercase tracking-eyebrow text-olive-glow mb-3">
-                  Case II · 2022
-                </div>
-                <h4 className="font-display text-xl lg:text-2xl text-bone leading-tight mb-3">
-                  Federal Contracting Pipeline Support for a Government Contracting Firm
-                </h4>
-                <div className="font-serif italic text-sm text-bone/55 mb-5">
-                  TargetGov, via Goldman Sachs 10,000 Small Businesses
-                </div>
-                <p className="font-serif text-[15px] lg:text-base text-bone/80 leading-relaxed mb-5 flex-grow">
-                  Marketing and business development support for a firm specializing in federal procurement. Andrew expanded the client and contracting databases, conducted procurement research across federal opportunities, and supported pipeline outreach. Tooling included Mailchimp, Salesforce, and Basecamp. The work was scoped and reviewed under the GS 10,000 Small Businesses fellowship structure.
-                </p>
-                <div className="pt-4 border-t border-bone/15">
-                  <div className="font-sans text-[10px] uppercase tracking-caps text-olive-glow/80">
-                    Role
-                  </div>
-                  <div className="font-serif text-sm text-bone/85 mt-1.5 leading-snug">
-                    Fellow, Marketing Development · Goldman Sachs 10,000 Small Businesses
-                  </div>
-                </div>
-              </article>
-            </ScrollReveal>
-
-            <ScrollReveal as="div" delay={240}>
-              <article className="bg-navy-deep/60 ring-1 ring-bone/10 p-7 lg:p-8 h-full flex flex-col">
-                <div className="font-sans text-[10px] uppercase tracking-eyebrow text-olive-glow mb-3">
-                  Case III · 2023
-                </div>
-                <h4 className="font-display text-xl lg:text-2xl text-bone leading-tight mb-3">
-                  Donor Engagement and Operations for a $5M Capital Campaign
-                </h4>
-                <div className="font-serif italic text-sm text-bone/55 mb-5">
-                  Cathedral of Mary Our Queen, Archdiocese of Baltimore
-                </div>
-                <p className="font-serif text-[15px] lg:text-base text-bone/80 leading-relaxed mb-5 flex-grow">
-                  Development and operational support for a $5M capital campaign. Communications, donation tracking, grant writing, compliance, and database management across the campaign lifecycle. Steady-state operational discipline at the scale a parish capital campaign demands, with patron stewardship as the through-line. The Cathedral is the seat of the Archdiocese of Baltimore.
-                </p>
-                <div className="pt-4 border-t border-bone/15">
-                  <div className="font-sans text-[10px] uppercase tracking-caps text-olive-glow/80">
-                    Role
-                  </div>
-                  <div className="font-serif text-sm text-bone/85 mt-1.5 leading-snug">
-                    Development Administrative Assistant · Cathedral of Mary Our Queen
-                  </div>
-                </div>
-              </article>
-            </ScrollReveal>
-          </div>
-
-          <ScrollReveal>
-            <p className="font-serif italic text-base text-bone/55 mt-14 lg:mt-16 text-center max-w-2xl mx-auto leading-relaxed">
-              These engagements were undertaken as a fellow or staff member at the named institutions, prior to the formation of Likoudis Ventures in 2026. They are noted here as institutional experience that informs Strategic Advisory work today.
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Testimonial — Rick Little, Julep Consulting (advisory work) */}
-      <section className="ground-bone py-20 lg:py-28 border-t border-navy/10">
-        <div className="container-editorial max-w-3xl">
-          <ScrollReveal as="div" className="text-center">
-            <div className="text-ochre mb-6 flex justify-center">
-              <OliveBranchMark size={36} />
-            </div>
-            <div className="eyebrow-no-rule text-ochre-deep mb-8 inline-block">From a Past Supervisor</div>
-            <blockquote className="font-display text-2xl lg:text-3xl text-navy leading-relaxed italic font-light">
+          <p className="font-sans text-[14px] text-navy/60 mt-6 max-w-3xl">
+            This work was done as a fellow or staff member at the institutions named, before Likoudis Ventures was formed. They are not clients of Likoudis Ventures.
+          </p>
+          <figure className="mt-12 max-w-3xl border-l-2 border-olive-deep pl-6">
+            <blockquote className="font-serif text-[21px] lg:text-[23px] leading-[1.5] text-navy">
               &ldquo;Andrew was a thoughtful and dependable collaborator. He took initiative, engaged seriously with the work, and consistently delivered quality research and analysis.&rdquo;
             </blockquote>
-            <div className="mt-10 pt-6 border-t border-navy/15 max-w-md mx-auto">
-              <div className="font-display text-lg text-navy">Rick Little</div>
-              <div className="font-serif italic text-sm text-navy/65 mt-1">Principal, Julep Consulting</div>
-            </div>
-          </ScrollReveal>
+            <figcaption className="font-sans text-[15px] text-navy/70 mt-3">Rick Little, Principal, Julep Consulting (a past supervisor)</figcaption>
+          </figure>
         </div>
       </section>
 
-      <InquirySection
-        defaultDivision={division.slug}
-        heading={
-          <>
-            Open a <em className="italic text-ochre-deep">conversation</em>.
-          </>
-        }
-        text="The Workshop accepts a small number of clients at any given time. Tell us briefly what you have in mind. We will respond personally."
-      />
+      <section className="ground-bone section">
+        <div className="container-editorial grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-8">
+            <p className="status-note">A project in development</p>
+            <h2 className="font-display text-display-md text-navy leading-tight mt-3">The Likoudis Collection</h2>
+            <p className="font-sans text-[17px] text-navy/80 leading-relaxed mt-4">
+              We&rsquo;re also exploring a small collection of selected objects, including books, ceramics, decorative pieces, and other items of particular interest.
+            </p>
+            <p className="font-sans text-[17px] text-navy/80 leading-relaxed mt-4">
+              This is a developing project rather than an open retail catalogue. We will share more as specific objects and sourcing arrangements become available.
+            </p>
+          </div>
+          <div className="lg:col-span-4 lg:text-right">
+            <Link href="/collection" className="btn-outline">Explore the Collection</Link>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="ground-cream section scroll-mt-20">
+        <div className="container-editorial grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+          <div className="lg:col-span-5">
+            <h2 className="font-display text-display-lg text-navy leading-tight">Tell us about the project.</h2>
+            <p className="font-sans text-[17px] text-navy/80 leading-relaxed mt-5">
+              A short description of what you need, the relevant background, and your intended timeline is enough to begin. We&rsquo;ll let you know whether the Workshop is a suitable fit.
+            </p>
+            <p className="font-sans text-[15px] text-navy/60 mt-5">There are no fixed consulting rates. Each project is quoted according to its scope.</p>
+          </div>
+          <div className="lg:col-span-7">
+            <InquiryForm defaultTopic="The Workshop" submitLabel="Contact the Workshop" />
+          </div>
+        </div>
+      </section>
     </>
   );
 }

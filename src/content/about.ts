@@ -1,119 +1,105 @@
 /**
- * Content for the /about page.
- * Edit this file to update family bios and house philosophy.
- *
- * On portraits:
- *   - `portrait` is an optional public-path image (e.g., '/andrew-likoudis.jpg').
- *   - When omitted, the page renders an elegant monogram card with the member's
- *     initials in the brand register. Swap in a real photograph by adding the file
- *     to /public and referencing it here.
+ * Content for the /about page (approved copy, Nov 2026 memo).
  */
 
 export interface FamilyMember {
-  /** Stable slug-style id used to cross-reference from divisions.ts */
   id: 'andrew' | 'caroline' | 'elena' | 'luke' | 'jake';
   name: string;
   role: string;
-  divisions: string[];
   bio: string;
   portrait?: string;
-  /** Where to anchor the portrait crop. Default 'top' to keep heads whole. */
-  portraitFocus?: 'top' | 'center';
-  /** Optional personal/professional site for this member */
-  siteUrl?: string;
-  /** Display label for the site link (e.g., 'brushandsoulstudio.com') */
-  siteLabel?: string;
-  /** Sort order on the family grid */
+  /** CSS object-position for the portrait crop, so faces sit in the same place. */
+  portraitPosition?: string;
+  links?: Array<{ label: string; href: string }>;
   order: number;
 }
 
 export const about = {
   hero: {
-    eyebrow: 'About the House',
-    title: 'A family business, plainly stated.',
-    titleEmphasis: 'plainly stated',
-    lede: 'Likoudis Ventures is the working life of five siblings. The business is based in Baltimore. The work happens wherever each of us is, usually somewhere along the East Coast.',
-  },
-
-  origin: {
-    heading: 'From Kefalonia, by way of upstate New York.',
+    title: 'A family with a few different interests.',
     body: [
-      'The Likoudis family came from Kefalonia, the largest of the Ionian islands. Three generations ago, the family crossed and settled in upstate New York near Ithaca, a city named after its Greek counterpart in the Ionian islands.',
-      'The same family still has kin tending olive groves above a fishing village called Kioni on the island of Ithaca. A guesthouse with our family name still stands there, on a hill above the harbor.',
-      'What our kin do on the Greek island, Ithaca House does here. The olive branch on our mark carries five olives, one for each division of the house. The names are in Greek because that is what we came from. The work is here because this is where the family built a life. Ithaca House, the workshop, the studio, the easel, and a pantry from the Ionian islands and the Finger Lakes.',
+      'The Likoudis name has its roots in the Ionian Islands of Greece. Later generations made their home in upstate New York, and our own work has since taken us in several directions.',
+      'Likoudis Ventures is where some of those interests and businesses come together.',
     ],
   },
 
-  philosophy: {
-    heading: 'How we work.',
+  heritage: {
+    heading: 'From Kefalonia to the Finger Lakes',
     body: [
-      'Five divisions, one standard. Build the thing well and sign your name to it. That is the whole rule.',
+      "Our family's roots are in Kefalonia, one of the Ionian islands of Greece. Later generations settled in upstate New York, in the Finger Lakes region, where we grew up.",
+      'The Likoudis name can still be found in the Ionian Islands, including on neighboring Ithaka. Those connections to place and history are part of why Greece continues to figure in our interests, from travel and hospitality to art and food.',
+      'Today our work is based principally in the United States, although the family has taken its interests and professions in different directions.',
     ],
   },
 
   family: {
-    heading: 'The five of us.',
-    intro: 'The board is the family. Each sibling leads the division where their work and judgment live, and supports another where their second skill belongs.',
+    heading: 'The people involved',
+    intro:
+      'Five of us are associated with Likoudis Ventures, although not all in the same way. Some develop and operate its projects, while others have independent practices that we feature or work alongside.',
     members: [
       {
         id: 'andrew',
         name: 'Andrew Likoudis',
-        role: 'Founder · Operational Director, The Studio · Strategic Advisor, The Workshop · Experience Curator, Ithaca House',
-        divisions: ['The Studio', 'The Workshop', 'Ithaca House', 'The Branch'],
-        bio: 'Andrew runs operations on The Studio with Elena leading design. At The Workshop, he leads the Strategic Advisory line of work, drawing on a Johns Hopkins University fellowship in economic development, a Goldman Sachs 10,000 Small Businesses fellowship in marketing development, and the McKinsey & Company Forward Program. At Ithaca House, where Caroline leads hospitality, he curates the experiences side: Greek dinners in the house, market runs, basilica visits with breakfast to follow, museum routing, harbor sailing arrangements, and pre-arrival reading lists for guests on long stays. He also writes The Branch, the monthly letter from the family. A graduate of Towson University and Franciscan University of Steubenville. Separately, he runs the Likoudis Legacy Foundation, a Catholic research institute named for his late grandfather, where he edits The Kydones Review.',
-        portrait: '/andrew-likoudis.jpg',
-        siteLabel: 'andrewlikoudis.com',
-        siteUrl: 'https://andrewlikoudis.com',
+        role: 'Founder, Likoudis Ventures',
+        bio: "Andrew's work includes hospitality, web design, writing, publishing, and consulting. He has hosted guests in Baltimore since 2017 and operates Lickity Split Web Design, building websites for authors, businesses, and organizations. His professional experience includes economic development, nonprofit operations, communications, and editorial work. He oversees the development of Likoudis Ventures and its existing projects.",
+        portrait: '/andrew-likoudis.webp',
+        portraitPosition: '50% 20%',
+        links: [
+          { label: 'andrewlikoudis.com', href: 'https://andrewlikoudis.com' },
+          { label: 'lickitysplitweb.com', href: 'https://lickitysplitweb.com' },
+        ],
         order: 1,
       },
       {
         id: 'caroline',
         name: 'Caroline Likoudis',
-        role: 'Director of Hospitality, Ithaca House · Lead Artist, Brush & Soul Studio',
-        divisions: ['Ithaca House', 'The Easel'],
-        bio: 'Caroline leads hospitality at Ithaca House. A decade of travel and life abroad sits behind that work — she has lived in four countries (Chile, Iran, Turkey, and Jordan) and traveled to over a dozen more, including Greece, Egypt, Thailand, and England. She is now expanding the family\'s hospitality work into Morocco, where the family is opening a second-home property. She runs Brush & Soul Studio, one of two artist studios under The Easel, and paints in oil and watercolor. Her work hangs in several of the Ithaca House properties, where guests find original paintings rather than print reproductions. On Easel, she coordinates the artist-row alongside Elena. She handles the welcome side of the hospitality work — the notes left in each property, the local-recommendations sheets, the day-of arrival check. She is married with two boys. She works from Baltimore. She studied fashion design at the Fashion Institute of Technology.',
+        role: 'Hospitality and Art',
+        bio: 'Caroline works in hospitality and painting. Her Baltimore accommodations reflect her interest in travel, welcoming spaces, and the visual arts. Through Brush & Soul Studio, she creates original works in oil and watercolor. Her independently operated work is featured through Ithaca House and the Easel.',
         portrait: '/caroline-likoudis.jpg',
-        siteLabel: 'brushandsoulstudio.com',
-        siteUrl: 'https://www.brushandsoulstudio.com',
+        portraitPosition: '50% 18%',
+        links: [{ label: 'brushandsoulstudio.com', href: 'https://brushandsoulstudio.com' }],
         order: 2,
       },
       {
         id: 'elena',
         name: 'Elena Likoudis',
-        role: 'Creative Director, The Easel · Lead Designer, The Studio',
-        divisions: ['The Easel', 'The Studio'],
-        bio: 'Elena leads creative on The Easel and runs Elena Likoudis Art, one of two artist studios under that division. She paints in oil, drawn to bold color and pieces that feel alive — portraits, moments, ideas full of emotion and movement. Her painting practice runs alongside her professional work as a senior user-experience designer; she keeps her own design studio at elenalikoudisdesign.com. She also serves as Lead Designer at The Studio, where her practical UX work informs the bespoke, higher-end client engagements. She has one son. She studied at Syracuse University. She works from Pittsburgh.',
+        role: 'Art and UX Design',
+        bio: 'Elena is a designer and artist whose professional work includes user experience, digital products, and visual design. She also creates original paintings, portraits, and commissioned artwork through her independent artistic practice. Her work is featured through the Studio and the Easel.',
         portrait: '/elena-likoudis.webp',
-        siteLabel: 'elenalikoudisart.com',
-        siteUrl: 'https://elenalikoudisart.com',
+        portraitPosition: '50% 30%',
+        links: [
+          { label: 'elenalikoudisdesign.com', href: 'https://www.elenalikoudisdesign.com' },
+          { label: 'elenalikoudisart.com', href: 'https://elenalikoudisart.com' },
+        ],
         order: 3,
       },
       {
         id: 'jake',
         name: 'Jake Likoudis',
-        role: 'Operational Director, The Workshop · Sourcing Director, The Table',
-        divisions: ['The Workshop', 'The Table'],
-        bio: 'Jake leads operations at The Workshop and handles sourcing for The Table. Operations Specialist 3rd Class Petty Officer in the United States Coast Guard, currently stationed in Michigan. The operational side of his Workshop role draws on the Coast Guard discipline of running logistics under variable conditions. For The Table, he sources from upper Midwest producers and from family contacts in the Finger Lakes country where the family was raised. He attended Franciscan University of Steubenville, where he played lacrosse.',
+        role: 'Developing Projects',
+        bio: 'Jake is involved in developing projects associated with Likoudis Ventures, with interests in operations, sourcing, and graphic design. His experience in the United States Coast Guard provides a professional background in coordination and operational work. His design interests may also contribute to future Studio projects.',
         portrait: '/jake-likoudis.webp',
-        order: 5,
+        portraitPosition: '50% 20%',
+        order: 4,
       },
       {
         id: 'luke',
         name: 'Luke Likoudis',
-        role: 'Operational Director, The Table · Sourcing Director, The Workshop',
-        divisions: ['The Table', 'The Workshop'],
-        bio: 'Luke leads operations at The Table and handles sourcing for The Workshop. Operations Specialist 3rd Class Petty Officer in the United States Coast Guard, currently stationed in Massachusetts. He runs the day-to-day logistics of the pantry line — orders, fulfillment, packaging standards, the labels — and coordinates the wine-side relationships in the Finger Lakes country. For The Workshop, he sources requested objects through New England networks and through the family channels back to Greece. He attended Franciscan University of Steubenville, where he played lacrosse.',
+        role: 'Developing Projects',
+        bio: 'Luke is involved in developing the Workshop and Table projects, including prospective sourcing and operations. He also serves in the United States Coast Guard. The Table remains in development while the family’s ideas for its eventual product offerings are refined.',
         portrait: '/luke-likoudis.webp',
-        order: 4,
+        portraitPosition: '50% 20%',
+        order: 5,
       },
     ] satisfies FamilyMember[],
   },
+
+  closing: {
+    heading: 'Where the work stands',
+    body: "Some of the ventures featured here have established clients, guests, and completed work. Others are new projects. We want the website to reflect both, giving people a way to see what we're doing now and what we're preparing for the future.",
+  },
 };
 
-/**
- * Look up a family member by their stable id.
- * Used by division pages to render lead photo + name rows.
- */
 export function getFamilyMember(id: FamilyMember['id']): FamilyMember | undefined {
   return about.family.members.find((m) => m.id === id);
 }

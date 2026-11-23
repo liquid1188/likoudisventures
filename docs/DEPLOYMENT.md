@@ -23,6 +23,7 @@ Set these in your deployment platform (Vercel, etc.):
 ```
 RESEND_API_KEY=re_xxxxxxxxxxxx
 RESEND_AUDIENCE_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+RESEND_TABLE_AUDIENCE_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 RESEND_FROM_EMAIL=hello@likoudisventures.com
 INQUIRY_TO_EMAIL=hello@likoudisventures.com
 ADMIN_PASSWORD=<choose-a-strong-password>
@@ -30,8 +31,9 @@ NEXT_PUBLIC_SITE_URL=https://likoudisventures.com
 ```
 
 The site will build and run without these set, but:
-- Inquiry form submissions will only log to console (not actually email you)
-- Newsletter signups will only log to console (not actually subscribe to Resend Audiences)
+- The contact forms show a "can't send right now" message and point people to the email address
+- Newsletter and Table signups show the same kind of message instead of subscribing
+- Nothing personal is written to the logs
 - The admin compose page will refuse to send
 
 ## Option 1: Deploy to Vercel (recommended)

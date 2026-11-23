@@ -8,7 +8,7 @@ The mark is implemented in `src/components/brand/OliveBranchMark.tsx`. It uses `
 
 **Do:**
 - Use the mark with the wordmark in the nav and footer
-- Use it as a quiet anchor for emphasis sections (philosophy band, passage band)
+- Use it as a quiet anchor for emphasis sections (hero sections and the closing contact band)
 - Keep the olive count synced with the division count
 
 **Don't:**

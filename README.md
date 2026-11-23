@@ -1,6 +1,6 @@
 # Likoudis Ventures
 
-A family-held house of considered enterprises. Baltimore, with roots in Kefalonia.
+Likoudis Ventures brings together the family's work in hospitality, design, art, and consulting. Based in Baltimore, with roots in Kefalonia and the Finger Lakes.
 
 This is the marketing and brand site for Likoudis Ventures, the public-facing DBA of Likoudis Legacy LLC. Distinct from the Likoudis Legacy Foundation.
 
@@ -35,7 +35,7 @@ src/
 ├── components/
 │   ├── brand/              # Olive branch mark, wordmark, Greek subtitles
 │   ├── layout/             # Nav, footer, top rule
-│   ├── sections/           # Hero, division grid, philosophy band, etc.
+│   ├── sections/           # Home page sections, ventures list, family story
 │   ├── forms/              # Inquiry, newsletter signup
 │   └── ui/                 # Buttons, eyebrows, status tags
 ├── content/                # All site copy (divisions, about, site config)

@@ -63,7 +63,10 @@ export async function sendNewsletter({ subject, body }: SendNewsletterArgs): Pro
     }
 
     // Send immediately
-    await resend.broadcasts.send(broadcast.data.id);
+    const sent = await resend.broadcasts.send(broadcast.data.id);
+    if (sent.error) {
+      return { ok: false, message: 'The broadcast was created but could not be sent. Please try again from Resend.' };
+    }
 
     return {
       ok: true,

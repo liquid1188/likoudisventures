@@ -1,572 +1,175 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import type { Division } from '@/content/divisions';
+import { projects } from '@/content/work';
+import { listings } from '@/content/listings';
+import { PageHero, SectionHeading } from '@/components/sections/PageHero';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
-import { OliveBranchMark } from '@/components/brand/OliveBranchMark';
-import { StudioBanner } from '@/components/brand/StudioBanner';
-import { DivisionLeads } from '@/components/sections/DivisionLeads';
-import { InquirySection } from '@/components/sections/InquirySection';
 
-interface LayoutProps {
-  division: Division;
-}
+const services = [
+  {
+    name: 'Websites & Digital Design',
+    text: 'Websites for individuals, businesses, authors, and organizations. From straightforward professional sites to larger projects involving archives, catalogs, publication systems, and custom functionality.',
+  },
+  {
+    name: 'UX & Product Design',
+    text: "Research, interface design, prototyping, and the organization of digital products. Elena's independent design practice provides specialist experience in this area.",
+  },
+  {
+    name: 'Writing & Content',
+    text: 'Website copy, editing, ghostwriting, newsletters, publication design, and written materials for businesses and organizations.',
+  },
+  {
+    name: 'Photography & Graphic Design',
+    text: 'Photography for websites, properties, products, and editorial use, alongside visual identities, promotional graphics, and print or digital design.',
+  },
+  {
+    name: 'Interiors & Styling',
+    text: 'Furniture selection, room layouts, artwork placement, and practical styling for small homes, short-term rentals, and commercial spaces.',
+    note: 'This is about interior presentation and decoration, not architectural design, engineering, structural alterations, or licensed construction services.',
+    link: { href: '/divisions/ithaca-house', label: 'See the Ithaca House rooms' },
+  },
+];
 
-/**
- * The Studio — editorial blog/magazine register.
- * Full-bleed banner hero (editor's desk illustration), then two-column
- * marginalia layout, ornamental rules, generous prose.
- */
-export function StudioLayout({ division }: LayoutProps) {
-  const paragraphs = division.longDescription.split('\n\n');
+/** Current prices from lickitysplitweb.com/pricing, checked November 23, 2026. */
+const pricing = [
+  { name: 'Starter Site', price: '$300–$500', text: 'A single page or a few basic pages for a professional online presence.' },
+  { name: 'Custom Website', price: '$500–$1,200', text: "A more complete website designed around the client's work. Most projects fall in this range." },
+  { name: 'Full Build', price: '$1,200–$2,500', text: 'Larger websites with archives, catalogs, event systems, online stores, or other specialized functionality.' },
+];
 
+export function StudioLayout({ division }: { division: Division }) {
+  const rooms = [listings[0], listings[2]];
   return (
     <>
-      {/* Full-bleed hero with editor's-desk banner */}
-      <section className="relative min-h-[100svh] flex flex-col bg-navy overflow-hidden">
-        {/* Banner background */}
-        <div className="absolute inset-0">
-          <StudioBanner className="w-full h-full object-cover opacity-95" />
-        </div>
-
-        {/* Gradient overlay for text legibility */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              'linear-gradient(to bottom, rgba(14, 27, 44, 0.55) 0%, rgba(14, 27, 44, 0.15) 30%, rgba(14, 27, 44, 0.1) 50%, rgba(14, 27, 44, 0.78) 100%)',
-          }}
-        />
-
-        {/* Top masthead */}
-        <div className="container-tight relative z-10 pt-32 lg:pt-36 pb-2">
-          <div className="flex justify-between items-start text-bone font-sans text-[10px] uppercase tracking-eyebrow">
-            <Link href="/#divisions" className="hover:text-ochre transition-colors">
-              ← Likoudis Ventures
-            </Link>
-            <span>The Studio</span>
-            <span className="text-ochre">{division.greek}</span>
-          </div>
-        </div>
-
-        {/* Bottom-anchored content */}
-        <div className="container-editorial relative z-10 mt-auto pb-20 lg:pb-28">
-          <div className="max-w-3xl">
-            <div className="text-olive-glow opacity-80 mb-6 inline-block">
-              <OliveBranchMark size={36} />
-            </div>
-            <div className="font-serif italic text-ochre text-lg lg:text-xl mb-3">
-              {division.greek} · Web Design &amp; Creative Services
-            </div>
-            <h1 className="font-display text-editorial text-bone leading-[0.95] tracking-tight mb-7">
-              {division.name}
-            </h1>
-            <p className="font-serif text-2xl lg:text-3xl text-bone/90 leading-tight italic font-light max-w-3xl">
-              Websites, digital design, photography, branding, and content for businesses and individuals.
-            </p>
-            <div className="mt-8">
-              <span
-                className={
-                  division.status === 'active'
-                    ? 'inline-block font-sans text-[9px] uppercase tracking-tag px-2.5 py-1 bg-olive text-bone'
-                    : 'inline-block font-sans text-[9px] uppercase tracking-tag px-2.5 py-1 bg-ochre text-bone'
-                }
-              >
-                {division.status === 'active' ? 'Active' : 'Forthcoming'}
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Lead row */}
-      <section className="ground-bone py-7 lg:py-9 border-b border-navy/10">
-        <div className="container-editorial">
-          <DivisionLeads leads={division.leads} theme="light" />
-        </div>
-      </section>
-
-      {/* Long-form prose section — editorial register */}
-      <section className="ground-bone py-24 lg:py-32">
-        <div className="container-editorial">
-          <div className="grid grid-cols-12 gap-6 lg:gap-12">
-            {/* Marginalia column */}
-            <ScrollReveal as="div" className="col-span-12 lg:col-span-3 lg:pt-4">
-              <div className="eyebrow-no-rule text-ochre-deep mb-4">About the Studio</div>
-              <p className="marginalia hidden lg:block">
-                Led by Andrew Likoudis and Elena Likoudis.
-              </p>
-            </ScrollReveal>
-
-            {/* Prose */}
-            <ScrollReveal as="div" delay={150} className="col-span-12 lg:col-span-7 lg:col-start-5">
-              <div className="prose-editorial">
-                {paragraphs.map((para, i) => {
-                  if (i === 0) {
-                    const firstChar = para.charAt(0);
-                    const rest = para.slice(1);
-                    return (
-                      <p key={i}>
-                        <span className="font-display text-7xl lg:text-8xl text-ochre float-left mr-3 mt-1 leading-[0.85] font-light">
-                          {firstChar}
-                        </span>
-                        {rest}
-                      </p>
-                    );
-                  }
-                  return <p key={i}>{para}</p>;
-                })}
-              </div>
-            </ScrollReveal>
-          </div>
-
-          <div className="ornate-divider text-navy/30 my-20" />
-
-          {/* Offerings — numbered list, magazine feel */}
-          <div className="grid grid-cols-12 gap-6 lg:gap-12">
-            <ScrollReveal as="div" className="col-span-12 lg:col-span-3">
-              <div className="eyebrow-no-rule text-ochre-deep mb-4">Services</div>
-              <h3 className="font-display text-display-md text-navy">
-                What we offer.
-              </h3>
-            </ScrollReveal>
-            <div className="col-span-12 lg:col-span-7 lg:col-start-5">
-              <ul className="divide-y divide-navy/15">
-                {division.offerings.map((offering, i) => (
-                  <ScrollReveal key={i} as="li" delay={i * 60} className="py-5 lg:py-6">
-                    <span className="font-serif text-lg lg:text-xl leading-relaxed text-navy/90">
-                      {offering}
-                    </span>
-                  </ScrollReveal>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* § II.5 — Two practices, side-by-side. Mirrors the Easel page's
-          "Original art, from two studios" pattern. Typographic only for now —
-          logo files come later, when Andrew has them in hand. */}
-      <section className="ground-bone py-16 lg:py-20 border-t border-navy/10">
-        <div className="container-editorial">
-          <ScrollReveal as="div" className="text-center mb-10 lg:mb-12">
-            <h2 className="font-display text-display-md text-navy max-w-3xl mx-auto leading-tight">
-              Two Design <em className="italic text-ochre-deep">Practices</em>
-            </h2>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-3xl mx-auto">
-            <ScrollReveal delay={0}>
-              <PracticeCard
-                designer="Andrew Likoudis"
-                practiceName="Lickity Split Web Design"
-                tagline="Andrew Likoudis"
-                description="Lickity Split builds affordable, custom websites for small businesses and independent professionals. Projects are priced by scope, with a written estimate, clear deliverables, and turnaround times agreed before work begins. Sites are developed with responsive layouts, search-engine fundamentals, and straightforward navigation. Clients own their completed website files and are not required to maintain a subscription to a proprietary website builder."
-                shape="Clear Pricing | Fast Turnaround | Client-Owned Websites"
-                href="https://lickitysplitweb.com"
-                hrefLabel="Visit Lickity Split"
-              />
-            </ScrollReveal>
-
-            <ScrollReveal delay={150}>
-              <PracticeCard
-                designer="Elena Likoudis"
-                practiceName="Elena Likoudis Design"
-                tagline="Elena Likoudis"
-                description="Elena specializes in user-experience design, digital products, and design systems. Her work includes research, interface design, prototyping, and the development of consistent visual and functional systems across digital products. She works with clients whose projects require more extensive planning, research, or customization. Her portfolio and case studies are available through her independent design practice."
-                shape="UX Design | Product Design | Design Systems"
-                href="https://elenalikoudisdesign.com"
-                hrefLabel="Visit Elena Likoudis Design"
-              />
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* § III — Lickity Split packages (real prices, from lickitysplitweb.com/pricing) */}
-      <section className="ground-cream py-24 lg:py-32 border-t border-navy/10">
-        <div className="container-editorial">
-          <div className="grid grid-cols-12 gap-6 lg:gap-12 mb-12 lg:mb-16">
-            <ScrollReveal as="div" className="col-span-12 lg:col-span-3">
-              <div className="eyebrow-no-rule text-ochre-deep mb-4">Lickity Split</div>
-              <h3 className="font-display text-display-md text-navy leading-[1.05]">
-                Website<br/>Packages
-              </h3>
-            </ScrollReveal>
-            <ScrollReveal as="div" delay={150} className="col-span-12 lg:col-span-7 lg:col-start-5">
-              <p className="font-serif text-lg lg:text-xl leading-relaxed text-navy/85">
-                Most sites land between $500 and $1,000. Starter sites from $200, and larger builds run $1,000 to $2,500.
-              </p>
-              <a
-                href="https://lickitysplitweb.com/pricing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mt-6 font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep hover:text-ochre transition-colors"
-              >
-                Visit Lickity Split →
-              </a>
-            </ScrollReveal>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
-            {PACKAGES.map((pkg, i) => (
-              <ScrollReveal key={pkg.name} as="div" delay={i * 80}>
-                <PackageCard {...pkg} />
-              </ScrollReveal>
-            ))}
-          </div>
-
-          <p className="font-serif italic text-sm text-navy/65 mt-8 lg:mt-10 text-center max-w-2xl mx-auto leading-relaxed">
-            Every custom or full build starts with a free call and an estimate you agree to. The $500 to get started counts toward your total.
-          </p>
-        </div>
-      </section>
-
-      {/* Endorsements, verbatim from lickitysplitweb.com */}
-      <section className="ground-bone py-24 lg:py-32 border-t border-navy/10">
-        <div className="container-editorial">
-          <ScrollReveal as="div" className="text-center mb-12 lg:mb-16">
-            <div className="eyebrow-no-rule text-ochre-deep mb-4">Lickity Split Clients</div>
-            <h3 className="font-display text-display-md text-navy leading-tight">
-              In Their <em className="italic text-ochre-deep">Words</em>
-            </h3>
-          </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {ENDORSEMENTS.map((t, i) => (
-              <ScrollReveal key={t.name} as="div" delay={i * 80}>
-                <figure className="bg-cream border-t-[3px] border-t-ochre p-6 lg:p-8 h-full flex flex-col">
-                  <blockquote className="font-serif text-base lg:text-lg text-navy/85 leading-relaxed italic flex-1">
-                    &ldquo;{t.quote}&rdquo;
-                  </blockquote>
-                  <figcaption className="mt-6 pt-4 border-t border-navy/10">
-                    <div className="font-display text-lg text-navy">{t.name}</div>
-                    <div className="font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep mt-1">{t.role}</div>
-                  </figcaption>
-                </figure>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* § III.5 — Elena Likoudis Design (the Studio's bespoke / systems line) */}
-      <section className="ground-bone py-24 lg:py-32 border-t border-navy/10">
-        <div className="container-editorial">
-          <div className="grid grid-cols-12 gap-6 lg:gap-12">
-            <ScrollReveal as="div" className="col-span-12 lg:col-span-3">
-              <div className="eyebrow-no-rule text-ochre-deep mb-4">Elena Likoudis Design</div>
-              <h3 className="font-display text-display-md text-navy leading-[1.05]">
-                Systems<br/>and UX.
-              </h3>
-            </ScrollReveal>
-            <ScrollReveal as="div" delay={150} className="col-span-12 lg:col-span-7 lg:col-start-5">
-              <p className="font-serif text-lg lg:text-xl leading-relaxed text-navy/85">
-                Elena keeps her own design studio at elenalikoudisdesign.com. Product design, design systems, and end-to-end user experience. She approaches design through empathy, research, and collaboration, building structure that is intuitive, consistent, and made for real-world use. Her case studies live there.
-              </p>
-              <p className="font-serif italic text-sm text-navy/65 mt-5 leading-relaxed">
-                Elena leads design at The Studio. Lickity Split is Andrew&rsquo;s line for small businesses; Elena&rsquo;s practice is the systems and bespoke side, drawn on for higher-end engagements.
-              </p>
-              <a
-                href="https://www.elenalikoudisdesign.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mt-6 font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep hover:text-ochre transition-colors"
-              >
-                Visit Elena Likoudis Design →
-              </a>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* § IV — Recent Work */}
-      <section className="ground-bone py-24 lg:py-32 border-t border-navy/10">
-        <div className="container-editorial">
-          <div className="grid grid-cols-12 gap-6 lg:gap-12 mb-12 lg:mb-16">
-            <ScrollReveal as="div" className="col-span-12 lg:col-span-3">
-              <div className="eyebrow-no-rule text-ochre-deep mb-4">Recent Work</div>
-              <h3 className="font-display text-display-md text-navy leading-[1.05]">
-                Selected Website<br/>Projects
-              </h3>
-            </ScrollReveal>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            {/* Frank La Rocca */}
-            <ScrollReveal as="div" delay={0}>
-              <a
-                href="https://www.franklarocca.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block bg-cream border border-navy/15 p-6 lg:p-7 h-full hover:border-ochre transition-colors group"
-              >
-                <div className="catalog-num text-xs text-ochre-deep mb-2">Composer | Sacred Music</div>
-                <h4 className="font-display text-2xl text-navy mb-3 group-hover:text-ochre-deep transition-colors">Frank La Rocca</h4>
-                <p className="font-serif text-sm text-navy/85 leading-relaxed mb-5">
-                  A website for a composer of sacred and concert music, featuring his works, recordings, and news.
-                </p>
-                <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/65 group-hover:text-ochre-deep transition-colors">
-                  View live site →
-                </div>
-              </a>
-            </ScrollReveal>
-
-            {/* Likoudis Legacy Foundation */}
-            <ScrollReveal as="div" delay={120}>
-              <a
-                href="https://likoudislegacy.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block bg-cream border border-navy/15 p-6 lg:p-7 h-full hover:border-ochre transition-colors group"
-              >
-                <div className="catalog-num text-xs text-ochre-deep mb-2">Nonprofit | Baltimore</div>
-                <h4 className="font-display text-2xl text-navy mb-3 group-hover:text-ochre-deep transition-colors">Likoudis Legacy Foundation</h4>
-                <p className="font-serif text-sm text-navy/85 leading-relaxed mb-5">
-                  A website for a Catholic nonprofit, featuring its programs, publications, events, and opportunities for supporters to contribute.
-                </p>
-                <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/65 group-hover:text-ochre-deep transition-colors">
-                  View live site →
-                </div>
-              </a>
-            </ScrollReveal>
-
-            {/* AndrewLikoudis.com */}
-            <ScrollReveal as="div" delay={240}>
-              <a
-                href="https://andrewlikoudis.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block bg-cream border border-navy/15 p-6 lg:p-7 h-full hover:border-ochre transition-colors group"
-              >
-                <div className="catalog-num text-xs text-ochre-deep mb-2">Author &amp; Personal Website</div>
-                <h4 className="font-display text-2xl text-navy mb-3 group-hover:text-ochre-deep transition-colors">AndrewLikoudis.com</h4>
-                <p className="font-serif text-sm text-navy/85 leading-relaxed mb-5">
-                  An editorial-style portfolio bringing together publications, speaking engagements, media appearances, and professional information.
-                </p>
-                <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/65 group-hover:text-ochre-deep transition-colors">
-                  View live site →
-                </div>
-              </a>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Inquiry */}
-      <InquirySection
-        defaultDivision={division.slug}
-        heading={
+      <PageHero
+        kicker={division.name}
+        greek={division.greek}
+        title="Design, words, and the spaces between."
+        image={{ src: '/work/dcsocial.webp', alt: 'The DC Social Collective website, built by Lickity Split', width: 1280, height: 853, position: 'top' }}
+        actions={
           <>
-            Start a <em className="italic text-ochre-deep">Project</em>
+            <Link href="#work" className="btn-olive-on-dark">See Our Work</Link>
+            <Link href="/contact?topic=The%20Studio" className="btn-ghost-bone">Discuss a Project</Link>
           </>
         }
-        text="Whether you need a straightforward business website, a more extensive digital project, or assistance with your brand and content, we’d be happy to discuss what you’re planning. Tell us about the project, your timeline, and any particular requirements. We’ll help you determine which services are appropriate."
-      />
+      >
+        <p>The Studio brings together web design, user-experience design, writing, photography, graphic design, and selected interior projects.</p>
+        <p>Some of this work happens through our individual businesses. Other projects benefit from bringing several disciplines together.</p>
+      </PageHero>
+
+      <section className="ground-bone section">
+        <div className="container-editorial">
+          <SectionHeading title="What the Studio does" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
+            {services.map((s) => (
+              <div key={s.name} className="border-t border-navy/15 pt-5">
+                <h3 className="font-display text-2xl text-navy leading-snug">{s.name}</h3>
+                <p className="font-sans text-[16px] text-navy/80 leading-relaxed mt-3">{s.text}</p>
+                {s.note && <p className="font-sans text-[14px] text-navy/60 leading-relaxed mt-3">{s.note}</p>}
+                {s.link && (
+                  <Link href={s.link.href} className="text-link mt-3">{s.link.label} <span aria-hidden>→</span></Link>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="ground-cream section">
+        <div className="container-editorial grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          <div className="lg:col-span-6">
+            <h2 className="font-display text-display-lg text-navy leading-tight mb-6">Lickity Split Web Design</h2>
+            <div className="prose-body text-navy/85">
+              <p>Lickity Split builds custom websites for authors, artists, small businesses, nonprofits, and other clients whose work deserves a clear and attractive online presentation.</p>
+              <p>Projects range from simple starter sites to larger websites with archives, publications, events, and other specialized features.</p>
+              <p>The work is handled directly by Andrew Likoudis, including design, development, and assistance with the written content.</p>
+            </div>
+            <a href="https://lickitysplitweb.com/" target="_blank" rel="noopener noreferrer" className="btn-primary mt-8">Visit Lickity Split</a>
+          </div>
+          <div className="lg:col-span-6">
+            <ul className="divide-y divide-navy/10 border-y border-navy/10">
+              {pricing.map((p) => (
+                <li key={p.name} className="py-5 grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-x-6 gap-y-1">
+                  <h3 className="font-display text-xl text-navy">{p.name}</h3>
+                  <p className="font-display text-xl text-olive-deep sm:text-right">{p.price}</p>
+                  <p className="sm:col-span-2 font-sans text-[15px] text-navy/75">{p.text}</p>
+                </li>
+              ))}
+            </ul>
+            <a href="https://lickitysplitweb.com/pricing" target="_blank" rel="noopener noreferrer" className="text-link mt-5">
+              See Full Pricing and Services <span aria-hidden>↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" className="ground-bone section scroll-mt-20">
+        <div className="container-editorial">
+          <SectionHeading title="Recent websites" intro={<p>Completed projects from Lickity Split Web Design.</p>} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-7 gap-y-12">
+            {projects.map((p, i) => (
+              <ScrollReveal key={p.slug} delay={(i % 3) * 60}>
+                <a href={p.url} target="_blank" rel="noopener noreferrer" className="group block">
+                  <div className="media-frame aspect-[3/2] border border-navy/10">
+                    <Image src={p.image} alt={`The ${p.name} website`} fill sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="object-cover object-top" />
+                  </div>
+                  <p className="font-sans text-[14px] text-olive-deep mt-4">{p.kind}</p>
+                  <h3 className="font-display text-xl text-navy mt-1 group-hover:text-olive-deep transition-colors">{p.name}</h3>
+                  <p className="font-sans text-[15px] text-navy/75 mt-2 leading-relaxed">{p.description}</p>
+                  <p className="font-sans text-[14px] font-medium text-olive-deep mt-3">Visit the website ↗</p>
+                </a>
+                <a href={p.caseUrl} target="_blank" rel="noopener noreferrer" className="inline-block font-sans text-[14px] text-navy/60 underline underline-offset-2 mt-1">
+                  Read the project notes
+                </a>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="ground-navy section">
+        <div className="container-editorial grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          <div className="lg:col-span-7">
+            <h2 className="font-display text-display-lg text-bone leading-tight mb-6">Design by Elena Likoudis</h2>
+            <p className="font-sans text-[17px] lg:text-lg text-bone/85 leading-relaxed">
+              Elena works in user-experience and product design, including interface research, prototyping, and design systems. Her independent practice handles projects requiring more extensive digital-product work.
+            </p>
+            <a href="https://www.elenalikoudisdesign.com/" target="_blank" rel="noopener noreferrer" className="btn-olive-on-dark mt-8">Explore Elena&rsquo;s Design Work</a>
+          </div>
+          <div className="lg:col-span-4 lg:col-start-9">
+            <div className="media-frame aspect-[4/5] max-w-xs">
+              <Image src="/elena-likoudis.webp" alt="Portrait of Elena Likoudis" fill sizes="320px" className="object-cover" style={{ objectPosition: '50% 30%' }} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="interiors" className="ground-cream section scroll-mt-20">
+        <div className="container-editorial grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          <div className="lg:col-span-5">
+            <h2 className="font-display text-display-lg text-navy leading-tight mb-6">Interiors that work for the people using them</h2>
+            <div className="prose-body text-navy/85">
+              <p>We also take an interest in how physical spaces are arranged and presented, particularly small hospitality properties and business interiors.</p>
+              <p>Our work may include furniture and artwork selection, room styling, photography preparation, and making better use of an existing space.</p>
+            </div>
+            <Link href="/contact?topic=The%20Studio" className="btn-primary mt-8">Ask About an Interior Project</Link>
+          </div>
+          <div className="lg:col-span-7 grid grid-cols-2 gap-4">
+            {rooms.map((r) => (
+              <figure key={r.id}>
+                <div className="media-frame aspect-[4/5]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={r.image} alt={r.imageAlt} loading="lazy" className="w-full h-full object-cover" />
+                </div>
+                <figcaption className="font-sans text-[14px] text-navy/65 mt-2">
+                  {r.title}, an Ithaca House listing hosted by {r.host}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }
-
-interface PracticeCardProps {
-  designer: string;
-  practiceName: string;
-  tagline: string;
-  description: string;
-  shape: string;
-  href: string;
-  hrefLabel: string;
-}
-
-function PracticeCard({
-  designer,
-  practiceName,
-  tagline,
-  description,
-  shape,
-  href,
-  hrefLabel,
-}: PracticeCardProps) {
-  return (
-    <article className="group bg-cream overflow-hidden border-t-[3px] border-t-ochre transition-all duration-500 hover:-translate-y-1 h-full flex flex-col">
-      {/* Typographic header — stands in for a logo until logo files are ready */}
-      <div className="aspect-[5/2] bg-bone flex items-center justify-center px-6 relative overflow-hidden">
-        <div className="text-center">
-          <div className="font-display text-2xl lg:text-[1.75rem] text-navy leading-tight tracking-tight">
-            {practiceName}
-          </div>
-          <div className="font-serif italic text-xs lg:text-sm text-navy/55 mt-1.5">
-            {tagline}
-          </div>
-        </div>
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: 'linear-gradient(to bottom, transparent 60%, rgba(14, 27, 44, 0.06) 100%)',
-          }}
-        />
-      </div>
-
-      {/* Caption */}
-      <div className="p-5 lg:p-6 flex flex-col flex-1">
-        <div className="font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep mb-2">
-          {designer}
-        </div>
-        <p className="font-serif text-sm lg:text-base text-navy/85 leading-relaxed mb-4">
-          {description}
-        </p>
-        <div className="font-serif italic text-xs text-navy/55 mb-5 pt-3 border-t border-navy/10">
-          {shape}
-        </div>
-
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 font-sans text-[10px] uppercase tracking-caps text-navy hover:text-ochre-deep transition-colors group/cta mt-auto"
-        >
-          <span>{hrefLabel}</span>
-          <span
-            aria-hidden
-            className="transition-transform duration-300 group-hover/cta:translate-x-1"
-          >
-            →
-          </span>
-        </a>
-      </div>
-    </article>
-  );
-}
-
-interface Package {
-  name: string;
-  price: string;
-  per?: string;
-  note: string;
-  features: string[];
-  featured?: boolean;
-  cta: string;
-}
-
-const PACKAGES: Package[] = [
-  {
-    name: 'Starter Site',
-    price: '$200–$500',
-    note: 'One page, or a few basic pages. Live in about 48 hours.',
-    features: [
-      'Who you are, what you offer, and how to reach you',
-      'Custom-coded, mobile-first responsive design',
-      'Contact form and click-to-call',
-      'Google Maps, hours, and location',
-      'Social links and SEO basics',
-      'You own the files outright',
-    ],
-    cta: 'Get started',
-  },
-  {
-    name: 'Custom Website',
-    price: '$500–$1,000',
-    note: 'Most sites land here. About a one-week turnaround.',
-    features: [
-      'Everything in Starter, plus:',
-      'Original design built around your work',
-      'As many pages as your story needs',
-      'Press kit, catalog, gallery, or online store',
-      'Migration off Wix, Squarespace, or WordPress',
-      'Self-serve editor for your own updates',
-      'One revision round',
-      '30 days of the Care Plan after launch',
-    ],
-    featured: true,
-    cta: 'Get started',
-  },
-  {
-    name: 'Full Build',
-    price: '$1,000–$2,500',
-    note: 'Where the price lands depends on what we build. About two weeks.',
-    features: [
-      'Everything in Custom Website, plus:',
-      'E-commerce or donation system',
-      'Large archives brought over and made searchable',
-      'Pages that update themselves when you publish',
-      'Google Analytics and advanced SEO',
-      'Two revision rounds',
-      '30 days of the Care Plan after launch',
-    ],
-    cta: 'Get started',
-  },
-  {
-    name: 'Monthly Plans',
-    price: '$19.99',
-    per: '/mo',
-    note: 'Optional. Most clients need neither.',
-    features: [
-      'Edits Plan, $19.99/mo: one round of edits a month',
-      'Care Plan, $49.99/mo: three rounds of edits a month, uptime monitoring, priority turnaround',
-      'One-time edits from $25',
-      'Cancel anytime',
-    ],
-    cta: 'Ask about a plan',
-  },
-];
-
-function PackageCard({ name, price, per, note, features, featured, cta }: Package) {
-  return (
-    <div
-      className={
-        featured
-          ? 'bg-navy text-bone border border-navy p-6 lg:p-7 h-full flex flex-col relative'
-          : 'bg-bone border border-navy/15 p-6 lg:p-7 h-full flex flex-col'
-      }
-    >
-      {featured && (
-        <div className="absolute -top-3 left-6 bg-ochre text-navy font-sans text-[9px] uppercase tracking-tag px-2.5 py-1">
-          Most Popular
-        </div>
-      )}
-      <div className={`catalog-num text-xs mb-3 ${featured ? 'text-ochre' : 'text-ochre-deep'}`}>{name}</div>
-      <div className={`font-display text-3xl lg:text-[2rem] mb-1 whitespace-nowrap ${featured ? 'text-bone' : 'text-navy'}`}>
-        {price}
-        {per && <span className={`text-xl ${featured ? 'text-bone/60' : 'text-navy/55'}`}>{per}</span>}
-      </div>
-      <div className={`font-serif italic text-sm mb-5 ${featured ? 'text-bone/60' : 'text-navy/55'}`}>{note}</div>
-      <ul className={`font-serif text-sm leading-relaxed space-y-1.5 mb-6 flex-1 ${featured ? 'text-bone/90' : 'text-navy/85'}`}>
-        {features.map((f) => (
-          <li key={f}>{f}</li>
-        ))}
-      </ul>
-      <a
-        href="https://lickitysplitweb.com/contact"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`font-sans text-[10px] uppercase tracking-eyebrow transition-colors ${featured ? 'text-ochre hover:text-bone' : 'text-navy hover:text-ochre'}`}
-      >
-        {cta} →
-      </a>
-    </div>
-  );
-}
-
-const ENDORSEMENTS = [
-  {
-    name: 'Christopher Byrne',
-    role: 'Founder & President, DC Social Collective',
-    quote:
-      'Andrew is incredibly talented at what he does. He rebuilt the entire DC Social Collective website and has been a huge asset in making it more functional and user-friendly. He’s extremely technically skilled, fast, and reliable, and whenever we need something changed or added, he gets it done. It’s been great having someone we can consistently count on as our website continues to grow. I’d highly recommend Andrew to anyone looking for a skilled and dependable web developer.',
-  },
-  {
-    name: 'Frank La Rocca',
-    role: 'Composer',
-    quote:
-      'My website has been transformed thanks to the excellent design and building services of Andrew Likoudis. Any other Catholic creatives looking to build or refresh their online presence should consider his services. The cost was very reasonable and his customer service was exemplary.',
-  },
-  {
-    name: 'Roxane B. Salonen',
-    role: 'Author & Speaker',
-    quote:
-      'Andrew was a gem to work with! I’d been putting off updating my website, dreading the weeks it might take to get it right. But Andrew accomplished the goal over a single weekend… He asked the right questions and applied my vision well, and yes, lickety split. I’m very pleased with the results and would definitely recommend him to other authors and creatives.',
-  },
-  {
-    name: 'Adán Alejándro Fernández',
-    role: 'Organist & Conductor',
-    quote:
-      'Andrew’s work reminds me of music composition. Every part of the website he built for me feels chosen with purpose. The result is a site where visitors want to stay a while, because the layout feels natural and intuitive. He works quickly and with real dedication, and he was a joy to work with.',
-  },
-];

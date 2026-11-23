@@ -1,6 +1,8 @@
 'use server';
 
-import { getResendClient, getAudienceId, isResendConfigured } from '@/lib/resend';
+import { getResendClient, getAudienceId, getTableAudienceId, isResendConfigured } from '@/lib/resend';
+import { clean, rateLimited, validEmail } from '@/lib/form-guard';
+import { site } from '@/content/site';
 
 interface SubscribeResult {
   ok: boolean;
@@ -8,56 +10,51 @@ interface SubscribeResult {
 }
 
 /**
- * Subscribe an email to "The Branch" newsletter via Resend Audiences.
- *
- * If Resend is not configured (no API key or no audience ID), logs to console
- * and returns success — so dev/local works without setup.
+ * Signups for two separate lists, kept apart on purpose:
+ *   'branch'  The Branch, the occasional family newsletter
+ *   'table'   a one-off notice when the Table has something ready
+ * Signing up for one never adds the address to the other. Success is only
+ * reported once Resend has stored the contact.
  */
-export async function subscribeToNewsletter(email: string): Promise<SubscribeResult> {
-  const trimmed = email.trim().toLowerCase();
+async function addContact(list: 'branch' | 'table', formData: FormData): Promise<SubscribeResult> {
+  if (clean(formData.get('website'), 200)) return { ok: true };
 
-  if (!trimmed || !trimmed.includes('@') || trimmed.length < 5) {
-    return { ok: false, message: 'Please enter a valid email address.' };
-  }
+  const email = clean(formData.get('email'), 254).toLowerCase();
+  const consent = formData.get('consent') === 'yes';
+  if (!validEmail(email)) return { ok: false, message: 'Please enter a valid email address.' };
+  if (!consent) return { ok: false, message: 'Please tick the box to confirm you would like these emails.' };
+  if (await rateLimited(`signup-${list}`, 5)) return { ok: false, message: 'Too many attempts. Please try again later.' };
 
-  // If Resend or audience isn't configured, log and return success for dev
-  const audienceId = getAudienceId();
+  const audienceId = list === 'branch' ? getAudienceId() : getTableAudienceId();
   if (!isResendConfigured() || !audienceId) {
-    console.log('[Newsletter — Resend not fully configured, logging only]', { email: trimmed });
-    return {
-      ok: true,
-      message: 'Thank you. The first note from the house arrives soon.',
-    };
+    console.error(`[signup:${list}] email list is not configured`);
+    return { ok: false, message: `Signups aren't working right now. Please write to ${site.email} and we'll add you.` };
   }
 
   try {
-    const resend = getResendClient();
-
-    // Add to audience (Resend's contacts API)
-    await resend.contacts.create({
-      email: trimmed,
-      audienceId,
-      unsubscribed: false,
-    });
-
+    const { data, error } = await getResendClient().contacts.create({ email, audienceId, unsubscribed: false });
+    if (error) {
+      if (String(error.message ?? '').toLowerCase().includes('already exists')) {
+        return { ok: true, message: "You're already on the list." };
+      }
+      console.error(`[signup:${list}] provider error:`, error.name);
+      return { ok: false, message: `Something went wrong. Please try again or write to ${site.email}.` };
+    }
+    if (!data?.id) return { ok: false, message: `Something went wrong. Please try again or write to ${site.email}.` };
     return {
       ok: true,
-      message: 'Thank you. The first note from the house arrives soon.',
+      message: list === 'branch' ? "Thank you. You're subscribed to The Branch." : "Thank you. We'll write when the Table has something ready.",
     };
-  } catch (error: unknown) {
-    // Resend returns 422 if the contact already exists — treat as success
-    const errorMessage = error instanceof Error ? error.message : String(error);
-    if (errorMessage.toLowerCase().includes('already exists')) {
-      return {
-        ok: true,
-        message: 'You are already subscribed. Thank you.',
-      };
-    }
-
-    console.error('[Newsletter] Resend error:', error);
-    return {
-      ok: false,
-      message: 'Something went wrong. Please try again or write to us directly.',
-    };
+  } catch (err) {
+    console.error(`[signup:${list}] failed:`, err instanceof Error ? err.name : 'unknown error');
+    return { ok: false, message: `Something went wrong. Please try again or write to ${site.email}.` };
   }
+}
+
+export async function subscribeToBranch(formData: FormData): Promise<SubscribeResult> {
+  return addContact('branch', formData);
+}
+
+export async function notifyTableLaunch(formData: FormData): Promise<SubscribeResult> {
+  return addContact('table', formData);
 }

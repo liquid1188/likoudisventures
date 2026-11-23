@@ -1,735 +1,145 @@
-import type { Division } from '@/content/divisions';
 import Link from 'next/link';
+import type { Division } from '@/content/divisions';
+import { listings, aggregateRating, formatChecked, showAggregate } from '@/content/listings';
+import { PageHero, SectionHeading } from '@/components/sections/PageHero';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
-import { OliveBranchMark } from '@/components/brand/OliveBranchMark';
-import { IonianSeascape } from '@/components/brand/IonianSeascape';
 import { IonianMap } from '@/components/brand/IonianMap';
-import { ExperienceRequestButton } from '@/components/divisions/ExperienceRequestButton';
-import { InquirySection } from '@/components/sections/InquirySection';
-import { DivisionLeads } from '@/components/sections/DivisionLeads';
 import { TravelDeals } from '@/components/divisions/TravelDeals';
-import { FerryCrossing } from '@/components/divisions/FerryCrossing';
 
-interface LayoutProps {
-  division: Division;
-}
+const experiences = [
+  'A neighborhood recommendation for dinner or a walk',
+  'Help organizing an outing in the city',
+  'Suggestions for a longer stay',
+  'Other ideas, such as a Greek dinner, a market visit, or time on the harbor',
+];
 
-/**
- * Ithaca House — travel and stays. Full-bleed seascape, Baltimore stays, Ionian travel notes.
- * Full-bleed illustrated background, text overlays in cream, generous breathing room.
- */
-export function IthacaLayout({ division }: LayoutProps) {
-  const paragraphs = division.longDescription.split('\n\n');
-
+export function IthacaLayout({ division }: { division: Division }) {
+  const agg = aggregateRating();
   return (
     <>
-      {/* Full-bleed hero with seascape illustration */}
-      <section className="relative min-h-[100svh] flex flex-col bg-navy overflow-hidden">
-        {/* Seascape background */}
-        <div className="absolute inset-0">
-          <IonianSeascape variant="wide" className="w-full h-full object-cover opacity-95" />
-        </div>
+      <PageHero
+        kicker={division.name}
+        greek={division.greek}
+        title="Make yourself at home in Baltimore."
+        image={{ src: listings[3].image, alt: listings[3].imageAlt, width: 1200, height: 800 }}
+        actions={
+          <>
+            <Link href="#stays" className="btn-olive-on-dark">Explore the Stays</Link>
+            <Link href="#hosting" className="btn-ghost-bone">Ask About Hosting Services</Link>
+          </>
+        }
+      >
+        <p>
+          Ithaca House brings together six Airbnb listings in East Baltimore, near Patterson Park and Canton. Our accommodations range from private rooms in shared homes to guest spaces with their own facilities, each with its own character.
+        </p>
+        <p>We also help other hosts prepare their properties and manage the details that make a stay work.</p>
+      </PageHero>
 
-        {/* Gradient overlay for text legibility */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              'linear-gradient(to bottom, rgba(14, 27, 44, 0.6) 0%, rgba(14, 27, 44, 0.15) 30%, rgba(14, 27, 44, 0.05) 50%, rgba(14, 27, 44, 0.7) 100%)',
-          }}
-        />
-
-        {/* Top masthead */}
-        <div className="container-tight relative z-10 pt-32 lg:pt-36 pb-2">
-          <div className="flex justify-between items-start text-bone font-sans text-[10px] uppercase tracking-eyebrow">
-            <Link href="/#divisions" className="hover:text-ochre transition-colors">
-              ← Likoudis Ventures
-            </Link>
-            <span>Ithaca House</span>
-            <span className="text-ochre">{division.greek}</span>
-          </div>
-        </div>
-
-        {/* Bottom-anchored content */}
-        <div className="container-editorial relative z-10 mt-auto pb-20 lg:pb-28">
-          <div className="max-w-3xl">
-            <div className="text-olive-glow opacity-80 mb-6 inline-block">
-              <OliveBranchMark size={36} />
-            </div>
-            <div className="font-serif italic text-ochre text-lg lg:text-xl mb-3">
-              {division.greek} · the place you return to
-            </div>
-            <h1 className="font-display text-editorial text-bone leading-[0.95] tracking-tight mb-4">
-              Ithaca <em className="italic">House</em>
-            </h1>
-            <div className="font-sans text-[11px] uppercase tracking-eyebrow text-ochre mb-8">
-              Travel &amp; Stays
-            </div>
-            <p className="font-serif text-xl lg:text-2xl text-bone/95 leading-snug italic font-light max-w-2xl">
-              {division.tagline}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Lead row */}
-      <section className="ground-bone py-7 lg:py-9 border-y border-navy/10">
+      <section id="stays" className="ground-bone section scroll-mt-20">
         <div className="container-editorial">
-          <DivisionLeads leads={division.leads} theme="light" />
-        </div>
-      </section>
-
-      {/* Long-form section */}
-      <section className="ground-cream py-24 lg:py-32">
-        <div className="container-editorial">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
-            <ScrollReveal as="div" className="lg:col-span-5">
-              <div className="eyebrow-no-rule text-ochre-deep mb-6">On the name</div>
-              <h2 className="font-display text-display-xl text-navy leading-tight">
-                Two anchors, <em className="italic text-ochre-deep">one name</em>.
-              </h2>
-            </ScrollReveal>
-            <ScrollReveal as="div" delay={150} className="lg:col-span-6 lg:col-start-7">
-              <div className="prose-editorial">
-                {paragraphs.map((para, i) => (
-                  <p key={i}>{para}</p>
-                ))}
-              </div>
-            </ScrollReveal>
-          </div>
-
-        </div>
-      </section>
-
-      {/* Destinations — the three places Ithaca House works */}
-      <section className="ground-bone py-20 lg:py-24 border-t border-navy/10">
-        <div className="container-editorial">
-          <ScrollReveal as="div" className="text-center mb-12 lg:mb-14">
-            <div className="eyebrow-no-rule text-ochre-deep mb-5 inline-block">Where we go</div>
-            <h2 className="font-display text-display-xl text-navy leading-tight">
-              Three places, <em className="italic text-ochre-deep">one standard</em>.
-            </h2>
-          </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-7 max-w-6xl mx-auto">
-            <DestinationCard
-              place="Baltimore"
-              region="Canton · Patterson Park"
-              status="Stay with us"
-              description="Six family-run rooms near the harbor and the park, with experiences in the city alongside the stay."
-              href="#stays"
-              linkLabel="See the properties"
-              delay={0}
-            />
-            <DestinationCard
-              place="The Ionian Islands"
-              region="Kefalonia · Ithaka"
-              status="Travel notes · Deals"
-              description="The islands the family came from. Where to stay, what to eat, how to get across, and the Likoudis places still there."
-              href="#ionian"
-              linkLabel="Read the notes"
-              delay={120}
-            />
-            <DestinationCard
-              place="Morocco"
-              region="Caroline's next property"
-              status="In early planning"
-              description="The family's first stay abroad, led by Caroline. Join The Branch to hear when it opens."
-              href="/the-branch"
-              linkLabel="Follow along"
-              delay={240}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* By the numbers — combined hosting record across all six properties */}
-      <section className="ground-bone py-16 lg:py-20 border-t border-navy/10">
-        <div className="container-editorial">
-          <ScrollReveal as="div" className="text-center mb-10 lg:mb-12">
-            <div className="eyebrow-no-rule text-ochre-deep inline-block">By the numbers</div>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 max-w-5xl mx-auto">
-            <ScrollReveal as="div" delay={0}>
-              <div className="text-center">
-                <div className="font-display text-5xl lg:text-6xl text-navy leading-none">20</div>
-                <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/60 mt-3">
-                  Combined years hosting
-                </div>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal as="div" delay={80}>
-              <div className="text-center">
-                <div className="font-display text-5xl lg:text-6xl text-navy leading-none">6</div>
-                <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/60 mt-3">
-                  Properties
-                </div>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal as="div" delay={160}>
-              <div className="text-center">
-                <div className="font-display text-5xl lg:text-6xl text-navy leading-none">533</div>
-                <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/60 mt-3">
-                  Reviews on Airbnb
-                </div>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal as="div" delay={240}>
-              <div className="text-center">
-                <div className="font-display text-5xl lg:text-6xl text-navy leading-none">
-                  4.7<span className="text-ochre-deep">★</span>
-                </div>
-                <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/60 mt-3">
-                  Combined rating
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-
-          <ScrollReveal>
-            <p className="font-serif italic text-sm text-navy/55 mt-12 text-center max-w-xl mx-auto leading-relaxed">
-              Across both hosts, six properties, and a decade of work in Canton and Patterson Park.
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* The Properties — six Airbnb listings in the Canton / Patterson Park neighborhood */}
-      <section id="stays" className="ground-sky py-24 lg:py-32 border-t border-navy/10 scroll-mt-20">
-        <div className="container-editorial">
-          <ScrollReveal as="div" className="text-center mb-12 lg:mb-16 max-w-3xl mx-auto">
-            <div className="catalog-num text-sm mb-3">The Properties</div>
-            <div className="eyebrow-no-rule text-ochre-deep mb-5 inline-block">Canton · Patterson Park</div>
-            <h3 className="font-display text-display-xl text-navy leading-tight">
-              Six rooms in the <em className="italic text-ochre-deep">quaint</em> Canton / Patterson Park neighborhood.
-            </h3>
-            <p className="font-serif italic text-lg lg:text-xl text-navy/65 mt-6 leading-relaxed">
-              Run by the family. Each property listed directly on Airbnb &mdash; book through the platform you already trust.
-            </p>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
-            {/* Caroline's three (longer tenure, higher rated, art-led aesthetic) */}
-
-            {/* Master Suite (king, private bath, master bedroom) */}
-            <ScrollReveal as="div" delay={0}>
-              <a
-                href="https://www.airbnb.com/rooms/45953387?unique_share_id=0d774be8-8d26-42ab-b84e-1779102b68b2&viralityEntryPoint=1&s=76"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block bg-bone border border-navy/15 hover:border-ochre transition-colors h-full overflow-hidden"
-              >
-                <div className="relative aspect-[4/3] bg-navy/5 overflow-hidden">
-                  <img
-                    src="https://a0.muscache.com/im/pictures/airflow/Hosting-45953387/original/51871439-b848-4782-95af-cee4114a9119.jpg?im_w=720"
-                    alt="Master Suite — king bedroom, private bath, Patterson Park rowhome"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="p-5 lg:p-6">
-                  <div className="catalog-num text-xs text-ochre-deep mb-2">Patterson Park · Master Suite</div>
-                  <h4 className="font-display text-xl text-navy leading-snug mb-2 group-hover:text-ochre-deep transition-colors">
-                    Relaxing Master Suite in a Colorful Home
-                  </h4>
-                  <p className="font-serif italic text-sm text-navy/70 leading-relaxed mb-4">
-                    King bed, private bath, in an artist&rsquo;s rowhome filled with handmade art and original paintings.
-                  </p>
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
-                    <span>★ 4.66 &middot; 86 reviews</span>
-                    <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
-                  </div>
-                  <div className="mt-3 pt-3 border-t border-navy/10 font-sans text-[10px] uppercase tracking-eyebrow text-navy/45">
-                    Caroline
-                  </div>
-                </div>
-              </a>
-            </ScrollReveal>
-
-            {/* Lower-level bedroom (full bed, shared bath) */}
-            <ScrollReveal as="div" delay={80}>
-              <a
-                href="https://www.airbnb.com/rooms/649048737097044142?unique_share_id=c05a57d9-df85-491e-89df-dd2fbe5fee06&viralityEntryPoint=1&s=76"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block bg-bone border border-navy/15 hover:border-ochre transition-colors h-full overflow-hidden"
-              >
-                <div className="relative aspect-[4/3] bg-navy/5 overflow-hidden">
-                  <img
-                    src="https://a0.muscache.com/im/pictures/2599cc6f-15d1-4d5e-a690-e57cf9449a30.jpg?im_w=720"
-                    alt="Lower-level bedroom — full bed, shared bath, Patterson Park rowhome"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="p-5 lg:p-6">
-                  <div className="catalog-num text-xs text-ochre-deep mb-2">Patterson Park · Garden Level</div>
-                  <h4 className="font-display text-xl text-navy leading-snug mb-2 group-hover:text-ochre-deep transition-colors">
-                    Relaxing Bedroom Convenient to Hopkins
-                  </h4>
-                  <p className="font-serif italic text-sm text-navy/70 leading-relaxed mb-4">
-                    Full bed, shared bath, fully renovated lower level of an art-filled rowhome.
-                  </p>
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
-                    <span>★ 4.85 &middot; 71 reviews</span>
-                    <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
-                  </div>
-                  <div className="mt-3 pt-3 border-t border-navy/10 font-sans text-[10px] uppercase tracking-eyebrow text-navy/45">
-                    Caroline
-                  </div>
-                </div>
-              </a>
-            </ScrollReveal>
-
-            {/* Spacious Queen (queen, private bath) */}
-            <ScrollReveal as="div" delay={160}>
-              <a
-                href="https://www.airbnb.com/rooms/44263588?unique_share_id=128fa5fb-1462-4403-938a-fc7537d6b761&viralityEntryPoint=1&s=76"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block bg-bone border border-navy/15 hover:border-ochre transition-colors h-full overflow-hidden"
-              >
-                <div className="relative aspect-[4/3] bg-navy/5 overflow-hidden">
-                  <img
-                    src="https://a0.muscache.com/im/pictures/airflow/Hosting-44263588/original/ad47efd2-8fda-48d4-bd6f-7cfb211ebb79.jpg?im_w=720"
-                    alt="Spacious Queen Bedroom — queen bed, private bath with skylight, Patterson Park"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="p-5 lg:p-6">
-                  <div className="catalog-num text-xs text-ochre-deep mb-2">Patterson Park · Queen Suite</div>
-                  <h4 className="font-display text-xl text-navy leading-snug mb-2 group-hover:text-ochre-deep transition-colors">
-                    Spacious Queen Bedroom &amp; Private Bath
-                  </h4>
-                  <p className="font-serif italic text-sm text-navy/70 leading-relaxed mb-4">
-                    Queen bed, private bath with skylight and tub, in a vibrant townhome filled with cultural pieces from around the world.
-                  </p>
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
-                    <span>★ 4.81 &middot; 89 reviews</span>
-                    <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
-                  </div>
-                  <div className="mt-3 pt-3 border-t border-navy/10 font-sans text-[10px] uppercase tracking-eyebrow text-navy/45">
-                    Caroline
-                  </div>
-                </div>
-              </a>
-            </ScrollReveal>
-
-            {/* Andrew's three */}
-
-            {/* Comfortable Oasis (queen, private bath) */}
-            <ScrollReveal as="div" delay={240}>
-              <a
-                href="https://www.airbnb.com/rooms/16000758?unique_share_id=c9abbcfc-76ea-4a2b-9b1f-a918c702ab32&viralityEntryPoint=1&s=76"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block bg-bone border border-navy/15 hover:border-ochre transition-colors h-full overflow-hidden"
-              >
-                <div className="relative aspect-[4/3] bg-navy/5 overflow-hidden">
-                  <img
-                    src="https://a0.muscache.com/im/pictures/f37e01f6-c234-4a69-a2f8-8257ac78a7a7.jpg?im_w=720"
-                    alt="Comfortable Oasis — queen bedroom with private bath, near Hopkins"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="p-5 lg:p-6">
-                  <div className="catalog-num text-xs text-ochre-deep mb-2">Patterson Park · Comfortable Oasis</div>
-                  <h4 className="font-display text-xl text-navy leading-snug mb-2 group-hover:text-ochre-deep transition-colors">
-                    Comfortable Oasis Close to Hopkins
-                  </h4>
-                  <p className="font-serif italic text-sm text-navy/70 leading-relaxed mb-4">
-                    Queen bed, dedicated bathroom, high ceilings and artistic touches. Two blocks to Patterson Park, less than a mile to Johns Hopkins Hospital.
-                  </p>
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
-                    <span>★ 4.67 &middot; 195 reviews</span>
-                    <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
-                  </div>
-                  <div className="mt-3 pt-3 border-t border-navy/10 font-sans text-[10px] uppercase tracking-eyebrow text-navy/45">
-                    Andrew
-                  </div>
-                </div>
-              </a>
-            </ScrollReveal>
-
-            {/* Convenient Oasis (private bath, smaller listing) */}
-            <ScrollReveal as="div" delay={320}>
-              <a
-                href="https://www.airbnb.com/rooms/1009422679116749556?unique_share_id=365b84bd-520a-45f0-90c6-f0185838bf66&viralityEntryPoint=1&s=76"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block bg-bone border border-navy/15 hover:border-ochre transition-colors h-full overflow-hidden"
-              >
-                <div className="relative aspect-[4/3] bg-navy/5 overflow-hidden">
-                  <img
-                    src="https://a0.muscache.com/im/pictures/hosting/Hosting-1009422679116749556/original/bb54e33b-4639-47f9-9b33-4360d11f1834.jpeg?im_w=720"
-                    alt="Relaxing, Convenient Oasis — bedroom with private bath, Patterson Park"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="p-5 lg:p-6">
-                  <div className="catalog-num text-xs text-ochre-deep mb-2">Patterson Park · Convenient Oasis</div>
-                  <h4 className="font-display text-xl text-navy leading-snug mb-2 group-hover:text-ochre-deep transition-colors">
-                    Relaxing, Convenient Oasis
-                  </h4>
-                  <p className="font-serif italic text-sm text-navy/70 leading-relaxed mb-4">
-                    Private bedroom with private attached bathroom, espresso machine, drip coffee. Townhome convenient to Hopkins, the park, and downtown.
-                  </p>
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
-                    <span>★ 4.20 &middot; 10 reviews</span>
-                    <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
-                  </div>
-                  <div className="mt-3 pt-3 border-t border-navy/10 font-sans text-[10px] uppercase tracking-eyebrow text-navy/45">
-                    Andrew
-                  </div>
-                </div>
-              </a>
-            </ScrollReveal>
-
-            {/* Relaxing Getaway (basement, walk-out, shared bath, lower entry) */}
-            <ScrollReveal as="div" delay={400}>
-              <a
-                href="https://www.airbnb.com/rooms/582871859089019533?unique_share_id=5731f7e0-8398-43f1-bce6-eaf669fe36e0&viralityEntryPoint=1&s=76"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block bg-bone border border-navy/15 hover:border-ochre transition-colors h-full overflow-hidden"
-              >
-                <div className="relative aspect-[4/3] bg-navy/5 overflow-hidden">
-                  <img
-                    src="https://a0.muscache.com/im/pictures/miso/Hosting-582871859089019533/original/f40e4890-b125-43db-bf42-abfe4b992938.jpeg?im_w=720"
-                    alt="Relaxing Getaway — finished basement room, walk-out, shared bath"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="p-5 lg:p-6">
-                  <div className="catalog-num text-xs text-ochre-deep mb-2">Patterson Park · Garden Walk-Out</div>
-                  <h4 className="font-display text-xl text-navy leading-snug mb-2 group-hover:text-ochre-deep transition-colors">
-                    Relaxing Getaway near Hopkins
-                  </h4>
-                  <p className="font-serif italic text-sm text-navy/70 leading-relaxed mb-4">
-                    Finished basement room with walk-out, shared bath. Five minutes to Hopkins, ten to the harbor and Fells Point.
-                  </p>
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 font-sans text-[10px] uppercase tracking-eyebrow text-navy/65">
-                    <span>★ 4.04 &middot; 23 reviews</span>
-                    <span className="text-ochre-deep group-hover:text-navy transition-colors">Book on Airbnb →</span>
-                  </div>
-                  <div className="mt-3 pt-3 border-t border-navy/10 font-sans text-[10px] uppercase tracking-eyebrow text-navy/45">
-                    Andrew
-                  </div>
-                </div>
-              </a>
-            </ScrollReveal>
-          </div>
-
-          <p className="font-serif italic text-sm text-navy/55 mt-10 lg:mt-12 text-center max-w-2xl mx-auto leading-relaxed">
-            Six properties, run by the family, in one Baltimore neighborhood. Caroline hosts three; Andrew hosts three. Across all six, the family handles bookings, turnover, and welcome.
-          </p>
-        </div>
-      </section>
-
-      {/* The Ionian — travel notes for Kefalonia and Ithaka */}
-      <section id="ionian" className="ground-cream py-24 lg:py-32 border-t border-navy/10 scroll-mt-20">
-        <div className="container-editorial">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 mb-16 lg:mb-20">
-            <ScrollReveal as="div" className="lg:col-span-5">
-              <div className="catalog-num text-sm mb-3">Travel Notes</div>
-              <div className="eyebrow-no-rule text-ochre-deep mb-5">Κεφαλονιά · Ἰθάκη</div>
-              <h2 className="font-display text-display-xl text-navy leading-tight">
-                If you are going <em className="italic text-ochre-deep">to Greece</em>.
-              </h2>
-              <div className="text-navy/70 mt-10 max-w-sm hidden lg:block">
-                <IonianMap />
-              </div>
-            </ScrollReveal>
-            <ScrollReveal as="div" delay={150} className="lg:col-span-6 lg:col-start-7">
-              <div className="prose-editorial">
-                <p>
-                  Kefalonia is the family&rsquo;s island, the largest of the Ionians. Ithaka sits just to the east across a narrow channel. Most of what we know about travel we learned going back and forth between the two.
-                </p>
-                <p>
-                  These are the notes we give friends before they go. They are short on purpose. If you want more, write to us and we will help you plan the trip.
-                </p>
-              </div>
-            </ScrollReveal>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-7 max-w-5xl mx-auto mb-16 lg:mb-20">
-            <IslandCard
-              name="Kefalonia"
-              greek="Κεφαλονιά"
-              lines={[
-                'Argostoli is the capital and has the island\u2019s airport, with summer flights from Athens and across Europe.',
-                'Robola is the white wine grown on the island\u2019s mountain slopes. Ask for it by name.',
-                'Mantola and pasteli are the island sweets. Melissa Likoudis in Argostoli makes both.',
-              ]}
-              delay={0}
-            />
-            <IslandCard
-              name="Ithaka"
-              greek="Ἰθάκη"
-              lines={[
-                'The home of Odysseus in the story, and the reason for our name.',
-                'Ferries cross to Ithaka from Sami, on the east coast of Kefalonia.',
-                'Kioni, on the north coast, is a small harbor village. The two Likoudis guesthouses are there.',
-              ]}
-              delay={120}
-            />
-          </div>
-
-          <FerryCrossing />
-
-          {division.notesLinks && division.notesLinks.length > 0 && (
-            <ScrollReveal as="div">
-              <div className="max-w-3xl mx-auto bg-bone p-8 lg:p-10 border-l-2 border-ochre">
-                <div className="catalog-num text-sm mb-3">Where we send people</div>
-                {division.notes && (
-                  <p className="font-serif italic text-lg lg:text-xl leading-relaxed text-navy/85">
-                    {division.notes}
+          <SectionHeading
+            title="Our Baltimore stays"
+            intro={
+              <>
+                <p>Each listing is available through Airbnb, where you can find current photographs, amenities, guest reviews, prices, and availability.</p>
+                {showAggregate && (
+                  <p className="font-sans text-[15px] text-navy/65">
+                    Rated {agg.rating} out of 5 on average across the six listings, from {agg.reviews} Airbnb reviews (as of {formatChecked()}).
                   </p>
                 )}
-                <div className="mt-7 pt-6 border-t border-navy/10">
-                  <ul className="space-y-3">
-                    {division.notesLinks.map((link) => (
-                      <li key={link.href}>
-                        <a
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group inline-flex items-baseline gap-3 hover:text-olive-deep transition-colors"
-                        >
-                          <span className="font-display text-lg text-navy group-hover:text-olive-deep transition-colors">
-                            {link.label}
-                          </span>
-                          {link.descriptor && (
-                            <span className="font-serif italic text-sm text-navy/60">
-                              {link.descriptor}
-                            </span>
-                          )}
-                          <span aria-hidden className="text-xs text-ochre-deep transition-transform group-hover:translate-x-0.5">
-                            ↗
-                          </span>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </ScrollReveal>
-          )}
+              </>
+            }
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
+            {listings.map((l, i) => (
+              <ScrollReveal key={l.id} delay={(i % 3) * 60}>
+                <a href={l.href} target="_blank" rel="noopener noreferrer" className="group flex flex-col h-full bg-white/50 border border-navy/10 hover:border-olive-deep transition-colors">
+                  <div className="media-frame aspect-[4/3]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={l.image} alt={l.imageAlt} loading="lazy" className="w-full h-full object-cover" />
+                  </div>
+                  <div className="p-5 lg:p-6 flex flex-col flex-1">
+                    <h3 className="font-display text-xl text-navy leading-snug group-hover:text-olive-deep transition-colors">{l.title}</h3>
+                    <p className="font-sans text-[15px] text-navy/75 mt-2 leading-relaxed">{l.description}</p>
+                    <ul className="font-sans text-[14px] text-navy/70 mt-4 space-y-0.5">
+                      <li>{l.room}</li>
+                      <li>{l.bed} · {l.bath}</li>
+                      <li>Hosted by {l.host}</li>
+                    </ul>
+                    <p className="mt-auto pt-5 flex items-center justify-between font-sans text-[14px]">
+                      <span className="text-navy/65">★ {l.rating.toFixed(2)} · {l.reviews} reviews</span>
+                      <span className="font-medium text-olive-deep">Book on Airbnb ↗</span>
+                    </p>
+                  </div>
+                </a>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          <ScrollReveal as="div" className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
-            <ExperienceRequestButton experienceSlug="plan-a-trip" label="Help me plan a trip" />
-            <Link
-              href="/divisions/the-table"
-              className="sm:mt-5 font-sans text-[10px] uppercase tracking-eyebrow text-navy/65 hover:text-ochre-deep transition-colors"
-            >
-              Bring the islands home · The Table →
-            </Link>
-          </ScrollReveal>
+      <section className="ground-cream section">
+        <div className="container-editorial grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+          <div className="lg:col-span-6">
+            <h2 className="font-display text-display-lg text-navy leading-tight mb-6">A little help getting to know the city</h2>
+            <div className="prose-body text-navy/85">
+              <p>We&rsquo;ve spent years welcoming visitors to Baltimore, and we&rsquo;re happy to share the places we know. Depending on the visit, that might mean a neighborhood recommendation, help organizing an outing, or suggestions for a longer stay.</p>
+              <p>For guests interested in a more involved experience, we can discuss individual arrangements in advance.</p>
+            </div>
+          </div>
+          <div className="lg:col-span-6">
+            <p className="font-sans text-[15px] font-medium text-navy mb-3">What we can talk through</p>
+            <ul className="divide-y divide-navy/10 border-y border-navy/10">
+              {experiences.map((e) => (
+                <li key={e} className="py-3.5 font-sans text-[16px] text-navy/80">{e}</li>
+              ))}
+            </ul>
+            <p className="font-sans text-[14px] text-navy/60 mt-4">These are possibilities to discuss, not services you can book. Ask, and we&rsquo;ll tell you what we can arrange for your dates.</p>
+            <Link href="/contact?topic=Ithaca%20House" className="text-link mt-5">Ask about your visit <span aria-hidden>→</span></Link>
+          </div>
+        </div>
+      </section>
+
+      <section id="hosting" className="ground-bone section scroll-mt-20">
+        <div className="container-editorial grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          <div className="lg:col-span-6">
+            <h2 className="font-display text-display-lg text-navy leading-tight mb-6">For other hosts</h2>
+            <div className="prose-body text-navy/85">
+              <p>Preparing an Airbnb listing involves more than taking photographs and making a bed. We help hosts think through furnishings, guest communication, listing presentation, amenities, and the practical routines involved in running a short-term rental.</p>
+              <p>Our guidance draws on firsthand hosting experience in Baltimore.</p>
+            </div>
+            <Link href="/contact?topic=Ithaca%20House" className="btn-primary mt-8">Ask About Hosting Support</Link>
+            <p className="font-sans text-[15px] text-navy/70 mt-8 max-w-md">
+              For help furnishing or styling a guest space, see our Studio&rsquo;s work with small interiors and hospitality properties.
+            </p>
+            <Link href="/divisions/the-studio#interiors" className="text-link mt-2">Interior Styling at the Studio <span aria-hidden>→</span></Link>
+          </div>
+          <figure className="lg:col-span-6 bg-cream p-7 lg:p-9 border-l-2 border-olive-deep">
+            <blockquote className="font-serif text-[21px] lg:text-[23px] leading-[1.5] text-navy">
+              &ldquo;Andrew has been helping us set up our home for Airbnb short-term rental. We can&rsquo;t say enough good things about how organized and thorough he has been, and patient. From walking through the steps we need to take, providing links to the appropriate places and advising about what we need to do to get the place together. We couldn&rsquo;t endorse Andrew any more highly. He is honest and nice and you should work with him if you need assistance.&rdquo;
+            </blockquote>
+            <figcaption className="mt-5 font-sans text-[15px] text-navy/75">
+              <span className="font-medium text-navy">Mark Krist</span>, Airbnb host, Maryland · August 2025
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section className="ground-cream section">
+        <div className="container-editorial grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          <div className="lg:col-span-6">
+            <h2 className="font-display text-display-md text-navy leading-tight mb-5">Why Ithaca House</h2>
+            <p className="font-sans text-[17px] lg:text-lg text-navy/85 leading-relaxed">
+              Ithaca House takes its name from two places. One is Ithaka, the Greek island beside our ancestral Kefalonia. The other is Ithaca, New York, close to the Finger Lakes communities where we grew up.
+            </p>
+          </div>
+          <div className="lg:col-span-5 lg:col-start-8 text-navy/80">
+            <IonianMap />
+          </div>
         </div>
       </section>
 
       <TravelDeals />
-
-      {/* Stays + offerings */}
-      <section className="ground-navy py-24 lg:py-32">
-        <div className="container-editorial">
-          <ScrollReveal as="div" className="text-center mb-16">
-            <div className="eyebrow-no-rule text-ochre mb-5 inline-block">What we offer</div>
-            <h3 className="font-display text-display-xl text-bone leading-tight max-w-3xl mx-auto">
-              Coming in or <em className="italic text-sky">going out</em>.
-            </h3>
-          </ScrollReveal>
-
-          <div className="max-w-3xl mx-auto">
-            <ul className="divide-y divide-bone/15">
-              {division.offerings.map((offering, i) => (
-                <ScrollReveal key={i} as="li" delay={i * 60} className="py-6 lg:py-7">
-                  <span className="font-serif text-lg lg:text-xl leading-relaxed text-bone/90">
-                    {offering}
-                  </span>
-                </ScrollReveal>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Experiences — olive ground, hospitality-side offerings beyond the stay */}
-      <section className="ground-olive py-24 lg:py-32 relative overflow-hidden">
-        <div className="container-editorial relative">
-          <ScrollReveal as="div" className="text-center mb-16 lg:mb-20">
-            <div className="eyebrow-no-rule text-navy mb-5 inline-block">Experiences</div>
-            <h3 className="font-display text-display-xl text-navy leading-tight max-w-3xl mx-auto">
-              The stay is the <em className="italic">beginning</em>.
-            </h3>
-            <p className="font-serif text-lg lg:text-xl italic text-navy/80 leading-relaxed max-w-2xl mx-auto mt-7">
-              We arrange experiences alongside the stay or on their own. Open to staying guests and visitors alike. Each begins with a request, scoped to your dates and group, with a quote returned within a few days.
-            </p>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-7 max-w-6xl mx-auto">
-            <ExperienceCard
-              title="At the Table"
-              kicker="Cooking & food"
-              description="A Greek dinner hosted in the house, prepared or arranged. Provisioning runs to Cross Street Market or Lexington Market. If your stay overlaps with our monthly family Greek dinner, you are welcome to come."
-              priceLabel="From $95 / person"
-              slug="at-the-table"
-              delay={0}
-            />
-            <ExperienceCard
-              title="On the Water"
-              kicker="Outdoors"
-              description="Kayaking the harbor, sailing arrangements with local captains, slow walks through the neighborhoods nearest the house."
-              priceLabel="From $65 / person"
-              slug="on-the-water"
-              delay={120}
-            />
-            <ExperienceCard
-              title="Sacred & Civic"
-              kicker="Cultural"
-              description="A guided morning at the Baltimore Basilica with breakfast to follow. Mass and music when the calendar permits. Museum routing through the Walters, the BMA, and the Peabody Library."
-              priceLabel="From $85 / person"
-              slug="sacred-and-civic"
-              delay={240}
-            />
-            <ExperienceCard
-              title="The Long Stay"
-              kicker="Curated"
-              description="Anniversaries, honeymoons, writing weeks, family reunions. Stays prepared in advance with a reading list, a driving route, a stocked pantry, a few introductions, and a quiet plan you can ignore."
-              priceLabel="From $200 / stay"
-              slug="the-long-stay"
-              delay={360}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonial — Mark Krist, Airbnb consulting client (hospitality advisory) */}
-      <section className="ground-bone py-20 lg:py-28 border-t border-navy/10">
-        <div className="container-editorial max-w-3xl">
-          <ScrollReveal as="div" className="text-center">
-            <div className="text-ochre mb-6 flex justify-center">
-              <OliveBranchMark size={36} />
-            </div>
-            <div className="eyebrow-no-rule text-ochre-deep mb-8 inline-block">From a Hospitality Client</div>
-            <blockquote className="font-display text-xl lg:text-2xl text-navy leading-relaxed italic font-light">
-              &ldquo;Andrew has been helping us set up our home for Airbnb short-term rental. We can&rsquo;t say enough good things about how organized and thorough he has been, and patient. From walking through the steps we need to take, providing links to the appropriate places and advising about what we need to do to get the place together. We couldn&rsquo;t endorse Andrew any more highly. He is honest and nice and you should work with him if you need assistance.&rdquo;
-            </blockquote>
-            <div className="mt-10 pt-6 border-t border-navy/15 max-w-md mx-auto">
-              <div className="font-display text-lg text-navy">Mark Krist</div>
-              <div className="font-serif italic text-sm text-navy/65 mt-1">Airbnb Host, Maryland · August 2025</div>
-            </div>
-            <p className="font-serif italic text-sm text-navy/55 mt-8 max-w-xl mx-auto leading-relaxed">
-              Beyond the six properties Ithaca House operates, Andrew advises individual hosts on setup, listing, and turnover practice. By referral.
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      <InquirySection
-        defaultDivision={division.slug}
-        heading={
-          <>
-            Plan a stay <em className="italic text-ochre-deep">or a trip</em>.
-          </>
-        }
-        text="Tell us where you are headed and when. For a stay in Baltimore we will reply with availability and a few notes on the property and the city. For Greece we will send what we know and offer to help plan the rest."
-      />
     </>
-  );
-}
-
-interface ExperienceCardProps {
-  title: string;
-  kicker: string;
-  description: string;
-  delay: number;
-  priceLabel: string;
-  slug: string;
-}
-
-function ExperienceCard({ title, kicker, description, delay, priceLabel, slug }: ExperienceCardProps) {
-  return (
-    <ScrollReveal delay={delay}>
-      <article className="bg-bone/95 p-7 lg:p-8 h-full border-t-[3px] border-t-navy transition-all duration-500 hover:-translate-y-1 hover:bg-bone flex flex-col">
-        <div className="mb-4">
-          <span className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/55">
-            {kicker}
-          </span>
-        </div>
-        <h4 className="font-display text-2xl lg:text-[26px] text-navy leading-tight mb-4">
-          {title}
-        </h4>
-        <p className="font-serif text-[15px] lg:text-base text-navy/80 leading-relaxed flex-grow">
-          {description}
-        </p>
-        <div className="mt-5 pt-4 border-t border-navy/15">
-          <div className="font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep">
-            {priceLabel}
-          </div>
-          <ExperienceRequestButton experienceSlug={slug} />
-        </div>
-      </article>
-    </ScrollReveal>
-  );
-}
-
-interface DestinationCardProps {
-  place: string;
-  region: string;
-  status: string;
-  description: string;
-  href: string;
-  linkLabel: string;
-  delay: number;
-}
-
-function DestinationCard({ place, region, status, description, href, linkLabel, delay }: DestinationCardProps) {
-  return (
-    <ScrollReveal delay={delay}>
-      <Link
-        href={href}
-        className="group block bg-cream p-7 lg:p-8 h-full border-t-[3px] border-t-sky-deep hover:border-t-ochre transition-colors flex flex-col"
-      >
-        <div className="font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep mb-4">{status}</div>
-        <h3 className="font-display text-2xl lg:text-[28px] text-navy leading-tight mb-1">{place}</h3>
-        <div className="font-serif italic text-sm text-navy/60 mb-5">{region}</div>
-        <p className="font-serif text-[15px] lg:text-base text-navy/80 leading-relaxed flex-grow">{description}</p>
-        <div className="mt-6 pt-4 border-t border-navy/15 font-sans text-[10px] uppercase tracking-eyebrow text-navy/70 group-hover:text-ochre-deep transition-colors">
-          {linkLabel} →
-        </div>
-      </Link>
-    </ScrollReveal>
-  );
-}
-
-interface IslandCardProps {
-  name: string;
-  greek: string;
-  lines: string[];
-  delay: number;
-}
-
-function IslandCard({ name, greek, lines, delay }: IslandCardProps) {
-  return (
-    <ScrollReveal delay={delay}>
-      <article className="bg-bone p-7 lg:p-9 h-full border border-navy/10">
-        <div className="flex items-baseline justify-between mb-6 pb-4 border-b border-navy/10">
-          <h3 className="font-display text-3xl text-navy">{name}</h3>
-          <span className="font-serif italic text-ochre-deep">{greek}</span>
-        </div>
-        <ul className="space-y-4">
-          {lines.map((line, i) => (
-            <li key={i} className="font-serif text-[15px] lg:text-base text-navy/80 leading-relaxed pl-4 border-l border-ochre/50">
-              {line}
-            </li>
-          ))}
-        </ul>
-      </article>
-    </ScrollReveal>
   );
 }

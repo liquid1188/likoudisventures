@@ -1,155 +1,94 @@
 'use client';
 
-import { useState, useTransition, useEffect } from 'react';
+import { useState, useTransition } from 'react';
 import { submitInquiry } from '@/lib/actions/submit-inquiry';
-import { divisions } from '@/content/divisions';
+import { inquiryTopics, site } from '@/content/site';
 
 interface InquiryFormProps {
-  defaultDivision?: string;
-  defaultMessage?: string;
+  /** Pre-selected topic, e.g. 'The Workshop'. Visitors can always change it. */
+  defaultTopic?: string;
+  submitLabel?: string;
 }
 
-export function InquiryForm({ defaultDivision, defaultMessage }: InquiryFormProps) {
+export function InquiryForm({ defaultTopic = 'General Inquiry', submitLabel = 'Send Message' }: InquiryFormProps) {
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [message, setMessage] = useState('');
   const [isPending, startTransition] = useTransition();
-  const [presetMessage, setPresetMessage] = useState(defaultMessage ?? '');
 
-  // Read ?experience= query param on mount and pre-fill the message field with a
-  // ready-to-edit booking-request template. Used when a guest clicks "Request" on
-  // an experience card and is scrolled to this form.
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    const templates: Record<string, string> = {
-      'at-the-table': 'I would like to book an At the Table Greek dinner experience.\n\nDates I am considering:\n\nNumber of guests:\n\nAny dietary notes or preferences:\n\nAdditional questions:',
-      'on-the-water': 'I would like to book an On the Water experience.\n\nWhich (kayaking, harbor sailing, neighborhood walk, or open):\n\nDates I am considering:\n\nNumber of guests:\n\nAdditional questions:',
-      'sacred-and-civic': 'I would like to book a Sacred & Civic morning.\n\nDates I am considering:\n\nNumber of guests:\n\nAny preferences (Basilica visit, breakfast spot, museum routing):\n\nAdditional questions:',
-      'plan-a-trip': 'I would like help planning a trip to Greece.\n\nWhere I am hoping to go (Kefalonia, Ithaka, elsewhere):\n\nApproximate dates:\n\nNumber of travelers:\n\nWhat I am hoping for:',
-      'the-long-stay': 'I would like to inquire about The Long Stay curation.\n\nOccasion (anniversary, honeymoon, writing week, family reunion):\n\nApproximate dates:\n\nNumber of guests:\n\nWhat I am hoping for:',
-    };
-
-    const readExperience = () => {
-      const params = new URLSearchParams(window.location.search);
-      const exp = params.get('experience');
-      if (exp && templates[exp]) {
-        setPresetMessage(templates[exp]);
-      }
-    };
-
-    readExperience();
-    window.addEventListener('experience-changed', readExperience);
-    return () => window.removeEventListener('experience-changed', readExperience);
-  }, []);
-
-  const handleSubmit = (formData: FormData) => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
     startTransition(async () => {
-      const result = await submitInquiry(formData);
+      const result = await submitInquiry(data);
       if (result.ok) {
         setStatus('success');
+        form.reset();
       } else {
         setStatus('error');
-        setErrorMessage(result.message ?? 'Something went wrong. Please try again.');
+        setMessage(result.message ?? `Your message could not be sent. Please write to us directly at ${site.email}.`);
       }
     });
   };
 
   if (status === 'success') {
     return (
-      <div className="text-center py-8">
-        <p className="font-serif text-2xl text-navy leading-tight mb-3">
-          Thank you.
-        </p>
-        <p className="font-serif italic text-base text-navy/75 max-w-sm mx-auto">
-          Your message is in good hands. We respond to every note, in order, by hand. Expect to hear from us within a few days.
+      <div role="status" className="border-l-2 border-olive-deep pl-5 py-2">
+        <p className="font-display text-2xl text-navy mb-2">Message sent.</p>
+        <p className="font-sans text-[17px] text-navy/80">
+          Thanks for getting in touch. Your message has been sent, and we&rsquo;ll reply as soon as we can.
         </p>
       </div>
     );
   }
 
   return (
-    <form action={handleSubmit} className="space-y-5">
-      <div>
-        <label htmlFor="name" className="field-label">
-          Your Name
-        </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          required
-          disabled={isPending}
-          className="field-input"
-          autoComplete="name"
-        />
+    <form onSubmit={onSubmit} className="space-y-6" noValidate={false}>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <label htmlFor="inq-name" className="field-label">Name</label>
+          <input id="inq-name" name="name" type="text" required maxLength={120} autoComplete="name" className="field-input" />
+        </div>
+        <div>
+          <label htmlFor="inq-email" className="field-label">Email address</label>
+          <input id="inq-email" name="email" type="email" required maxLength={254} autoComplete="email" className="field-input" />
+        </div>
       </div>
 
       <div>
-        <label htmlFor="email" className="field-label">
-          Your Email
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          disabled={isPending}
-          className="field-input"
-          autoComplete="email"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="division" className="field-label">
-          Concerning
-        </label>
-        <select
-          id="division"
-          name="division"
-          required
-          defaultValue={defaultDivision ?? ''}
-          disabled={isPending}
-          className="field-input cursor-pointer"
-        >
-          <option value="" disabled>
-            Select a division…
-          </option>
-          {divisions.map((d) => (
-            <option key={d.slug} value={d.slug}>
-              {d.name} — {d.tagline}
-            </option>
+        <label htmlFor="inq-topic" className="field-label">What is this about?</label>
+        <select id="inq-topic" name="topic" defaultValue={defaultTopic} className="field-input">
+          {inquiryTopics.map((t) => (
+            <option key={t} value={t}>{t}</option>
           ))}
         </select>
       </div>
 
       <div>
-        <label htmlFor="message" className="field-label">
-          The Particulars
-        </label>
-        <textarea
-          key={presetMessage}
-          id="message"
-          name="message"
-          required
-          rows={presetMessage ? 8 : 4}
-          disabled={isPending}
-          defaultValue={presetMessage}
-          className="field-input resize-y min-h-[100px]"
-          placeholder="Tell us what you have in mind."
-        />
+        <label htmlFor="inq-message" className="field-label">Message</label>
+        <textarea id="inq-message" name="message" required rows={6} maxLength={5000} className="field-input resize-y" />
       </div>
 
-      <button
-        type="submit"
-        disabled={isPending}
-        className="bg-olive-deep text-bone px-8 py-3.5 text-[11px] uppercase tracking-caps font-medium hover:bg-olive transition-colors disabled:opacity-50 mt-2"
-      >
-        {isPending ? 'Sending…' : 'Send Inquiry →'}
-      </button>
+      {/* Leave empty. Hidden from people; catches automated spam. */}
+      <div aria-hidden className="absolute -left-[9999px] w-px h-px overflow-hidden">
+        <label htmlFor="inq-website">Website</label>
+        <input id="inq-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
 
       {status === 'error' && (
-        <p className="font-serif italic text-sm text-ochre-deep mt-3">{errorMessage}</p>
+        <p role="alert" className="font-sans text-[15px] text-[#9B2C1F]">
+          {message}
+        </p>
       )}
+
+      <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+        <button type="submit" disabled={isPending} className="btn-primary disabled:opacity-60">
+          {isPending ? 'Sending…' : submitLabel}
+        </button>
+        <p className="font-sans text-[14px] text-navy/65">
+          Or write to <a href={`mailto:${site.email}`} className="underline underline-offset-2">{site.email}</a>
+        </p>
+      </div>
     </form>
   );
 }

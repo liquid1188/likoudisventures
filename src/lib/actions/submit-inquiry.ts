@@ -1,88 +1,62 @@
 'use server';
 
-import { divisions } from '@/content/divisions';
 import { getResendClient, getFromEmail, getInquiryToEmail, isResendConfigured } from '@/lib/resend';
+import { clean, oneLine, rateLimited, validEmail } from '@/lib/form-guard';
+import { site, inquiryTopics } from '@/content/site';
 
 interface InquiryResult {
   ok: boolean;
   message?: string;
 }
 
+
+const FAIL = `Your message could not be sent. Please write to us directly at ${site.email}.`;
+
 /**
- * Submit an inquiry from the contact form.
- * Sends an email to the configured INQUIRY_TO_EMAIL via Resend.
- *
- * If Resend is not configured (no API key), logs to console and returns success
- * — useful for local dev and for verifying the form before Resend is set up.
+ * Send a contact-form message through Resend.
+ * Reports success only when Resend has accepted the email for delivery.
+ * Message contents are never written to the logs.
  */
 export async function submitInquiry(formData: FormData): Promise<InquiryResult> {
-  const name = String(formData.get('name') ?? '').trim();
-  const email = String(formData.get('email') ?? '').trim();
-  const division = String(formData.get('division') ?? '').trim();
-  const message = String(formData.get('message') ?? '').trim();
+  // Honeypot: real visitors never see or fill this field
+  if (clean(formData.get('website'), 200)) return { ok: true };
 
-  // Basic validation
-  if (!name || !email || !message) {
-    return { ok: false, message: 'Please fill in all required fields.' };
+  const name = oneLine(clean(formData.get('name'), 120));
+  const email = oneLine(clean(formData.get('email'), 254));
+  const topicRaw = clean(formData.get('topic'), 60);
+  const message = clean(formData.get('message'), 5000);
+  const topic = (inquiryTopics as readonly string[]).includes(topicRaw) ? topicRaw : 'General Inquiry';
+
+  if (!name || !email || !message) return { ok: false, message: 'Please fill in your name, email address, and message.' };
+  if (!validEmail(email)) return { ok: false, message: 'Please enter a valid email address.' };
+  if (message.length < 2) return { ok: false, message: 'Please add a short message.' };
+  if ((message.match(/https?:\/\//g) ?? []).length >= 3) return { ok: false, message: FAIL };
+
+  if (await rateLimited('inquiry', 5)) {
+    return { ok: false, message: `Too many messages from this connection. Please try again later or write to ${site.email}.` };
   }
 
-  if (!email.includes('@') || email.length < 5) {
-    return { ok: false, message: 'Please enter a valid email address.' };
+  const to = getInquiryToEmail();
+  if (!isResendConfigured() || !to) {
+    console.error('[inquiry] email service is not configured (RESEND_API_KEY or INQUIRY_TO_EMAIL missing)');
+    return { ok: false, message: FAIL };
   }
 
-  if (message.length > 5000) {
-    return { ok: false, message: 'Message is too long. Please keep it under 5000 characters.' };
-  }
-
-  // Light spam detection — reject obvious bot signals
-  if (/https?:\/\/.*https?:\/\/.*https?:\/\//.test(message)) {
-    // Three or more URLs in the message body — almost certainly spam
-    return { ok: false, message: 'Your message could not be sent. Please write to us directly.' };
-  }
-
-  // Resolve division to a friendly label
-  const divisionRecord = divisions.find((d) => d.slug === division);
-  const divisionLabel = divisionRecord?.name ?? 'Inquiry';
-
-  // If Resend isn't configured, log and return success so dev/local doesn't block
-  if (!isResendConfigured()) {
-    console.log('[Inquiry — Resend not configured, logging only]', {
-      name,
-      email,
-      divisionLabel,
-      message,
-    });
-    return { ok: true };
-  }
-
-  // Send via Resend
   try {
-    const resend = getResendClient();
-    await resend.emails.send({
+    const { data, error } = await getResendClient().emails.send({
       from: `Likoudis Ventures <${getFromEmail()}>`,
-      to: [getInquiryToEmail()],
+      to: [to],
       replyTo: email,
-      subject: `New Inquiry — ${divisionLabel}`,
-      text: [
-        `New inquiry from ${name} <${email}>`,
-        `Concerning: ${divisionLabel}`,
-        '',
-        '---',
-        '',
-        message,
-        '',
-        '---',
-        'Sent from likoudisventures.com',
-      ].join('\n'),
+      subject: `Website message: ${topic}`,
+      text: [`From: ${name} <${email}>`, `About: ${topic}`, '', message, '', '---', 'Sent from the Likoudis Ventures contact form'].join('\n'),
     });
-
+    if (error || !data?.id) {
+      console.error('[inquiry] provider rejected the message:', error?.name ?? 'no id returned');
+      return { ok: false, message: FAIL };
+    }
     return { ok: true };
-  } catch (error) {
-    console.error('[Inquiry] Resend error:', error);
-    return {
-      ok: false,
-      message:
-        'We could not send your message. Please write to us directly at hello@likoudisventures.com.',
-    };
+  } catch (err) {
+    console.error('[inquiry] send failed:', err instanceof Error ? err.name : 'unknown error');
+    return { ok: false, message: FAIL };
   }
 }

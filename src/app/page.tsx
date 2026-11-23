@@ -1,17 +1,23 @@
+import type { Metadata } from 'next';
 import { MonumentalHero } from '@/components/sections/MonumentalHero';
-import { DivisionsContents } from '@/components/sections/DivisionsContents';
-import { EditorialIntro } from '@/components/sections/EditorialIntro';
-import { PhilosophyBand } from '@/components/sections/PhilosophyBand';
-import { InquirySection } from '@/components/sections/InquirySection';
+import { VenturesOverview, SomeOfTheWork, FamilyStory, StillInTheWorks, ClosingContact } from '@/components/sections/HomeSections';
+import { site } from '@/content/site';
+
+export const metadata: Metadata = {
+  title: site.seoTitle,
+  description: site.description,
+  alternates: { canonical: '/' },
+};
 
 export default function HomePage() {
   return (
     <>
       <MonumentalHero />
-      <DivisionsContents />
-      <EditorialIntro />
-      <PhilosophyBand />
-      <InquirySection compact />
+      <VenturesOverview />
+      <SomeOfTheWork />
+      <FamilyStory />
+      <StillInTheWorks />
+      <ClosingContact />
     </>
   );
 }

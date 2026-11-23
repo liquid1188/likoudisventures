@@ -30,14 +30,15 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.tagline}`,
-    template: `%s — ${site.name}`,
+    default: site.seoTitle,
+    template: `%s`,
   },
   description: site.description,
+  alternates: { canonical: '/' },
   // Site is still being built: keep it out of search engines until launch.
   robots: { index: false, follow: false, googleBot: { index: false, follow: false } },
   openGraph: {
-    title: site.name,
+    title: site.seoTitle,
     description: site.description,
     url: site.url,
     siteName: site.name,
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: site.name,
+    title: site.seoTitle,
     description: site.description,
   },
   icons: { icon: [{ url: '/favicon.ico', sizes: '32x32' }, { url: '/favicon.svg', type: 'image/svg+xml' }], apple: '/apple-touch-icon.png' },
@@ -54,7 +55,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${cormorant.variable} ${inter.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${cormorant.variable} ${inter.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+      </head>
       <body>
         <SiteChrome>{children}</SiteChrome>
       </body>

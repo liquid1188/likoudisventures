@@ -1,66 +1,39 @@
 import Link from 'next/link';
 import { OliveBranchInteractive } from '@/components/brand/OliveBranchInteractive';
-import { WordReveal } from '@/components/ui/WordReveal';
+import { site } from '@/content/site';
 
 /**
- * The new homepage hero.
- *
- * Layout: full-viewport navy section. Asymmetric.
- *   - Top-left: catalog header with year and seat
- *   - Center: monumental display headline, with WordReveal animation
- *   - Below the headline: the interactive olive branch (the centerpiece)
- *   - Bottom-right: scroll cue
- *   - Bottom-left: house lede
- *
- * The branch dominates. The headline gives context. Everything else is restraint.
+ * Homepage hero: headline, supporting copy, two actions, and the interactive
+ * olive branch as the main visual.
  */
 export function MonumentalHero() {
   return (
-    <section className="ground-navy relative overflow-hidden min-h-[100svh] flex flex-col">
-      {/* Atmospheric gradient */}
+    <section className="ground-navy relative overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none"
+        aria-hidden
         style={{
           background:
-            'radial-gradient(ellipse at 80% 15%, rgba(143, 184, 206, 0.24) 0%, transparent 55%), radial-gradient(ellipse at 5% 90%, rgba(143, 166, 125, 0.15) 0%, transparent 60%)',
+            'radial-gradient(ellipse at 80% 10%, rgba(143, 184, 206, 0.18) 0%, transparent 55%), radial-gradient(ellipse at 5% 95%, rgba(143, 166, 125, 0.12) 0%, transparent 60%)',
         }}
       />
-
-      {/* Center stage — headline + branch */}
-      <div className="container-tight relative z-10 flex-1 flex flex-col justify-center pt-32 lg:pt-36 pb-20 lg:pb-24">
-        {/* Monumental headline */}
-        <h1 className="text-center font-display text-monumental text-bone leading-none mb-12 lg:mb-16 mt-8 lg:mt-12">
-          <span className="block">
-            <WordReveal text="A house of considered" italicMatch="considered" staggerMs={90} />
-          </span>
-          <span className="block mt-1 lg:mt-2">
-            <WordReveal text="enterprises." staggerMs={90} initialDelayMs={550} />
-          </span>
+      <div className="container-tight relative z-10 pt-28 sm:pt-32 lg:pt-36 pb-14 lg:pb-20">
+        <h1 className="fade-up text-center font-display text-monumental text-bone max-w-5xl mx-auto">
+          {site.headline}
         </h1>
 
-        {/* The interactive olive branch — centerpiece */}
-        <div className="relative max-w-7xl mx-auto w-full px-2 lg:px-0 mb-16 lg:mb-20">
+        <div className="relative max-w-6xl mx-auto w-full mt-10 sm:mt-12 lg:mt-14">
           <OliveBranchInteractive theme="on-navy" />
         </div>
 
-        {/* Lede + CTAs */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 max-w-5xl mx-auto w-full mt-8 lg:mt-12 stagger-fade">
-          <div className="lg:col-span-7 lg:col-start-1">
-            <p className="font-serif text-xl lg:text-2xl leading-[1.5] text-bone/85 font-light">
-              Five siblings, five service divisions. <span className="text-bone">One family brand.</span>
-            </p>
-          </div>
-          <div className="lg:col-span-5 flex flex-col gap-3 lg:items-end">
-            <Link href="/contact" className="btn-olive-on-dark w-full lg:w-auto text-center">
-              Begin a Project →
-            </Link>
-            <Link href="/about" className="btn-ghost-bone w-full lg:w-auto text-center">
-              Read About the House
-            </Link>
+        <div className="fade-up max-w-2xl mx-auto text-center mt-8 lg:mt-10" style={{ animationDelay: '0.2s' }}>
+          <p className="font-sans text-[17px] lg:text-[19px] leading-relaxed text-bone/85">{site.intro}</p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">
+            <Link href="#ventures" className="btn-olive-on-dark">Explore the Ventures</Link>
+            <Link href="/about" className="btn-ghost-bone">Meet the Family</Link>
           </div>
         </div>
       </div>
-
     </section>
   );
 }

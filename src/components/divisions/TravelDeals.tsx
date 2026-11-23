@@ -42,22 +42,18 @@ export function TravelDeals() {
   });
 
   return (
-    <section id="deals" className="ground-bone py-24 lg:py-32 border-t border-navy/10 scroll-mt-20">
+    <section id="deals" className="ground-bone section border-t border-navy/10 scroll-mt-20">
       <div className="container-editorial">
-        <ScrollReveal as="div" className="text-center mb-14 lg:mb-16 max-w-3xl mx-auto">
-          <div className="catalog-num text-sm mb-3">Deals</div>
-          <div className="eyebrow-no-rule text-ochre-deep mb-5 inline-block">Updated {updated}</div>
-          <h2 className="font-display text-display-xl text-navy leading-tight">
-            What is on sale <em className="italic text-ochre-deep">right now</em>.
-          </h2>
-          <p className="font-serif italic text-lg lg:text-xl text-navy/65 mt-6 leading-relaxed">
-            Every morning we compare hotel and flight prices for Kefalonia, Ithaka, and Baltimore across booking sites, then post the best rates and the cheapest place to book them. Prices move, so check the final price before you book.
+        <ScrollReveal as="div" className="mb-12 lg:mb-14 max-w-3xl">
+          <h2 className="font-display text-display-md text-navy leading-tight">Travel prices worth knowing about</h2>
+          <p className="font-sans text-[17px] text-navy/75 mt-4 leading-relaxed">
+            Hotel and flight prices we&rsquo;ve found for Kefalonia, Ithaka, and Baltimore, with the cheapest place we saw to book each one. Last updated {updated}. Prices change, so check the current rate before you book.
           </p>
         </ScrollReveal>
 
         {deals.flights.length > 0 && (
-          <div className="max-w-5xl mx-auto mb-12">
-            <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/55 mb-4">Flights</div>
+          <div className="max-w-none mb-12">
+            <div className="font-sans text-[14px] font-medium text-navy/70 mb-4">Flights</div>
             <div className="grid grid-cols-1 gap-4">
               {deals.flights.map((f, i) => (
                 <FlightRow key={i} flight={f} delay={i * 80} />
@@ -67,8 +63,8 @@ export function TravelDeals() {
         )}
 
         {(deals.promos as Promo[]).length > 0 && (
-          <div className="max-w-5xl mx-auto mb-12">
-            <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/55 mb-4">Sales and tours worth knowing</div>
+          <div className="max-w-none mb-12">
+            <div className="font-sans text-[14px] font-medium text-navy/70 mb-4">Sales and tours worth knowing</div>
             <ul className="divide-y divide-navy/10 border-y border-navy/10">
               {(deals.promos as Promo[]).map((p) => (
                 <li key={p.url}>
@@ -78,11 +74,11 @@ export function TravelDeals() {
                     rel={p.partner ? 'noopener noreferrer sponsored' : 'noopener noreferrer'}
                     className="group flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6 py-4"
                   >
-                    <span className="font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep sm:w-24 shrink-0">{p.kind}</span>
+                    <span className="font-sans text-[13px] font-medium text-ochre-deep sm:w-24 shrink-0">{p.kind}</span>
                     <span className="font-display text-lg text-navy group-hover:text-ochre-deep transition-colors">{p.title}</span>
                     <span className="font-serif italic text-sm text-navy/60 flex-grow">{p.detail}</span>
                     {p.expires && (
-                      <span className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/50 shrink-0">Ends {fmtDate(p.expires)}</span>
+                      <span className="font-sans text-[13px] font-medium text-navy/50 shrink-0">Ends {fmtDate(p.expires)}</span>
                     )}
                   </a>
                 </li>
@@ -92,8 +88,8 @@ export function TravelDeals() {
         )}
 
         {hotels.length > 0 && (
-          <div className="max-w-5xl mx-auto">
-            <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/55 mb-4">Hotels</div>
+          <div className="max-w-none">
+            <div className="font-sans text-[14px] font-medium text-navy/70 mb-4">Hotels</div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
               {hotels.map((h, i) => (
                 <HotelCard key={h.name} hotel={h} delay={(i % 3) * 80} />
@@ -103,12 +99,9 @@ export function TravelDeals() {
         )}
 
         {/* Standing booking links */}
-        <div className="max-w-5xl mx-auto mt-20 lg:mt-24">
-          <ScrollReveal as="div" className="text-center mb-10">
-            <div className="eyebrow-no-rule text-ochre-deep mb-4 inline-block">Book the trip</div>
-            <h3 className="font-display text-3xl lg:text-4xl text-navy leading-tight">
-              Everything else <em className="italic text-ochre-deep">you will need</em>.
-            </h3>
+        <div className="max-w-none mt-20 lg:mt-24">
+          <ScrollReveal as="div" className="mb-8">
+            <h3 className="font-display text-2xl lg:text-3xl text-navy leading-tight">Booking sites we use</h3>
           </ScrollReveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
             {bookingLinks.map((l, i) => (
@@ -119,7 +112,7 @@ export function TravelDeals() {
                   rel="noopener noreferrer sponsored"
                   className="group block bg-cream p-6 h-full border border-navy/10 hover:border-ochre transition-colors"
                 >
-                  <div className="font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep mb-3">{l.kicker}</div>
+                  <div className="font-sans text-[13px] font-medium text-ochre-deep mb-3">{l.kicker}</div>
                   <div className="font-display text-xl text-navy leading-snug mb-2 group-hover:text-ochre-deep transition-colors">
                     {l.label} <span aria-hidden className="text-sm">↗</span>
                   </div>
@@ -130,7 +123,7 @@ export function TravelDeals() {
           </div>
         </div>
 
-        <p className="font-serif italic text-sm text-navy/55 mt-14 text-center max-w-2xl mx-auto leading-relaxed">
+        <p className="font-sans text-[14px] text-navy/60 mt-12 max-w-2xl leading-relaxed">
           Some links on this page are partner links. If you book through them, Likoudis Ventures may earn a small commission at no extra cost to you.
         </p>
       </div>
@@ -170,13 +163,13 @@ function HotelCard({ hotel: h, delay }: { hotel: Hotel; delay: number }) {
         className="group flex flex-col bg-cream p-6 h-full border-t-[3px] border-t-sky-deep hover:border-t-ochre transition-colors"
       >
         <div className="flex items-baseline justify-between mb-3">
-          <span className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/60">{h.region}</span>
+          <span className="font-sans text-[13px] font-medium text-navy/60">{h.region}</span>
           {pct > 0 ? (
-            <span className="font-sans text-[10px] uppercase tracking-eyebrow text-ochre-deep">
+            <span className="font-sans text-[13px] font-medium text-ochre-deep">
               {pct}% {vsLabel === 'off' ? 'off' : 'less'}
             </span>
           ) : (
-            <span className="font-sans text-[10px] uppercase tracking-eyebrow text-olive-deep">Top rated</span>
+            <span className="font-sans text-[13px] font-medium text-olive-deep">Top rated</span>
           )}
         </div>
         <h4 className="font-display text-xl text-navy leading-snug mb-2 group-hover:text-ochre-deep transition-colors">
@@ -190,7 +183,7 @@ function HotelCard({ hotel: h, delay }: { hotel: Hotel; delay: number }) {
           <div className="flex items-baseline gap-2 flex-wrap">
             <span className="font-display text-2xl text-navy">{money(best.total)}</span>
             {save > 0 && <span className="font-serif text-sm text-navy/45 line-through">{money(ref)}</span>}
-            <span className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/55">
+            <span className="font-sans text-[13px] font-medium text-navy/55">
               on {PARTNER_NAMES[best.partner] ?? best.partner}
             </span>
           </div>
@@ -199,7 +192,7 @@ function HotelCard({ hotel: h, delay }: { hotel: Hotel; delay: number }) {
               Save {money(save)} {vsLabel}
             </div>
           )}
-          <div className="font-sans text-[10px] uppercase tracking-eyebrow text-navy/55 mt-2">
+          <div className="font-sans text-[13px] font-medium text-navy/55 mt-2">
             {fmtDate(h.checkIn)} to {fmtDate(h.checkOut)}, {fmtYear(h.checkOut)} · 2 guests · {money(best.total / nights)}/night
           </div>
         </div>
@@ -231,7 +224,7 @@ function FlightRow({ flight: f, delay }: { flight: Flight; delay: number }) {
         </div>
         <div className="md:text-right shrink-0">
           <div className="font-display text-3xl text-ochre">{money(f.price)}</div>
-          <div className="font-sans text-[10px] uppercase tracking-eyebrow text-bone/60">round trip · per person</div>
+          <div className="font-sans text-[13px] font-medium text-bone/60">round trip · per person</div>
         </div>
       </a>
     </ScrollReveal>

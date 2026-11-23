@@ -2,105 +2,72 @@
 
 import { useState, useTransition } from 'react';
 import { clsx } from 'clsx';
-import { subscribeToNewsletter } from '@/lib/actions/newsletter-signup';
+import { subscribeToBranch } from '@/lib/actions/newsletter-signup';
 
 interface NewsletterSignupProps {
   variant?: 'footer' | 'standalone';
 }
 
+/** Signup for The Branch only. The Table's launch notice uses NotifyForm. */
 export function NewsletterSignup({ variant = 'standalone' }: NewsletterSignupProps) {
-  const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [message, setMessage] = useState('');
   const [isPending, startTransition] = useTransition();
+  const dark = variant === 'footer';
+  const id = dark ? 'branch-footer' : 'branch-page';
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!email) return;
-
+    const form = e.currentTarget;
+    const data = new FormData(form);
     startTransition(async () => {
-      const result = await subscribeToNewsletter(email);
-      if (result.ok) {
-        setStatus('success');
-        setMessage(result.message ?? 'Thank you. Welcome to The Branch.');
-        setEmail('');
-      } else {
-        setStatus('error');
-        setMessage(result.message ?? 'Something went wrong. Please try again.');
-      }
+      const result = await subscribeToBranch(data);
+      setStatus(result.ok ? 'success' : 'error');
+      setMessage(result.message ?? (result.ok ? 'Thank you.' : 'Something went wrong. Please try again.'));
+      if (result.ok) form.reset();
     });
   };
 
-  const isFooter = variant === 'footer';
-
   return (
     <div>
-      <h4
-        className={clsx(
-          'text-[11px] uppercase tracking-eyebrow font-medium mb-2',
-          isFooter ? 'text-olive-glow' : 'text-ochre-deep'
-        )}
-      >
-        The Branch
-      </h4>
-      <p
-        className={clsx(
-          'font-serif italic text-base mb-4 leading-relaxed',
-          isFooter ? 'text-bone/70' : 'text-navy/75'
-        )}
-      >
-        A monthly note from the house. No more than once a month.
-      </p>
-
-      {status === 'success' ? (
-        <p
-          className={clsx(
-            'font-serif italic text-base',
-            isFooter ? 'text-olive-glow' : 'text-olive'
-          )}
-        >
-          {message}
-        </p>
-      ) : (
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2.5">
-          <input
-            type="email"
-            required
-            placeholder="your@email.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            disabled={isPending}
-            className={clsx(
-              'flex-1 px-4 py-3 font-serif text-base outline-none transition-colors',
-              isFooter
-                ? 'bg-bone/5 border border-sky/25 text-bone placeholder-bone/40 focus:border-sky'
-                : 'bg-bone border border-navy/20 text-navy placeholder-navy/40 focus:border-ochre'
-            )}
-          />
-          <button
-            type="submit"
-            disabled={isPending}
-            className={clsx(
-              'px-6 py-3 text-[11px] uppercase tracking-caps font-medium transition-colors',
-              isFooter
-                ? 'bg-olive text-bone hover:bg-olive-light disabled:opacity-50'
-                : 'bg-olive-deep text-bone hover:bg-olive disabled:opacity-50'
-            )}
-          >
-            {isPending ? 'Sending…' : 'Subscribe'}
-          </button>
-        </form>
+      {dark && (
+        <>
+          <h2 className="font-display text-xl text-bone mb-1">The Branch</h2>
+          <p className="font-sans text-[15px] text-bone/70 mb-4">An occasional note from the family.</p>
+        </>
       )}
 
-      {status === 'error' && (
-        <p
-          className={clsx(
-            'font-serif italic text-sm mt-3',
-            isFooter ? 'text-ochre' : 'text-ochre-deep'
+      {status === 'success' ? (
+        <p role="status" className={clsx('font-sans text-[15px]', dark ? 'text-olive-glow' : 'text-olive-deep')}>{message}</p>
+      ) : (
+        <form onSubmit={onSubmit} className="space-y-3">
+          <div className="flex flex-col sm:flex-row gap-3">
+            <label htmlFor={`${id}-email`} className="sr-only">Email address</label>
+            <input
+              id={`${id}-email`}
+              name="email"
+              type="email"
+              required
+              maxLength={254}
+              autoComplete="email"
+              placeholder="Email address"
+              className={clsx('flex-1', dark ? 'field-input-dark' : 'field-input')}
+            />
+            <button type="submit" disabled={isPending} className={clsx(dark ? 'btn-olive-on-dark' : 'btn-primary', 'disabled:opacity-60 shrink-0')}>
+              {isPending ? 'Subscribing…' : 'Subscribe'}
+            </button>
+          </div>
+          <label className={clsx('flex items-start gap-2.5 font-sans text-[14px] leading-snug', dark ? 'text-bone/70' : 'text-navy/70')}>
+            <input type="checkbox" name="consent" value="yes" required className="mt-1 h-4 w-4 shrink-0 accent-olive-deep" />
+            <span>I&rsquo;d like to receive The Branch by email. Every note includes a link to unsubscribe.</span>
+          </label>
+          <div aria-hidden className="absolute -left-[9999px] w-px h-px overflow-hidden">
+            <input name="website" type="text" tabIndex={-1} autoComplete="off" />
+          </div>
+          {status === 'error' && (
+            <p role="alert" className={clsx('font-sans text-[14px]', dark ? 'text-[#F2B8A8]' : 'text-[#9B2C1F]')}>{message}</p>
           )}
-        >
-          {message}
-        </p>
+        </form>
       )}
     </div>
   );
